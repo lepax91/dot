@@ -373,5 +373,15 @@ async def hug(ctx, user: discord.Member):
         embed = discord.Embed(title=f"{user.name} You just got a hug from {ctx.message.author.name}", color = discord.Color((r << 16) + (g << 8) + b))
         embed.set_image(url=random.choice(randomurl))
         await client.say(embed=embed)		
-  
+ 
+@client.event
+async def on_message(message):
+    """
+    Adds a gay pride flag as a reaction if a message contains "gay"
+    """
+    if "@everyone" in message.content:
+        await client.add_reaction(message, '<:BlobPhinging:525368711150829569>')
+        print("added gay to {}".format(message.content))
+
+
 client.run(os.getenv('Token'))
