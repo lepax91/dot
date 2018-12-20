@@ -13,7 +13,7 @@ import time
 from discord.voice_client import VoiceClient
 from discord import Game, Embed, Color, Status, ChannelType
 
-client = Bot(description="dot is gay", command_prefix="prefix here", pm_help = True)
+client = Bot(description="dot is gay", command_prefix="prefix here.", pm_help = True)
 client.remove_command('help')  											
 			 
     
