@@ -98,7 +98,7 @@ async def off():
 @client.event
 async def on_ready():
     print("The bot is ready!")
-    await client.change_presence(game=discord.Game(name='.help | with second dot'))
+    await client.change_presence(game=discord.Game(name='.help | with '+str(len(set(client.get_all_members())))+' users'))
           	
 							
 @client.command()
