@@ -376,12 +376,9 @@ async def hug(ctx, user: discord.Member):
  
 @client.event
 async def on_message(message):
-    """
-    Adds a gay pride flag as a reaction if a message contains "gay"
-    """
     if "@everyone" in message.content:
         await client.add_reaction(message, '<:BlobPhinging:525368711150829569>')
-        print("added gay to {}".format(message.content))
+        print("added everyone to {}".format(message.content))
 
 
 client.run(os.getenv('Token'))
