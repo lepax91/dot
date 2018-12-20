@@ -374,4 +374,4 @@ async def hug(ctx, user: discord.Member):
         embed.set_image(url=random.choice(randomurl))
         await client.say(embed=embed)		
   
-client.run(os.getenv('Token')
+client.run(os.getenv('Token'))
