@@ -67,11 +67,12 @@ async def on_reaction_add(reaction, user):
       if reaction.emoji == '🇳':
         r, g, b = tuple(int(x * 255) for x in colorsys.hsv_to_rgb(random.random(), 1, 1))
         embed = discord.Embed(color = discord.Color((r << 16) + (g << 8) + b))
-        embed.set_author(name='NSFW - Help Commands')
+        embed.set_author(name='NSFW - Help Commands')	
         embed.add_field(name = '.hentai',value ='Sends any hentai gif or photo <:bobs:524625988387209216>',inline = False)
-        embed.add_field(name = '.lewdkitsune ',value='Sends any lewd kitsune photo.',inline = False)
-        embed.add_field(name = '.ass',value ='Sends randomly ass photo <:Booty:524631572650000394>',inline = False)
-        embed.add_field(name = '.boobs ',value ='Sends any boobs (on website Reddit).',inline = False)
+        embed.add_field(name = '.lewdkitsune ',value='Sends any lewd kitsune photo.',inline = False)		
+        embed.add_field(name = '.ass',value ='Sends randomly ass photo <:Booty:524631572650000394>',inline = False)	
+        embed.add_field(name = '.boobs ',value ='Sends any boobs (on website Reddit).',inline = False)	
+	embed.add_field(name = '.pgif ',value ='Dot send randomly a porngif.',inline = False)
         react_message = await client.send_message(user,embed=embed)
         await asyncio.sleep(30)
         await client.delete_message(react_message)
@@ -355,8 +356,13 @@ async def on_member_remove(member):
             embed.add_field(name='Vaše připojovací pozice byla', value=member.joined_at)
             embed.set_thumbnail(url=member.avatar_url)
             await client.send_message(channel, embed=embed)				
-								
-																		
+
+@client.command()
+async def pgif():
+		embed = embed = discord.Embed(title = "Porngif is art. '", color = 0x7B68EE)
+		embed.set_image(url = random.choice(["https://nekobot.xyz/pgif/v6ztr7l8a2ndqmgxkh19.gif","https://nekobot.xyz/pgif/lfkcadesnvjy9gzhi5tp.gif", "https://nekobot.xyz/pgif/2w04ul98vdxyt6airjc7.gif", "https://nekobot.xyz/pgif/od8gyclnzxt5kqebrs9u.gif","https://nekobot.xyz/pgif/atxb96wkeu4q3gzpnfm5.gif","https://nekobot.xyz/pgif/hjstg1lkodai75rpf8c4.gif", "https://nekobot.xyz/pgif/e8ib5h0uvwzljsd6na9k.gif","https://nekobot.xyz/pgif/mx5ako23d9ge4vpqzunf.gif"]))
+		await client.say(embed=embed)                                         	
+																				
 @client.command(pass_context=True)     
 async def serverinfo(ctx):
     server = ctx.message.server
@@ -386,8 +392,7 @@ async def serverinfo(ctx):
     embed.add_field(name="• Roles {}".format(role_length), value = roles)
     await client.send_message(ctx.message.channel, embed=embed)		
 
-				
-		
+	
 @client.command(pass_context=True)
 async def hug(ctx, user: discord.Member):
     r, g, b = tuple(int(x * 255) for x in colorsys.hsv_to_rgb(random.random(), 1, 1))
