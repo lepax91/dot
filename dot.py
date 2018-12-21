@@ -67,12 +67,11 @@ async def on_reaction_add(reaction, user):
       if reaction.emoji == '🇳':
         r, g, b = tuple(int(x * 255) for x in colorsys.hsv_to_rgb(random.random(), 1, 1))
         embed = discord.Embed(color = discord.Color((r << 16) + (g << 8) + b))
-        embed.set_author(name='NSFW - Help Commands')	
-            embed.add_field(name = '.hentai',value ='Sends any hentai gif or photo <:bobs:524625988387209216>',inline = False)
-        embed.add_field(name = '.lewdkitsune ',value='Sends any lewd kitsune photo.',inline = False)		
+        embed.set_author(name='NSFW - Help Commands')	                        
         embed.add_field(name = '.ass',value ='Sends randomly ass photo <:Booty:524631572650000394>',inline = False)	
-        embed.add_field(name = '.boobs ',value ='Sends any boobs (on website Reddit).',inline = False)	
-	    embed.add_field(name = '.pgif ',value ='Dot send randomly a porngif.',inline = False)        
+        embed.add_field(name = '.boobs ',value ='Sends any boobs (on website Reddit).',inline = False)
+	    embed.add_field(name = '.hentai',value ='Sends any hentai gif or photo <:bobs:524625988387209216>',inline = False)
+	    embed.add_field(name = '.pgif ',value ='Dot send randomly a porngif.',inline = False)        		             
         react_message = await client.send_message(user,embed=embed)
         await asyncio.sleep(30)
         await client.delete_message(react_message)
@@ -107,12 +106,7 @@ async def ass():
 async def on_ready():
     print("The bot is ready!")
     await client.change_presence(game=discord.Game(name='.help | with '+str(len(set(client.get_all_members())))+' users', url="https://twitch.tv/myname", type=1))				
-								
-@client.command()
-async def lewdkitsune():
-		embed = embed = discord.Embed(title = "LEWD IS GAY!", color = 0x7B68EE)
-		embed.set_image(url = random.choice(["https://nekobot.xyz/lewdkitsune/onzdpw2kujesgbxq6mv8.jpg","https://nekobot.xyz/lewdkitsune/ex86skhny1jbd549avum.jpg","https://nekobot.xyz/lewdkitsune/6sgqxmnhzkv4b97a5dpf.png","https://nekobot.xyz/lewdkitsune/cdwnvjp8s0utfegk13oi.jpg","https://nekobot.xyz/lewdkitsune/5amygpv9tr8i30znbuqw.png","https://nekobot.xyz/lewdkitsune/j98epcrg0h4ovyauwfdi.png","https://nekobot.xyz/lewdkitsune/qu4bz8diexn16olfa0wt.png","https://nekobot.xyz/lewdkitsune/glk5t2xzh81efa3up74i.png","https://nekobot.xyz/lewdkitsune/w0bfv6prq7n2hc9s3dla.jpg","https://nekobot.xyz/lewdkitsune/yrqhpkidt8bx4z75wuf3.jpg"]))
-		await client.say(embed=embed)                                         
+								                                         
 		
 @client.command(pass_context = True)
 @commands.has_permissions(kick_members=True)
