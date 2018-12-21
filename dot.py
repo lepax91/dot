@@ -95,7 +95,14 @@ async def on_reaction_add(reaction, user):
 @commands.check(is_owner)
 async def off():
     await client.close()
-          
+ 
+	
+@client.command()
+async def ass():
+		embed = embed = discord.Embed(title = "🚓 | FBI OPEN UP!", color = 0x7B68EE) 
+		embed.set_image(url = random.choice(["https://nekobot.xyz/ass/h48sq9jdtzmax6kercvf.jpg","https://nekobot.xyz/ass/1ydlm9n0bzt7uopfxrig.jpg","https://nekobot.xyz/ass/s58k3y6tp0av2f4mu9d1.jpg","https://nekobot.xyz/ass/b3lzd7vungxsyjm42fk8.jpg","https://nekobot.xyz/ass/vjg0atkh1f5bdwxz6une.jpg","https://nekobot.xyz/ass/ewiq0g85dulbn9p2ycz1.jpg","https://nekobot.xyz/ass/hotnxaz9051gqrl7bdue.png","https://nekobot.xyz/ass/kr408gmj2t31hvq9xz5a.jpg","https://nekobot.xyz/ass/n9olr58ftbip7asjweyg.png","https://nekobot.xyz/ass/nr0ov1eqfgi62l5kucay.jpg","https://nekobot.xyz/ass/ndkjq52bsa4xmc3t9i0z.jpg"]))
+		await client.say(embed=embed)	
+			
 @client.event
 async def on_ready():
     print("The bot is ready!")
@@ -194,7 +201,6 @@ async def woof(ctx):
     await client.say("https://random.dog/" + r)
 	
 	
-				
 @client.command(pass_context = True)
 @commands.has_permissions(administrator=True)
 async def emojiids(ctx):
@@ -217,12 +223,8 @@ async def feet():
 						     "https://cdn.nekos.life/feet/feet161.jpg",		
 		await client.say(embed=embed)                                                                                                                                                                                                                 
 	
-@client.command()
-async def ass():
-		embed = embed = discord.Embed(title = "🚓 | FBI OPEN UP!", color = 0x7B68EE) 
-		embed.set_image(url = random.choice(["https://nekobot.xyz/ass/h48sq9jdtzmax6kercvf.jpg","https://nekobot.xyz/ass/1ydlm9n0bzt7uopfxrig.jpg","https://nekobot.xyz/ass/s58k3y6tp0av2f4mu9d1.jpg","https://nekobot.xyz/ass/b3lzd7vungxsyjm42fk8.jpg","https://nekobot.xyz/ass/vjg0atkh1f5bdwxz6une.jpg","https://nekobot.xyz/ass/ewiq0g85dulbn9p2ycz1.jpg","https://nekobot.xyz/ass/hotnxaz9051gqrl7bdue.png","https://nekobot.xyz/ass/kr408gmj2t31hvq9xz5a.jpg","https://nekobot.xyz/ass/n9olr58ftbip7asjweyg.png","https://nekobot.xyz/ass/nr0ov1eqfgi62l5kucay.jpg","https://nekobot.xyz/ass/ndkjq52bsa4xmc3t9i0z.jpg"]))
-		await client.say(embed=embed)                                                                                                                                                                                                                 
 
+	
 @client.command()
 async def boobs():
 	embed = embed = discord.Embed(title = "Boobs is perfect", color=0x7B68EE)
@@ -377,11 +379,7 @@ async def serverinfo(ctx):
     embed.add_field(name="Roles {}".format(role_length), value = roles)
     await client.send_message(ctx.message.channel, embed=embed)		
 
-			
-	
-	
-	
-		
+				
 		
 @client.command(pass_context=True)
 async def hug(ctx, user: discord.Member):
