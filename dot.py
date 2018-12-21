@@ -21,26 +21,74 @@ client.remove_command('help')
 def is_owner(ctx):
     return ctx.message.author.id == "417403958814965771"
         
+@client.command(pass_context = True)
+async def help(ctx):
+    if ctx.message.author.bot:
+      return
+    else:
+      author = ctx.message.author
+      r, g, b = tuple(int(x * 255) for x in colorsys.hsv_to_rgb(random.random(), 1, 1))
+      embed = discord.Embed(color = discord.Color((r << 16) + (g << 8) + b))
+      embed.set_author(name='Help — Everything is in here.')
+      embed.add_field(name = '<:thinking3d:525323026598723604> | Who i am?',value ='I am Dot, with Fun, Nsfw, Moderation Commands.',inline = False)
+      embed.add_field(name = '🇬 = General (Main Help) ',value ='Any Fun Commands are here.',inline = False)    
+      embed.add_field(name =' 🇲 = Moderation (Mod Help)',value ='Any Moderation Commands are here.', inline = False)
+      embed.add_field(name = '🇳 = Not Safe To Work (NSFW Help)',value ='Any NSFW Commands are here .',inline = False) 	      		
+      dmmessage = await client.send_message(author,embed=embed)
+      reaction1 = '🇬'  
+      reaction2 = '🇲'
+      reaction3 = '🇳'
+     	
+      await client.add_reaction(dmmessage, reaction1)
+      await client.add_reaction(dmmessage, reaction2)
+      await client.add_reaction(dmmessage, reaction3)     
+      await client.say('<:a_:524648895796740126> | What are you waiting for, just look at DMs..')
+	
+   
 @client.event
 async def on_reaction_add(reaction, user):
   if reaction.message.server is None:
       if reaction.emoji == '🇬':
         r, g, b = tuple(int(x * 255) for x in colorsys.hsv_to_rgb(random.random(), 1, 1))
         embed = discord.Embed(color = discord.Color((r << 16) + (g << 8) + b))
-                embed.add_field(name = '.ping',value='Dot send fast internet')	        
-        embed.add_field(name = '.meme',value ='Dot send any meme, on website Reddit.')			   			   
-        embed.add_field(name = '.meow',value ='Dot send any Cat, on random.cat! :3')	
+        embed.add_field(name = '.ping',value='Dot send fast internet')
         embed.add_field(name = '.meme',value ='Dot send any meme, on website Reddit.')			
-        embed.add_field(name = '.avatar',value ='Use like — ``.avatar @user`` | Dot send someone users profile picture.')
+        embed.add_field(name = '.avatar',value ='Use like — ``.avatar @user`` | Dot send someone users profile picture.')	
         embed.add_field(name ='.serverinfo', value ='Dot send server information.')	
         embed.add_field(name = '.love',value ='Use like — ``.love @user @user2`` | Dot send someone Couple!')	
         embed.add_field(name = '.woof',value ='Dot send any dog, on random.dog! :3')				   
-	    embed.add_field(name = '.hug', value ='Dot send couple in hugs | ``.hug @user``')
+        embed.add_field(name = '.hug', value ='Dot send couple in hugs | ``.hug @user``')
         embed.add_field(name = '.kiss', value ='Dot send couple in kisses | ``.kiss @user``') 
-        embed.add_field(name = '.howgay', value ='``(Not Completed)`` | Dot send how you gay on % :gay_pride_flag:') 	
+        embed.add_field(name = '.howgay', value ='``(Not Completed)`` | Dot send how you gay on % :gay_pride_flag:')			      
+        my_msg = await client.send_message(user,embed=embed)
+        await asyncio.sleep(30)
+        await client.delete_message(my_msg)
+		
+      if reaction.emoji == '🇳':
+        r, g, b = tuple(int(x * 255) for x in colorsys.hsv_to_rgb(random.random(), 1, 1))
+        embed = discord.Embed(color = discord.Color((r << 16) + (g << 8) + b))
+        embed.set_author(name='NSFW - Help Commands')
+        embed.add_field(name = '.hentai',value ='Sends any hentai gif or photo <:bobs:524625988387209216>',inline = False)
+        embed.add_field(name = '.lewdkitsune ',value='Sends any lewd kitsune photo.',inline = False)
+        embed.add_field(name = '.ass',value ='Sends randomly ass photo <:Booty:524631572650000394>',inline = False)
+        embed.add_field(name = '.boobs ',value ='Sends any boobs (on website Reddit).',inline = False)
         react_message = await client.send_message(user,embed=embed)
         await asyncio.sleep(30)
-        await client.delete_message(react_message)    															
+        await client.delete_message(react_message)
+   
+    
+      if reaction.emoji == '🇲':
+        r, g, b = tuple(int(x * 255) for x in colorsys.hsv_to_rgb(random.random(), 1, 1))
+        embed = discord.Embed(color = discord.Color((r << 16) + (g << 8) + b))
+        embed.set_author(name='Mod Help - Help Commands')
+        embed.add_field(name = '.ban',value ='``(Administrator Permissions Needed)`` | Just ban someone user like this ``.ban @user (reason)``',inline = False)
+        embed.add_field(name = '.warn',value ='``(Manage Messages Permissions Needed)`` | Just warn someone user like this ``.warn @user (reason)``',inline = False)
+        embed.add_field(name = '.mute',value='``(Administrator Permissions Needed)`` | Just Mute someone user like this ``.mute @user 10``',inline = False)
+        embed.add_field(name = '.say',value ='``(Administrator Permissions Needed)`` | Just say in this command like this ``.say hello``',inline = False)
+        embed.add_field(name = '.clear',value ='``(Manage Messages Permissions Needed)`` | Just clear your message like this ``.clear 10``.',inline = False)
+        react_message = await client.send_message(user,embed=embed)
+        await asyncio.sleep(30)
+        await client.delete_message(react_message)    																								
     																																																																																																																																																					
 @client.command(pass_context = True)
 @commands.check(is_owner)
