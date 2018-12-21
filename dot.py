@@ -21,30 +21,6 @@ client.remove_command('help')
 def is_owner(ctx):
     return ctx.message.author.id == "417403958814965771"
         
-@client.command(pass_context = True)
-async def help(ctx):
-    if ctx.message.author.bot:
-      return
-    else:
-      author = ctx.message.author
-      r, g, b = tuple(int(x * 255) for x in colorsys.hsv_to_rgb(random.random(), 1, 1))
-      embed = discord.Embed(color = discord.Color((r << 16) + (g << 8) + b))
-      embed.set_author(name='Help — Everything is in here.')	
-      embed.add_field(name = 'Who i am?',value ='I am Dot, with Fun, Nsfw, Moderation Commands.',inline = False)
-      embed.add_field(name = '🇬 = General (Main Help) ',value ='Any Fun Commands are here.',inline = False)    
-      embed.add_field(name =' 🇲 = Moderation (Mod Help)',value ='Any Moderation Commands are here.', inline = False)
-      embed.add_field(name = '🇳 = Not Safe To Work (NSFW Help)',value ='Any NSFW Commands are here .',inline = False)	
-      dmmessage = await client.send_message(author,embed=embed)
-      reaction1 = '🇬'  
-      reaction2 = '🇲'
-      reaction3 = '🇳'
-     	
-      await client.add_reaction(dmmessage, reaction1)
-      await client.add_reaction(dmmessage, reaction2)
-      await client.add_reaction(dmmessage, reaction3)     
-      await client.say('<:a_:524648895796740126> | What are you waiting for, just look at DMs..')
-	
-   
 @client.event
 async def on_reaction_add(reaction, user):
   if reaction.message.server is None:
@@ -58,7 +34,7 @@ async def on_reaction_add(reaction, user):
         embed.add_field(name = '.love',value ='Use like — ``.love @user @user2`` | Dot send someone Couple!')	
         embed.add_field(name = '.woof',value ='Dot send any dog, on random.dog! :3')				   
         embed.add_field(name = '.meow',value ='Dot send any Cat, on random.cat! :3')
-	embed.add_field(name = '.hug', value ='Dot send couple in hugs | ``.hug @user``')
+	    embed.add_field(name = '.hug', value ='Dot send couple in hugs | ``.hug @user``')
         embed.add_field(name = '.kiss', value ='Dot send couple in kisses | ``.kiss @user``') 
         embed.add_field(name = '.howgay', value ='``(Not Completed)`` | Dot send how you gay on % :gay_pride_flag:')			      
         my_msg = await client.send_message(user,embed=embed)
