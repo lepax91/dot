@@ -317,7 +317,24 @@ async def kiss(ctx, user: discord.Member):
         embed = discord.Embed(title=f"{user.name} You just got a kiss from {ctx.message.author.name}", color = discord.Color((r << 16) + (g << 8) + b))
         embed.set_image(url=random.choice(randomurl))
         await client.say(embed=embed)
-		
+
+reddit = praw.Reddit(client_id='id',
+                     client_secret='secret',
+                     user_agent='windows 10: Meme Scraper (by /u/PotatoLord1207)')
+
+@client.command()
+async def meme():
+    memes_submissions = reddit.subreddit('memes').hot()
+    post_to_pick = random.randint(1, 20)
+    for i in range(0, post_to_pick):
+        submission = next(x for x in memes_submissions if not x.stickied)
+
+    await client.say(submission.url)	
+	
+	
+	
+	
+	
 
 @client.event
 async def on_member_join(member):
@@ -372,6 +389,11 @@ async def serverinfo(ctx):
     embed.add_field(name="Verification Level", value=server.verification_level)
     embed.add_field(name="Roles {}".format(role_length), value = roles)
     await client.send_message(ctx.message.channel, embed=embed)		
+
+			
+	
+	
+	
 		
 		
 @client.command(pass_context=True)
