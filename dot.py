@@ -28,11 +28,12 @@ async def help(ctx):
       author = ctx.message.author
       r, g, b = tuple(int(x * 255) for x in colorsys.hsv_to_rgb(random.random(), 1, 1))
       embed = discord.Embed(color = discord.Color((r << 16) + (g << 8) + b))
-      embed.set_author(name='Help — Everything is in here.')
+      embed.set_author(name='Help — Everything is in here.')	
+      embed.set_footer(text="Requested by {}".format(usernamename, txt)
       embed.add_field(name = 'Who i am?',value ='I am Dot, with Fun, Nsfw, Moderation Commands.',inline = False)
       embed.add_field(name = '🇬 = General (Main Help) ',value ='Any Fun Commands are here.',inline = False)    
       embed.add_field(name =' 🇲 = Moderation (Mod Help)',value ='Any Moderation Commands are here.', inline = False)
-      embed.add_field(name = '🇳 = Not Safe To Work (NSFW Help)',value ='Any NSFW Commands are here .',inline = False) 	      		
+      embed.add_field(name = '🇳 = Not Safe To Work (NSFW Help)',value ='Any NSFW Commands are here .',inline = False)	
       dmmessage = await client.send_message(author,embed=embed)
       reaction1 = '🇬'  
       reaction2 = '🇲'
