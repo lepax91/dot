@@ -208,14 +208,14 @@ async def meme():
     embed.set_image(url = random.choice(["https://i.redd.it/p8tj634gvn421.jpg","https://i.redd.it/pcga89i1kn421.jpg","https://i.redd.it/lptmh6tmon421.jpg" "https://i.redd.it/pg97sq8ixn421.jpg","https://i.redd.it/pg97sq8ixn421.jpg","https://i.redd.it/2vxupq5fkn421.jpg"]))
     await client.say(embed=embed)                 
                                                
-@client.command(pass_context=True)
-async def feet(ctx):
-    """Because pussy are cute too"""
-    r = requests.get("https://nekos.life/api/v2/img/feet")
-    r = str(r.content)
-    r = r.replace("f'","")
-    r = r.replace("'","")
-    await client.say("https://nekos.life/api/v2/img/feet" + r)
+@client.command()
+async def feet():
+		embed = embed = discord.Embed(title = "Anime Feet is Art.", color = 0x7B68EE) 
+		embed.set_image(url = random.choice([
+						     "https://cdn.nekos.life/feet/feet98.jpg",
+						     "https://cdn.nekos.life/feet/feet71.jpg",
+						     "https://cdn.nekos.life/feet/feet161.jpg,			
+		await client.say(embed=embed)                                                                                                                                                                                                                 
 	
 @client.command()
 async def ass():
