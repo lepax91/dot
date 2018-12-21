@@ -47,7 +47,7 @@ async def on_reaction_add(reaction, user):
         embed.add_field(name = '.feet',value ='Sends randomly anime feet (on website Reddit).',inline = False)
         embed.add_field(name = '.lewdkitsune ',value='Sends any lewd kitsune photo.',inline = False)
         embed.add_field(name = '.ass',value ='Sends randomly ass photo <:Booty:524631572650000394>',inline = False)
-        embed.add_field(name = '.boobs ',value ='Sends any boobs (on website Reddit).',inline = False)
+        embed.add_field(name = '.boobs ',value ='Sends any boobs (on website Reddit what).',inline = False)
         react_message = await client.send_message(user,embed=embed)
         await asyncio.sleep(30)
         await client.delete_message(react_message)
