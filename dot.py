@@ -192,6 +192,25 @@ async def avatar(ctx, user: discord.Member=None):
 	
 	
 @client.command(pass_context=True)
+async def cat(ctx):
+    """Grabs a random cat picture"""
+    for i in range(0,5):
+        # site is buggy and sometimes gives bad images
+        # just loop until we get a good one
+        try:
+            r = requests.get("https://aws.random.cat/meow")
+            r = str(r.content)
+            r = r.replace("b'","")
+            r = r.replace("'","")
+            r = r.replace("\\","")
+            url = json.loads(r)["file"]
+            await client.say(url)
+            break
+        except:
+            pass	
+	
+	
+@client.command(pass_context=True)
 async def woof(ctx):
     """Because dogs are cute too"""
     r = requests.get("https://random.dog/woof")
