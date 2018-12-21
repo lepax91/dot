@@ -185,7 +185,7 @@ async def avatar(ctx, user: discord.Member=None):
 
 	
 @client.command(pass_context=True)
-async def dog(ctx):
+async def woof(ctx):
     """Because dogs are cute too"""
     r = requests.get("https://random.dog/woof")
     r = str(r.content)
@@ -208,12 +208,7 @@ async def meme():
     embed.set_image(url = random.choice(["https://i.redd.it/p8tj634gvn421.jpg","https://i.redd.it/pcga89i1kn421.jpg","https://i.redd.it/lptmh6tmon421.jpg" "https://i.redd.it/pg97sq8ixn421.jpg","https://i.redd.it/pg97sq8ixn421.jpg","https://i.redd.it/2vxupq5fkn421.jpg"]))
     await client.say(embed=embed)                 
                                                
-@client.command()
-async def woof():
-	embed = embed = discord.Embed(title = "How cute!", color = 0x7B68EE) 
-	embed.set_image(url = random.choice(["https://random.dog/76258707-3490-4a44-b186-b7fa271e71f8.jpg","https://random.dog/831d264b-01c6-41f2-a00a-c798c9b72e7e.jpg","https://random.dog/900a10b2-0afa-4c99-9022-b27fad4d2a3a.jpg","https://random.dog/a38f99d2-e34b-43d9-8f7e-318bc8277a17.JPG"]))
-	await client.say(embed=embed)         
-      
+  
 @client.command()
 async def ass():
 		embed = embed = discord.Embed(title = "🚓 | FBI OPEN UP!", color = 0x7B68EE) 
