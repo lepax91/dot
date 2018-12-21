@@ -27,7 +27,9 @@ async def on_reaction_add(reaction, user):
       if reaction.emoji == '🇬':
         r, g, b = tuple(int(x * 255) for x in colorsys.hsv_to_rgb(random.random(), 1, 1))
         embed = discord.Embed(color = discord.Color((r << 16) + (g << 8) + b))
-        embed.add_field(name = '.ping',value='Dot send fast internet')
+        embed.add_field(name = '.ping',value='Dot send fast internet')	        
+        embed.add_field(name = '.meme',value ='Dot send any meme, on website Reddit.')			   			   
+        embed.add_field(name = '.meow',value ='Dot send any Cat, on random.cat! :3')	
         embed.add_field(name = '.meme',value ='Dot send any meme, on website Reddit.')			
         embed.add_field(name = '.avatar',value ='Use like — ``.avatar @user`` | Dot send someone users profile picture.')
         embed.add_field(name ='.serverinfo', value ='Dot send server information.')	
