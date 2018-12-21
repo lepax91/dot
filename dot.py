@@ -209,13 +209,13 @@ async def meme():
     await client.say(embed=embed)                 
                                                
 @client.command(pass_context=True)
-async def pussy(ctx):
+async def feet(ctx):
     """Because pussy are cute too"""
-    r = requests.get("https://nekobot.xyz/api/image?type=pussy")
+    r = requests.get("https://nekos.life/api/v2/img/feet")
     r = str(r.content)
     r = r.replace("b'","")
     r = r.replace("'","")
-    await client.say("https://nekobot.xyz/api/image?type=pussy" + r)
+    await client.say("https://nekos.life/api/v2/img/feet" + r)
 	
 @client.command()
 async def ass():
