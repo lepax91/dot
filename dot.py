@@ -5,6 +5,7 @@ from discord.ext.commands.cooldowns import BucketType
 import asyncio 
 import platform
 import colorsys
+import requests
 import random
 import json
 import aiohttp
