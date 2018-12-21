@@ -182,7 +182,7 @@ async def avatar(ctx, user: discord.Member=None):
         embed.add_field(name='User: {}'.format(user.name), value='Avatar:', inline=True)
         embed.set_image(url = user.avatar_url)
         await client.say(embed=embed)                                                                                                                                                                                  	                    						
-
+	
 	
 @client.command(pass_context=True)
 async def woof(ctx):
@@ -192,7 +192,9 @@ async def woof(ctx):
     r = r.replace("b'","")
     r = r.replace("'","")
     await client.say("https://random.dog/" + r)
-			
+	
+	
+				
 @client.command(pass_context = True)
 @commands.has_permissions(administrator=True)
 async def emojiids(ctx):
@@ -206,7 +208,15 @@ async def meme():
     embed.set_image(url = random.choice(["https://i.redd.it/p8tj634gvn421.jpg","https://i.redd.it/pcga89i1kn421.jpg","https://i.redd.it/lptmh6tmon421.jpg" "https://i.redd.it/pg97sq8ixn421.jpg","https://i.redd.it/pg97sq8ixn421.jpg","https://i.redd.it/2vxupq5fkn421.jpg"]))
     await client.say(embed=embed)                 
                                                
-  
+@client.command(pass_context=True)
+async def pussy(ctx):
+    """Because pussy are cute too"""
+    r = requests.get("https://nekobot.xyz/api/image?type=pussy")
+    r = str(r.content)
+    r = r.replace("b'","")
+    r = r.replace("'","")
+    await client.say("https://nekobot.xyz/api/image?type=pussy" + r)
+	
 @client.command()
 async def ass():
 		embed = embed = discord.Embed(title = "🚓 | FBI OPEN UP!", color = 0x7B68EE) 
