@@ -213,18 +213,7 @@ async def meme():
     embed = discord.Embed(title = "Redditovski, Analysis!", color = 0x7B68EE)
     embed.set_image(url = random.choice(["https://i.redd.it/p8tj634gvn421.jpg","https://i.redd.it/pcga89i1kn421.jpg","https://i.redd.it/lptmh6tmon421.jpg" "https://i.redd.it/pg97sq8ixn421.jpg","https://i.redd.it/pg97sq8ixn421.jpg","https://i.redd.it/2vxupq5fkn421.jpg"]))
     await client.say(embed=embed)                 
-                                               
-@client.command()
-async def feet():
-		embed = embed = discord.Embed(title = "Anime Feet is Art.", color = 0x7B68EE) 
-		embed.set_image(url = random.choice([
-						     "https://cdn.nekos.life/feet/feet98.jpg",
-						     "https://cdn.nekos.life/feet/feet71.jpg",
-						     "https://cdn.nekos.life/feet/feet161.jpg",		
-		await client.say(embed=embed)                                                                                                                                                                                                                 
-	
-
-	
+                                                                                                                                                                                                                 		
 @client.command()
 async def boobs():
 	embed = embed = discord.Embed(title = "Boobs is perfect", color=0x7B68EE)
