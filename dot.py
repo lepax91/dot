@@ -323,7 +323,7 @@ reddit = praw.Reddit(client_id='id',
                      user_agent='windows 10: Meme Scraper (by /u/PotatoLord1207)')
 
 @client.command()
-async def meme():
+async def meme2():
     memes_submissions = reddit.subreddit('memes').hot()
     post_to_pick = random.randint(1, 20)
     for i in range(0, post_to_pick):
