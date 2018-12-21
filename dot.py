@@ -6,7 +6,6 @@ import asyncio
 import platform
 import colorsys
 import random
-import praw
 import json
 import aiohttp
 import os
@@ -194,7 +193,27 @@ async def avatar(ctx, user: discord.Member=None):
         embed.add_field(name='User: {}'.format(user.name), value='Avatar:', inline=True)
         embed.set_image(url = user.avatar_url)
         await client.say(embed=embed)                                                                                                                                                                                  	                    						
+
 	
+@client.command(pass_context=True)
+async def cat(ctx):
+    """Grabs a random cat picture"""
+    for i in range(0,5):
+        # site is buggy and sometimes gives bad images
+        # just loop until we get a good one
+        try:
+            r = requests.get("https://aws.random.cat/meow")
+            r = str(r.content)
+            r = r.replace("b'","")
+            r = r.replace("'","")
+            r = r.replace("\\","")
+            url = json.loads(r)["file"]
+            await client.say(url)
+            break
+        except:
+            pass
+	
+			
 @client.command(pass_context = True)
 @commands.has_permissions(administrator=True)
 async def emojiids(ctx):
@@ -317,24 +336,7 @@ async def kiss(ctx, user: discord.Member):
     else:
         embed = discord.Embed(title=f"{user.name} You just got a kiss from {ctx.message.author.name}", color = discord.Color((r << 16) + (g << 8) + b))
         embed.set_image(url=random.choice(randomurl))
-        await client.say(embed=embed)
-
-reddit = praw.Reddit(client_id='id',
-                     client_secret='secret',
-                     user_agent='windows 10: Meme Scraper (by /u/PotatoLord1207)')
-
-@client.command()
-async def meme2():
-    memes_submissions = reddit.subreddit('memes').hot()
-    post_to_pick = random.randint(1, 20)
-    for i in range(0, post_to_pick):
-        submission = next(x for x in memes_submissions if not x.stickied)
-
-    await client.say(submission.url)	
-	
-	
-	
-	
+        await client.say(embed=embed)					
 	
 
 @client.event
