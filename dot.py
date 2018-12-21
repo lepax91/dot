@@ -6,6 +6,7 @@ import asyncio
 import platform
 import colorsys
 import random
+import praw
 import json
 import aiohttp
 import os
