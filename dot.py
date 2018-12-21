@@ -193,7 +193,14 @@ async def woof(ctx):
     r = r.replace("'","")
     await client.say("https://random.dog/" + r)
 
-	
+@client.command(pass_context=True)
+async def thighs(ctx):
+    """Because dogs are cute too"""
+    r = requests.get("https://nekobot.xyz/api/v2/image/thighs")
+    r = str(r.content)
+    r = r.replace("b'","")
+    r = r.replace("'","")
+    await client.say("https://nekobot.xyz/api/v2/image/thighs" + r)
 			
 @client.command(pass_context = True)
 @commands.has_permissions(administrator=True)
