@@ -57,7 +57,8 @@ async def on_reaction_add(reaction, user):
         embed.add_field(name ='.serverinfo', value ='Dot send server information.')	
         embed.add_field(name = '.love',value ='Use like — ``.love @user @user2`` | Dot send someone Couple!')	
         embed.add_field(name = '.woof',value ='Dot send any dog, on random.dog! :3')				   
-        embed.add_field(name = '.hug', value ='Dot send couple in hugs | ``.hug @user``')
+        embed.add_field(name = '.meow',value ='Dot send any Cat, on random.cat! :3')
+	embed.add_field(name = '.hug', value ='Dot send couple in hugs | ``.hug @user``')
         embed.add_field(name = '.kiss', value ='Dot send couple in kisses | ``.kiss @user``') 
         embed.add_field(name = '.howgay', value ='``(Not Completed)`` | Dot send how you gay on % :gay_pride_flag:')			      
         my_msg = await client.send_message(user,embed=embed)
@@ -192,7 +193,7 @@ async def avatar(ctx, user: discord.Member=None):
 	
 	
 @client.command(pass_context=True)
-async def cat(ctx):
+async def meow(ctx):
     """Grabs a random cat picture"""
     for i in range(0,5):
         # site is buggy and sometimes gives bad images
