@@ -213,7 +213,7 @@ async def feet(ctx):
     """Because pussy are cute too"""
     r = requests.get("https://nekos.life/api/v2/img/feet")
     r = str(r.content)
-    r = r.replace("n'","")
+    r = r.replace("f'","")
     r = r.replace("'","")
     await client.say("https://nekos.life/api/v2/img/feet" + r)
 	
