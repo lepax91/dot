@@ -33,10 +33,64 @@ async def on_reaction_add(reaction, user):
         embed.add_field(name ='.serverinfo', value ='Dot send server information.')	
         embed.add_field(name = '.love',value ='Use like — ``.love @user @user2`` | Dot send someone Couple!')	
         embed.add_field(name = '.woof',value ='Dot send any dog, on random.dog! :3')				   
-        embed.add_field(name = '.meow',value ='Dot send any Cat, on random.cat! :3')
+	embed.add_field(name = '.hug', value ='Dot send couple in hugs | ``.hug @user``')
+        embed.add_field(name = '.kiss', value ='Dot send couple in kisses | ``.kiss @user``') 
+        embed.add_field(name = '.howgay', value ='``(Not Completed)`` | Dot send how you gay on % :gay_pride_flag:')
+	@client.event
+async def on_reaction_add(reaction, user):
+  if reaction.message.server is None:
+      if reaction.emoji == '🇬':
+        r, g, b = tuple(int(x * 255) for x in colorsys.hsv_to_rgb(random.random(), 1, 1))
+        embed = discord.Embed(color = discord.Color((r << 16) + (g << 8) + b))
+        embed.add_field(name = '.ping',value='Dot send fast internet')
+        embed.add_field(name = '.meme',value ='Dot send any meme, on website Reddit.')			
+        embed.add_field(name = '.avatar',value ='Use like — ``.avatar @user`` | Dot send someone users profile picture.')
+        embed.add_field(name ='.serverinfo', value ='Dot send server information.')	
+        embed.add_field(name = '.love',value ='Use like — ``.love @user @user2`` | Dot send someone Couple!')	
+        embed.add_field(name = '.woof',value ='Dot send any dog, on random.dog! :3')				   
+	embed.add_field(name = '.hug', value ='Dot send couple in hugs | ``.hug @user``')
+        embed.add_field(name = '.kiss', value ='Dot send couple in kisses | ``.kiss @user``') 
+        embed.add_field(name = '.howgay', value ='``(Not Completed)`` | Dot send how you gay on % :gay_pride_flag:')
+	@client.event
+async def on_reaction_add(reaction, user):
+  if reaction.message.server is None:
+      if reaction.emoji == '🇬':
+        r, g, b = tuple(int(x * 255) for x in colorsys.hsv_to_rgb(random.random(), 1, 1))
+        embed = discord.Embed(color = discord.Color((r << 16) + (g << 8) + b))
+        embed.add_field(name = '.ping',value='Dot send fast internet')
+        embed.add_field(name = '.meme',value ='Dot send any meme, on website Reddit.')		
+	@client.event
+async def on_reaction_add(reaction, user):
+  if reaction.message.server is None:
+      if reaction.emoji == '🇬':
+        r, g, b = tuple(int(x * 255) for x in colorsys.hsv_to_rgb(random.random(), 1, 1))
+        embed = discord.Embed(color = discord.Color((r << 16) + (g << 8) + b))
+                embed.add_field(name = '.ping',value='Dot send fast internet')
+        embed.add_field(name = '.meme',value ='Dot send any meme, on website Reddit.')			
+        embed.add_field(name = '.avatar',value ='Use like — ``.avatar @user`` | Dot send someone users profile picture.')
+        embed.add_field(name ='.serverinfo', value ='Dot send server information.')	
+        embed.add_field(name = '.love',value ='Use like — ``.love @user @user2`` | Dot send someone Couple!')	
+        embed.add_field(name = '.woof',value ='Dot send any dog, on random.dog! :3')				   
+        embed.add_field(name = '.meow',value ='Dot send any Cat, on random.cat! :3')	
+        embed.add_field(name = '.kiss', value ='Dot send couple in kisses | ``.kiss @user``') 
+        embed.add_field(name = '.howgay', value ='``(Not Completed)`` | Dot send how you gay on % :gay_pride_flag:')
 	    embed.add_field(name = '.hug', value ='Dot send couple in hugs | ``.hug @user``')
+        my_msg = await client.send_message(user,embed=embed)
+        await asyncio.sleep(30)
+        await client.delete_message(my_msg)
+        embed.add_field(name = '.avatar',value ='Use like — ``.avatar @user`` | Dot send someone users profile picture.')
+        embed.add_field(name ='.serverinfo', value ='Dot send server information.')	
+        embed.add_field(name = '.love',value ='Use like — ``.love @user @user2`` | Dot send someone Couple!')	
+        embed.add_field(name = '.woof',value ='Dot send any dog, on random.dog! :3')				   
+	embed.add_field(name = '.hug', value ='Dot send couple in hugs | ``.hug @user``')
         embed.add_field(name = '.kiss', value ='Dot send couple in kisses | ``.kiss @user``') 
         embed.add_field(name = '.howgay', value ='``(Not Completed)`` | Dot send how you gay on % :gay_pride_flag:')			      
+        my_msg = await client.send_message(user,embed=embed)
+        await asyncio.sleep(30)
+        await client.delete_message(my_msg)
+        my_msg = await client.send_message(user,embed=embed)
+        await asyncio.sleep(30)
+        await client.delete_message(my_msg)
         my_msg = await client.send_message(user,embed=embed)
         await asyncio.sleep(30)
         await client.delete_message(my_msg)
