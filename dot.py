@@ -30,7 +30,7 @@ async def help(ctx):
       r, g, b = tuple(int(x * 255) for x in colorsys.hsv_to_rgb(random.random(), 1, 1))
       embed = discord.Embed(color = discord.Color((r << 16) + (g << 8) + b))
       embed.set_author(name='Help — Everything is in here.')
-      embed.add_field(name = '<:thinking3d:525323026598723604> | Who i am?',value ='I am Dot, with Fun, Nsfw, Moderation Commands.',inline = False)
+      embed.add_field(name = 'Who i am?',value ='<:joy:525410119199227915> | am Dot, with Fun, Nsfw, Moderation Commands.',inline = False)
       embed.add_field(name = '🇬 = General (Main Help) ',value ='Any Fun Commands are here.',inline = False)    
       embed.add_field(name =' 🇲 = Moderation (Mod Help)',value ='Any Moderation Commands are here.', inline = False)
       embed.add_field(name = '🇳 = Not Safe To Work (NSFW Help)',value ='Any NSFW Commands are here .',inline = False) 	      		
