@@ -126,7 +126,7 @@ async def clear(ctx, number):
        
     try:
         await client.delete_messages(mgs)          
-        await client.say(+str(number)+  '| Messages deleted!')
+        await client.say(+str(number)+  '| Messages deleted! cože')
      
     except discord.Forbidden:
         await client.say(embed=Forbidden)
