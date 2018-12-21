@@ -214,7 +214,7 @@ async def feet():
 		embed.set_image(url = random.choice([
 						     "https://cdn.nekos.life/feet/feet98.jpg",
 						     "https://cdn.nekos.life/feet/feet71.jpg",
-						     "https://cdn.nekos.life/feet/feet161.jpg,			
+						     "https://cdn.nekos.life/feet/feet161.jpg",		
 		await client.say(embed=embed)                                                                                                                                                                                                                 
 	
 @client.command()
