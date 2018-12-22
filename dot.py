@@ -48,11 +48,11 @@ async def help(ctx):
 
 async def status_task():
     while True:        
-        await asyncio.sleep(5)
+        await asyncio.sleep(15)
         await client.change_presence(game=discord.Game(name='.help | with '+str(len(set(client.get_all_members())))+' users', url="https://twitch.tv/myname", type=1))
-        await asyncio.sleep(5)
+        await asyncio.sleep(15)
         await client.change_presence(game=discord.Game(name='in '+str(len(client.servers))+' guilds', type=3))
-        await asyncio.sleep(5)
+        await asyncio.sleep(15)
 			
 @client.event
 async def on_reaction_add(reaction, user):
