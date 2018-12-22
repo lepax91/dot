@@ -10,7 +10,6 @@ import random
 import json
 import aiohttp
 from urllib.request import urlopen, Request
-import BeautifulSoup as stew
 import time
 from discord.voice_client import VoiceClient
 from discord import Game, Embed, Color, Status, ChannelType
