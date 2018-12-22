@@ -51,7 +51,7 @@ async def status_task():
         await asyncio.sleep(5)
         await client.change_presence(game=discord.Game(name='.help | with '+str(len(set(client.get_all_members())))+' users', url="https://twitch.tv/myname", type=1))
         await asyncio.sleep(5)
-        await client.change_presence(game=discord.Game(name='in '+str(len(client.servers))+' servers', url="https://twitch.tv/myname", type=1))
+        await client.change_presence(game=discord.Game(name='in '+str(len(client.servers))+' guilds', type=3))
         await asyncio.sleep(5)
 			
 @client.event
