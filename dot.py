@@ -9,7 +9,6 @@ import requests
 import random
 import json
 import aiohttp
-import os, bs4, re, smtplib
 from urllib.request import urlopen, Request
 from bs4 import BeautifulSoup as stew
 import time
