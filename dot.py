@@ -425,5 +425,5 @@ async def penis(ctx):
     embed = discord.Embed(color = discord.Color((r << 16) + (g << 8) + b))
     embed.add_field(name=f"penis machine fam", value=random.choice(penis))
     await client.say(embed=embed)
-                            
-client.run(os.getenv('Token'))
+                      	
+client.run(os.getenv('Token))
