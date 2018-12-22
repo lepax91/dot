@@ -47,7 +47,7 @@ async def help(ctx):
       await client.say('<:a_:524648895796740126> | What are you waiting for, just look at DMs..')
 	
 @client.command()
-async def stats(self, ctx):
+async def stats(self):
         """Get some stats about the bot"""
         second = time.time() - start_time
         minute, second = divmod(second, 60)
@@ -63,7 +63,7 @@ async def stats(self, ctx):
         embed.add_field(name="Users", value=str(len(self.bot.users)))
         embed.add_field(name="Memory used", value=f"{used}GB ({percent}%)", inline=False)
 
-        await ctx.send(embed=embed)
+        await client.send(embed=embed)
    
         
 			
