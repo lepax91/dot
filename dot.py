@@ -26,8 +26,7 @@ def is_owner(ctx):
     return ctx.message.author.id == "417403958814965771"
  
 
-client.load_extension("cogs.giveaway")
-client.load_extension("cogs.fun")
+
 client.load_extension("cogs.nsfw")
 
 
