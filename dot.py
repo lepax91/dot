@@ -27,6 +27,7 @@ def is_owner(ctx):
  
 
 client.load_extension("cogs.giveaway")
+client.load_extension("cogs.fun")
 
 		                                                                                                
 @client.command(pass_context = True)
