@@ -45,7 +45,15 @@ async def help(ctx):
       await client.add_reaction(dmmessage, reaction3)
       await client.say('<:a_:524648895796740126> | What are you waiting for, just look at DMs..')
 	
-   
+
+async def status_task():
+    while True:        
+        await asyncio.sleep(5)
+        await client.change_presence(game=discord.Game(name='.help | with '+str(len(set(client.get_all_members())))+' users', url="https://twitch.tv/myname", type=1))
+        await asyncio.sleep(5)
+        await client.change_presence(game=discord.Game(name='in '+str(len(client.servers))+' servers', url="https://twitch.tv/myname", type=1))
+        await asyncio.sleep(5)
+			
 @client.event
 async def on_reaction_add(reaction, user):
   if reaction.message.server is None:
@@ -106,9 +114,8 @@ async def ass():
 @client.event
 async def on_ready():
     print("The bot is ready!")
-    await client.change_presence(game=discord.Game(name='.help | with '+str(len(set(client.get_all_members())))+' users', url="https://twitch.tv/myname", type=1))				
-								                                         
-		
+    client.loop.create_task(status_task())                      
+	
 @client.command(pass_context = True)
 @commands.has_permissions(kick_members=True)
 async def warn(ctx, userName: discord.User, *, message:str): 
