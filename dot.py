@@ -14,7 +14,7 @@ from urllib.request import urlopen, Request
 import time
 from discord.voice_client import VoiceClient
 from discord import Game, Embed, Color, Status, ChannelType
-import datetime, time, psutil
+import datetime
 
 start_time = time.time()
 starttime2 = time.ctime(int(time.time()))
