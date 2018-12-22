@@ -47,7 +47,7 @@ async def help(ctx):
       await client.say('<:a_:524648895796740126> | What are you waiting for, just look at DMs..')
 	
 @client.command()
-async def stats(self):
+async def stats():
         """Get some stats about the bot"""
         second = time.time() - start_time
         minute, second = divmod(second, 60)
