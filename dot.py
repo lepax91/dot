@@ -32,7 +32,7 @@ async def help(ctx):
       embed = discord.Embed(color = discord.Color((r << 16) + (g << 8) + b))
       embed.set_author(name='Help — Everything is in here.')
       embed.add_field(name = 'Who i am?',value ='<:joy:525410119199227915> | am Dot, with Fun, Nsfw, Moderation Commands — ``Prefix - .``',inline = False)
-      embed.add_field(name = 'Invite Link',value =f'[Here is] https://discordapp.com/api/oauth2/authorize?client_id=523787927113826305&permissions=8&scope=bot', inline = False)
+      embed.add_field(name = 'Invite Link',value =f'[Here is] (https://discordapp.com/api/oauth2/authorize?client_id=523787927113826305&permissions=8&scope=bot)', inline = False)
       embed.add_field(name = '🇬 = General (Main Help) ',value ='Any Fun Commands are here.',inline = False)    
       embed.add_field(name =' 🇲 = Moderation (Mod Help)',value ='Any Moderation Commands are here.', inline = False)
       embed.add_field(name =' 🇳 = Not Safe to Work (NSFW Help)', value='Any NSFW commands are here.',inline = False)	      		
