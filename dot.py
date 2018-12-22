@@ -25,16 +25,16 @@ client.remove_command('help')
 def is_owner(ctx):
     return ctx.message.author.id == "417403958814965771"
  
-bot.load_extension("cogs.fun")
-bot.load_extension("cogs.images")
-bot.load_extension("cogs.info")
-bot.load_extension("cogs.utility")
-bot.load_extension("cogs.economy")
-bot.load_extension("cogs.mod")
-bot.load_extension("cogs.owner")
-bot.load_extension("cogs.giveaway")
-bot.load_extension("cogs.source")
-bot.load_extension("cogs.tags")	
+client.load_extension("cogs.fun")
+client.load_extension("cogs.images")
+client.load_extension("cogs.info")
+client.load_extension("cogs.utility")
+client.load_extension("cogs.economy")
+client.load_extension("cogs.mod")
+client.load_extension("cogs.owner")
+client.load_extension("cogs.giveaway")
+client.load_extension("cogs.source")
+client.load_extension("cogs.tags")	
 		                                                                                                
 @client.command(pass_context = True)
 async def help(ctx):
