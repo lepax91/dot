@@ -428,4 +428,4 @@ async def penis(ctx):
     embed.add_field(name=f"penis machine fam", value=random.choice(penis))
     await client.say(embed=embed)
                             
-client.run('NTIzNzg3OTI3MTEzODI2MzA1.Dv91qA.e02LOSrqN_YTJfU6SKPkY1LFBYA')
+client.run('Token')
