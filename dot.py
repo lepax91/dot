@@ -144,7 +144,6 @@ async def warn(ctx, userName: discord.User, *, message:str):
     pass		
 			
 @client.command(pass_context = True)
-@command.has_permissions(manage_message=True)
 async def clear(ctx, number):
     mgs = [] #Empty list to put all the messages in the log
     number = int(number) #Converting the amount of messages to delete to an integer
