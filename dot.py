@@ -460,14 +460,7 @@ async def penis(ctx):
     embed.add_field(name=f"penis machine fam", value=random.choice(penis))
     await client.say(embed=embed)
 
-@client.command()
-async def stats(self):
-	embed=discord.Embed(title=f"{client.user.name} stats", color=0x9b9dff)
-        embed.add_field(name="Uptime", value="**%dd %dh %dm %ds**"% (day, hour, minute, second), inline=False)
-        embed.add_field(name="Servers", value=f"Servers: **{len(self.bot.guilds)}**", inline=False)
-        embed.add_field(name="Users", value=str(len(self.bot.users)))
-        embed.add_field(name="Memory used", value=f"{used}GB ({percent}%)", inline=False)
-	await client.send(embed=embed)
+
 	
 	
 client.run(os.getenv('Token'))
