@@ -43,11 +43,13 @@ async def help(ctx):
       dmmessage = await client.send_message(author,embed=embed)
       reaction1 = '🇬'  
       reaction2 = '🇲' 
-      reaction3 = '🇳'
+      reaction4 = '🎶'
+      reaction3 = '🇳'	
      	
       await client.add_reaction(dmmessage, reaction1)
       await client.add_reaction(dmmessage, reaction2)
       await client.add_reaction(dmmessage, reaction3)
+      await client.add_reaction(dmmessage, reaction4)
       await client.say('<:a_:524648895796740126> | What are you waiting for, just look at DMs..')
 	
    
@@ -98,21 +100,22 @@ async def on_reaction_add(reaction, user):
         await client.delete_message(react_message)
 				             
       if reaction.emoji == '🎶':
-        embed = discord.Embed(color = discord.Color.red)
-        embed.set_title("Dot — Music Commands")
-        embed.add_field(".play [YouTube Link/Playlist]", "Usage: `.play` Description: To play See The YouTube Linke And playlist.", false)
-        embed.add_field(".play [Suchbegriff(e)]", "Usage: `.play`<song name> Description: To play Music.", false)
-        embed.add_field(".skip", "Usage: `.skip` Description: To skip music.", false)
-        embed.add_field(".stop", "Usage: `.stop` Description: To Bot disconnected.", false)
-        embed .add_field(".song", "Usage: `.song` Description: To Check The Current playing song.", false)
-        embed.add_field(".queue", "Usage: `.queue` Description: To Check The Queue List.", false)
-        embed.add_field(".volume", "Usage: `.volume` Description: To See Volume.", false)
-        embed.add_field(".volume [Wert]", "Usage: `.volume` Description: To Changes the volume level to the specified value.", false)
-        embed.add_field(".pause", "Usage: `.pause` Description: To pause The Current Playing Song.", false)
-        embed.add_field(".resume", "Usage: `.resume` Description: To Resume The Paused Song.", false)
-        embed.add_field(".mutemusic","Usage: `.mutemusic` Description: To mute Bot.", false)
-        embed.add_field(".unmutemusic", "Usage: `.unmutemusic` Description: To unmute Bot.", false)
-        my_msg = await client.send_message(user,embed=embed)
+        r, g, b = tuple(int(x * 255) for x in colorsys.hsv_to_rgb(random.random(), 1, 1))
+        embed = discord.Embed(color = discord.Color((r << 16) + (g << 8) + b))
+        embed.set_author(name='Dot - Music Commands')
+        embed.add_field(".play [YouTube Link/Playlist]", "Usage: `.play` Description: To play See The YouTube Linke And playlist.", inline = False)
+        embed.add_field(".play [Suchbegriff(e)]", "Usage: `.play`<song name> Description: To play Music.", inline = False)
+        embed.add_field(".skip", "Usage: `.skip` Description: To skip music.", inline = False)
+        embed.add_field(".stop", "Usage: `.stop` Description: To Bot disconnected.", inline = False)
+        embed .add_field(".song", "Usage: `.song` Description: To Check The Current playing song.", inline = False)
+        embed.add_field(".queue", "Usage: `.queue` Description: To Check The Queue List.", inline = False)
+        embed.add_field(".volume", "Usage: `.volume` Description: To See Volume.", inline = False)
+        embed.add_field(".volume [Wert]", "Usage: `.volume` Description: To Changes the volume level to the specified value.", inline = False)			
+        embed.add_field(".pause", "Usage: `.pause` Description: To pause The Current Playing Song.", inline = False)
+        embed.add_field(".resume", "Usage: `.resume` Description: To Resume The Paused Song.", inline = False)
+        embed.add_field(".mutemusic","Usage: `.mutemusic` Description: To mute Bot.", inline = False)
+        embed.add_field(".unmutemusic", "Usage: `.unmutemusic` Description: To unmute Bot.", inline = False)
+        react_message = await client.send_message(user,embed=embed)
         await asyncio.sleep(30)
         await client.delete_message(react_message)    																								
 		
