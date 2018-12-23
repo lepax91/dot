@@ -8,6 +8,7 @@ import colorsys
 import requests
 import random
 import functools
+import praw
 import datetime
 import json
 import aiohttp
@@ -19,6 +20,10 @@ from discord import Game, Embed, Color, Status, ChannelType
 
 client = Bot(description="dot is gay", command_prefix=".", pm_help = True)
 client.remove_command('help')
+reddit = praw.Reddit(client_id='G-SK66FZT8at9g',
+                     client_secret='DLqIkkdoD0K8xKpxuaMAhRscrS0',
+                     user_agent='android:com.G-SK66FZT8at9g.SolarBot:v1.2.3 (by /u/LaidDownRepaer)')
+
 
 			 
 def is_owner(ctx):
