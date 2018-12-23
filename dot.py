@@ -35,7 +35,8 @@ async def help(ctx):
       embed.add_field(name = 'Invite Link',value ="[Here you are](https://discordapp.com/api/oauth2/authorize?client_id=523787927113826305&permissions=8&scope=bot)")      
       embed.add_field(name = '🇬 = General (Main Help) ',value ='Any Fun Commands are here.',inline = False)    
       embed.add_field(name =' 🇲 = Moderation (Mod Help)',value ='Any Moderation Commands are here.', inline = False)
-      embed.add_field(name =' 🇳 = Not Safe to Work (NSFW Help)', value='Any NSFW commands are here.',inline = False)	      		
+      embed.add_field(name =' 🇳 = Not Safe to Work (NSFW Help)', value='Any NSFW commands are here.',inline = False)	
+      embed.set_footer(text=f'Requested by: {ctx.message.author.display_name}', icon_url=f'{ctx.message.author.avatar_url}')
       dmmessage = await client.send_message(author,embed=embed)
       reaction1 = '🇬'  
       reaction2 = '🇲' 
