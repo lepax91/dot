@@ -11,7 +11,6 @@ import functools
 import datetime
 import json
 import aiohttp
-import praw
 import os, re, smtplib
 from urllib.request import urlopen, Request
 import time
@@ -20,9 +19,7 @@ from discord import Game, Embed, Color, Status, ChannelType
 
 client = Bot(description="dot is gay", command_prefix=".", pm_help = True)
 client.remove_command('help')
-reddit = praw.Reddit(client_id='G-SK66FZT8at9g',
-                     client_secret='DLqIkkdoD0K8xKpxuaMAhRscrS0',
-                     user_agent='android:com.G-SK66FZT8at9g.SolarBot:v1.2.3 (by /u/LaidDownRepaer)')
+
 			 
 def is_owner(ctx):
     return ctx.message.author.id == "417403958814965771"
