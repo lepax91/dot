@@ -43,7 +43,7 @@ async def help(ctx):
       reaction1 = '🇬'  
       reaction2 = '🇲' 
       reaction3 = '🇳'
-      reaction4 = '🎵'
+      reaction4 = '🎶'
      	
       await client.add_reaction(dmmessage, reaction1)
       await client.add_reaction(dmmessage, reaction2)
@@ -98,7 +98,7 @@ async def on_reaction_add(reaction, user):
         await asyncio.sleep(30)
         await client.delete_message(react_message)
 				             
-      if reaction.emoji == '🎵':
+      if reaction.emoji == '🎶':
         embed = discord.Embed(color = discord.Color.red)
         embed.set_title("Dot — Music Commands")
         embed.add_field(".play [YouTube Link/Playlist]", "Usage: `.play` Description: To play See The YouTube Linke And playlist.", false)
