@@ -100,7 +100,7 @@ async def on_reaction_add(reaction, user):
 				             
       if reaction.emoji == '🎵':
         embed = discord.Embed(color = discord.Color.red)
-        embed.setTitle(`Dot — Music Commands`)
+        embed.set_title(`Dot — Music Commands`)
         embed.add_field(".play [YouTube Link/Playlist]", "Usage: `.play` Description: To play See The YouTube Linke And playlist.", false)
         embed.add_field(".play [Suchbegriff(e)]", "Usage: `.play`<song name> Description: To play Music.", false)
         embed.add_field(".skip", "Usage: `.skip` Description: To skip music.", false)
