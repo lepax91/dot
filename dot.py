@@ -114,7 +114,7 @@ async def on_reaction_add(reaction, user):
         embed.add_field(".resume", "Usage: `.resume` Description: To Resume The Paused Song.", false)
         embed.add_field(".mutemusic","Usage: `.mutemusic` Description: To mute Bot.", false)
         embed.add_field(".unmutemusic", "Usage: `.unmutemusic` Description: To unmute Bot.", false)
-        react_message = await client.send_message(user,embed=embed)
+        my_msg = await client.send_message(user,embed=embed)
         await asyncio.sleep(30)
         await client.delete_message(react_message)    																								
 		
