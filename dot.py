@@ -42,8 +42,7 @@ async def help(ctx):
       embed.add_field(name = 'Who i am?',value ='<:joy:525410119199227915> | am Dot, with Fun, Nsfw, Moderation Commands — ``Prefix - .``',inline = False)   
       embed.add_field(name = 'Invite Link',value ="[Here you are](https://discordapp.com/api/oauth2/authorize?client_id=523787927113826305&permissions=8&scope=bot)")      
       embed.add_field(name = '🇬 = General (Main Help) ',value ='Any Fun Commands are here.',inline = False)    
-      embed.add_field(name =' 🇲 = Moderation (Mod Help)',value ='Any Moderation Commands are here.', inline = False)
-      embed.add_field(name =' 🇳 = Not Safe to Work (NSFW Help)', value='Any NSFW commands are here.',inline = False)
+      embed.add_field(name =' 🇲 = Moderation (Mod Help)',value ='Any Moderation Commands are here.', inline = False) 
       embed.add_field(name ='🎶 = Musics (Music Help)', value='Any Music Commands are here.', inline = False)
       dmmessage = await client.send_message(author,embed=embed)
       reaction1 = '🇬'  
@@ -53,8 +52,7 @@ async def help(ctx):
      	
       await client.add_reaction(dmmessage, reaction1)
       await client.add_reaction(dmmessage, reaction2)
-      await client.add_reaction(dmmessage, reaction3)
-      await client.add_reaction(dmmessage, reaction4)
+      await client.add_reaction(dmmessage, reaction3)      
       await client.say('<:a_:524648895796740126> | What are you waiting for, just look at DMs..')
      
 
@@ -120,11 +118,7 @@ async def off():
     await client.close()
     
     	
-@client.command()
-async def ass():
-		embed = embed = discord.Embed(title = "🚓 | FBI OPEN UP!", color = 0x7B68EE) 
-		embed.set_image(url = random.choice(["https://nekobot.xyz/ass/h48sq9jdtzmax6kercvf.jpg","https://nekobot.xyz/ass/1ydlm9n0bzt7uopfxrig.jpg","https://nekobot.xyz/ass/s58k3y6tp0av2f4mu9d1.jpg","https://nekobot.xyz/ass/b3lzd7vungxsyjm42fk8.jpg","https://nekobot.xyz/ass/vjg0atkh1f5bdwxz6une.jpg","https://nekobot.xyz/ass/ewiq0g85dulbn9p2ycz1.jpg","https://nekobot.xyz/ass/hotnxaz9051gqrl7bdue.png","https://nekobot.xyz/ass/kr408gmj2t31hvq9xz5a.jpg","https://nekobot.xyz/ass/n9olr58ftbip7asjweyg.png","https://nekobot.xyz/ass/nr0ov1eqfgi62l5kucay.jpg","https://nekobot.xyz/ass/ndkjq52bsa4xmc3t9i0z.jpg"]))
-		await client.say(embed=embed)	
+
 			
 @client.event
 async def on_ready():
@@ -242,10 +236,6 @@ async def meme(ctx):
             embed.timestamp = datetime.datetime.utcnow()
             await client.say(embed=embed)
 		
-@client.command()
-async def boobs():
-	embed = embed = discord.Embed(title = "Boobs is perfect", color=0x7B68EE)
-	embed.set_image(url = random.choice(["https://i.imgur.com/xs51PQn.jpg","https://i.redd.it/4s4dg79yiwm11.jpg","https://i.redd.it/io24ypewg6201.jpg"]))
 
 @client.command(pass_context=True)
 async def love(ctx, user: discord.Member = None, *, user2: discord.Member = None):
@@ -357,13 +347,7 @@ async def on_member_remove(member):
             embed.add_field(name='Vaše připojovací pozice byla', value=member.joined_at)
             embed.set_thumbnail(url=member.avatar_url)
             await client.send_message(channel, embed=embed)				
-
-@client.command()
-async def pgif():
-		embed = embed = discord.Embed(title = "Porngif is art. '", color = 0x7B68EE)
-		embed.set_image(url = random.choice(["https://nekobot.xyz/pgif/v6ztr7l8a2ndqmgxkh19.gif","https://nekobot.xyz/pgif/lfkcadesnvjy9gzhi5tp.gif", "https://nekobot.xyz/pgif/2w04ul98vdxyt6airjc7.gif", "https://nekobot.xyz/pgif/od8gyclnzxt5kqebrs9u.gif","https://nekobot.xyz/pgif/atxb96wkeu4q3gzpnfm5.gif","https://nekobot.xyz/pgif/hjstg1lkodai75rpf8c4.gif", "https://nekobot.xyz/pgif/e8ib5h0uvwzljsd6na9k.gif","https://nekobot.xyz/pgif/mx5ako23d9ge4vpqzunf.gif"]))
-		await client.say(embed=embed)                                         	
-																				
+                                         																					
 @client.command(pass_context=True)     
 async def serverinfo(ctx):
     server = ctx.message.server
