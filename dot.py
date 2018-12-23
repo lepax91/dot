@@ -51,8 +51,8 @@ async def help(ctx):
       await client.add_reaction(dmmessage, reaction3)
       await client.add_reaction(dmmessage, reaction4)
       await client.say('<:a_:524648895796740126> | What are you waiting for, just look at DMs..')
-	
-   
+     
+
 @client.event
 async def on_reaction_add(reaction, user):
   if reaction.message.server is None:
@@ -459,6 +459,17 @@ async def penis(ctx):
     embed = discord.Embed(color = discord.Color((r << 16) + (g << 8) + b))
     embed.add_field(name=f"penis machine fam", value=random.choice(penis))
     await client.say(embed=embed)
-                            
+
+@client.command()
+async def stats(self):
+	embed=discord.Embed(title=f"{self.bot.user.name} stats", color=0x9b9dff)
+        embed.set_thumbnail(url=self.bot.user.avatar_url)
+        embed.add_field(name="Uptime", value="**%dd %dh %dm %ds**"% (day, hour, minute, second), inline=False)
+        embed.add_field(name="Servers", value=f"Servers: **{len(self.bot.guilds)}**", inline=False)
+        embed.add_field(name="Users", value=str(len(self.bot.users)))
+        embed.add_field(name="Memory used", value=f"{used}GB ({percent}%)", inline=False)
+	await client.send(embed=embed)
+	
+	
 client.run(os.getenv('Token'))
 		                                                                                                
