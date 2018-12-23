@@ -7,8 +7,11 @@ import platform
 import colorsys
 import requests
 import random
+import functools
+import datetime
 import json
 import aiohttp
+import praw
 import os, re, smtplib
 from urllib.request import urlopen, Request
 import time
@@ -16,7 +19,10 @@ from discord.voice_client import VoiceClient
 from discord import Game, Embed, Color, Status, ChannelType
 
 client = Bot(description="dot is gay", command_prefix=".", pm_help = True)
-client.remove_command('help')									
+client.remove_command('help')
+reddit = praw.Reddit(client_id='G-SK66FZT8at9g',
+                     client_secret='DLqIkkdoD0K8xKpxuaMAhRscrS0',
+                     user_agent='android:com.G-SK66FZT8at9g.SolarBot:v1.2.3 (by /u/LaidDownRepaer)')
 			 
 def is_owner(ctx):
     return ctx.message.author.id == "417403958814965771"
@@ -223,13 +229,19 @@ async def emojiids(ctx):
   for emoji in ctx.message.author.server.emojis:
     print(f"<:{emoji.name}:{emoji.id}>")
     print(" ")    	
-				
-@client.command()
-async def meme():
-    embed = discord.Embed(title = "Redditovski, Analysis!", color = 0x7B68EE)
-    embed.set_image(url = random.choice(["https://i.redd.it/p8tj634gvn421.jpg","https://i.redd.it/pcga89i1kn421.jpg","https://i.redd.it/lptmh6tmon421.jpg" "https://i.redd.it/pg97sq8ixn421.jpg","https://i.redd.it/pg97sq8ixn421.jpg","https://i.redd.it/2vxupq5fkn421.jpg"]))
-    await client.say(embed=embed)                 
-                                                                                                                                                                                                                 		
+				                 
+@client.command(pass_context = True)
+async def meme(ctx):
+    colour = '0x' + '008000'
+    async with aiohttp.ClientSession() as session:
+        async with session.get("https://api.reddit.com/r/me_irl/random") as r:
+            data = await r.json()
+            embed = discord.Embed(title='<a:OnThaCoco:515853700682743809> <a:OnThaCoco:515853700682743809> Random Meme <a:OnThaCoco:515853700682743809> <a:OnThaCoco:515853700682743809>', description='from reddit', color=discord.Color(int(colour, base=16)))
+            embed.set_image(url=data[0]["data"]["children"][0]["data"]["url"])
+            embed.set_footer(text=f'Requested by: {ctx.message.author.display_name}', icon_url=f'{ctx.message.author.avatar_url}')
+            embed.timestamp = datetime.datetime.utcnow()
+            await client.say(embed=embed)
+		
 @client.command()
 async def boobs():
 	embed = embed = discord.Embed(title = "Boobs is perfect", color=0x7B68EE)
