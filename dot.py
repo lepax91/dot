@@ -144,27 +144,13 @@ async def warn(ctx, userName: discord.User, *, message:str):
     pass		
 			
 @client.command(pass_context = True)
-@commands.has_permissions(manage_messages=True)  
+@command.has_permissions(manage_message=True)
 async def clear(ctx, number):
- 
-    if ctx.message.author.server_permissions.manage_messages:
-         mgs = []
-         number = int(number)
-    async for x in client.logs_from(ctx.message.channel, limit = number+1):
-        mgs.append(x)            
-       
-    try:
-        await client.delete_messages(mgs)          
-        await client.say(+str(number)+  '| Messages deleted! cože')
-     
-    except discord.Forbidden:
-        await client.say(embed=Forbidden)
-        return
-    except discord.HTTPException:
-        await client.say(':x: | Clear Failed.')
-        return         
-   
-    await client.delete_messages(mgs)      
+    mgs = [] #Empty list to put all the messages in the log
+    number = int(number) #Converting the amount of messages to delete to an integer
+    async for x in client.logs_from(ctx.message.channel, limit = number):
+        mgs.append(x)
+    await client.delete_messages(mgs)
 
 @client.command(pass_context=True)
 @commands.has_permissions(administrator=True)
