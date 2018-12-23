@@ -103,7 +103,7 @@ async def on_reaction_add(reaction, user):
         r, g, b = tuple(int(x * 255) for x in colorsys.hsv_to_rgb(random.random(), 1, 1))
         embed = discord.Embed(color = discord.Color((r << 16) + (g << 8) + b))
         embed.set_author(name='Dot - Music Commands')    
-        embed.add_field(".play", "Usage: `.play`<song name> Description: To play Music.", inline = False)
+        embed.add_field(".play", "Usage: ``.play`` <song name> Description: Music.", inline = False)
         embed.add_field(".skip", "Usage: `.skip` Description: To skip music.", inline = False)
         embed.add_field(".stop", "Usage: `.stop` Description: To Bot disconnected.", inline = False)
         embed .add_field(".song", "Usage: `.song` Description: To Check The Current playing song.", inline = False)
