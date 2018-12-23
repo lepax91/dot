@@ -43,11 +43,11 @@ async def help(ctx):
       embed.add_field(name = 'Invite Link',value ="[Here you are](https://discordapp.com/api/oauth2/authorize?client_id=523787927113826305&permissions=8&scope=bot)")      
       embed.add_field(name = '🇬 = General (Main Help) ',value ='Any Fun Commands are here.',inline = False)    
       embed.add_field(name =' 🇲 = Moderation (Mod Help)',value ='Any Moderation Commands are here.', inline = False) 
-      embed.add_field(name =' Ⓜ️ = Musics (Music Help)', value='Any Music Commands are here.', inline = False)
+      embed.add_field(name =' 🔊 = Musics (Music Help)', value='Any Music Commands are here.', inline = False)
       dmmessage = await client.send_message(author,embed=embed)
       reaction1 = '🇬'  
       reaction2 = '🇲' 
-      reaction3 = 'Ⓜ️'
+      reaction3 = '🔊'
    
      	
       await client.add_reaction(dmmessage, reaction1)
@@ -93,7 +93,7 @@ async def on_reaction_add(reaction, user):
 
  
 				             
-      if reaction.emoji == 'Ⓜ️':
+      if reaction.emoji == '🔊':
         r, g, b = tuple(int(x * 255) for x in colorsys.hsv_to_rgb(random.random(), 1, 1))
         embed = discord.Embed(color = discord.Color((r << 16) + (g << 8) + b))
         embed.set_author(name='Dot - Music Commands')    
