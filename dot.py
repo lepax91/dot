@@ -48,8 +48,8 @@ async def help(ctx):
       dmmessage = await client.send_message(author,embed=embed)
       reaction1 = '🇬'  
       reaction2 = '🇲' 
-      reaction4 = '🎶'
-      reaction3 = '🇳'	
+      reaction3 = '🎶'
+   
      	
       await client.add_reaction(dmmessage, reaction1)
       await client.add_reaction(dmmessage, reaction2)
@@ -93,16 +93,7 @@ async def on_reaction_add(reaction, user):
         await asyncio.sleep(30)
         await client.delete_message(react_message)    																								
 
-      if reaction.emoji == '🇳':
-        r, g, b = tuple(int(x * 255) for x in colorsys.hsv_to_rgb(random.random(), 1, 1))
-        embed = discord.Embed(color = discord.Color((r << 16) + (g << 8) + b))
-        embed.set_author(name='NSFW Help - Help Commands')
-        embed.add_field(name = '.ass',value ='Dot sends randomly photo of ass',inline = False)
-        embed.add_field(name = '.pgif',value ='Dot sends randomly porngif.',inline = False)    
-        embed.add_field(name = '.boobs',value ='Dot sends randomly boobs.',inline = False) 
-        react_message = await client.send_message(user,embed=embed)
-        await asyncio.sleep(30)
-        await client.delete_message(react_message)
+ 
 				             
       if reaction.emoji == '🎶':
         r, g, b = tuple(int(x * 255) for x in colorsys.hsv_to_rgb(random.random(), 1, 1))
