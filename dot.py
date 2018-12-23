@@ -39,7 +39,7 @@ async def help(ctx):
       embed.add_field(name = '🇬 = General (Main Help) ',value ='Any Fun Commands are here.',inline = False)    
       embed.add_field(name =' 🇲 = Moderation (Mod Help)',value ='Any Moderation Commands are here.', inline = False)
       embed.add_field(name =' 🇳 = Not Safe to Work (NSFW Help)', value='Any NSFW commands are here.',inline = False)
-      embed.add_field(name ='.helpmusic', value='Any Music Commands are here.', inline = False)
+      embed.add_field(name ='🎶 = Musics (Music Help)', value='Any Music Commands are here.', inline = False)
       dmmessage = await client.send_message(author,embed=embed)
       reaction1 = '🇬'  
       reaction2 = '🇲' 
@@ -102,9 +102,8 @@ async def on_reaction_add(reaction, user):
       if reaction.emoji == '🎶':
         r, g, b = tuple(int(x * 255) for x in colorsys.hsv_to_rgb(random.random(), 1, 1))
         embed = discord.Embed(color = discord.Color((r << 16) + (g << 8) + b))
-        embed.set_author(name='Dot - Music Commands')
-        embed.add_field(".play [YouTube Link/Playlist]", "Usage: `.play` Description: To play See The YouTube Linke And playlist.", inline = False)
-        embed.add_field(".play [Suchbegriff(e)]", "Usage: `.play`<song name> Description: To play Music.", inline = False)
+        embed.set_author(name='Dot - Music Commands')    
+        embed.add_field(".play", "Usage: `.play`<song name> Description: To play Music.", inline = False)
         embed.add_field(".skip", "Usage: `.skip` Description: To skip music.", inline = False)
         embed.add_field(".stop", "Usage: `.stop` Description: To Bot disconnected.", inline = False)
         embed .add_field(".song", "Usage: `.song` Description: To Check The Current playing song.", inline = False)
