@@ -24,7 +24,7 @@ reddit = praw.Reddit(client_id='G-SK66FZT8at9g',
                      client_secret='DLqIkkdoD0K8xKpxuaMAhRscrS0',
                      user_agent='android:com.G-SK66FZT8at9g.SolarBot:v1.2.3 (by /u/LaidDownRepaer)')
 
-
+start_time = datetime.datetime.utcnow()
 			 
 def is_owner(ctx):
     return ctx.message.author.id == "417403958814965771"
