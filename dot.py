@@ -39,17 +39,15 @@ async def help(ctx):
       embed.add_field(name = '🇬 = General (Main Help) ',value ='Any Fun Commands are here.',inline = False)    
       embed.add_field(name =' 🇲 = Moderation (Mod Help)',value ='Any Moderation Commands are here.', inline = False)
       embed.add_field(name =' 🇳 = Not Safe to Work (NSFW Help)', value='Any NSFW commands are here.',inline = False)
-      embed.add_field(name =' 🎶 = Music (Music Help)', value='Any Music Commands are here.', inline = False)
+      embed.add_field(name ='.helpmusic', value='Any Music Commands are here.', inline = False)
       dmmessage = await client.send_message(author,embed=embed)
       reaction1 = '🇬'  
       reaction2 = '🇲' 
       reaction3 = '🇳'
-      reaction4 = '🎶'
      	
       await client.add_reaction(dmmessage, reaction1)
       await client.add_reaction(dmmessage, reaction2)
       await client.add_reaction(dmmessage, reaction3)
-      await client.add_reaction(dmmesaage, reaction4)
       await client.say('<:a_:524648895796740126> | What are you waiting for, just look at DMs..')
 	
    
