@@ -84,7 +84,6 @@ async def on_reaction_add(reaction, user):
         embed.set_author(name='Mod Help - Help Commands')
         embed.add_field(name = '.ban',value ='``(Administrator Permissions Needed)`` | Just ban someone user like this ``.ban @user (reason)``',inline = False)
         embed.add_field(name = '.warn',value ='``(Manage Messages Permissions Needed)`` | Just warn someone user like this ``.warn @user (reason)``',inline = False)
-        embed.add_field(name = '.mute',value='``(Administrator Permissions Needed)`` | Just Mute someone user like this ``.mute @user 10``',inline = False)
         embed.add_field(name = '.say',value ='``(Administrator Permissions Needed)`` | Just say in this command like this ``.say hello``',inline = False)
         embed.add_field(name = '.clear',value ='``(Manage Messages Permissions Needed)`` | Just clear your message like this ``.clear 10``.',inline = False)
         react_message = await client.send_message(user,embed=embed)
