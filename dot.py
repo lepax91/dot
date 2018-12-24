@@ -53,7 +53,7 @@ async def help(ctx):
       await client.add_reaction(dmmessage, reaction1)
       await client.add_reaction(dmmessage, reaction2)
       await client.add_reaction(dmmessage, reaction3)      
-      embed.add_field(name='Stop waiting..', value= '<:a_:524648895796740126> | What are you waiting for, just look at DMs')
+      await client.send('<:a_:524648895796740126> | What are you waiting for, just look at DMs')
      
      
 @client.event
