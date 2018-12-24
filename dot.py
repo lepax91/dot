@@ -286,7 +286,7 @@ async def howgay(ctx, user: discord.Member):
     embed.add_field(name=f"ur mom gay", value=random.choice(howgay))
     await client.say(embed=embed)
 
-@
+
 
 @client.command(pass_context=True)
 async def ping(ctx):
