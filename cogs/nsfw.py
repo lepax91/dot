@@ -1,5 +1,5 @@
 import json
-redditdata = json.load(open("config/reddit_data.json","r"))
+
 
 
 
