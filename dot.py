@@ -30,7 +30,7 @@ def is_owner(ctx):
     return ctx.message.author.id == "417403958814965771"
  
 @client.command()
-async def help(ctx, cmd: str = None):
+async def help(ctx):
     """This thing"""#
     if cmd is None:
         embed = discord.Embed(title="Help — Fun, Music, Moderation!", color=0x9b9dff)   
@@ -38,16 +38,9 @@ async def help(ctx, cmd: str = None):
         embed.add_field(name="Moderation", value="`ban`, `warn`, `say`, `clear`", inline=False)
         embed.add_field(name="Music", value="`play`, `skip`, `stop`, `song`, `queue`, `volume`, `pause`, `resume`, `mutemusic`, `umutemusic`", inline=False)
         embed.set_footer(text=f'Requested by: {ctx.message.author.display_name}', icon_url=f'{ctx.message.author.avatar_url}')
-        embed.timestamp = datetime.datetime.utcnow()
-        await ctx.send(embed=embed)
-    if cmd:
-        x = client.get_command(cmd)
-        y = await client.db.prefixes.find_one({ "id": ctx.guild.id })
-        if not y:
-            return await ctx.send(f"```fix\n- {cmd} -\n= {x.help}\nUsage: -{x.signature}```")
-        await ctx.send(f"```fix\n- {cmd} -\n = {x.help}\nUsage: {y['prefix']}{x.signature}```")
-    elif command is None:
-        await ctx.send("That command doesnt exist!")
+        await client.send(embed=embed)             
+        
+
 
 	
 
