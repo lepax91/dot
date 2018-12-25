@@ -29,7 +29,8 @@ start_time = datetime.datetime.utcnow()
 def is_owner(ctx):
     return ctx.message.author.id == "417403958814965771"
  
-                                                                                                     
+client.load_extension("cogs.nsfw")
+	
 @client.command(pass_context = True)
 async def help(ctx):
     if ctx.message.author.bot:
