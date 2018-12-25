@@ -37,7 +37,7 @@ async def help():
         embed.add_field(name="Fun", value="`ping`, `meme`, `avatar`,  `serverinfo`, `love`, `fortnite`, `penis`, `woof`, `meow`, `hug`, `kiss`, `howgay`", inline=False)
         embed.add_field(name="Moderation", value="`ban`, `warn`, `say`, `clear`", inline=False)
         embed.add_field(name="Music", value="`play`, `skip`, `stop`, `song`, `queue`, `volume`, `pause`, `resume`, `mutemusic`, `umutemusic`", inline=False)
-        embed.set_footer(text=f'Requested by: {ctx.message.author.display_name}', icon_url=f'{ctx.message.author.avatar_url}')
+        embed.set_footer(text=f'Dot | Alpha 1.0 :)')
         await client.send(embed=embed)             
         
 
