@@ -38,7 +38,7 @@ async def help():
         embed.add_field(name="Moderation", value="`ban`, `warn`, `say`, `clear`", inline=False)
         embed.add_field(name="Music", value="`play`, `skip`, `stop`, `song`, `queue`, `volume`, `pause`, `resume`, `mutemusic`, `umutemusic`", inline=False)
         embed.set_footer(text=f'Dot | Alpha 1.0 :)')
-        await client.send(embed=embed)             
+        await client.say(embed=embed)             
         
 
 
