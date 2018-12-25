@@ -30,8 +30,8 @@ def is_owner(ctx):
     return ctx.message.author.id == "417403958814965771"
  
 @client.command()
-async def help(ctx):
-    """This thing"""#
+async def help():
+
     if cmd is None:
         embed = discord.Embed(title="Help — Fun, Music, Moderation!", color=0x9b9dff)   
         embed.add_field(name="Fun", value="`ping`, `meme`, `avatar`,  `serverinfo`, `love`, `fortnite`, `penis`, `woof`, `meow`, `hug`, `kiss`, `howgay`", inline=False)
