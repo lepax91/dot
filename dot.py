@@ -31,7 +31,7 @@ def is_owner(ctx):
  
 @client.command()
 async def help():
-        embed = discord.Embed(title="Help — Fun, Music, Moderation!", description="Dot is a simply bot with any commands", color=0x9b9dff) 
+        embed = discord.Embed(title="Help — Fun, Music, Moderation!", description="Dot is a simply bot with any commands!", color=0x9b9dff) 
         embed.add_field(name="Fun", value="`ping`, `meme`, `avatar`,  `serverinfo`, `love`, `fortnite`, `penis`, `woof`, `meow`, `hug`,`kiss`, `howgay`", inline=False)
         embed.add_field(name="Moderation", value="`ban`, `warn`, `say`, `clear`", inline=False)
         embed.add_field(name="Music", value="`play`, `skip`, `stop`, `song`, `queue`, `volume`, `pause`, `resume`, `mutemusic`, `umutemusic`", inline=False)
