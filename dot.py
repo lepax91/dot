@@ -35,9 +35,9 @@ def is_owner(ctx):
 @client.command()
 async def info():
         embed = discord.Embed(title="Information!", color=0x8d7bff) 
-        embed.add_field(name="Help with Support Server", value="<@273813194861051907>", inline=False)
         embed.add_field(name="Development of Dot", value="<@417403958814965771>", inline=False)			
-        embed.add_field(name="Python (Version)", value="3.6.5 (non-rewrite)", inline=False)     
+        embed.add_field(name="Help with Support Server!", value="<@273813194861051907> (Channels, Roles)", inline=False)
+	embed.add_field(name="Programming Language", value="Python (3.6.5)", inline=False)			
         await client.say(embed=embed)             
         	             
   
@@ -54,7 +54,7 @@ async def off():
 @client.event
 async def on_ready():
     print("The bot is ready!")
-    print("Connected on " + str(len(client.servers)) + " servers:")
+    print("Connected on " + str(len(client.servers)) + " servers:") 
     await client.change_presence(game=discord.Game(name='.help | with '+str(len(set(client.get_all_members())))+' users', url="https://twitch.tv/myname", type=1))				
 								                                         
 		
