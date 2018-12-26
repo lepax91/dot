@@ -3,3 +3,12 @@ asyncio
 psutil
 status
 praw
+git+https://github.com/Rapptz/discord.py@rewrite
+git+https://github.com/Rapptz/discord.py@rewrite#egg=discord.py[voice]
+yarl<1.2
+pillow
+motor
+youtube_dl
+psutil
+requests
+aiohttp
