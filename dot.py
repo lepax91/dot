@@ -32,7 +32,7 @@ def is_owner(ctx):
  
 @client.command()
 async def help():
-        embed = discord.Embed(title="Help — Fun, Music, Moderation!", description="Dot is a simply bot with any commands!", color=0x9b9dff)b
+        embed = discord.Embed(title="Help — Fun, Music, Moderation!", description="Dot is a simply bot with any commands!", color=0x9b9dff)
         embed.add_=field(name="Information:" value="`help`, `info`", inline=False)
 	    embed.add_field(name="Fun:", value="`ping`, `meme`, `avatar`,  `serverinfo`, `love`, `fortnite`, `penis`, `woof`, `meow`, `hug`,`kiss`, `howgay`", inline=False)
         embed.add_field(name="Moderation:", value="`ban`, `warn`, `say`, `clear`", inline=False)
@@ -42,7 +42,7 @@ async def help():
         
 @client.command()
 async def info():
-        embed = discord.Embed(title="Information!", color=00000ff) 
+        embed = discord.Embed(title="Information!", color=0x8d7bff) 
         embed.add_field(name="Help with Support Server", value="<@273813194861051907>", inline=False)
         embed.add_field(name="Development of Dot", value="<@417403958814965771>", inline=False)			
         embed.add_field(name="Python (Version)", value="3.6.5 (non-rewrite)", inline=False)     
