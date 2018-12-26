@@ -29,7 +29,15 @@ start_time = datetime.datetime.utcnow()
 def is_owner(ctx):
     return ctx.message.author.id == "417403958814965771"
  
- 
+@client.command()
+async def help():	
+        embed = discord.Embed(title="Help — Fun, Music, Moderation!", description="Dot is a simply bot with any commands!", color=0x9b9dff)
+        embed.add_field(name="Information:", value="`help`, `info`", inline=False)
+        embed.add_field(name="Fun:", value="`ping`, `meme`, `avatar`,  `serverinfo`, `love`, `fortnite`, `penis`, `woof`, `meow`, `hug`,`kiss`, `howgay`", inline=False)
+        embed.add_field(name="Moderation:", value="`ban`, `warn`, `say`, `clear`", inline=False)
+        embed.add_field(name="Music:", value="`play`, `skip`, `stop`, `song`, `queue`, `volume`, `pe`, `resume`, `mutemusic`, `umutemusic`", inline=False)
+        embed.set_footer(text=f'Total 29 Commands, 4 Category | Dot — Alpha 1.0')
+        await client.say(embed=embed)
                     
         
 @client.command()
