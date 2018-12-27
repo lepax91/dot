@@ -356,7 +356,8 @@ async def penis(ctx):
 
 @client.command()
 async def help():	
-        embed = discord.Embed(name="Dot — Help Command", description="Dot is programmed in Python. [Support Server](https://discord.gg/XQW9uf2)", color=0x9b9dff)
+        embed = discord.Embed(name="Dot — Help Command", description="Dot is a simply bot with any Fun Commands!", color=0x9b9dff)
+        embed.add_field(name="", value="[Support Server](https://discord.gg/XQW9uf2)", inline=False)
         embed.add_field(name="**Information:**", value="`help`, `info`", inline=False)
         embed.add_field(name="**Fun:**", value="`ping`, `meme`, `avatar`,  `serverinfo`, `love`, `fortnite`, `penis`, `woof`, `meow`, `hug`, `kiss`, `howgay`", inline=False)
         embed.add_field(name="**NSFW:**", value="`hentai`, `butt`", inline=False)
@@ -364,7 +365,7 @@ async def help():
         embed.add_field(name="**Music:**", value="`play`, `skip`, `stop`, `song`, `queue`, `volume`, `resume`, `mutemusic`, `umutemusic`", inline=False)      
         embed.set_footer(text=f'Total 29 Commands, 5 Category | Dot — Alpha 1.0')
         await client.say(embed=embed)
-
+	
 @client.command(pass_context = True)
 async def hentai(ctx):
     colour = '0x' + '007000'
