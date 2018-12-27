@@ -18,7 +18,7 @@ import time
 from discord.voice_client import VoiceClient
 from discord import Game, Embed, Color, Status, ChannelType
 
-client = Bot(description="dot is gay", command_prefix=".", pm_help = True)
+client = Bot(description="dot is gay", command_prefix=commands.when_mentioned_or("."), pm_help = True)
 client.remove_command('help')
 reddit = praw.Reddit(client_id='G-SK66FZT8at9g',
                      client_secret='DLqIkkdoD0K8xKpxuaMAhRscrS0',
