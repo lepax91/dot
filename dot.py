@@ -184,7 +184,12 @@ async def meme(ctx):
             embed.set_footer(text=f'Requested by: {ctx.message.author.display_name}', icon_url=f'{ctx.message.author.avatar_url}')
             embed.timestamp = datetime.datetime.utcnow()
             await client.say(embed=embed)
+	
+	
+
 		
+		
+	
 
 @client.command(pass_context=True)
 async def love(ctx, user: discord.Member = None, *, user2: discord.Member = None):
@@ -354,7 +359,21 @@ async def help():
         embed.add_field(name="Music:", value="`play`, `skip`, `stop`, `song`, `queue`, `volume`, `resume`, `mutemusic`, `umutemusic`", inline=False)
         embed.set_footer(text=f'Total 29 Commands, 4 Category | Dot — Alpha 1.0')
         await client.say(embed=embed)
-                    
+   
+
+@client.command(pass_context = True)
+async def animemes(ctx):
+    colour = '0x' + '008000'
+    async with aiohttp.ClientSession() as session:
+        async with session.get("https://api.reddit.com/r/Animememes/random") as r:
+            data = await r.json()
+            embed = discord.Embed(title='why this cringe exist?', description='', color=discord.Color(int(colour, base=16)))
+            embed.set_image(url=data[0]["data"]["children"][0]["data"]["url"])
+            embed.set_footer(text=f'Requested by: {ctx.message.author.display_name}', icon_url=f'{ctx.message.author.avatar_url}')
+            embed.timestamp = datetime.datetime.utcnow()
+            await client.say(embed=embed)
+		
+
 	
 client.run(os.getenv('Token'))
 		                                                                                                
