@@ -30,7 +30,12 @@ start_time = datetime.datetime.utcnow()
 def is_owner(ctx):
     return ctx.message.author.id == "417403958814965771"
  
-
+@client.event
+async def on_message(message):
+    if message.content.startswith('.react'):
+        msg = await client.send_message(message.channel, 'React with thumbs up or thumbs down.')
+        res = await client.wait_for_reaction(['👍', '👎'], message=msg)
+        await client.send_message(message.channel, '{0.user} reacted with {0.reaction.emoji}!'.format(res))
                     
         
 @client.command()
