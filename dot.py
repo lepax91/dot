@@ -356,9 +356,9 @@ async def help():
         embed.add_field(name="Memes:", value="`meme`, `animemes`", inline=False)
         embed.add_field(name="Moderation:", value="`ban`, `warn`, `say`, `clear`", inline=False)
         embed.add_field(name="Music:", value="`play`, `skip`, `stop`, `song`, `queue`, `volume`, `resume`, `mutemusic`, `umutemusic`", inline=False)
-        embed.set_footer(text=f'Total 28 Commands, 5 Category | Dot — Alpha 1.0')
+        embed.add_field(name="NSFW:", value="`hentai`", inline=False)
+        embed.set_footer(text=f'Total 29 Commands, 6 Category | Dot — Alpha 1.0')
         await client.say(embed=embed)
-	
 
 @client.command(pass_context = True)
 async def animemes(ctx):
@@ -374,7 +374,7 @@ async def animemes(ctx):
 		
 @client.command(pass_context = True)
 async def hentai(ctx):
-    colour = '0x' + '008000'
+    colour = '0x' + '007000'
     async with aiohttp.ClientSession() as session:
         async with session.get("https://api.reddit.com/r/hentai/random") as r:
             data = await r.json()
