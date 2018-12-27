@@ -355,7 +355,7 @@ async def help():
         embed.add_field(name="Fun:", value="`ping`, `meme`, `avatar`,  `serverinfo`, `love`, `fortnite`, `penis`, `woof`, `meow`, `hug`,`kiss`, `howgay`, `animemes`", inline=False)
         embed.add_field(name="Moderation:", value="`ban`, `warn`, `say`, `clear`", inline=False)
         embed.add_field(name="Music:", value="`play`, `skip`, `stop`, `song`, `queue`, `volume`, `resume`, `mutemusic`, `umutemusic`", inline=False)
-        embed.set_footer(text=f'Total 30 Commands, 4 Category | Dot — Alpha 1.0')
+        embed.set_footer(text=f'Total 28 Commands, 4 Category | Dot — Alpha 1.0')
         await client.say(embed=embed)
    
 
