@@ -220,7 +220,17 @@ async def howgay(ctx, user: discord.Member):
     embed.add_field(name=f"ur mom gay", value=random.choice(howgay))
     await client.say(embed=embed)
 
-
+@client.command(pass_context = True)
+async def butt(ctx):
+    colour = '0x' + '007000'
+    async with aiohttp.ClientSession() as session:
+        async with session.get("https://api.reddit.com/r/ass/random") as r:
+            data = await r.json()
+            embed = discord.Embed(title='FBI OPEN UP', description='', color=discord.Color(int(colour, base=16)))
+            embed.set_image(url=data[0]["data"]["children"][0]["data"]["url"])
+            embed.set_footer(text=f'Requested by: {ctx.message.author.display_name}', icon_url=f'{ctx.message.author.avatar_url}')
+            embed.timestamp = datetime.datetime.utcnow()
+            await client.say(embed=embed)
 
 @client.command(pass_context=True)
 async def ping(ctx):
@@ -366,7 +376,8 @@ async def hentai(ctx):
             embed.set_footer(text=f'Requested by: {ctx.message.author.display_name}', icon_url=f'{ctx.message.author.avatar_url}')
             embed.timestamp = datetime.datetime.utcnow()
             await client.say(embed=embed)
-				
+	
+	@client.command(pass_context = True)
 				
 client.run(os.getenv('Token'))
 		                                                                                                
