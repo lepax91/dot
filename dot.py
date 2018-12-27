@@ -359,7 +359,7 @@ async def help():
         embed = discord.Embed(title="Help — Fun, Music, Moderation!", description=" <:Avatar:527564140051562517> | Dot is a simply bot with any commands!", color=0x9b9dff)
         embed.add_field(name="**Information:**", value="`help`, `info`", inline=False)
         embed.add_field(name="**Fun:**", value="`ping`, `meme`, `avatar`,  `serverinfo`, `love`, `fortnite`, `penis`, `woof`, `meow`, `hug`, `kiss`, `howgay`", inline=False)
-        embed.add_field(name="**NSFW:**", value="`hentai`", inline=False)
+        embed.add_field(name="**NSFW:**", value="`hentai`, `butt`", inline=False)
         embed.add_field(name="**Moderation:**", value="`ban`, `warn`, `say`, `clear`", inline=False)
         embed.add_field(name="**Music:**", value="`play`, `skip`, `stop`, `song`, `queue`, `volume`, `resume`, `mutemusic`, `umutemusic`", inline=False)      
         embed.set_footer(text=f'Total 28 Commands, 6 Category | Dot — Alpha 1.0')
