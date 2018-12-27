@@ -347,31 +347,19 @@ async def penis(ctx):
     embed.add_field(name=f"penis machine fam", value=random.choice(penis))
     await client.say(embed=embed)
 
-
 @client.command()
 async def help():	
         embed = discord.Embed(title="Help — Fun, Music, Moderation!", description=" <:Avatar:527564140051562517> | Dot is a simply bot with any commands!", color=0x9b9dff)
         embed.add_field(name="Information:", value="`help`, `info`", inline=False)
         embed.add_field(name="Fun:", value="`ping`, `meme`, `avatar`,  `serverinfo`, `love`, `fortnite`, `penis`, `woof`, `meow`, `hug`,`kiss`, `howgay`, `animemes`", inline=False)
-        embed.add_field(name="Memes:", value="`meme`, `animemes`", inline=False)
-        embed.add_field(name="Moderation:", value="`ban`, `warn`, `say`, `clear`", inline=False)
-        embed.add_field(name="Music:", value="`play`, `skip`, `stop`, `song`, `queue`, `volume`, `resume`, `mutemusic`, `umutemusic`", inline=False)
+        embed.add_field(name="Memes:", value="`meme`", inline=False)
         embed.add_field(name="NSFW:", value="`hentai`", inline=False)
-        embed.set_footer(text=f'Total 29 Commands, 6 Category | Dot — Alpha 1.0')
+        embed.add_field(name="Moderation:", value="`ban`, `warn`, `say`, `clear`", inline=False)
+        embed.add_field(name="Music:", value="`play`, `skip`, `stop`, `song`, `queue`, `volume`, `resume`, `mutemusic`, `umutemusic`", inline=False)      
+        embed.set_footer(text=f'Total 28 Commands, 6 Category | Dot — Alpha 1.0')
         await client.say(embed=embed)
 
-@client.command(pass_context = True)
-async def animemes(ctx):
-    colour = '0x' + '008000'
-    async with aiohttp.ClientSession() as session:
-        async with session.get("https://api.reddit.com/r/Animememes/random") as r:
-            data = await r.json()
-            embed = discord.Embed(title='why this cringe exist?', description='', color=discord.Color(int(colour, base=16)))
-            embed.set_image(url=data[0]["data"]["children"][0]["data"]["url"])
-            embed.set_footer(text=f'Requested by: {ctx.message.author.display_name}', icon_url=f'{ctx.message.author.avatar_url}')
-            embed.timestamp = datetime.datetime.utcnow()
-            await client.say(embed=embed)
-		
+
 @client.command(pass_context = True)
 async def hentai(ctx):
     colour = '0x' + '007000'
