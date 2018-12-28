@@ -395,22 +395,22 @@ async def rps(ctx, *, message=None):
         return await client.say(embed=embed)
     else:
         if message.lower()  == "rock" and pick == "paper":
-            embed.add_field(name = "Dot Wins!", value = "Dot picked {}!".format(pick))
+            embed.add_field(name = "Dot wins!", value = "Dot picked {}!".format(pick))
             await client.say(embed=embed)
         elif message.lower()  == "rock" and pick == "scissors":
-            embed.add_field(name = "{} Wins!".format(ctx.message.author.name), value = "Bot picked {}!".format(pick))
+            embed.add_field(name = "{} wins!".format(ctx.message.author.name), value = "Dot picked {}!".format(pick))
             await client.say(embed=embed)
         elif message.lower()  == "paper" and pick == "rock":
-            embed.add_field(name = "{} Wins!".format(ctx.message.author.name), value = "Bot picked {}!".format(pick))
+            embed.add_field(name = "{} wins!".format(ctx.message.author.name), value = "Dot picked {}!".format(pick))
             await client.say(embed=embed)
         elif message.lower()  == "paper" and pick == "scissors":
-            embed.add_field(name = "Dot Wins!", value = "Dot picked {}!".format(pick))
+            embed.add_field(name = "Dot wins!", value = "Dot picked {}!".format(pick))
             await client.say(embed=embed)
         elif message.lower()  == "scissors" and pick == "rock":
-            embed.add_field(name = "Dot Wins!", value = "Dot picked {}!".format(pick))
+            embed.add_field(name = "Dot wins!", value = "Dot picked {}!".format(pick))
             await client.say(embed=embed)
         else:
-            embed.add_field(name = "{} Wins!".format(ctx.message.author.name), value = "Dot picked {}!".format(pick))
+            embed.add_field(name = "{} wins!".format(ctx.message.author.name), value = "Dot picked {}!".format(pick))
             await client.say(embed=embed)
 	
 					
