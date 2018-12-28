@@ -64,10 +64,9 @@ async def warn(ctx, userName: discord.User, *, message:str):
 			
 @client.command(pass_context=True)
 async def clear(ctx, limit: int=None):
-    async for msg in client.logs_from(ctx.message.channel, limit=limit):
-        if msg.author.id == client.user.id:
-            try:
-                await client.delete_message (msg)
+    async for x in Client.logs_from(ctx.message.channel, limit = number):
+        mgs.append(x)
+                await client.delete_message(msg)
             except:
                 pass
     embed = discord.Embed(description="Action completed! :smile:", color=0x00ff00)
