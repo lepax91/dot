@@ -362,7 +362,7 @@ async def help():
         embed.add_field(name="**NSFW:**", value="`hentai`, `butt`", inline=False)
         embed.add_field(name="**Moderation:**", value="`ban`, `warn`, `say`, `clear`", inline=False)
         embed.add_field(name="**Music:**", value="`play`, `skip`, `stop`, `song`, `queue`, `volume`, `resume`, `mutemusic`, `umutemusic`", inline=False)      
-        embed.set_footer(text=f'Total 31 Commands, 5 Category | Dot — Alpha 1.0')
+        embed.set_footer(text=f'Total 32 Commands, 5 Category | Dot — Alpha 1.0')
         await client.say(embed=embed)
 	
 @client.command(pass_context = True)
