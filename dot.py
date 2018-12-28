@@ -62,10 +62,16 @@ async def warn(ctx, userName: discord.User, *, message:str):
     await client.say("**:white_check_mark: | {} has been warned!** ".format(userName,message))
     pass		
 			
-@client.command(pass_context = True)
-@commands.has_permissions(manage_messages = True)
-async def clear(ctx, number: int):
-  clear = await client.delete_message(ctx.message.channel, limit = number+1000)
+@client.command(pass_context=True)
+async def clear(ctx, limit: int=None):
+    async for msg in client.logs_from(ctx.message.channel, limit=limit):
+        if msg.author.id == client.user.id:
+            try:
+                await client.delete_message (msg)
+            except:
+                pass
+    embed = discord.Embed(description="Action completed! :smile:", color=0x00ff00)
+    await client.say (embed=embed)
 
 @client.command(pass_context=True)
 @commands.has_permissions(administrator=True)
