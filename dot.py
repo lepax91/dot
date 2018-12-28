@@ -385,8 +385,7 @@ async def cat(ctx):
         async with session.get("https://aws.random.cat/meow") as r:
             data = await r.json()
             embed = discord.Embed(title='', description='', color=discord.Color(int(colour, base=16)))
-            embed.set_image(url=data[0]["data"]["children"][0]["data"]["url"]
-            embed.set_footer(text=f'Requested by: {ctx.message.author.display_name}', icon_url=f'{ctx.message.author.avatar_url}')
+            embed.set_image(url=data[0]["data"]["children"][0]["data"]["url"]) 
             embed.timestamp = datetime.datetime.utcnow()
             await client.say(embed=embed)	
 	
