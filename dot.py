@@ -382,7 +382,7 @@ async def hentai(ctx):
 async def cat(ctx):
     colour = '0x' + '007000'
     async with aiohttp.ClientSession() as session:
-        async with session.get("https://aws.random.cat/meow")
+        async with session.get("https://aws.random.cat/meow") as r:
             data = await r.json()
             embed = discord.Embed(title='ok hand', description='', color=discord.Color(int(colour, base=16)))
             embed.set_image(url=data[0]["file"]["url"])
