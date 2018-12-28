@@ -105,15 +105,17 @@ async def ban(ctx,user:discord.Member):
 async def avatar(ctx, user: discord.Member=None):
     if user is None:
         r, g, b = tuple(int(x * 255) for x in colorsys.hsv_to_rgb(random.random(), 1, 1))
-        embed = discord.Embed(title=f'', description='', color = discord.Color((r << 16) + (g << 8) + b))
+        embed = discord.Embed(title=f'Avatar', description='Avatar is profile picture of a user in discord', color = discord.Color((r << 16) + (g << 8) + b))
+        embed.add_field(name='User: {}'.format(ctx.message.author.name), value='Avatar:', inline=True)       
         embed.set_image(url = ctx.message.author.avatar_url)
         await client.say(embed=embed)
     else:
         r, g, b = tuple(int(x * 255) for x in colorsys.hsv_to_rgb(random.random(), 1, 1))
-        embed = discord.Embed(title=f'', description='', color = discord.Color((r << 16) + (g << 8) + b)))
+        embed = discord.Embed(title=f'Avatar', description='Avatar is profile picture of a user in discord', color = discord.Color((r << 16) + (g << 8) + b))
+        embed.add_field(name='User: {}'.format(user.name), value='Avatar:', inline=True)     
         embed.set_image(url = user.avatar_url)
-        await client.say(embed=embed)                                                                                                                                                                                  	                    						
-	
+        await client.say(embed=embed)
+
 	
 @client.command(pass_context=True)
 async def meow(ctx):
@@ -356,7 +358,7 @@ async def penis(ctx):
 async def help():	
         embed = discord.Embed(title="Dot — Help Command", description="Dot is a simply bot with any Fun Commands!", color=0x003366)			      
         embed.add_field(name="**Information:**", value="`help`, `info`, `rank`, `uptime`", inline=False)
-        embed.add_field(name="**Fun:**", value="`ping`, `meme`, `avatar`,  `serverinfo`, `love`, `fortnite`, `penis`, `woof`, `meow`, `hug`, `kiss`, `howgay`", inline=False)
+        embed.add_field(name="**Fun:**", value="`ping`, `meme`, `avatar`,  `serverinfo`, `love`, `fortnite`, `penis`, `woof`, `meow`, `hug`, `kiss`, `howgay`, `rps`", inline=False)
         embed.add_field(name="**NSFW:**", value="`hentai`, `butt`", inline=False)
         embed.add_field(name="**Moderation:**", value="`ban`, `warn`, `say`, `clear`", inline=False)
         embed.add_field(name="**Music:**", value="`play`, `skip`, `stop`, `song`, `queue`, `volume`, `resume`, `mutemusic`, `umutemusic`", inline=False)      
@@ -376,8 +378,41 @@ async def hentai(ctx):
             await client.say(embed=embed)
 	
             
-
+@client.command(pass_context=True)
+async def rps(ctx, *, message=None):
+    r, g, b = tuple(int(x * 255) for x in colorsys.hsv_to_rgb(random.random(), 1, 1))
+    await client.send_typing(ctx.message.channel)
+    ans = ["rock", "paper", "scissors"]
+    pick=ans[random.randint(0, 2)]
+    embed=discord.Embed(title = "Dot VS {}".format(ctx.message.author.name), color = discord.Color((r << 16) + (g << 8) + b))
+    embed.set_author(name = ctx.message.author.name, icon_url = ctx.message.author.avatar_url)
+    if message is None:
+        await client.say('Use like this | .rps (rock or paper or scissors)')
+    if message.lower() != ans[0] and message.lower() != ans[1] and message.lower() != ans[2] :
+        return await client.say("Pick Rock Paper or Scissors")
+    elif message.lower() == pick:
+        embed.add_field(name = "Its a draw!", value = "Dot picked {} too!".format(pick))
+        return await client.say(embed=embed)
+    else:
+        if message.lower()  == "rock" and pick == "paper":
+            embed.add_field(name = "Dot Wins!", value = "Bot picked {}!".format(pick))
+            await client.say(embed=embed)
+        elif message.lower()  == "rock" and pick == "scissors":
+            embed.add_field(name = "{} Wins!".format(ctx.message.author.name), value = "Bot picked {}!".format(pick))
+            await client.say(embed=embed)
+        elif message.lower()  == "paper" and pick == "rock":
+            embed.add_field(name = "{} Wins!".format(ctx.message.author.name), value = "Bot picked {}!".format(pick))
+            await client.say(embed=embed)
+        elif message.lower()  == "paper" and pick == "scissors":
+            embed.add_field(name = "Dot Wins!", value = "Bot picked {}!".format(pick))
+            await client.say(embed=embed)
+        elif message.lower()  == "scissors" and pick == "rock":
+            embed.add_field(name = "Dot Wins!", value = "Bot picked {}!".format(pick))
+            await client.say(embed=embed)
+        else:
+            embed.add_field(name = "{} Wins!".format(ctx.message.author.name), value = "Dot picked {}!".format(pick))
+            await client.say(embed=embed)
 	
-				
+					
 client.run(os.getenv('Token'))
 		                                                                                                
