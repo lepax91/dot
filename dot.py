@@ -105,14 +105,14 @@ async def ban(ctx,user:discord.Member):
 async def avatar(ctx, user: discord.Member=None):
     if user is None:
         r, g, b = tuple(int(x * 255) for x in colorsys.hsv_to_rgb(random.random(), 1, 1))
-        embed = discord.Embed(title=f'Avatar', description='Avatar is profile picture of a user in discord', color = discord.Color((r << 16) + (g << 8) + b))
-        embed.add_field(name='User: {}'.format(ctx.message.author.name), value='Avatar:', inline=True)
+        embed = discord.Embed(title=f'', description='', color = discord.Color(( << 16) + (g << 8) + b))
+        embed.add_field(name='{}'.format(ctx.message.author.name), value='', inline=True)
         embed.set_image(url = ctx.message.author.avatar_url)
         await client.say(embed=embed)
     else:
         r, g, b = tuple(int(x * 255) for x in colorsys.hsv_to_rgb(random.random(), 1, 1))
-        embed = discord.Embed(title=f'Avatar', description='Avatar is profile picture of a user in discord', color = discord.Color((r << 16) + (g << 8) + b))
-        embed.add_field(name='User: {}'.format(user.name), value='Avatar:', inline=True)
+        embed = discord.Embed(title=f'', description='', color = discord.Color((r << 16) + (g << 8) + b))
+        embed.add_field(name='{}'.format(user.name), value='', inline=True)
         embed.set_image(url = user.avatar_url)
         await client.say(embed=embed)                                                                                                                                                                                  	                    						
 	
