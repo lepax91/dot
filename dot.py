@@ -378,16 +378,7 @@ async def hentai(ctx):
             await client.say(embed=embed)
 	
             
-@client.command(pass_context = True)
-async def cat(ctx):
-    colour = '0x' + '007000'
-    async with aiohttp.ClientSession() as session:
-        async with session.get("https://aws.random.cat/meow") as r:
-            data = await r.json()
-            embed = discord.Embed(title='', description='', color=discord.Color(int(colour, base=16)))
-            embed.set_image(url=data[0]["data"]["children"][0]["data"]["url"]) 
-            embed.timestamp = datetime.datetime.utcnow()
-            await client.say(embed=embed)	
+
 	
 				
 client.run(os.getenv('Token'))
