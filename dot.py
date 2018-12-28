@@ -389,7 +389,7 @@ async def rps(ctx, *, message=None):
     if message is None:
         await client.say('Use like this | .rps (rock or paper or scissors)')
     if message.lower() != ans[0] and message.lower() != ans[1] and message.lower() != ans[2] :
-        return await client.say("<:joy:525410119199227915> | Please Only, Rock, Paper, Scissors!")
+        return await client.say("<:joy:525410119199227915>: Please Only, Rock, Paper, Scissors!")
     elif message.lower() == pick:
         embed.add_field(name = "Its a draw!", value = "Dot picked {} too!".format(pick))
         return await client.say(embed=embed)
