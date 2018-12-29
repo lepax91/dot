@@ -361,7 +361,7 @@ async def help():
         embed.add_field(name="**Moderation:**", value="`ban`, `warn`, `say`, `clear`", inline=False)
         embed.add_field(name="**Music:**", value="`play`, `skip`, `stop`, `song`, `queue`, `volume`, `resume`, `mutemusic`, `umutemusic`", inline=False)     
         embed.set_footer(text="Prefix is (.) | Pre-Alpha v.1.0")
-        await client.say(embed=embed
+        await client.say(embed=embed)
 	
 @client.command(pass_context = True)
 async def hentai(ctx):
