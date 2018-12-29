@@ -47,13 +47,12 @@ async def off():
     
 @client.command(pass_context=True)
 async def clear(ctx, limit: int=None):
-    async for msg in client.logs_from(ctx.message.channel, limit=100):
+    async for msg in client.logs_from(ctx.message.channel, limit=limit):
         if msg.author.id == client.user.id:
             try:
                 await client.delete_message (msg)
             except:
-                pass
-    embed = discord.Embed(description="Messages are Deleted! :", color=0x00ff00)
+    embed = discord.Embed(description="Messages are Deleted!", color=0x00ff00)
     await client.say (embed=embed)  	
 			
 @client.event
