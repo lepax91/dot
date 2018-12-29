@@ -37,18 +37,7 @@ async def info():
 	    embed.add_field(name="Help with Support Server!", value="<@273813194861051907> (Channels, Roles)", inline=False)
 	    embed.add_field(name="Programming Languages", value="Python, JavaScript (Music)", inline=False)
 	    await client.say(embed=embed)
-@client.command(pass_context = True)
-@commands.has_permissions(administrator=True)
-async def saytts(ctx, *, msg = None):
-    await client.delete_message(ctx.message)
-    if ctx.message.author.bot:
-      return
-    else:
-      if not msg: await client.say("Please specify a message to send")
-      else: await client.say(msg, tts=True)        	             
   
-
-
 @client.command(pass_context = True)
 @commands.check(is_owner)
 async def off():
