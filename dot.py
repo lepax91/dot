@@ -45,15 +45,10 @@ async def info():
 async def off():
     await client.close()
     
-@client.command(pass_context=True)
-async def clear(ctx, limit: int=None):
-    async for msg in client.logs_from(ctx.message.channel, limit=limit):
-        if msg.author.id == client.user.id:
-            try:
-                await client.delete_message (msg)
-            except:
-    embed = discord.Embed(description="Messages are Deleted!", color=0x00ff00)
-    await client.say (embed=embed)  	
+@client.command(pass_context = True)
+@commands.has_permissions(manage_messages = True)
+async def purge(ctx, number: int):
+  purge = await client.purge_from(ctx.message.channel, limit = number+1)
 			
 @client.event
 async def on_ready():
@@ -357,7 +352,7 @@ async def help():
         embed.add_field(name="**Information:**", value="`help`, `info`, `uptime`", inline=False)
         embed.add_field(name="**Fun:**", value="`ping`, `meme`, `avatar`,  `serverinfo`, `love`, `fortnite`, `penis`, `woof`, `meow`, `hug`, `kiss`, `howgay`, `rps`", inline=False)
         embed.add_field(name="**NSFW:**", value="`hentai`, `butt`", inline=False)
-        embed.add_field(name="**Moderation:**", value="`ban`, `warn`, `say`, `clear`", inline=False)
+        embed.add_field(name="**Moderation:**", value="`ban`, `warn`, `say`, `purge`", inline=False)
         embed.add_field(name="**Music:**", value="`play`, `skip`, `stop`, `song`, `queue`, `volume`, `resume`, `mutemusic`, `umutemusic`", inline=False)     
         embed.set_footer(text="Prefix is (.) | Pre-Alpha v.1.0")
         await client.say(embed=embed)
