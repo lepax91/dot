@@ -250,7 +250,16 @@ async def kiss(ctx, user: discord.Member):
         embed.set_image(url=random.choice(randomurl))
         await client.say(embed=embed)					
 	
+@client.event
+async def on_message(message):
+    """
+    Adds a gay pride flag as a reaction if a message contains "everyone"
+    """
+    if "@everyone" in message.content:
+        await client.add_reaction(message, '🏳️‍🌈')
+        print("added everyone to {}".format(message.content))
 
+			
 @client.event
 async def on_member_join(member):
     for channel in member.server.channels:
@@ -355,7 +364,7 @@ async def penis(ctx):
 @client.command()
 async def help():	
         embed = discord.Embed(title="Dot — Help Command", description="Dot is a simply bot with any Fun Commands!", color=0x003366)			      
-        embed.add_field(name="**Information:**", value="`help`, `info`, `rank`, `uptime`", inline=False)
+        embed.add_field(name="**Information:**", value="`help`, `info`, `uptime`", inline=False)
         embed.add_field(name="**Fun:**", value="`ping`, `meme`, `avatar`,  `serverinfo`, `love`, `fortnite`, `penis`, `woof`, `meow`, `hug`, `kiss`, `howgay`, `rps`", inline=False)
         embed.add_field(name="**NSFW:**", value="`hentai`, `butt`", inline=False)
         embed.add_field(name="**Moderation:**", value="`ban`, `warn`, `say`, `clear`", inline=False)
