@@ -225,7 +225,7 @@ async def butt(ctx):
     async with aiohttp.ClientSession() as session:
         async with session.get("https://api.reddit.com/r/ass/random") as r:
             data = await r.json()
-            embed = discord.Embed(title='FBI OPEN UP', description='', color=discord.Color(int(colour, base=16)))
+            embed = discord.Embed(title='', description='', color=discord.Color(int(colour, base=16)))
             embed.set_image(url=data[0]["data"]["children"][0]["data"]["url"])         
             embed.timestamp = datetime.datetime.utcnow()
             await client.say(embed=embed)
@@ -359,8 +359,7 @@ async def help(ctx):
         embed.add_field(name="**Fun:**", value="`ping`, `meme`, `avatar`,  `serverinfo`, `love`, `fortnite`, `penis`, `woof`, `meow`, `hug`, `kiss`, `howgay`, `rps`", inline=False)
         embed.add_field(name="**NSFW:**", value="`hentai`, `butt`", inline=False)
         embed.add_field(name="**Moderation:**", value="`ban`, `warn`, `say`, `clear`", inline=False)
-        embed.add_field(name="**Music:**", value="`play`, `skip`, `stop`, `song`, `queue`, `volume`, `resume`, `mutemusic`, `umutemusic`", inline=False)      
-        embed.set_footer(text=f'Requested by: {ctx.message.author.display_name}', icon_url=f'{ctx.message.author.avatar_url}')
+        embed.add_field(name="**Music:**", value="`play`, `skip`, `stop`, `song`, `queue`, `volume`, `resume`, `mutemusic`, `umutemusic`", inline=False)     
         await client.say(embed=embed)
 	
 @client.command(pass_context = True)
