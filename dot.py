@@ -45,8 +45,16 @@ async def info():
 async def off():
     await client.close()
     
-    	
-
+@client.command(pass_context=True)
+async def clear(ctx, limit: int=None):
+    async for msg in client.logs_from(ctx.message.channel, limit=100):
+        if msg.author.id == client.user.id:
+            try:
+                await client.delete_message (msg)
+            except:
+                pass
+    embed = discord.Embed(description="Messages are Deleted! :", color=0x00ff00)
+    await client.say (embed=embed)  	
 			
 @client.event
 async def on_ready():
@@ -62,13 +70,6 @@ async def warn(ctx, userName: discord.User, *, message:str):
     await client.say("**:white_check_mark: | {} has been warned!** ".format(userName,message))
     pass		
 			
-@client.command(pass_context = True)
-async def clear(ctx, number):
-    mgs = [] #Empty list to put all the messages in the log
-    number = int(number) #Converting the amount of messages to delete to an integer
-    async for x in client.logs_from(ctx.message.channel, limit = number):
-        mgs.append(x)
-    await client.delete_messages(mgs)
 
 @client.command(pass_context=True)
 @commands.has_permissions(administrator=True)
@@ -249,17 +250,7 @@ async def kiss(ctx, user: discord.Member):
         embed = discord.Embed(title=f"{user.name} You just got a kiss from {ctx.message.author.name}", color = discord.Color((r << 16) + (g << 8) + b))
         embed.set_image(url=random.choice(randomurl))
         await client.say(embed=embed)					
-	
-@client.event
-async def on_message(message):
-    """
-    Adds a gay pride flag as a reaction if a message contains "everyone"
-    """
-    if "@everyone" in message.content:
-        await client.add_reaction(message, '🏳️‍🌈')
-        print("added everyone to {}".format(message.content))
-
-			
+				
 @client.event
 async def on_member_join(member):
     for channel in member.server.channels:
