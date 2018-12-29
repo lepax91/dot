@@ -174,9 +174,8 @@ async def meme(ctx):
     async with aiohttp.ClientSession() as session:
         async with session.get("https://api.reddit.com/r/memes/random") as r:
             data = await r.json()
-            embed = discord.Embed(title='Redditovski, Anal—ysis', description='', color=discord.Color(int(colour, base=16)))
-            embed.set_image(url=data[0]["data"]["children"][0]["data"]["url"])
-            embed.set_footer(text=f'Requested by: {ctx.message.author.display_name}', icon_url=f'{ctx.message.author.avatar_url}')
+            embed = discord.Embed(title='', description='', color=discord.Color(int(colour, base=16)))
+            embed.set_image(url=data[0]["data"]["children"][0]["data"]["url"])        
             embed.timestamp = datetime.datetime.utcnow()
             await client.say(embed=embed)
 	
@@ -227,8 +226,7 @@ async def butt(ctx):
         async with session.get("https://api.reddit.com/r/ass/random") as r:
             data = await r.json()
             embed = discord.Embed(title='FBI OPEN UP', description='', color=discord.Color(int(colour, base=16)))
-            embed.set_image(url=data[0]["data"]["children"][0]["data"]["url"])
-            embed.set_footer(text=f'Requested by: {ctx.message.author.display_name}', icon_url=f'{ctx.message.author.avatar_url}')
+            embed.set_image(url=data[0]["data"]["children"][0]["data"]["url"])         
             embed.timestamp = datetime.datetime.utcnow()
             await client.say(embed=embed)
 
@@ -355,14 +353,14 @@ async def penis(ctx):
     await client.say(embed=embed)
 
 @client.command()
-async def help():	
+async def help(ctx):	
         embed = discord.Embed(title="Dot — Help Command", description="Dot is a simply bot with any Fun Commands!", color=0x003366)			      
         embed.add_field(name="**Information:**", value="`help`, `info`, `rank`, `uptime`", inline=False)
         embed.add_field(name="**Fun:**", value="`ping`, `meme`, `avatar`,  `serverinfo`, `love`, `fortnite`, `penis`, `woof`, `meow`, `hug`, `kiss`, `howgay`, `rps`", inline=False)
         embed.add_field(name="**NSFW:**", value="`hentai`, `butt`", inline=False)
         embed.add_field(name="**Moderation:**", value="`ban`, `warn`, `say`, `clear`", inline=False)
         embed.add_field(name="**Music:**", value="`play`, `skip`, `stop`, `song`, `queue`, `volume`, `resume`, `mutemusic`, `umutemusic`", inline=False)      
-        embed.set_footer(text=f'Total 32 Commands, 5 Category | Dot — Alpha 1.0')
+        embed.set_footer(text=f'Requested by: {ctx.message.author.display_name}', icon_url=f'{ctx.message.author.avatar_url}')
         await client.say(embed=embed)
 	
 @client.command(pass_context = True)
@@ -371,9 +369,8 @@ async def hentai(ctx):
     async with aiohttp.ClientSession() as session:
         async with session.get("https://api.reddit.com/r/hentai/random") as r:
             data = await r.json()
-            embed = discord.Embed(title='ok hand', description='', color=discord.Color(int(colour, base=16)))
+            embed = discord.Embed(title='', description='', color=discord.Color(int(colour, base=16)))
             embed.set_image(url=data[0]["data"]["children"][0]["data"]["url"])
-            embed.set_footer(text=f'Requested by: {ctx.message.author.display_name}', icon_url=f'{ctx.message.author.avatar_url}')
             embed.timestamp = datetime.datetime.utcnow()
             await client.say(embed=embed)
 	
