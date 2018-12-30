@@ -53,7 +53,9 @@ async def on_ready():
     print("The bot is ready!")
     print("Connected on " + str(len(client.servers)) + " servers:") 
     await client.change_presence(game=discord.Game(name='.help | with '+str(len(set(client.get_all_members())))+' users', url="https://twitch.tv/myname", type=1))				
-								                                         
+		
+	
+
 		
 @client.command(pass_context = True)
 @commands.has_permissions(kick_members=True)
@@ -63,6 +65,18 @@ async def warn(ctx, userName: discord.User, *, message:str):
     pass		
 			
 
+@client.command(pass_context = True)
+async def czech_memes(ctx):
+    colour = '0x' + '007000'
+    async with aiohttp.ClientSession() as session:
+        async with session.get("https://api.reddit.com/r/czechmemes/random") as r:
+            data = await r.json()
+            embed = discord.Embed(title='', description='cringe memes ne?', color=discord.Color(int(colour, base=16)))
+            embed.set_image(url=data[0]["data"]["children"][0]["data"]["url"])
+            embed.timestamp = datetime.datetime.utcnow()
+            await client.say(embed=embed)	
+	
+			
 @client.command(pass_context=True)
 @commands.has_permissions(administrator=True)
 async def say(ctx, *args):
@@ -348,7 +362,7 @@ async def penis(ctx):
 async def help():	
         embed = discord.Embed(title="Dot — Help Command", description="Dot is a simply bot with any Fun Commands!", color=0x003366)			      
         embed.add_field(name="**Information:**", value="`help`, `info`, `uptime`", inline=False)
-        embed.add_field(name="**Fun:**", value="`ping`, `meme`, `avatar`,  `serverinfo`, `love`, `fortnite`, `penis`, `woof`, `meow`, `hug`, `kiss`, `howgay`, `rps`", inline=False)
+        embed.add_field(name="**Fun:**", value="`ping`, `meme`, `avatar`,  `serverinfo`, `love`, `fortnite`, `penis`, `woof`, `meow`, `hug`, `kiss`, `howgay`, `rps`, `czech_memes`", inline=False)
         embed.add_field(name="**NSFW:**", value="`hentai`, `butt`", inline=False)
         embed.add_field(name="**Moderation:**", value="`ban`, `warn`, `say`, `purge`", inline=False)
         embed.add_field(name="**Music:**", value="`play`, `skip`, `stop`, `song`, `queue`, `volume`, `resume`, `mutemusic`, `umutemusic`", inline=False)     
