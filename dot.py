@@ -66,12 +66,12 @@ async def warn(ctx, userName: discord.User, *, message:str):
 			
 
 @client.command(pass_context = True)
-async def czech_memes(ctx):
+async def cz_mems(ctx):
     colour = '0x' + '007000'
     async with aiohttp.ClientSession() as session:
         async with session.get("https://api.reddit.com/r/czechmemes/random") as r:
             data = await r.json()
-            embed = discord.Embed(title='', description='cringe memes ne?', color=discord.Color(int(colour, base=16)))
+            embed = discord.Embed(title='Komunismus byl better no', description='', color=discord.Color(int(colour, base=25)))
             embed.set_image(url=data[0]["data"]["children"][0]["data"]["url"])
             embed.timestamp = datetime.datetime.utcnow()
             await client.say(embed=embed)	
@@ -362,11 +362,12 @@ async def penis(ctx):
 async def help():	
         embed = discord.Embed(title="Dot — Help Command", description="Dot is a simply bot with any Fun Commands!", color=0x003366)			      
         embed.add_field(name="**Information:**", value="`help`, `info`, `uptime`", inline=False)
-        embed.add_field(name="**Fun:**", value="`ping`, `meme`, `avatar`,  `serverinfo`, `love`, `fortnite`, `penis`, `woof`, `meow`, `hug`, `kiss`, `howgay`, `rps`, `czech_memes`", inline=False)
+        embed.add_field(name="**Fun:**", value="`ping`, `avatar`,  `serverinfo`, `love`, `fortnite`, `penis`, `woof`, `meow`, `hug`, `kiss`, `howgay`, `rps`,", inline=False)
+        embed.add_field(name="**Memes:**", value="`meme`, `cz_mems`", inline=False)
         embed.add_field(name="**NSFW:**", value="`hentai`, `butt`", inline=False)
         embed.add_field(name="**Moderation:**", value="`ban`, `warn`, `say`, `purge`", inline=False)
         embed.add_field(name="**Music:**", value="`play`, `skip`, `stop`, `song`, `queue`, `volume`, `resume`, `mutemusic`, `umutemusic`", inline=False)     
-        embed.set_footer(text="Prefix is (.) | Pre-Alpha v.1.0")
+        embed.set_footer(text="Prefix is [.] | Pre-Alpha v.1.0")
         await client.say(embed=embed)
 	
 @client.command(pass_context = True)
