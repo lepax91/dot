@@ -67,11 +67,11 @@ async def warn(ctx, userName: discord.User, *, message:str):
 
 @client.command(pass_context = True)
 async def cz_mems(ctx):
-    colour = '0x' + '007000'
+    colour = '0x' + '008000'
     async with aiohttp.ClientSession() as session:
         async with session.get("https://api.reddit.com/r/czechmemes/random") as r:
             data = await r.json()
-            embed = discord.Embed(title='Komunismus byl better no', description='', color=discord.Color(int(colour, base=10)))
+            embed = discord.Embed(title='', description='', color=discord.Color(int(colour, base=16)))
             embed.set_image(url=data[0]["data"]["children"][0]["data"]["url"])
             embed.timestamp = datetime.datetime.utcnow()
             await client.say(embed=embed)	
@@ -365,8 +365,8 @@ async def penis(ctx):
 @client.command()
 async def help():	
         embed = discord.Embed(title="Dot — Help Command", description="Dot is a simply bot with any Fun Commands!", color=0x003366)			      
-        embed.add_field(name="**Information:**", value="`help`, `info`, `uptime`", inline=False)
-        embed.add_field(name="**Fun:**", value="`ping`, `avatar`,  `serverinfo`, `love`, `fortnite`, `penis`, `woof`, `meow`, `hug`, `kiss`, `howgay`, `rps`", inline=False)
+        embed.add_field(name="**Information:**", value="`help`, `info`, `ping`, `uptime`", inline=False)
+        embed.add_field(name="**Fun:**", value="`avatar`,  `serverinfo`, `love`, `fortnite`, `penis`, `woof`, `meow`, `hug`, `kiss`, `howgay`, `rps`", inline=False)
         embed.add_field(name="**Memes:**", value="`meme`, `cz_mems`", inline=False)
         embed.add_field(name="**NSFW:**", value="`hentai`, `butt`", inline=False)
         embed.add_field(name="**Moderation:**", value="`ban`, `warn`, `say`, `purge`, `kick`", inline=False)
