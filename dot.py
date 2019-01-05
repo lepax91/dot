@@ -390,7 +390,7 @@ async def rps(ctx, *, message=None):
     embed=discord.Embed(title = "Dot VS {}".format(ctx.message.author.name), color = discord.Color((r << 16) + (g << 8) + b))
     embed.set_author(name = ctx.message.author.name, icon_url = ctx.message.author.avatar_url)
     if message is None:
-        await client.say('Use like — **.rps Rock or Paper or Scissors**')
+        await client.say('Use it like | Example: **.rps rock**')
     if message.lower() != ans[0] and message.lower() != ans[1] and message.lower() != ans[2] :
         return await client.say("<:joy:525410119199227915> | Please Only: Rock, Paper, Scissors!")
     elif message.lower() == pick:
