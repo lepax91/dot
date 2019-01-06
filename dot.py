@@ -23,7 +23,6 @@ reddit = praw.Reddit(client_id='G-SK66FZT8at9g',
                      user_agent='android:com.G-SK66FZT8at9g.SolarBot:v1.2.3 (by /u/LaidDownRepaer)')
 
 start_time = datetime.datetime.utcnow()
-init_extensions = ['cogs.Music']
 
 def get_prefix(bot, message):
     """A callable Prefix for our bot. This could be edited to allow per server prefixes."""
@@ -44,6 +43,7 @@ client = discord.Client()
 client = commands.Bot(command_prefix=get_prefix)
 client.remove_command('help')
 #()  []  {} `
+init_extensions = ['cogs.Music']
 
 if __name__ == '__main__':
     for extension in init_extensions:
