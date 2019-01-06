@@ -394,7 +394,7 @@ async def help():
         embed.add_field(name="**Memes:**", value="`meme`, `cz_memes`", inline=False)
         embed.add_field(name="**NSFW:**", value="`hentai`, `butt`", inline=False)
         embed.add_field(name="**Moderation:**", value="`ban`, `warn`, `say`, `purge`, `kick`", inline=False)
-        embed.add_field(name="**Music:**", value="`play`, `skip`, `stop`, `song`, `queue`, `volume`, `resume`, `mutemusic`, `umutemusic`", inline=False)     
+        embed.add_field(name="**Music:**", value="`play`, `skip`, `stop`, `song`, `queue`, `resume`, `mutemusic`, `umutemusic`", inline=False)     
         embed.set_footer(text="Prefix is [.] | Pre-Alpha v.1.0")
         await client.say(embed=embed)
 	
