@@ -447,5 +447,5 @@ async def rps(ctx, *, message=None):
 	
 	
 				
-client.run(os.getenv('Token'))
+client.run(TOKEN, client = True)
 		                                                                                                
