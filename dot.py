@@ -43,7 +43,6 @@ client = discord.Client()
 client = commands.Bot(command_prefix=get_prefix)
 client.remove_command('help')
 #()  []  {} `
-init_extensions = ['cogs.Music']
 
 
 def is_owner(ctx):
