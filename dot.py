@@ -66,7 +66,7 @@ async def warn(ctx, userName: discord.User, *, message:str):
 			
 
 @client.command(pass_context = True)
-async def cz_mems(ctx):
+async def cz_memes(ctx):
     colour = '0x' + '008000'
     async with aiohttp.ClientSession() as session:
         async with session.get("https://api.reddit.com/r/czechmemes/random") as r:
