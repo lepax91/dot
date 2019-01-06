@@ -34,7 +34,7 @@ def get_prefix(bot, message):
 HOST = '' 
 PORT = os.environ["PORT"] 
 TOKEN = os.environ["TOKEN"]
-s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+
 try:
     s.bind((HOST,PORT))
 except Exception as e:
