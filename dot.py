@@ -55,8 +55,14 @@ async def on_ready():
     await client.change_presence(game=discord.Game(name='.help | with '+str(len(set(client.get_all_members())))+' users', url="https://twitch.tv/myname", type=1))				
 		
 	
-
-		
+@client.command(pass_context = True)
+async def coinflip(ctx):
+    choices = ['https://upload.wikimedia.org/wikipedia/commons/4/44/2014_ATB_Quarter_Obv.png', 'http://fracademic.com/pictures/frwiki/50/2005_Half_Dollar_Rev_Unc_P.png']
+    color = discord.Color(value=0x00ff00)
+    em=discord.Embed(color=color, title='Flipped a coin!')
+    em.description = random.choice(choices)
+    await client.send_typing(ctx.message.channel)
+			
 @client.command(pass_context = True)
 @commands.has_permissions(kick_members=True)
 async def warn(ctx, userName: discord.User, *, message:str): 
@@ -366,7 +372,7 @@ async def penis(ctx):
 async def help():	
         embed = discord.Embed(title="Dot — Help Command", description="Dot is a simply bot with any Fun Commands!", color=0x003366)			      
         embed.add_field(name="**Information:**", value="`help`, `info`, `ping`, `uptime`", inline=False)
-        embed.add_field(name="**Fun:**", value="`avatar`,  `serverinfo`, `love`, `fortnite`, `penis`, `woof`, `meow`, `hug`, `kiss`, `howgay`, `rps`", inline=False)
+        embed.add_field(name="**Fun:**", value="`avatar`,  `serverinfo`, `love`, `fortnite`, `penis`, `woof`, `meow`, `hug`, `kiss`, `howgay`, `rps`, `coinflip`", inline=False)
         embed.add_field(name="**Memes:**", value="`meme`, `cz_memes`", inline=False)
         embed.add_field(name="**NSFW:**", value="`hentai`, `butt`", inline=False)
         embed.add_field(name="**Moderation:**", value="`ban`, `warn`, `say`, `purge`, `kick`", inline=False)
