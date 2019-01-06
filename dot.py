@@ -25,6 +25,7 @@ reddit = praw.Reddit(client_id='G-SK66FZT8at9g',
                      user_agent='android:com.G-SK66FZT8at9g.SolarBot:v1.2.3 (by /u/LaidDownRepaer)')
 
 start_time = datetime.datetime.utcnow()
+init_extensions = ['cogs.Music']
 
 
 def is_owner(ctx):
