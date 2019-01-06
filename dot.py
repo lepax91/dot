@@ -18,14 +18,41 @@ import time
 from discord.voice_client import VoiceClient
 from discord import Game, Embed, Color, Status, ChannelType
 
-client = Bot(description="dot is gay", command_prefix=commands.when_mentioned_or("."), pm_help = True)
-client.remove_command('help')
 reddit = praw.Reddit(client_id='G-SK66FZT8at9g',
                      client_secret='DLqIkkdoD0K8xKpxuaMAhRscrS0',
                      user_agent='android:com.G-SK66FZT8at9g.SolarBot:v1.2.3 (by /u/LaidDownRepaer)')
 
 start_time = datetime.datetime.utcnow()
 init_extensions = ['cogs.Music']
+
+def get_prefix(bot, message):
+    """A callable Prefix for our bot. This could be edited to allow per server prefixes."""
+    prefixes = ['.','dot ']
+    #if not message.server:
+    #    # pouze vykricnik mimo server
+    #    return '!'
+    return commands.when_mentioned_or(*prefixes)(bot, message)
+HOST = '' 
+PORT = os.environ["PORT"] 
+TOKEN = os.environ["TOKEN"]
+s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+try:
+    s.bind((HOST,PORT))
+except Exception as e:
+    print(e)
+client = discord.Client()
+client = commands.Bot(command_prefix=get_prefix)
+client.remove_command('help')
+#()  []  {} `
+
+if __name__ == '__main__':
+    for extension in init_extensions:
+        try:
+            bot.load_extension(extension)
+            print(f'Nacteno {extension}')
+        except Exception as e:
+            print(f'Nepodarilo se nacist {extension}.', file=sys.stderr)
+            traceback.print_exc()
 
 
 def is_owner(ctx):
