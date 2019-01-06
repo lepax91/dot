@@ -6,6 +6,7 @@ import asyncio
 import platform
 import colorsys
 import requests
+import sys
 import random
 import functools
 import praw
@@ -46,7 +47,7 @@ init_extensions = ['cogs.images']
 if __name__ == '__main__':
     for extension in init_extensions:
         try:
-            bot.load_extension(extension)
+            client.load_extension(extension)
             print(f'Nacteno {extension}')
         except Exception as e:
             print(f'Nepodarilo se nacist {extension}.', file=sys.stderr)
