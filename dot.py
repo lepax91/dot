@@ -41,7 +41,7 @@ client = discord.Client()
 client = commands.Bot(command_prefix=get_prefix)
 client.remove_command('help')
 #()  []  {} `
-init_extensions = ['cogs.fun']
+init_extensions = ['cogs.images']
 
 
 if __name__ == '__main__':
