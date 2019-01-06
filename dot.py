@@ -43,6 +43,15 @@ client.remove_command('help')
 init_extensions = ['cogs.images']
 
 
+if __name__ == '__main__':
+    for extension in init_extensions:
+        try:
+            bot.load_extension(extension)
+            print(f'Nacteno {extension}')
+        except Exception as e:
+            print(f'Nepodarilo se nacist {extension}.', file=sys.stderr)
+            traceback.print_exc()
+
 def is_owner(ctx):
     return ctx.message.author.id == "417403958814965771"
  
