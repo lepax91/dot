@@ -367,7 +367,7 @@ async def help():
         embed = discord.Embed(title="Dot — Help Command", description="Dot is a simply bot with any Fun Commands!", color=0x003366)			      
         embed.add_field(name="**Information:**", value="`help`, `info`, `ping`, `uptime`", inline=False)
         embed.add_field(name="**Fun:**", value="`avatar`,  `serverinfo`, `love`, `fortnite`, `penis`, `woof`, `meow`, `hug`, `kiss`, `howgay`, `rps`", inline=False)
-        embed.add_field(name="**Memes:**", value="`meme`, `cz_mems`", inline=False)
+        embed.add_field(name="**Memes:**", value="`meme`, `cz_memes`", inline=False)
         embed.add_field(name="**NSFW:**", value="`hentai`, `butt`", inline=False)
         embed.add_field(name="**Moderation:**", value="`ban`, `warn`, `say`, `purge`, `kick`", inline=False)
         embed.add_field(name="**Music:**", value="`play`, `skip`, `stop`, `song`, `queue`, `volume`, `resume`, `mutemusic`, `umutemusic`", inline=False)     
