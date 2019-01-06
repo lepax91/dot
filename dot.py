@@ -26,10 +26,7 @@ start_time = datetime.datetime.utcnow()
 
 def get_prefix(bot, message):
     """A callable Prefix for our bot. This could be edited to allow per server prefixes."""
-    prefixes = ['.','dot ']
-    #if not message.server:
-    #    # pouze vykricnik mimo server
-    #    return '!'
+    prefixes = ['.','dot ']   
     return commands.when_mentioned_or(*prefixes)(bot, message)
 HOST = '' 
 PORT = os.environ["PORT"] 
@@ -100,7 +97,21 @@ async def cz_memes(ctx):
             embed.timestamp = datetime.datetime.utcnow()
             await client.say(embed=embed)	
 	
-			
+
+@client.command(pass_context = True)
+async def cosplay(ctx):
+    colour = '0x' + '008000'
+    async with aiohttp.ClientSession() as session:
+        async with session.get("https://api.reddit.com/r/nsfwcosplay/random") as r:
+            data = await r.json()
+            embed = discord.Embed(title='', description='', color=discord.Color(int(colour, base=16)))
+            embed.set_image(url=data[0]["data"]["children"][0]["data"]["url"])
+            embed.timestamp = datetime.datetime.utcnow()
+            await client.say(embed=embed)	
+	
+				
+	
+	
 @client.command(pass_context=True)
 @commands.has_permissions(administrator=True)
 async def say(ctx, *args):
@@ -394,7 +405,7 @@ async def help():
         embed.add_field(name="**Fun:**", value="`avatar`,  `serverinfo`, `love`, `fortnite`, `penis`, `hug`, `kiss`, `howgay`, `rps`, `coinflip`", inline=False)
         embed.add_field(name="**Animals:**", value="`woof`, `meow`", inline=False)
         embed.add_field(name="**Memes:**", value="`meme`, `cz_memes`", inline=False)
-        embed.add_field(name="**NSFW:**", value="`hentai`, `butt`", inline=False)
+        embed.add_field(name="**NSFW:**", value="`hentai`, `butt`, `cosplay`", inline=False)
         embed.add_field(name="**Moderation:**", value="`ban`, `warn`, `say`, `purge`, `kick`", inline=False)
         embed.add_field(name="**Music:**", value="`play`, `skip`, `stop`, `song`, `queue`, `resume`, `mutemusic`, `umutemusic`", inline=False)     
         embed.set_footer(text="Prefix is [.] | Pre-Alpha v.1.0")
