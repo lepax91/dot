@@ -370,7 +370,7 @@ async def penis(ctx):
 
 @client.command()
 async def help():	
-        embed = discord.Embed(title="Dot — Help Command", description="Dot is a simply bot with any Fun Commands!", color=0x003366)			      
+        embed = discord.Embed(title="Dot — Help Command", description="Dot is a simple bot with any Fun Commands!", color=0x003366)			      
         embed.add_field(name="**Information:**", value="`help`, `info`, `ping`, `uptime`", inline=False)
         embed.add_field(name="**Fun:**", value="`avatar`,  `serverinfo`, `love`, `fortnite`, `penis`, `woof`, `meow`, `hug`, `kiss`, `howgay`, `rps`, `coinflip`", inline=False)
         embed.add_field(name="**Memes:**", value="`meme`, `cz_memes`", inline=False)
