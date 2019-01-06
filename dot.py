@@ -59,9 +59,9 @@ async def on_ready():
 async def coinflip(ctx):
     choices = ['https://upload.wikimedia.org/wikipedia/commons/4/44/2014_ATB_Quarter_Obv.png', 'http://fracademic.com/pictures/frwiki/50/2005_Half_Dollar_Rev_Unc_P.png']
     color = discord.Color(value=0x00ff00)
-    em=discord.Embed(color=color, title='Flipped a coin!')
-    em.description = random.choice(choices)
-    await client.send_typing(ctx.message.channel)
+    embed = discord.Embed(color=color, title='Flipped a coin!')
+    embed.description = random.choice(choices)
+    await client.say(embed=embed)
 			
 @client.command(pass_context = True)
 @commands.has_permissions(kick_members=True)
