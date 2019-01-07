@@ -12,6 +12,7 @@ import functools
 import praw
 import datetime
 import json
+import traceback 
 import aiohttp
 import os, re, smtplib
 from urllib.request import urlopen, Request
@@ -41,7 +42,7 @@ client = discord.Client()
 client = commands.Bot(command_prefix=get_prefix)
 client.remove_command('help')
 #()  []  {} `
-init_extensions = ['cogs.images']
+init_extensions = ['cogs.images','cogs.info']
 
 
 if __name__ == '__main__':
