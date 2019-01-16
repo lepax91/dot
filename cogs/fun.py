@@ -56,7 +56,7 @@ class Fun:
 		if user is None:
 			user = ctx.message.author
 		e=discord.Embed(title="penis machine fam", colour=random.randint(0, 0xFFFFFF))
-		e.add_field(name=f"{str(user)[:-5]}'s size",value="8"+'='*rando.randrange(0,10)+"D")
+		e.add_field(name=f"{str(user)[:-5]}'s size",value="8"+'='*random.randrange(0,10)+"D")
 		await self.bot.say(embed=e)
 	
 		
