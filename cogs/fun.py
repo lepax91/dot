@@ -30,7 +30,7 @@ class Fun:
 		mgs = [] #Empty list to put all the messages in the log
 		number = int(number) #Converting the amount of messages to delete to an integer
 		if number > 100:
-			return await self.bot.say('V klidu s tou čistkou, limit je 100 zpráv')
+			return await self.bot.say('Limit is 100 message, just cool down.')
 		if number!=100:
 			number+=1
 		async for x in self.bot.logs_from(ctx.message.channel, limit = number):
