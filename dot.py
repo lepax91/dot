@@ -69,12 +69,7 @@ async def info():
 @commands.check(is_owner)
 async def off():
     await client.close()
-    
-@client.command(pass_context = True)
-@commands.has_permissions(manage_messages = True)
-async def purge(ctx, number: int):
-  purge = await client.purge_from(ctx.message.channel, limit = number+1)
-			
+    			
 @client.event
 async def on_ready():
     print("The bot is ready!")
