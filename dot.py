@@ -163,6 +163,8 @@ async def ban(ctx,user:discord.Member):
     except discord.HTTPException:
         await client.say('ban failed.')
         return
+        pass
+
 
                            
 @client.command(pass_context = True)
