@@ -399,7 +399,7 @@ async def fortnite(nickname):
 async def help():	
         r, g, b = tuple(int(x * 255) for x in colorsys.hsv_to_rgb(random.random(), 1, 1))
         embed = discord.Embed(title="Dot — Help Command", description="Dot is a simple bot with any Fun Commands!", color = discord.Color((r << 16) + (g << 8) + b))			  
-        embed.add_field(name="<:8104LoadingEmote:535140498495766548> **Information:**", value="`help`, `info`, `ping`, `uptime`, `serverinfo`, `avatar`", inline=False)
+        embed.add_field(name="<a:8104LoadingEmote:535140498495766548> **Information:**", value="`help`, `info`, `ping`, `uptime`, `serverinfo`, `avatar`", inline=False)
         embed.add_field(name="<:FeelsHappyHugMan:535141367475863563> **Fun:**", value="`love`, `fortnite`, `penis`, `hug`, `kiss`, `howgay`, `rps`, `coinflip`", inline=False)
         embed.add_field(name=":cat: **Animals:**", value="`woof`, `meow`", inline=False)	
         embed.add_field(name="<:2109_yikes:535142625129267231> **Memes:**", value="`meme`, `cz_memes`", inline=False)	
