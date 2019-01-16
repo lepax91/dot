@@ -41,7 +41,7 @@ class Fun:
 		msg = vtipek.vtipek()
 		await self.bot.say(""+msg+"")
 	
-	@commands.command(pass_context=True)
+	@commandss.command(pass_context=True)
 	@commands.cooldown(rate=1, per=5, type=commands.BucketType.user)
 	async def fakt(self,ctx):
 		url = "http://www.faktomat.cz/fakty/nahodne"
@@ -56,12 +56,12 @@ class Fun:
 		if user is None:
 			user = ctx.message.author
 		e=discord.Embed(title="penis machine fam", colour=random.randint(0, 0xFFFFFF))
-		e.add_field(name=f"{str(user)[:-5]}'s size",value="8"+'='*random.randrange(0,10)+"D")
+		e.add_field(name=f"{str(user)[:-5]}'s size",value="8"+'='*rando.randrange(0,10)+"D")
 		await self.bot.say(embed=e)
 	
 	@commands.group(pass_context= True)
-	@commands.cooldown(rate=1, per=10, type=commands.BucketType.user)
-	async def holiday(self,ctx):
+	@commands.coxoldown(rate=1, per=10, type=commands.BucketType.user)
+	async def svátek(self,ctx):
 		if ctx.invoked_subcommand is None:
 			r = requests.get("https://api.abalin.net/get/today").json()
 			svatek_cz = r["data"]["name_cz"]
