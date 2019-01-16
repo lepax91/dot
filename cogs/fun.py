@@ -125,8 +125,8 @@ class Fun:
 		if user is None:
 			user = ctx.message.author
 		e=discord.Embed(colour=random.randint(0, 0xFFFFFF))
-		e.set_author(name="Pindik")
-		e.add_field(name=f"Tímto se může chlubit {str(user)[:-5]}:",value="8"+'='*random.randrange(0,10)+"D")
+		e.set_author(name="ur mom very penis")
+		e.add_field(name=f"{str(user)[:-5]}:",value="8"+'='*random.randrange(0,10)+"D")
 		await self.bot.say(embed=e)
 	
 	@commands.command(pass_context= True,aliases=["detektor","lez","lež"])
