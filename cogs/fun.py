@@ -66,7 +66,7 @@ class Fun:
 		if ctx.invoked_subcommand is None:
 			r = requests.get("https://api.abalin.net/get/today").json()
 			svatek_cz = r["data"]["name_cz"]
-			await self.bot.say(f"Today have got holiday `{svatek_cz}`!")
+			await self.bot.say(f"Today have got holiday: **{svatek_cz}**!")
 		
 def setup(bot):
 	bot.add_cog(Fun(bot))
