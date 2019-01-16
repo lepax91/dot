@@ -405,7 +405,7 @@ async def help():
         embed.add_field(name="<:2109_yikes:535142625129267231> **Memes:**", value="`meme`, `cz_memes`", inline=False)	
         embed.add_field(name=":underage: **NSFW:**", value="`hentai`, `butt`, `cosplay`", inline=False)
         embed.add_field(name="<:4206_lmaolancer2:535143040835125298>**Memes with Fun:**", value="`deepfry`, `text`, `czech`, `rotate`, `isthisa`, `phone`, `thatsmile`, `birthcontrol`, `moe`, `religion`, `disability`", inline=False)
-        embed.add_field(name="<:1200pxFlag_of_the_Czech_Republic:535143419585232896> **Czech Commands:**", value="`8ball`, `vtip`, `fakt`, `holiday`", inline=False)
+        embed.add_field(name="<:1200pxFlag_of_the_Czech_Republic:535143419585232896> **Czech Commands:**", value="`8ball`, `vtip`, `fakt`, `svátek`", inline=False)
         embed.add_field(name="<:9175_moderation_hammer:535143648900284416> **Moderation:**", value="`ban`, `warn`, `say`, `purge`, `kick`", inline=False)    
         embed.add_field(name=":musical_note: **Music:**", value="`play`, `skip`, `stop`, `song`, `queue`, `resume`, `mutemusic`, `umutemusic`", inline=False)     
         embed.set_footer(text="Prefix is [.] | Pre-Alpha v.1.0")
