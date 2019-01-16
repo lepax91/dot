@@ -84,7 +84,22 @@ async def coinflip(ctx):
     embed = discord.Embed(color=color, title='Flipped a coin!')
     embed.set_image(url=random.choice(choices))
     await client.say(embed=embed)
-			
+
+@client.command(pass_context=True)  
+@commands.has_permissions(ban_members=True)     
+async def unban(ctx, identification:str):
+    user = await client.get_user_info(identification)
+    await client.unban(ctx.message.server, user)
+    try:
+        await client.say(f'_*:white_check_mark: | {user} has been unbanned!*_')
+        for channel in ctx.message.server.channels:
+          if channel.name == 'log':
+              embed=discord.Embed(title="User unbanned!", description="**{0}** unbanned by **{1}**!".format(user, ctx.message.author), color=0x38761D)
+              await client.send_message(channel, embed=embed)
+    except:
+        await client.say(f':x: | Unable to unban _*{user}*_')
+        pass
+  
 @client.command(pass_context = True)
 @commands.has_permissions(kick_members=True)
 async def warn(ctx, userName: discord.User, *, message:str): 
