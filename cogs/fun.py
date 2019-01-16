@@ -46,7 +46,7 @@ class Fun:
 	async def fakt(self,ctx):
 		url = "http://www.faktomat.cz/fakty/nahodne"
 		r = urllib.request.urlopen(url)
-		soup = BeautifulSoup(r,'html.parser
+		soup = BeautifulSoup(r,'html.parser')
 		result = soup.find("div", {"class":"lead"}).text
 		await self.bot.say(f"{result}")	
 
