@@ -396,14 +396,6 @@ async def fortnite(nickname):
                      + "Kills: " + str(kills) + "\n"
                      + "K/D: " + str(kd) + "\n")        
 
-@client.command(pass_context=True)
-async def penis(ctx):
-    r, g, b = tuple(int(x * 255) for x in colorsys.hsv_to_rgb(random.random(), 1, 1))
-    penis = ["8=D"," 8==D","8===D","8=============D","8=======D","8===============D"]
-    embed = discord.Embed(color = discord.Color((r << 16) + (g << 8) + b))
-    embed.add_field(name=f"penis machine fam", value=random.choice(penis))
-    await client.say(embed=embed)
-
 @client.command()
 async def help():	
         r, g, b = tuple(int(x * 255) for x in colorsys.hsv_to_rgb(random.random(), 1, 1))
