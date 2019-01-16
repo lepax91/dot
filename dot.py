@@ -42,7 +42,7 @@ client = discord.Client()
 client = commands.Bot(command_prefix=get_prefix)
 client.remove_command('help')
 #()  []  {} `
-init_extensions = ['cogs.images','cogs.Reddit']
+init_extensions = ['cogs.fun','cogs.images']
 
 
 if __name__ == '__main__':
@@ -81,16 +81,6 @@ async def on_ready():
     print("Connected on " + str(len(client.servers)) + " servers:") 
     await client.change_presence(game=discord.Game(name='.help | with '+str(len(set(client.get_all_members())))+' users', url="https://twitch.tv/myname", type=1))				
 
-@client.command(pass_context=True)
-async def holiday(ctx):
-    res = requests.get(
-            'https://api.abalin.net/get/today?country=cz',
-             headers={"Accept":"application/json"}
-             )
-    if res.status_code == requests.codes.ok:
-        await client.say(str(res.json()['holiday']))
-    else:
-        await client.say('stop ok?')
 	
 @client.command(pass_context = True)
 async def coinflip(ctx):
