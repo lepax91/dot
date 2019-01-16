@@ -46,7 +46,7 @@ class Fun:
 	async def fakt(self,ctx):
 		url = "http://www.faktomat.cz/fakty/nahodne"
 		r = urllib.request.urlopen(url)
-		soup = BeautifulSoup(r,'html.parser')
+		soup = BeautifulSoup(r,'html.parser
 		result = soup.find("div", {"class":"lead"}).text
 		await self.bot.say(f"{result}")	
 
@@ -59,13 +59,14 @@ class Fun:
 		e.add_field(name=f"{str(user)[:-5]}'s size",value="8"+'='*rando.randrange(0,10)+"D")
 		await self.bot.say(embed=e)
 	
-	@commands.group(pass_context= True)
+		
+	@commands.group(pass_context= True,aliases=["svátek"])
 	@commands.cooldown(rate=1, per=10, type=commands.BucketType.user)
 	async def svatek(self,ctx):
 		if ctx.invoked_subcommand is None:
 			r = requests.get("https://api.abalin.net/get/today").json()
 			svatek_cz = r["data"]["name_cz"]
-			await self.bot.say("Dnes má svátek **{svatek_cz}**!")
+			await self.bot.say(f"Dnes má svátek **{svatek_cz}**!")
 		
 def setup(bot):
 	bot.add_cog(Fun(bot))
