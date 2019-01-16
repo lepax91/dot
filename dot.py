@@ -395,23 +395,21 @@ async def fortnite(nickname):
                      + "Win percentage: " + str(winPct) + "\n"
                      + "Kills: " + str(kills) + "\n"
                      + "K/D: " + str(kd) + "\n")        
-
 @client.command()
 async def help():	
         r, g, b = tuple(int(x * 255) for x in colorsys.hsv_to_rgb(random.random(), 1, 1))
         embed = discord.Embed(title="Dot — Help Command", description="Dot is a simple bot with any Fun Commands!", color = discord.Color((r << 16) + (g << 8) + b))			  
-        embed.add_field(name="**Information:**", value="`help`, `info`, `ping`, `uptime`, `serverinfo`, `avatar`", inline=False)
-        embed.add_field(name="**Fun:**", value="`love`, `fortnite`, `penis`, `hug`, `kiss`, `howgay`, `rps`, `coinflip`", inline=False)
-        embed.add_field(name="**Animals:**", value="`woof`, `meow`", inline=False)	
-        embed.add_field(name="**Memes:**", value="`meme`, `cz_memes`", inline=False)	
-        embed.add_field(name="**NSFW:**", value="`hentai`, `butt`, `cosplay`", inline=False)
-        embed.add_field(name="**Memes with Fun:**", value="`deepfry`, `text`, `czech`, `rotate`, `isthisa`, `phone`, `thatsmile`, `birthcontrol`, `moe`, `religion`, `disability`", inline=False)
-        embed.add_field(name="**Czech Commands:**", value="`8ball`, `vtip`, `fakt`, `holiday`", inline=False)
-        embed.add_field(name="**Modration:**", value="`ban`, `warn`, `say`, `purge`, `kick`", inline=False)    
-        embed.add_field(name="**Music:**", value="`play`, `skip`, `stop`, `song`, `queue`, `resume`, `mutemusic`, `umutemusic`", inline=False)     
+        embed.add_field(name="<:8104LoadingEmote:535140498495766548> **Information:**", value="`help`, `info`, `ping`, `uptime`, `serverinfo`, `avatar`", inline=False)
+        embed.add_field(name="<:FeelsHappyHugMan:535141367475863563> **Fun:**", value="`love`, `fortnite`, `penis`, `hug`, `kiss`, `howgay`, `rps`, `coinflip`", inline=False)
+        embed.add_field(name=":cat: **Animals:**", value="`woof`, `meow`", inline=False)	
+        embed.add_field(name="<:2109_yikes:535142625129267231> **Memes:**", value="`meme`, `cz_memes`", inline=False)	
+        embed.add_field(name=":underage: **NSFW:**", value="`hentai`, `butt`, `cosplay`", inline=False)
+        embed.add_field(name="<:4206_lmaolancer2:535143040835125298>**Memes with Fun:**", value="`deepfry`, `text`, `czech`, `rotate`, `isthisa`, `phone`, `thatsmile`, `birthcontrol`, `moe`, `religion`, `disability`", inline=False)
+        embed.add_field(name="<:1200pxFlag_of_the_Czech_Republic:535143419585232896> **Czech Commands:**", value="`8ball`, `vtip`, `fakt`, `holiday`", inline=False)
+        embed.add_field(name="<:9175_moderation_hammer:535143648900284416> **Moderation:**", value="`ban`, `warn`, `say`, `purge`, `kick`", inline=False)    
+        embed.add_field(name=":musical_note: **Music:**", value="`play`, `skip`, `stop`, `song`, `queue`, `resume`, `mutemusic`, `umutemusic`", inline=False)     
         embed.set_footer(text="Prefix is [.] | Pre-Alpha v.1.0")
         await client.say(embed=embed)
-	
 	
 @client.command(pass_context = True)
 async def hentai(ctx):
