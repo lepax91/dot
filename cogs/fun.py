@@ -61,7 +61,7 @@ class Fun:
 	
 	@commands.group(pass_context= True)
 	@commands.cooldown(rate=1, per=10, type=commands.BucketType.user)
-	async def svátek(self,ctx):
+	async def svatek(self,ctx):
 		if ctx.invoked_subcommand is None:
 			r = requests.get("https://api.abalin.net/get/today").json()
 			svatek_cz = r["data"]["name_cz"]
