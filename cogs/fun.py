@@ -150,21 +150,7 @@ class Fun:
 		text=text[::-1]
 		await self.bot.say(f"`{text}`")
 
-	@commands.command(pass_context= True,aliases=["láska","<3","luv"])
-	@commands.cooldown(rate=1, per=3, type=commands.BucketType.user)
-	async def love(self,ctx,fuser:discord.Member=None,suser:discord.Member=None):
-		if fuser is None and suser is None:
-			return await self.bot.say("Nikoho jsi neoznačil!")
-		elif suser is None:
-			suser = ctx.message.author
-		url = "https://www.lovecalculator.com/love.php?"
-		fuser_was,suser_was=fuser.display_name,suser.display_name
-		fuser,suser = unidecode(fuser.display_name.replace(" ","+")),unidecode(suser.display_name.replace(" ","+"))
-		url = url+f"name1={fuser}&name2={suser}"
-		r = urllib.request.urlopen(url)
-		soup = BeautifulSoup(r,'html.parser')
-		result = soup.find("div", {"class":"result score"}).text
-		await self.bot.say(f"{fuser_was} a {suser_was} spolu mají šanci `{result}`:heart:")
+	
 	
 	@commands.group(pass_context= True,aliases=["svátek"])
 	@commands.cooldown(rate=1, per=10, type=commands.BucketType.user)
