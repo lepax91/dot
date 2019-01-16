@@ -55,8 +55,7 @@ class Fun:
 	async def penis(self,ctx,user:discord.Member = None):
 		if user is None:
 			user = ctx.message.author
-		e=discord.Embed(colour=random.randint(0, 0xFFFFFF))
-		e.set_title(name="penis machine fam")
+		e=discord.Embed(title="penis machine fam", colour=random.randint(0, 0xFFFFFF))
 		e.add_field(name=f"{str(user)[:-5]}'s size'",value="8"+'='*random.randrange(0,10)+"D")
 		await self.bot.say(embed=e)
 	
