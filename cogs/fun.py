@@ -62,13 +62,7 @@ class Fun:
 		r = urllib.request.urlopen(url)
 		soup = BeautifulSoup(r,'html.parser')
 		result = soup.find("div", {"class":"lead"}).text
-		await self.bot.say(f"`{result}`")
-	@commands.command(pass_context=True,no_pm=True)
-	@commands.cooldown(rate=1, per=5, type=commands.BucketType.user)
-	async def avatar(self,ctx,*,user:discord.Member = None):
-		if user is None:
-			user = ctx.message.author
-		await self.bot.say(f" **{user.name}**\n{user.avatar_url}")
+		await self.bot.say(f"`{result}`")	
 
 	@commands.command(pass_context = True,no_pm=True)
 	@commands.cooldown(rate=1, per=5, type=commands.BucketType.user)
