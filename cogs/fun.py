@@ -67,6 +67,15 @@ class Fun:
 			r = requests.get("https://api.abalin.net/get/today").json()
 			svatek_cz = r["data"]["name_cz"]
 			await self.bot.say(f"Dnes má svátek **{svatek_cz}**!")
+						
+	@commands.command(pass_context=True)
+	@commands.cooldown(rate=1, per=5, type=commands.BucketType.user)
+	async def citát(self,ctx):
+		url = "https://citaty.net/citaty/nahodny-citat/"
+		r = urllib.request.urlopen(url)
+		soup = BeautifulSoup(r,'html.parser')
+		result = soup.find("div", {"class":"lead"}).text
+		await self.bot.say(f"`{result}`")
 		
 def setup(bot):
 	bot.add_cog(Fun(bot))
