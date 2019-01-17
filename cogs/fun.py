@@ -69,7 +69,7 @@ class Fun:
 			await self.bot.say(f"Dnes má svátek **{svatek_cz}**!")
 							
 		
-	@svatek.command(aliases=["zítra"])
+	@commands.command(aliases=["zítra"])
 	async def zitra(self):
 		r = requests.get("https://api.abalin.net/get/tomorrow").json()
 		svatek_cz = r["data"]["name_cz"]
