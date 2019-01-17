@@ -64,11 +64,6 @@ async def info():
 	    embed.add_field(name="Help with Support Server!", value="<@273813194861051907> (Channels, Roles)", inline=False)
 	    embed.add_field(name="Programming Languages", value="Python, JavaScript (Music)", inline=False)
 	    await client.say(embed=embed)
-  
-@client.command(pass_context = True)
-@commands.check(is_owner)
-async def off():
-    await client.close()
     			
 @client.event
 async def on_ready():
@@ -420,15 +415,7 @@ async def fortnite(nickname):
                      + "Win percentage: " + str(winPct) + "\n"
                      + "Kills: " + str(kills) + "\n"
                      + "K/D: " + str(kd) + "\n")        
-@client.command(pass_context=True)
-async def quit(ctx):
-    if str(ctx.message.author) != "lepax_#1234":
-        await client.say("Hey! You can't do that!'")
-        return
-    else:
-        await client.say("See you later bye!")
-        await client.logout()
-        
+
 @client.command()
 async def help():	
         r, g, b = tuple(int(x * 255) for x in colorsys.hsv_to_rgb(random.random(), 1, 1))
