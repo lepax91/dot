@@ -64,6 +64,7 @@ async def info():
 	    embed.add_field(name="Help with Support Server!", value="<@273813194861051907> (Channels, Roles)", inline=False)
 	    embed.add_field(name="Programming Languages", value="Python, JavaScript (Music)", inline=False)
 	    await client.say(embed=embed)
+			
     			
 @client.event
 async def on_ready():
@@ -79,6 +80,11 @@ async def quit(ctx):
     else:
         await client.say("See you later bye!")
         await client.logout()
+	
+@client.event
+async def on_message(message):
+  if message.content.startswith('!now'):
+    await client.send_message(message.channel, f'{time.asctime()} -> {message.author.id}')	
 	
 @client.command(pass_context = True)
 async def coinflip(ctx):
