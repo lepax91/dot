@@ -42,7 +42,7 @@ client = discord.Client()
 client = commands.Bot(command_prefix=get_prefix)
 client.remove_command('help')
 #()  []  {} `
-init_extensions = ['cogs.error_handler','cogs.fun','cogs.images']
+init_extensions = ['cogs.nsfw','cogs.fun','cogs.images']
 
 
 if __name__ == '__main__':
