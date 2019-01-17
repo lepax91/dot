@@ -12,8 +12,8 @@ class CommandErrorHandler:
 		if isinstance(error,commands.CommandOnCooldown):
 			return await self.bot.send_message(channel, f"{ctx.message.author.mention} Big Smoke, It's me Carl, chill, chill! - {error.retry_after:.1f} Cool down!")
 		elif isinstance(error,commands.CommandNotFound):
-			return await self.bot.send_message(channel,"Eh? This command does not exist! - Type: **.help**")
-		elif isinstance(error,commands.CommandNotFound):		
+			return await self.bot.send_message(channel,"Eh? This command does not exist! - Type: **.help**")		
+		elif isinstance(error,commands.NoPrivateMessage):
 			return await self.bot.send_message(channel,"Hold up, You can no longer use commands in Private Chat!")
 		print('Ignoring exception in command {}:'.format(ctx.command), file=sys.stderr)
 		traceback.print_exception(type(error), error, error.__traceback__, file=sys.stderr)
