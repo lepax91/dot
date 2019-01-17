@@ -27,4 +27,5 @@ websockets==3.4
 youtube-dl==2018.12.17
 matplotlib==3.0.0
 opuslib
+nsfw_dl
 
