@@ -128,7 +128,7 @@ async def cz_memes(ctx):
 async def cosplay(ctx):
     colour = '0x' + '008000'
     async with aiohttp.ClientSession() as session:
-        async with session.get("https://api.reddit.com/r/cosplaybabes/random") as r:
+        async with session.get("https://api.reddit.com/r/JessicaNigri/random") as r:
             data = await r.json()
             embed = discord.Embed(title='', description='', color=discord.Color(int(colour, base=16)))
             embed.set_image(url=data[0]["data"]["children"][0]["data"]["url"])
