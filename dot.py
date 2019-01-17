@@ -80,12 +80,7 @@ async def quit(ctx):
     else:
         await client.say("See you later bye!")
         await client.logout()
-	
-@client.event
-async def on_message(message):
-  if message.content.startswith('!now'):
-    await client.send_message(message.channel, f'{time.asctime()} -> {message.author.id}')	
-	
+		
 @client.command(pass_context = True)
 async def coinflip(ctx):
     choices = ['https://upload.wikimedia.org/wikipedia/commons/4/44/2014_ATB_Quarter_Obv.png', 'http://fracademic.com/pictures/frwiki/50/2005_Half_Dollar_Rev_Unc_P.png']
