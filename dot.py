@@ -76,6 +76,14 @@ async def on_ready():
     print("Connected on " + str(len(client.servers)) + " servers:") 
     await client.change_presence(game=discord.Game(name='.help | with '+str(len(set(client.get_all_members())))+' users', url="https://twitch.tv/myname", type=1))				
 
+@client.command(pass_context=True)
+async def quit(ctx):
+    if str(ctx.message.author) != "lepax_#1234":
+        await client.say("Hey! You can't do that!'")
+        return
+    else:
+        await client.say("See you later bye!")
+        await client.logout()
 	
 @client.command(pass_context = True)
 async def coinflip(ctx):
