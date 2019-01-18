@@ -53,7 +53,7 @@ if __name__ == '__main__':
         except Exception as e:
             print(f'Nepodarilo se nacist {extension}.', file=sys.stderr)
             traceback.print_exc()
-
+czech ok!
 def is_owner(ctx):
     return ctx.message.author.id == "417403958814965771"
  
@@ -70,7 +70,9 @@ async def info():
 async def on_ready():
     print("The bot is ready!")
     print("Connected on " + str(len(client.servers)) + " servers:") 
-    await client.change_presence(game=discord.Game(name='.help | with '+str(len(set(client.get_all_members())))+' users', url="https://twitch.tv/myname", type=1))				
+    
+activity = discord.Game(name="dot isn't czech")
+await client.change_presence(status=discord.Status.idle, activity=activity)
 
 @client.command(pass_context=True)
 async def quit(ctx):
