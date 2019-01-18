@@ -53,7 +53,7 @@ if __name__ == '__main__':
         except Exception as e:
             print(f'Nepodarilo se nacist {extension}.', file=sys.stderr)
             traceback.print_exc()
-czech ok!
+		
 def is_owner(ctx):
     return ctx.message.author.id == "417403958814965771"
  
