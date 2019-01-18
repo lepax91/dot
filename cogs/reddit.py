@@ -45,5 +45,5 @@ class Reddit:
 
 	
 def setup(bot):
-	bot.add_cog(Reddit(bot,os.environ["clientid"],os.environ["clientsecret"],os.environ["useragent"]))
+	bot.add_cog(Reddit(bot,os.environ["clientid"],["clientsecret"],["useragent"]))
 	
