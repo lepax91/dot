@@ -135,7 +135,7 @@ async def cosplay(ctx):
             embed.timestamp = datetime.datetime.utcnow()
             await client.say(embed=embed)	
 	
-				
+	
 	
 	
 @client.command(pass_context=True)
@@ -205,6 +205,18 @@ async def meow(ctx):
         except:
             pass	
 
+@client.command(pass_context = True)
+async def meme(ctx):
+    colour = '0x' + '008000'
+    async with aiohttp.ClientSession() as session:
+        async with session.get("https://api.reddit.com/r/dankmemes/random") as r:
+            data = await r.json()
+            embed = discord.Embed(title='', description='', color=discord.Color(int(colour, base=16)))
+            embed.set_image(url=data[0]["data"]["children"][0]["data"]["url"])
+            embed.timestamp = datetime.datetime.utcnow()
+            await client.say(embed=embed)	
+	
+
 
 @client.command(pass_context=True)
 async def uptime(ctx: commands.Context):
@@ -240,15 +252,8 @@ async def kick(ctx, userName: discord.User):
 async def emojiids(ctx):
   for emoji in ctx.message.author.server.emojis:
     print(f"<:{emoji.name}:{emoji.id}>")
-    print(" ")    	
-				                 
-
-	
-
-		
-		
-	
-
+    print(" ")    					                 
+						
 @client.command(pass_context=True)
 async def love(ctx, user: discord.Member = None, *, user2: discord.Member = None):
     shipuser1 = user.name
