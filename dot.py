@@ -20,9 +20,7 @@ import time
 from discord.voice_client import VoiceClient
 from discord import Game, Embed, Color, Status, ChannelType
 
-reddit = praw.Reddit(client_id='G-SK66FZT8at9g',
-                     client_secret='DLqIkkdoD0K8xKpxuaMAhRscrS0',
-                     user_agent='android:com.G-SK66FZT8at9g.SolarBot:v1.2.3 (by /u/LaidDownRepaer)')
+
 
 start_time = datetime.datetime.utcnow()
 
@@ -244,17 +242,7 @@ async def emojiids(ctx):
     print(f"<:{emoji.name}:{emoji.id}>")
     print(" ")    	
 				                 
-@client.command(pass_context = True)
-async def meme(ctx):
-    colour = '0x' + '008000'
-    async with aiohttp.ClientSession() as session:
-        async with session.get("https://api.reddit.com/r/memes/random") as r:
-            data = await r.json()
-            embed = discord.Embed(title='', description='', color=discord.Color(int(colour, base=16)))
-            embed.set_image(url=data[0]["data"]["children"][0]["data"]["url"])        
-            embed.timestamp = datetime.datetime.utcnow()
-            await client.say(embed=embed)
-	
+
 	
 
 		
