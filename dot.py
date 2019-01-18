@@ -65,13 +65,12 @@ async def info():
 	    embed.add_field(name="Programming Languages", value="Python, JavaScript (Music)", inline=False)
 	    await client.say(embed=embed)
 			
-    			
 @client.event
 async def on_ready():
     print("The bot is ready!")
     print("Connected on " + str(len(client.servers)) + " servers:")
-	
-await client.change_presence(game=discord.Game(name="Working on the next version."), status=discord.Status("idle")) 	
+await client.change_presence(game=discord.Game(name="Working on the next version."), status=discord.Status("idle")) 	    			
+
     
 
 @client.command(pass_context=True)
