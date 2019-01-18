@@ -68,10 +68,11 @@ async def info():
 @client.event
 async def on_ready():
     print("The bot is ready!")
-    print("Connected on " + str(len(client.servers)) + " servers:")
-await client.change_presence(game=discord.Game(name="Working on the next version."), status=discord.Status("idle")) 	    			
+    print("Connected on " + str(len(client.servers)) + " servers:") 
+    await client.change_presence(game=discord.Game(name='.help | with '+str(len(set(client.get_all_members())))+' users', status=discord.Status.idle))
+						
+						    				
 
-    
 
 @client.command(pass_context=True)
 async def quit(ctx):
