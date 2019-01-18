@@ -40,7 +40,7 @@ client = discord.Client()
 client = commands.Bot(command_prefix=get_prefix)
 client.remove_command('help')
 #()  []  {} `
-init_extensions = ['cogs.reddit','cogs.fun','cogs.images']
+init_extensions = ['cogs.fun','cogs.images']
 
 
 if __name__ == '__main__':
@@ -470,7 +470,24 @@ async def rps(ctx, *, message=None):
             embed.add_field(name = "{} wins!".format(ctx.message.author.name), value = "Dot picked {}!".format(pick))
             await client.say(embed=embed)
 	
-	
-				
+@client.command(pass_context = True,no_pm=True,aliases=["mem"])
+async def meme(self,ctx):
+		await self.bot.send_typing(ctx.message.channel)
+		post_to_pick = random.randint(1, 50)
+	    s = self.getsubmission("dankmemes",post_to_pick)
+		embed = self.embedbuild(s)
+	    await client.say(embed=embed)
+	    
+	    
+def embedbuild(self,s):
+		embed = discord.Embed(colour=random.randint(0,0xFFFFFF),title=s.author.name,url=s.url)
+		embed.set_image(url=s.url)
+		#e.set_thumbnail(url=s.author.icon_img)
+		embed.set_author(name=s.title)
+		embed.add_field(name="Evaluation",value=f"{s.upvote_ratio*100}%",inline=True)
+		embed.add_field(name="Comments",value=f"{s.num_comments} comments")
+		return e	   
+
+						
 client.run(TOKEN, client = True)
 		                                                                                                
