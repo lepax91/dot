@@ -3,7 +3,6 @@ from discord.ext import commands
 import praw
 import random
 from cachetools import cached, TTLCache
-import os
 
 class Reddit:
 	cache=TTLCache(maxsize=50, ttl=1800)
@@ -45,5 +44,5 @@ class Reddit:
 
 	
 def setup(bot):
-	bot.add_cog(Reddit(bot,os.environ["clientid"],["clientsecret"],["useragent"]))
+	bot.add_cog(Reddit(bot,["clientid"],["clientsecret"],["useragent"]))
 	
