@@ -7,8 +7,12 @@ import os
 
 class Reddit:
 	cache=TTLCache(maxsize=50, ttl=1800)
-	def __init__(self,bot,client_id,client_secret,user_agent):
+	def __init__(self,bot):
 		self.bot = bot
+		self.reddit=praw.Reddit(client_id=client_id,
+					 client_secret=client_secret,
+					 user_agent=user_agent)
+		
 	
 
 	@cached(cache)
