@@ -88,7 +88,7 @@ async def on_ready():
     print("Connected on " + str(len(client.servers)) + " servers:") 
     await client.change_presence(game=discord.Game(name='.help | with '+str(len(set(client.get_all_members())))+' users', url="https://twitch.com/myname", type=1))
 						
-@client.command(pass_context=True)
+@client.command(pass_context=True, no_pm=True)
 async def shiba(ctx):
 	await client.send_typing(ctx.message.channel)
 	try:
