@@ -419,7 +419,7 @@ async def help():
         embed = discord.Embed(title="Dot | My biggest project on Discord", description="Dot is a bot, with any simple commands!", color = discord.Color((r << 16) + (g << 8) + b))			  
         embed.add_field(name="<a:8104LoadingEmote:535140498495766548> **Information:**", value="`help`, `info`, `ping`, `uptime`, `serverinfo`, `avatar`", inline=False)
         embed.add_field(name=":closed_lock_with_key: **Developer Commands:**", value="`quit`, `emojiids`", inline=False)
-        embed.add_field(name=":printer: **Internet Commands:**", value="`wiki", inline=False)	
+        embed.add_field(name=":printer: **Internet Commands:**", value="`wiki`", inline=False)	
         embed.add_field(name="<:FeelsHappyHugMan:535141367475863563> **Fun:**", value="`love`, `fortnite`, `penis`, `hug`, `kiss`, `howgay`, `rps`, `coinflip`", inline=False)
         embed.add_field(name=":cat: **Animals:**", value="`woof`, `meow`", inline=False)    
         embed.add_field(name="<:2109_yikes:535142625129267231> **Memes:**", value="`meme`, `cz_memes`", inline=False)	
