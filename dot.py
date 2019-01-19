@@ -169,30 +169,7 @@ async def ban(ctx,user:discord.Member):
         return
         pass
 
-@client.command(pass_context=True)  # ================================= required shit, won't work without it, just don't ask
-@commands.has_permissions(manage_server=True)
-async def mute(ctx, user: discord.Member=None, reason: str=None):  # ==== here's the stuff needed for the command to work
-    text_overwrite = discord.PermissionOverwrite()  # ============== Ok, so, there's no need to remove roles, just overwrite perms
-    text_overwrite.send_messages = False  # ======================== this is magick! well, not really
-    for channel in ctx.message.server.channels:  # ================= they won't be able to write
-        if ctx.message.author.server_permissions.manage_server:# = only for Mods or Admins, so other people cannot mute everyone else
-            await client.edit_channel_permissions(channel, user, text_overwrite)# ==== the action takes place, sparks fly everywhere
-            embed = discord.Embed(title="\N{ZIPPER-MOUTH FACE} Mute Successful", colour=discord.Colour(0xc0329b),
-                                  description=f"**{ctx.message.author.display_name}** has muted **{user}**\nReason: *{reason}*")
-        else: 
-            embed = discord.Embed(title="Mute Unsuccessful", colour=discord.Colour(0xe74c3c),                               
-    await client.say(embed=embed) 
 
-@client.command(pass_context=True) 
-@commands.has_permissions(manage_server=True) 
-async def unmute(ctx, user:discord.Member=None): 
-    text_overwrite = discord.PermissionOverwrite() 
-    text_overwrite.send_messages = True
-    embed = discord.Embed(title="\N{FLUSHED FACE} Unmute Successful", colour=discord.Colour(0x9b59b6),
-                          description=f"Say thanks to **{ctx.message.author.display_name}** for removing the Mute and, remember to behave {user.mention}")
-    for channel in ctx.message.server.channels:
-        await client.edit_channel_permissions(channel, user, text_overwrite)
-    await client.say(embed=embed)  
 	
 	
 @client.command(pass_context = True)
@@ -427,9 +404,9 @@ async def fortnite(nickname):
     kd = response.json()['lifeTimeStats'][11]['value']
 
     await client.say(userName+"'s stats: " + "\n"
-                     + "Number of matches: " + str(numMatches) + "\n"
+                     + "Number of matches: " + str(numMatches) + 
                      + "Top 10s: " + str(top10s) + "\n"
-                     + "Top 5s: " + str(top5s)  + "\n"
+                     + "Top 5s: " + str(top5s)  
                      + "Top 3s: " + str(top3s) + "\n"
                      + "Wins: " + str(wins) + "\n"
                      + "Win percentage: " + str(winPct) + "\n"
@@ -448,7 +425,7 @@ async def help():
         embed.add_field(name=":underage: **NSFW:**", value="`hentai`, `butt`, `cosplay`", inline=False)
         embed.add_field(name="<:4206_lmaolancer2:535143040835125298> **Memes with Fun:**", value="`deepfry`, `text`, `czech`, `rotate`, `isthisa`, `phone`, `thatsmile`, `birthcontrol`, `moe`, `religion`, `disability`", inline=False)
         embed.add_field(name="<:1200pxFlag_of_the_Czech_Republic:535143419585232896> **Czech Commands:**", value="`8ball`, `vtip`, `fakt`, `svatek`, `zitra`", inline=False)
-        embed.add_field(name="<:9175_moderation_hammer:535143648900284416> **Moderation:**", value="`ban`, `warn`, `say`, `purge`, `kick`, `unban`, `mute`, `unmute`", inline=False)    
+        embed.add_field(name="<:9175_moderation_hammer:535143648900284416> **Moderation:**", value="`ban`, `warn`, `say`, `purge`, `kick`, `unban`", inline=False)    
         embed.add_field(name=":musical_note: **Music:**", value="`play`, `skip`, `stop`, `song`, `queue`, `resume`, `mutemusic`, `umutemusic`", inline=False)     
         embed.set_footer(text="Prefix is [.] | Pre-Alpha v.1.0")
         await client.say(embed=embed)     
