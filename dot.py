@@ -88,7 +88,7 @@ async def urban(ctx, *, msg:str=None):
 async def on_ready():
     print("The bot is ready!")
     print("Connected on " + str(len(client.servers)) + " servers:") 
-    await client.change_presence(game=discord.Game(name='.help | with '+str(len(set(client.get_all_members())))+' users', url="https://twitch.com/myname", type=1))
+    await client.change_presence(game=discord.Game(name='.help | with '+str(len(set(client.get_all_members())))+ users | in '+str(len(client.servers))+ servers ', url="https://twitch.com/myname", type=1))
 							
 @client.command(pass_context=True)
 async def quit(ctx):
