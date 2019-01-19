@@ -88,8 +88,8 @@ async def on_ready():
     print("Connected on " + str(len(client.servers)) + " servers:") 
     await client.change_presence(game=discord.Game(name='.help | with '+str(len(set(client.get_all_members())))+' users', url="https://twitch.com/myname", type=1))
 						
-@client.command(pass_context=True, no_pm=True, aliases=["Shibe"])
-async def shibe(ctx):
+@client.command(pass_context=True)
+async def shiba(ctx):
 	await client.send_typing(ctx.message.channel)
 	try:
 		url = "http://shibe.online/api/shibes?count=1&urls=true&httpsUrls=false"
@@ -100,8 +100,7 @@ async def shibe(ctx):
 		embed.set_image(url = data[0])
 		await client.say(embed=embed)
 	
-
-@client.command(pass_context=True, no_pm=True, aliases=["Cat"])
+@client.command(pass_context=True)
 async def cat(ctx):
 	await client.send_typing(ctx.message.channel)
 	try:
@@ -113,7 +112,8 @@ async def cat(ctx):
 		embed.set_image(url = data[0])
 		await client.say(embed=embed)
 	
-@client.command(pass_context=True, no_pm=True, aliases=["Bird"])
+	
+@client.command(pass_context=True)
 async def bird(ctx):
 	await client.send_typing(ctx.message.channel)
 	try:
@@ -125,7 +125,7 @@ async def bird(ctx):
 		embed.set_image(url = data[0])
 		await client.say(embed=embed)
 	
-@client.command(pass_context=True, no_pm=True, aliases=["Fox"])
+@client.command(pass_context=True)
 async def fox(ctx):
 	await client.send_typing(ctx.message.channel)
 	try:
@@ -486,7 +486,7 @@ async def help():
         embed.add_field(name=":closed_lock_with_key: **Developer Commands:**", value="`quit`, `emojiids`", inline=False)
         embed.add_field(name=":printer: **Internet Commands:**", value="`wiki`, `urban`", inline=False)	
         embed.add_field(name="<:FeelsHappyHugMan:535141367475863563> **Fun:**", value="`love`, `fortnite`, `penis`, `hug`, `kiss`, `howgay`, `rps`, `coinflip`", inline=False)
-        embed.add_field(name=":cat: **Animals:**", value="`woof`, `meow`, `shibe`, `fox`, `bird,`", inline=False)    
+        embed.add_field(name=":cat: **Animals:**", value="`woof`, `meow`, `shibe`, `fox`, `bird`", inline=False)    
         embed.add_field(name="<:2109_yikes:535142625129267231> **Memes:**", value="`meme`, `cz_memes`", inline=False)	
         embed.add_field(name=":underage: **NSFW:**", value="`hentai`, `butt`, `cosplay`", inline=False)
         embed.add_field(name="<:4206_lmaolancer2:535143040835125298> **Memes with Fun:**", value="`deepfry`, `text`, `czech`, `rotate`, `isthisa`, `phone`, `thatsmile`, `birthcontrol`, `moe`, `religion`, `disability`", inline=False)
