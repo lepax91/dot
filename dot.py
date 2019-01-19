@@ -180,8 +180,7 @@ async def mute(ctx, user: discord.Member=None, reason: str=None):  # ==== here's
             embed = discord.Embed(title="\N{ZIPPER-MOUTH FACE} Mute Successful", colour=discord.Colour(0xc0329b),
                                   description=f"**{ctx.message.author.display_name}** has muted **{user}**\nReason: *{reason}*")
         else: 
-            embed = discord.Embed(title="Mute Unsuccessful", colour=discord.Colour(0xe74c3c),
-                                  description="You haven't permission to mute anybody")/
+            embed = discord.Embed(title="Mute Unsuccessful", colour=discord.Colour(0xe74c3c),                               
     await client.say(embed=embed) 
 
 @client.command(pass_context=True) 
@@ -245,7 +244,7 @@ async def meme(ctx):
 
 @client.command(pass_context=True)
 async def uptime(ctx: commands.Context):
-    now = datetime.datetime.utcnow() # Timestamp of when uptime function is run
+    now = datetime.datetime.utcnow() # Timestamp of when uptime function is run ji
     delta = now - start_time
     hours, remainder = divmod(int(delta.total_seconds()), 3600)
     minutes, seconds = divmod(remainder, 60)
