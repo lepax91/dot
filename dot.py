@@ -69,7 +69,7 @@ async def info():
 async def urban(ctx, *, msg:str=None):
     await client.send_typing(ctx.message.channel)
     if msg is None:
-        await client.say('Use it like: ``^urban <string>``')
+        await client.say('Use it like: ``.urban <string>``')
         return
     else:
         r, g, b = tuple(int(x * 255) for x in colorsys.hsv_to_rgb(random.random(), 1, 1))
