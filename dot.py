@@ -97,26 +97,8 @@ async def shiba(ctx):
 		data = json.loads(response.text)
 		embed=discord.Embed(color = discord.Color((r << 16) + (g << 8) + b))
 		embed.set_author(name =  "Here's Your Shibe {}".format(ctx.message.author.name), icon_url = ctx.message.author.avatar_url)
-		embed.set_image(url = data[0])
-		await client.say(embed=embed)
-	
-
-	
-	
-	
-	
-	
-@client.command(pass_context=True)
-async def bird(ctx):
-	await client.send_typing(ctx.message.channel)
-	try:
-		url = "http://shibe.online/api/birds?count=1&urls=true&httpsUrls=false"
-		response = requests.get(url)
-		data = json.loads(response.text)
-		embed=discord.Embed(color = discord.Color((r << 16) + (g << 8) + b))
-		embed.set_author(name =  "Here's Your Bird {}".format(ctx.message.author.name), icon_url = ctx.message.author.avatar_url)
-		embed.set_image(url = data[0])
-		await client.say(embed=embed)
+		embed.set_image(url = data["image"])
+		await client.say(embed=embed)						
 	
 @client.command(pass_context=True)
 async def fox(ctx):
