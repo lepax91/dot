@@ -78,8 +78,7 @@ async def urban(ctx, *, msg:str=None):
             return await client.say("Could not find that word!")
         embed = discord.Embed(title = "🔍 Search Word", description = word, color = discord.Color((r << 16) + (g << 8) + b))
         embed.add_field(name = "Top definition:", value = response['list'][0]['definition'])
-        embed.add_field(name = "Examples:", value = response['list'][0]["example"])
-        embed.set_footer(text = "Tags: " + ', '.join(response['tags']))
+        embed.add_field(name = "Examples:", value = response['list'][0]["example"])    
         await client.say(embed=embed)
 			
 		
@@ -100,10 +99,7 @@ async def shibe(ctx):
 		embed.set_author(name =  "Here's Your Shibe {}".format(ctx.message.author.name), icon_url = ctx.message.author.avatar_url)
 		embed.set_image(url = data[0])
 		await client.say(embed=embed)
-	except:
-		x = await client.say("Sorry, there was an error with the **shibe** command")
-		await asyncio.sleep(5)
-		await client.delete_message(x)
+	
 
 @client.command(pass_context=True, no_pm=True, aliases=["Cat"])
 async def cat(ctx):
@@ -116,11 +112,7 @@ async def cat(ctx):
 		embed.set_author(name =  "Here's Your Cat {}".format(ctx.message.author.name), icon_url = ctx.message.author.avatar_url)
 		embed.set_image(url = data[0])
 		await client.say(embed=embed)
-	except:
-		x = await client.say("Sorry, there was an error with the **cat** command")
-		await asyncio.sleep(5)
-		await client.delete_message(x)
-
+	
 @client.command(pass_context=True, no_pm=True, aliases=["Bird"])
 async def bird(ctx):
 	await client.send_typing(ctx.message.channel)
@@ -132,11 +124,7 @@ async def bird(ctx):
 		embed.set_author(name =  "Here's Your Bird {}".format(ctx.message.author.name), icon_url = ctx.message.author.avatar_url)
 		embed.set_image(url = data[0])
 		await client.say(embed=embed)
-	except:
-		x = await client.say("Sorry, there was an error with the **bird** command")
-		await asyncio.sleep(5)
-		await client.delete_message(x)
-
+	
 @client.command(pass_context=True, no_pm=True, aliases=["Fox"])
 async def fox(ctx):
 	await client.send_typing(ctx.message.channel)
@@ -148,12 +136,7 @@ async def fox(ctx):
 		embed.set_author(name =  "Here's Your Fox {}".format(ctx.message.author.name), icon_url = ctx.message.author.avatar_url)
 		embed.set_image(url = data["image"])
 		await client.say(embed=embed)
-	except:
-		x = await client.say("Sorry, there was an error with the **fox** command")
-		await asyncio.sleep(5)
-		await client.delete_message(x)						    				
-
-
+	
 @client.command(pass_context=True)
 async def quit(ctx):
     if str(ctx.message.author) != "lepax_#1234":
