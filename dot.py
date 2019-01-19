@@ -62,7 +62,9 @@ async def info():
 	    embed.add_field(name="Help with Support Server!", value="<@273813194861051907> (Channels, Roles)", inline=False)
 	    embed.add_field(name="Programming Languages", value="Python, JavaScript (Music)", inline=False)
 	    await client.say(embed=embed)
+
 	
+		
 @client.command(pass_context=True, no_pm=True)
 async def urban(ctx, *, msg:str=None):
     await client.send_typing(ctx.message.channel)
@@ -139,7 +141,36 @@ async def cz_memes(ctx):
             embed.timestamp = datetime.datetime.utcnow()
             await client.say(embed=embed)	
 	
-
+@client.command(pass_context=True, no_pm=True, aliases=["r", "r34", "rule"])
+@commands.cooldown(3, 5)
+async def rule34(ctx, *, message:str=None):
+	if ctx.message.channel.is_nsfw == False:
+		embed=discord.Embed(description = "This is not a **nsfw** channel", color = 0x3333cc)
+		x = await client.say(embed=embed)
+		await asyncio.sleep(5)
+		return await client.delete_message(x)
+	limit = 100
+	if message==None:
+		listu = ["anime", "ass", "boobs", "anal", "pussy", "thighs", "yaoi", "yuri", "bdsm"]
+		message = listu[random.randint(0, len(listu)-1)]
+	message = message.replace(" ", "_")
+	url = "http://rule34.xxx/index.php?page=dapi&s=post&q=index&json=1&limit={}&tags={}".format(limit, message)
+	try:
+		response = requests.get(url)
+		data = json.loads(response.text)
+		limit = len(data)
+	except json.JSONDecodeError:
+		embed=discord.Embed(description = "Couldn't find a picture with that tag or there was a server problem", color = 0x3333cc)
+		x = await client.say(embed=embed)
+		await asyncio.sleep(5)
+		return await client.delete_message(x)
+	x = data[random.randint(0, limit-1)]
+	final_url = "http://img.rule34.xxx/images/{}/{}".format(x["directory"], x["image"])
+	embed=discord.Embed(title = "Enjoy {}, lewd!!!".format(ctx.message.author.name), color = 0x3333cc)
+	embed.set_image(url = final_url)
+	embed.set_footer(text = "From Rule34, Tag: {}, Results found: {}".format(message, limit))
+	await client.say(embed=embed)
+	
 @client.command(pass_context = True)
 async def cosplay(ctx):
     colour = '0x' + '008000'
