@@ -100,18 +100,6 @@ async def shiba(ctx):
 		embed.set_image(url = data[0])
 		await client.say(embed=embed)
 	
-@client.command(pass_context=True)
-async def cat(ctx):
-	await client.send_typing(ctx.message.channel)
-	try:
-		url = "http://shibe.online/api/cats?count=1&urls=true&httpsUrls=false"
-		response = requests.get(url)
-		data = json.loads(response.text)
-		embed=discord.Embed(color = discord.Color((r << 16) + (g << 8) + b))
-		embed.set_author(name =  "Here's Your Cat {}".format(ctx.message.author.name), icon_url = ctx.message.author.avatar_url)
-		embed.set_image(url = data[0])
-		await client.say(embed=embed)
-	
 	
 @client.command(pass_context=True)
 async def bird(ctx):
