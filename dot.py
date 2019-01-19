@@ -115,9 +115,9 @@ async def shibe(ctx):
 		url = "http://shibe.online/api/shibes?count=1&urls=true&httpsUrls=false"
 		response = requests.get(url)
 		data = json.loads(response.text)
-		embed=discord.Embed(color = discord.Color((r << 16) + (g << 8) + b))
-		embed.set_author(name =  "Here's Your Shibe {}".format(ctx.message.author.name), icon_url = ctx.message.author.avatar_url)
-		embed.set_image(url = data[0])
+		embed=discord.Embed(color=discord.Color((r << 16) + (g << 8) + b))
+		embed.set_author(name="Here is your Shibe {}".format(ctx.message.author.name), icon_url=ctx.message.author.avatar_url)
+		embed.set_image(url=data[0])
 		await client.say(embed=embed)
 	except:
 		x = await client.say("Sorry, there was an error with the **shibe** command")
