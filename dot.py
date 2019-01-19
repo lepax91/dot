@@ -100,6 +100,11 @@ async def shiba(ctx):
 		embed.set_image(url = data[0])
 		await client.say(embed=embed)
 	
+
+	
+	
+	
+	
 	
 @client.command(pass_context=True)
 async def bird(ctx):
