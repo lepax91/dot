@@ -62,7 +62,27 @@ async def info():
 	    embed.add_field(name="Help with Support Server!", value="<@273813194861051907> (Channels, Roles)", inline=False)
 	    embed.add_field(name="Programming Languages", value="Python, JavaScript (Music)", inline=False)
 	    await client.say(embed=embed)
+	
+@client.command(pass_context=True, no_pm=True)
+async def urban(ctx, *, msg:str=None):
+    await client.send_typing(ctx.message.channel)
+    if msg is None:
+        await client.say('Use it like: ``^urban <string>``')
+        return
+    else:
+        r, g, b = tuple(int(x * 255) for x in colorsys.hsv_to_rgb(random.random(), 1, 1))
+        word = ' '.join(msg)
+        api = "http://api.urbandictionary.com/v0/define"
+        response = requests.get(api, params=[("term", word)]).json()
+        if len(response["list"]) == 0:
+            return await client.say("Could not find that word!")
+        embed = discord.Embed(title = "🔍 Search Word", description = word, color = discord.Color((r << 16) + (g << 8) + b))
+        embed.add_field(name = "Top definition:", value = response['list'][0]['definition'])
+        embed.add_field(name = "Examples:", value = response['list'][0]["example"])
+        embed.set_footer(text = "Tags: " + ', '.join(response['tags']))
+        await client.say(embed=embed)
 			
+		
 @client.event
 async def on_ready():
     print("The bot is ready!")
@@ -481,7 +501,7 @@ async def help():
         embed = discord.Embed(title="Dot | My biggest project on Discord", description="Dot is a bot, with any simple commands!", color = discord.Color((r << 16) + (g << 8) + b))			  
         embed.add_field(name="<a:8104LoadingEmote:535140498495766548> **Information:**", value="`help`, `info`, `ping`, `uptime`, `serverinfo`, `avatar`", inline=False)
         embed.add_field(name=":closed_lock_with_key: **Developer Commands:**", value="`quit`, `emojiids`", inline=False)
-        embed.add_field(name=":printer: **Internet Commands:**", value="`wiki`", inline=False)	
+        embed.add_field(name=":printer: **Internet Commands:**", value="`wiki`, `urban`", inline=False)	
         embed.add_field(name="<:FeelsHappyHugMan:535141367475863563> **Fun:**", value="`love`, `fortnite`, `penis`, `hug`, `kiss`, `howgay`, `rps`, `coinflip`", inline=False)
         embed.add_field(name=":cat: **Animals:**", value="`woof`, `meow`, `shibe`, `fox`, `bird,`", inline=False)    
         embed.add_field(name="<:2109_yikes:535142625129267231> **Memes:**", value="`meme`, `cz_memes`", inline=False)	
