@@ -219,21 +219,8 @@ async def meme(ctx):
             embed = discord.Embed(title='', description='', color=discord.Color(int(colour, base=16)))
             embed.set_image(url=data[0]["data"]["children"][0]["data"]["url"])
             embed.timestamp = datetime.datetime.utcnow()
-            await client.say(embed=embed)	
+            await client.say(embed=embed)	      		
 	
-@client.command(pass_context = True)
-async def cat(ctx):
-    colour = '0x' + '191950'
-    async with aiohttp.ClientSession() as session:
-        async with session.get("https://api.reddit.com/r/cats/random") as r:			      
-            data = await r.json()
-            embed = discord.Embed(title='', description='', color=0x191950)
-            embed.set_image(url=data[0]["data"]["children"][0]["data"]["url"])
-            embed.timestamp = datetime.datetime.utcnow()
-            await client.say(embed=embed)	
-	
-
-
 @client.command(pass_context=True)
 async def uptime(ctx: commands.Context):
     now = datetime.datetime.utcnow() # Timestamp of when uptime function is run ji
@@ -428,6 +415,18 @@ async def fortnite(nickname):
                      + "Kills: " + str(kills) + "\n"
                      + "K/D: " + str(kd) + "\n")        
 
+
+@client.command(pass_context = True)
+async def cat(ctx):
+    colour = '0x' + '191950'
+    async with aiohttp.ClientSession() as session:
+        async with session.get("https://api.reddit.com/r/cats/random") as r:			      
+            data = await r.json()
+            embed = discord.Embed(title='', description='', color=0x191950)
+            embed.set_image(url=data[0]["data"]["children"][0]["data"]["url"])
+            embed.timestamp = datetime.datetime.utcnow()
+            await client.say(embed=embed)	
+
 @client.command()
 async def help():	
         r, g, b = tuple(int(x * 255) for x in colorsys.hsv_to_rgb(random.random(), 1, 1))
@@ -502,7 +501,8 @@ async def aww(ctx):
             embed.set_image(url=data[0]["data"]["children"][0]["data"]["url"])
             embed.timestamp = datetime.datetime.utcnow()
             await client.say(embed=embed)
-			
+
+	
 								
 client.run(TOKEN, client = True)
 		                                                                                                
