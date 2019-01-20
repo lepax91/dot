@@ -494,7 +494,7 @@ async def cat(ctx):
 
 @client.command(pass_context = True)
 async def dog(ctx):
-    colour = '0x' + '9dff00''
+    colour = '0x' + '9dff00'
     async with aiohttp.ClientSession() as session:
         async with session.get("https://api.reddit.com/r/dogpictures/random") as r:
             data = await r.json()
