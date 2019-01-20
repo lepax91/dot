@@ -418,7 +418,6 @@ async def fortnite(nickname):
 
 @client.command(pass_context = True)
 async def cat(ctx):
-    colour = '0x' + '191950'
     async with aiohttp.ClientSession() as session:
         async with session.get("https://api.reddit.com/r/cats/random") as r:			      
             data = await r.json()
