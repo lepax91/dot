@@ -501,7 +501,7 @@ async def rps(ctx, *, message=None):
 async def aww(ctx):
     colour = '0x' + '007000'
     async with aiohttp.ClientSession() as session:
-        async with session.get("https://api.reddit.com/r/shiba/random") as r:
+        async with session.get("https://api.reddit.com/r/aww/random") as r:
             data = await r.json()
             embed = discord.Embed(title='', description='', color=0x0000FF)
             embed.set_image(url=data[0]["data"]["children"][0]["data"]["url"])
