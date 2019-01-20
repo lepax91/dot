@@ -416,16 +416,6 @@ async def fortnite(nickname):
                      + "K/D: " + str(kd) + "\n")        
 
 
-@client.command(pass_context = True)
-async def cat(ctx):
-    async with aiohttp.ClientSession() as session:
-        async with session.get("https://api.reddit.com/r/cats/random") as r:			      
-            data = await r.json()
-            embed = discord.Embed(title='', description='', color=0x191950)
-            embed.set_image(url=data[0]["data"]["children"][0]["data"]["url"])
-            embed.timestamp = datetime.datetime.utcnow()
-            await client.say(embed=embed)	
-
 @client.command()
 async def help():	
         r, g, b = tuple(int(x * 255) for x in colorsys.hsv_to_rgb(random.random(), 1, 1))
