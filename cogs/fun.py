@@ -30,18 +30,18 @@ class Fun:
 		await self.bot.delete_messages(mgs)
 		await self.bot.say(":put_litter_in_its_place: x"+str(number-1))
 	
-	@commands.command(pass_context=True, aliases = ["8ball","magickakoule","choose"])
+	@commands.command(pass_context=True,no_pm=True,aliases = ["8ball","magickakoule","choose"])
 	@commands.cooldown(rate=1, per=2, type=commands.BucketType.user)
 	async def eightball(self,ctx):
 		msg = eightballer.eightball_pick()
 		await self.bot.say(msg)
-	@commands.command(pass_context=True)
+	@commands.command(pass_context=True,no_pm=True)
 	@commands.cooldown(rate=1, per=3, type=commands.BucketType.user)
 	async def vtip(self,ctx):
 		msg = vtipek.vtipek()
 		await self.bot.say(""+msg+"")
 	
-	@commands.command(pass_context=True)
+	@commands.command(pass_context=True,no_pm=True)
 	@commands.cooldown(rate=1, per=5, type=commands.BucketType.user)
 	async def fakt(self,ctx):
 		url = "http://www.faktomat.cz/fakty/nahodne"
@@ -50,7 +50,7 @@ class Fun:
 		result = soup.find("div", {"class":"lead"}).text
 		await self.bot.say(f"{result}")	
 
-	@commands.command(pass_context = True)
+	@commands.command(pass_context = True,no_pm=True)
 	@commands.cooldown(rate=1, per=2, type=commands.BucketType.user)
 	async def penis(self,ctx,user:discord.Member = None):
 		if user is None:
@@ -60,7 +60,7 @@ class Fun:
 		await self.bot.say(embed=e)
 	
 		
-	@commands.group(pass_context= True,aliases=["svátek"])
+	@commands.group(pass_context= True,no_pm=True,aliases=["svátek"])
 	@commands.cooldown(rate=1, per=10, type=commands.BucketType.user)
 	async def svatek(self,ctx):
 		if ctx.invoked_subcommand is None:
@@ -69,7 +69,7 @@ class Fun:
 			await self.bot.say(f"Dnes má svátek **{svatek_cz}**!")
 							
 		
-	@commands.command(aliases=["zítra"])
+	@commands.command(no_pm=True,Laliases=["zítra"])
 	async def zitra(self):
 		r = requests.get("https://api.abalin.net/get/tomorrow").json()
 		svatek_cz = r["data"]["name_cz"]
