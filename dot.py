@@ -208,23 +208,7 @@ async def avatar(ctx, user: discord.Member=None):
         await client.say(embed=embed)
 
 	
-@client.command(pass_context=True)
-async def meow(ctx):
-    """Grabs a random cat picture"""
-    for i in range(0,5):
-        # site is buggy and sometimes gives bad images
-        # just loop until we get a good one
-        try:
-            r = requests.get("https://aws.random.cat/meow")
-            r = str(r.content)
-            r = r.replace("b'","")
-            r = r.replace("'","")
-            r = r.replace("\\","")
-            url = json.loads(r)["file"]
-            await client.say(url)
-            break
-        except:
-            pass	
+	
 
 @client.command(pass_context = True)
 async def meme(ctx):
@@ -233,6 +217,17 @@ async def meme(ctx):
         async with session.get("https://api.reddit.com/r/dankmemes/random") as r:
             data = await r.json()
             embed = discord.Embed(title='', description='', color=discord.Color(int(colour, base=16)))
+            embed.set_image(url=data[0]["data"]["children"][0]["data"]["url"])
+            embed.timestamp = datetime.datetime.utcnow()
+            await client.say(embed=embed)	
+	
+@client.command(pass_context = True)
+async def cat(ctx):
+    colour = '0x' + '008000'
+    async with aiohttp.ClientSession() as session:
+        async with session.get("https://api.reddit.com/r/cats/random") as r:			      
+            data = await r.json()
+            embed = discord.Embed(title='', description='', color=0x00fffb)
             embed.set_image(url=data[0]["data"]["children"][0]["data"]["url"])
             embed.timestamp = datetime.datetime.utcnow()
             await client.say(embed=embed)	
