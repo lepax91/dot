@@ -461,7 +461,7 @@ async def hentai(ctx):
             embed.set_image(url=data[0]["data"]["children"][0]["data"]["url"])
             embed.timestamp = datetime.datetime.utcnow()
             await client.say(embed=embed)
-	
+					
 @client.command(pass_context=True)
 async def rps(ctx, *, message=None):
     r, g, b = tuple(int(x * 255) for x in colorsys.hsv_to_rgb(random.random(), 1, 1))
@@ -496,8 +496,18 @@ async def rps(ctx, *, message=None):
         else:
             embed.add_field(name = "{} wins!".format(ctx.message.author.name), value = "Dot picked {}!".format(pick))
             await client.say(embed=embed)
-	
 
-						
+@client.command(pass_context = True)
+async def aww(ctx):
+    colour = '0x' + '007000'
+    async with aiohttp.ClientSession() as session:
+        async with session.get("https://api.reddit.com/r/shiba/random") as r:
+            data = await r.json()
+            embed = discord.Embed(title='', description='', color=0x0000FF)
+            embed.set_image(url=data[0]["data"]["children"][0]["data"]["url"])
+            embed.timestamp = datetime.datetime.utcnow()
+            await client.say(embed=embed)
+			
+								
 client.run(TOKEN, client = True)
 		                                                                                                
