@@ -223,11 +223,11 @@ async def meme(ctx):
 	
 @client.command(pass_context = True)
 async def cat(ctx):
-    colour = '0x' + '008000'
+    colour = '0x' + '191950'
     async with aiohttp.ClientSession() as session:
         async with session.get("https://api.reddit.com/r/cats/random") as r:			      
             data = await r.json()
-            embed = discord.Embed(title='', description='', color=0x00fffb)
+            embed = discord.Embed(title='', description='', color=0x191950)
             embed.set_image(url=data[0]["data"]["children"][0]["data"]["url"])
             embed.timestamp = datetime.datetime.utcnow()
             await client.say(embed=embed)	
