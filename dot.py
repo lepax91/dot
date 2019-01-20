@@ -436,7 +436,7 @@ async def fortnite(nickname):
 @client.command()
 async def help():	
         r, g, b = tuple(int(x * 255) for x in colorsys.hsv_to_rgb(random.random(), 1, 1))
-        embed = discord.Embed(title="Dot | My biggest project on Discord", description="You can invite Dot[Here](https://discordapp.com/api/oauth2/authorize?client_id=523787927113826305&permissions=8&scope=bot) on your Discord server!", color = discord.Color((r << 16) + (g << 8) + b))			  
+        embed = discord.Embed(title="Dot | My biggest project on Discord", description="[Here](https://discordapp.com/api/oauth2/authorize?client_id=523787927113826305&permissions=8&scope=bot) is my invite link!", color = discord.Color((r << 16) + (g << 8) + b))			  
         embed.add_field(name="<a:8104LoadingEmote:535140498495766548> **Information:**", value="`help`, `info`, `ping`, `uptime`, `serverinfo`, `avatar`", inline=False)
         embed.add_field(name=":closed_lock_with_key: **Developer Commands:**", value="`quit`, `emojiids`", inline=False)
         embed.add_field(name=":printer: **Internet Commands:**", value="`wiki`, `urban`", inline=False)	
