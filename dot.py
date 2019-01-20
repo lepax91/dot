@@ -491,6 +491,18 @@ async def aww(ctx):
             embed.timestamp = datetime.datetime.utcnow()
             await client.say(embed=embed)
 
+@client.command(pass_context = True, aliases=["cats"])
+async def cat(ctx):
+    colour = '0x' + '007000'
+    async with aiohttp.ClientSession() as session:
+        async with session.get("https://api.reddit.com/r/cats/random") as r:
+            data = await r.json()
+            embed = discord.Embed(title='', description='', color=0x0000FF)
+            embed.set_image(url=data[0]["data"]["children"][0]["data"]["url"])
+            embed.timestamp = datetime.datetime.utcnow()
+            await client.say(embed=embed)
+
+
 	
 								
 client.run(TOKEN, client = True)
