@@ -224,16 +224,7 @@ async def uptime(ctx: commands.Context):
     uptime_stamp = time_format.format(d=days, h=hours, m=minutes, s=seconds)
     await client.say("{} has been up for {}".format(client.user.name, uptime_stamp))
 
-	
-@client.command(pass_context=True)
-async def woof(ctx):
-    """Because dogs are cute too"""
-    r = requests.get("https://random.dog/woof")
-    r = str(r.content)
-    r = r.replace("b'","")
-    r = r.replace("'","")
-    await client.say("https://random.dog/" + r)
-		
+			
 @client.command(pass_context = True)
 @commands.has_permissions(administrator=True)
 async def kick(ctx, userName: discord.User):
@@ -413,7 +404,7 @@ async def help():
         embed.add_field(name=":closed_lock_with_key: **Developer Commands:**", value="`quit`, `emojiids`", inline=False)
         embed.add_field(name=":printer: **Internet Commands:**", value="`wiki`, `urban`", inline=False)	
         embed.add_field(name="<:FeelsHappyHugMan:535141367475863563> **Fun:**", value="`love`, `fortnite`, `penis`, `hug`, `kiss`, `howgay`, `rps`, `coinflip`", inline=False)
-        embed.add_field(name=":cat: **Animals:**", value="`woof`, `cat`, `aww`", inline=False)    
+        embed.add_field(name=":cat: **Animals:**", value="`dog`, `cat`, `bird`, `aww`", inline=False)    
         embed.add_field(name="<:2109_yikes:535142625129267231> **Memes:**", value="`meme`", inline=False)	
         embed.add_field(name=":underage: **NSFW:**", value="`hentai`, `butt`, `cosplay`", inline=False)
         embed.add_field(name="<:4206_lmaolancer2:535143040835125298> **Memes with Fun:**", value="`deepfry`, `text`, `czech`, `rotate`, `isthisa`, `phone`, `thatsmile`, `birthcontrol`, `moe`, `religion`, `disability`", inline=False)
@@ -502,6 +493,17 @@ async def dog(ctx):
             embed.set_image(url=data[0]["data"]["children"][0]["data"]["url"])
             embed.timestamp = datetime.datetime.utcnow()
             await client.say(embed=embed)	
+	
+@client.command(pass_context = True)
+async def bird(ctx):
+    colour = '0x' + 'ff0059'
+    async with aiohttp.ClientSession() as session:
+        async with session.get("https://api.reddit.com/r/birdpics/random") as r:
+            data = await r.json()
+            embed = discord.Embed(title='', description='', color=discord.Color(int(colour, base=16)))
+            embed.set_image(url=data[0]["data"]["children"][0]["data"]["url"])
+            embed.timestamp = datetime.datetime.utcnow()
+            await client.say(embed=embed)		
 								
 client.run(TOKEN, client = True)
 		                                                                                                
