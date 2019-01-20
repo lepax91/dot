@@ -441,7 +441,7 @@ async def help():
         embed.add_field(name=":closed_lock_with_key: **Developer Commands:**", value="`quit`, `emojiids`", inline=False)
         embed.add_field(name=":printer: **Internet Commands:**", value="`wiki`, `urban`", inline=False)	
         embed.add_field(name="<:FeelsHappyHugMan:535141367475863563> **Fun:**", value="`love`, `fortnite`, `penis`, `hug`, `kiss`, `howgay`, `rps`, `coinflip`", inline=False)
-        embed.add_field(name=":cat: **Animals:**", value="`woof`, `meow`", inline=False)    
+        embed.add_field(name=":cat: **Animals:**", value="`woof`, `meow`, `aww`", inline=False)    
         embed.add_field(name="<:2109_yikes:535142625129267231> **Memes:**", value="`meme`, `cz_memes`", inline=False)	
         embed.add_field(name=":underage: **NSFW:**", value="`hentai`, `butt`, `cosplay`", inline=False)
         embed.add_field(name="<:4206_lmaolancer2:535143040835125298> **Memes with Fun:**", value="`deepfry`, `text`, `czech`, `rotate`, `isthisa`, `phone`, `thatsmile`, `birthcontrol`, `moe`, `religion`, `disability`", inline=False)
