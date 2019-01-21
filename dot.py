@@ -64,7 +64,7 @@ async def info():
 	    embed.add_field(name="Programming Languages", value="Python, JavaScript (Music)", inline=False)
 	    await client.say(embed=embed)
 
-	
+		
 		
 @client.command(pass_context=True, no_pm=True)
 @commands.cooldown(rate=1, per=10, type=commands.BucketType.user)
@@ -101,6 +101,13 @@ async def quit(ctx):
         await client.say("See you later bye!")
         await client.logout()
 
+@client.command()
+async def play():
+	print('hm?')
+	
+@client.command()
+async def stop():
+	print('hm?!')	
 		
 @client.command(pass_context = True,no_pm=True)
 @commands.cooldown(rate=1, per=10, type=commands.BucketType.user)
