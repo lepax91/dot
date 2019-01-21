@@ -49,7 +49,6 @@ class Fun:
 		soup = BeautifulSoup(r,'html.parser')
 		result = soup.find("div", {"class":"lead"}).text
 		await self.bot.say(f"{result}")	
-
 	@commands.command(pass_context = True,no_pm=True)
 	@commands.cooldown(rate=1, per=2, type=commands.BucketType.user)
 	async def penis(self,ctx,user:discord.Member = None):
@@ -58,8 +57,23 @@ class Fun:
 		e=discord.Embed(title="penis machine fam", colour=random.randint(0, 0xFFFFFF))
 		e.add_field(name=f"{str(user)[:-5]}'s size",value="8"+'='*random.randrange(0,10)+"D")
 		await self.bot.say(embed=e)
+
+	@commands.command(pass_context= True,no_pm=True)
+	@commands.cooldown(rate=1, per=30, type=commands.BucketType.user)
+        async def suggest(self, ctx,*,suggestion=None):
+        """Give a suggestion to me"""
+        if suggestion==None:
+            return await self.bot.send("❌ | You need to add a suggestion")
+        embed=discord.Embed(description=suggestion,color=0x00ff80, timestamp = datetime.datetime.utcnow())
+        embed.set_author(name=ctx.author, icon_url=ctx.author.avatar_url)
+        embed.set_footer(text=f"From {ctx.author.guild}")
+        xd = self.bot.get_channel(457623659369070642)
+        x = await xd.send(embed=embed)
+        await x.add_reaction("✅")
+        await x.add_reaction("❌")
+        await self.bot.send("✅ | Your suggestion has been made!")
 	
-		
+								
 	@commands.group(pass_context= True,no_pm=True,aliases=["svátek"])
 	@commands.cooldown(rate=1, per=10, type=commands.BucketType.user)
 	async def svatek(self,ctx):
