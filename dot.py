@@ -56,6 +56,7 @@ def is_owner(ctx):
     return ctx.message.author.id == "417403958814965771"
  
 @client.command(no_pm=True)
+@commands.cooldown(rate=1, per=10, type=commands.BucketType.user)
 async def info():
 	    embed = discord.Embed(title="Information!", color=0x8d7bff) 
 	    embed.add_field(name="Development of Dot",value="<@417403958814965771>", inline=False)
@@ -66,6 +67,7 @@ async def info():
 	
 		
 @client.command(pass_context=True, no_pm=True)
+@commands.cooldown(rate=1, per=10, type=commands.BucketType.user)
 async def urban(ctx, *, msg:str=None):
     await client.send_typing(ctx.message.channel)
     if msg is None:
@@ -101,6 +103,7 @@ async def quit(ctx):
 
 		
 @client.command(pass_context = True,no_pm=True)
+@commands.cooldown(rate=1, per=10, type=commands.BucketType.user)
 async def coinflip(ctx):
     choices = ['https://upload.wikimedia.org/wikipedia/commons/4/44/2014_ATB_Quarter_Obv.png', 'http://fracademic.com/pictures/frwiki/50/2005_Half_Dollar_Rev_Unc_P.png']
     color = discord.Color(value=0x00ff00)
@@ -110,6 +113,7 @@ async def coinflip(ctx):
 
 
 @client.command(pass_context=True,no_pm=True)
+@commands.cooldown(rate=1, per=10, type=commands.BucketType.user)
 @commands.has_permissions(ban_members=True)     
 async def unban(ctx, identification:str):
     user = await client.get_user_info(identification)
@@ -125,6 +129,7 @@ async def unban(ctx, identification:str):
         pass
   
 @client.command(pass_context = True,no_pm=True)
+@commands.cooldown(rate=1, per=10, type=commands.BucketType.user)
 @commands.has_permissions(kick_members=True)
 async def warn(ctx, userName: discord.User, *, message:str): 
     await client.send_message(userName, "You have been warned for: **{}**".format(message))
@@ -134,6 +139,7 @@ async def warn(ctx, userName: discord.User, *, message:str):
 
 		
 @client.command(pass_context = True,no_pm=True)
+@commands.cooldown(rate=1, per=10, type=commands.BucketType.user)
 async def cosplay(ctx):
     colour = '0x' + '008000'
     async with aiohttp.ClientSession() as session:
@@ -148,6 +154,7 @@ async def cosplay(ctx):
 	
 	
 @client.command(pass_context=True,no_pm=True)
+@commands.cooldown(rate=1, per=10, type=commands.BucketType.user)
 @commands.has_permissions(administrator=True)
 async def say(ctx, *args):
     argstr = " ".join(args)
@@ -158,6 +165,7 @@ async def say(ctx, *args):
     await client.delete_message(ctx.message) 
 
 @client.command(pass_context=True,no_pm=True)
+@commands.cooldown(rate=1, per=10, type=commands.BucketType.user)
 @commands.has_permissions(ban_members=True)      
 async def ban(ctx,user:discord.Member):
 
@@ -182,6 +190,7 @@ async def ban(ctx,user:discord.Member):
 	
 	
 @client.command(pass_context = True,no_pm=True)
+@commands.cooldown(rate=1, per=10, type=commands.BucketType.user)
 async def avatar(ctx, user: discord.Member=None):
     if user is None:
         r, g, b = tuple(int(x * 255) for x in colorsys.hsv_to_rgb(random.random(), 1, 1))
@@ -200,6 +209,7 @@ async def avatar(ctx, user: discord.Member=None):
 	
 
 @client.command(pass_context = True,no_pm=True)
+@commands.cooldown(rate=1, per=10, type=commands.BucketType.user)
 async def meme(ctx):
     colour = '0x' + '008000'
     async with aiohttp.ClientSession() as session:
@@ -211,6 +221,7 @@ async def meme(ctx):
             await client.say(embed=embed)	      		
 	
 @client.command(pass_context=True,no_pm=True)
+@commands.cooldown(rate=1, per=10, type=commands.BucketType.user)
 async def uptime(ctx: commands.Context):
     now = datetime.datetime.utcnow() # Timestamp of when uptime function is run ji
     delta = now - start_time
@@ -226,18 +237,20 @@ async def uptime(ctx: commands.Context):
 
 			
 @client.command(pass_context = True,no_pm=True)
+@commands.cooldown(rate=1, per=10, type=commands.BucketType.user)
 @commands.has_permissions(administrator=True)
 async def kick(ctx, userName: discord.User):
     await client.kick(userName)	
 		
 @client.command(pass_context = True,no_pm=True)
-@commands.has_permissions(administrator=True)
+@commands.has_permissions(is_owner=True)
 async def emojiids(ctx):
   for emoji in ctx.message.author.server.emojis:
     print(f"<:{emoji.name}:{emoji.id}>")
     print(" ")    					                 
 						
 @client.command(pass_context=True,no_pm=True)
+@commands.cooldown(rate=1, per=10, type=commands.BucketType.user)
 async def love(ctx, user: discord.Member = None, *, user2: discord.Member = None):
     shipuser1 = user.name
     shipuser2 = user2.name
@@ -264,6 +277,7 @@ async def love(ctx, user: discord.Member = None, *, user2: discord.Member = None
 
 
 @client.command(pass_context=True,no_pm=True)
+@commands.cooldown(rate=1, per=10, type=commands.BucketType.user)
 async def howgay(ctx, user: discord.Member):
     r, g, b = tuple(int(x * 255) for x in colorsys.hsv_to_rgb(random.random(), 1, 1))
     howgay = [":gay_pride_flag: | You are 1% gay",":gay_pride_flag:  | You are 2% gay",":gay_pride_flag:  |  You are 100% gay",":gay_pride_flag: | You are 90% gay",":gay_pride_flag: | You are 50% gay",":gay_pride_flag: | You are 69% gay"]
@@ -272,6 +286,7 @@ async def howgay(ctx, user: discord.Member):
     await client.say(embed=embed)
 
 @client.command(pass_context = True,no_pm=True)
+@commands.cooldown(rate=1, per=10, type=commands.BucketType.user)
 async def butt(ctx):
     colour = '0x' + '007000'
     async with aiohttp.ClientSession() as session:
@@ -283,6 +298,7 @@ async def butt(ctx):
             await client.say(embed=embed)
 
 @client.command(pass_context=True,no_pm=True)
+@commands.cooldown(rate=1, per=10, type=commands.BucketType.user)
 async def ping(ctx):
     username = ctx.message.author.display_name
     channel = ctx.message.channel
@@ -327,6 +343,7 @@ async def on_member_remove(member):
             await client.send_message(channel, embed=embed)				
                                          																					
 @client.command(pass_context=True,no_pm=True)
+@commands.cooldown(rate=1, per=10, type=commands.BucketType.user)
 async def serverinfo(ctx):
     server = ctx.message.server
     roles = [x.name for x in server.role_hierarchy]
@@ -357,6 +374,7 @@ async def serverinfo(ctx):
 
 	
 @client.command(pass_context=True,no_pm=True)
+@commands.cooldown(rate=1, per=10, type=commands.BucketType.user)
 async def hug(ctx, user: discord.Member):
     r, g, b = tuple(int(x * 255) for x in colorsys.hsv_to_rgb(random.random(), 1, 1))
     if user.id == ctx.message.author.id:
@@ -368,6 +386,7 @@ async def hug(ctx, user: discord.Member):
         await client.say(embed=embed)		
         
 @client.command(description="Fetches a player's Fortnite stats.",no_pm=True)
+@commands.cooldown(rate=1, per=10, type=commands.BucketType.user)
 async def fortnite(nickname):
     url = "https://api.fortnitetracker.com/v1/profile/pc/"+ nickname
     key = {'TRN-Api-Key' : 'de6135b6-43cb-40af-9985-872ae3cd6464'}
@@ -397,6 +416,7 @@ async def fortnite(nickname):
 
 
 @client.command(no_pm=True)
+@commands.cooldown(rate=1, per=10, type=commands.BucketType.user)
 async def help():	
         r, g, b = tuple(int(x * 255) for x in colorsys.hsv_to_rgb(random.random(), 1, 1))
         embed = discord.Embed(title="Dot | My biggest project on Discord", description="[Here](https://discordapp.com/api/oauth2/authorize?client_id=523787927113826305&permissions=8&scope=bot) is my invite link!", color = discord.Color((r << 16) + (g << 8) + b))			  
@@ -415,6 +435,7 @@ async def help():
         await client.say(embed=embed)     
 	
 @client.command(pass_context = True,no_pm=True)
+@commands.cooldown(rate=1, per=10, type=commands.BucketType.user)
 async def hentai(ctx):
     colour = '0x' + '007000'
     async with aiohttp.ClientSession() as session:
@@ -426,6 +447,7 @@ async def hentai(ctx):
             await client.say(embed=embed)
 					
 @client.command(pass_context=True,no_pm=True)
+@commands.cooldown(rate=1, per=10, type=commands.BucketType.user)
 async def rps(ctx, *, message=None):
     r, g, b = tuple(int(x * 255) for x in colorsys.hsv_to_rgb(random.random(), 1, 1))
     await client.send_typing(ctx.message.channel)
@@ -461,6 +483,7 @@ async def rps(ctx, *, message=None):
             await client.say(embed=embed)
 
 @client.command(pass_context = True,no_pm=True)
+@commands.cooldown(rate=1, per=5, type=commands.BucketType.user)
 async def aww(ctx):
     colour = '0x' + '007000'
     async with aiohttp.ClientSession() as session:
@@ -472,6 +495,7 @@ async def aww(ctx):
             await client.say(embed=embed)
 
 @client.command(pass_context = True,no_pm=True)
+@commands.cooldown(rate=1, per=5, type=commands.BucketType.user)
 async def cat(ctx):
     colour = '0x' + 'ff00d0'
     async with aiohttp.ClientSession() as session:
@@ -484,6 +508,7 @@ async def cat(ctx):
 
 
 @client.command(pass_context = True,no_pm=True)
+@commands.cooldown(rate=1, per=5, type=commands.BucketType.user)
 async def dog(ctx):
     colour = '0x' + '9dff00'
     async with aiohttp.ClientSession() as session:
@@ -496,6 +521,7 @@ async def dog(ctx):
 	
 		
 @client.command(pass_context = True,no_pm=True)
+@commands.cooldown(rate=1, per=5, type=commands.BucketType.user)
 async def duck(ctx):
     colour = '0x' + 'fce300'
     async with aiohttp.ClientSession() as session:
@@ -508,6 +534,7 @@ async def duck(ctx):
 	
 	
 @client.command(pass_context = True,no_pm=True)
+@commands.cooldown(rate=1, per=5, type=commands.BucketType.user)
 async def bird(ctx):
     colour = '0x' + 'ff0059'
     async with aiohttp.ClientSession() as session:
