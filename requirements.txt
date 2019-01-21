@@ -28,4 +28,12 @@ youtube-dl==2018.12.17
 matplotlib==3.0.0
 opuslib
 nsfw_dl
-
+git+https://github.com/Rapptz/discord.py@rewrite
+git+https://github.com/Rapptz/discord.py@rewrite#egg=discord.py[voice]
+yarl<1.2
+pillow
+motor
+youtube_dl
+psutil
+requests
+aiohttp
