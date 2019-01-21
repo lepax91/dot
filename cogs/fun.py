@@ -59,7 +59,7 @@ class Fun:
 		await self.bot.say(embed=e)
 
 	@commands.command(pass_context= True,no_pm=True)
-	@commands.cooldown(rate=1, per=30, type=commands.BucketType.user)
+	@commands.cooldown(rate=1, per=30, type=commands.BucketType.user):
         async def suggest(self, ctx,*,suggestion=None):
         """Give a suggestion to me"""
         if suggestion==None:
@@ -67,7 +67,7 @@ class Fun:
         embed=discord.Embed(description=suggestion,color=0x00ff80, timestamp = datetime.datetime.utcnow())
         embed.set_author(name=ctx.author, icon_url=ctx.author.avatar_url)
         embed.set_footer(text=f"From {ctx.author.guild}")
-        xd = self.bot.get_channel(457623659369070642)
+        xd = self.bot.get_channel(536992877943980052)
         x = await xd.send(embed=embed)
         await x.add_reaction("✅")
         await x.add_reaction("❌")
