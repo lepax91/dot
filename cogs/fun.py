@@ -58,8 +58,25 @@ class Fun:
 		e.add_field(name=f"{str(user)[:-5]}'s size",value="8"+'='*random.randrange(0,10)+"D")
 		await self.bot.say(embed=e)
 
+	  										
+												
+	@commands.command(no_pm=True,Laliases=["zítra"])
+	async def zitra(self):
+		r = requests.get("https://api.abalin.net/get/tomorrow").json()
+		svatek_cz = r["data"]["name_cz"]
+		await self.bot.say(f"Zítra má svátek **{svatek_cz}**!")	
+
+
+	@commands.group(pass_context= True,no_pm=True,aliases=["svátek"])
+	@commands.cooldown(rate=1, per=10, type=commands.BucketType.user)
+	async def svatek(self,ctx):
+		if ctx.invoked_subcommand is None:
+			r = requests.get("https://api.abalin.net/get/today").json()
+			svatek_cz = r["data"]["name_cz"]
+			await self.bot.say(f"Dnes má svátek **{svatek_cz}**!")
+		
+		
 	@commands.command(pass_context= True,no_pm=True)
-	@commands.cooldown(rate=1, per=30, type=commands.BucketType.user):
         async def suggest(self, ctx,*,suggestion=None):
         """Give a suggestion to me"""
         if suggestion==None:
@@ -72,22 +89,7 @@ class Fun:
         await x.add_reaction("✅")
         await x.add_reaction("❌")
         await self.bot.send("✅ | Your suggestion has been made!")
-	
-								
-	@commands.group(pass_context= True,no_pm=True,aliases=["svátek"])
-	@commands.cooldown(rate=1, per=10, type=commands.BucketType.user)
-	async def svatek(self,ctx):
-		if ctx.invoked_subcommand is None:
-			r = requests.get("https://api.abalin.net/get/today").json()
-			svatek_cz = r["data"]["name_cz"]
-			await self.bot.say(f"Dnes má svátek **{svatek_cz}**!")
-							
 		
-	@commands.command(no_pm=True,Laliases=["zítra"])
-	async def zitra(self):
-		r = requests.get("https://api.abalin.net/get/tomorrow").json()
-		svatek_cz = r["data"]["name_cz"]
-		await self.bot.say(f"Zítra má svátek **{svatek_cz}**!")	
 		
 def setup(bot):
 	bot.add_cog(Fun(bot))
