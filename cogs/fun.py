@@ -74,22 +74,7 @@ class Fun:
 			r = requests.get("https://api.abalin.net/get/today").json()
 			svatek_cz = r["data"]["name_cz"]
 			await self.bot.say(f"Dnes má svátek **{svatek_cz}**!")
-		
-		
-	@commands.command(pass_context= True,no_pm=True)
-        async def suggest(self, ctx,*,suggestion=None):
-        """Give a suggestion to me"""
-        if suggestion==None:
-            return await self.bot.send("❌ | You need to add a suggestion")
-        embed=discord.Embed(description=suggestion,color=0x00ff80, timestamp = datetime.datetime.utcnow())
-        embed.set_author(name=ctx.author, icon_url=ctx.author.avatar_url)
-        embed.set_footer(text=f"From {ctx.author.guild}")
-        xd = self.bot.get_channel(536992877943980052)
-        x = await xd.send(embed=embed)
-        await x.add_reaction("✅")
-        await x.add_reaction("❌")
-        await self.bot.send("✅ | Your suggestion has been made!")
-		
+							
 		
 def setup(bot):
 	bot.add_cog(Fun(bot))
