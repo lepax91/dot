@@ -40,7 +40,7 @@ client = discord.Client()
 client = commands.Bot(command_prefix=get_prefix)
 client.remove_command('help')
 #()  []  {} `
-init_extensions = ['cogs.error_handler','cogs.info','cogs.wiki','cogs.fun','cogs.images']
+init_extensions = ['cogs.error_handler','cogs.wiki','cogs.fun','cogs.images']
 
 
 if __name__ == '__main__':
@@ -148,9 +148,9 @@ async def warn(ctx, userName: discord.User, *, message:str):
 @client.command(pass_context = True,no_pm=True)
 @commands.cooldown(rate=1, per=10, type=commands.BucketType.user)
 async def cosplay(ctx):
-    colour = '0x' + '008000'
+    colour = '0x' + 'ff96a9'
     async with aiohttp.ClientSession() as session:
-        async with session.get("https://api.reddit.com/r/JessicaNigri/random") as r:
+        async with session.get("https://api.reddit.com/r/Cosporn/random") as r:
             data = await r.json()
             embed = discord.Embed(title='', description='', color=discord.Color(int(colour, base=16)))
             embed.set_image(url=data[0]["data"]["children"][0]["data"]["url"])
@@ -295,7 +295,7 @@ async def howgay(ctx, user: discord.Member):
 @client.command(pass_context = True,no_pm=True)
 @commands.cooldown(rate=1, per=10, type=commands.BucketType.user)
 async def butt(ctx):
-    colour = '0x' + '007000'
+    colour = '0x' + '00fffa'
     async with aiohttp.ClientSession() as session:
         async with session.get("https://api.reddit.com/r/ass/random") as r:
             data = await r.json()
@@ -423,7 +423,6 @@ async def fortnite(nickname):
 
 
 @client.command(pass_context=True,no_pm=True)
-@commands.cooldown(rate=1, per=10, type=commands.BucketType.user)
 async def help(ctx):	
         r, g, b = tuple(int(x * 255) for x in colorsys.hsv_to_rgb(random.random(), 1, 1))
         embed = discord.Embed(title="Dot | My biggest project on Discord", description="[Here](https://discordapp.com/api/oauth2/authorize?client_id=523787927113826305&permissions=8&scope=bot) is my invite link!", color = discord.Color((r << 16) + (g << 8) + b))			  
@@ -444,7 +443,7 @@ async def help(ctx):
 @client.command(pass_context = True,no_pm=True) 
 @commands.cooldown(rate=1, per=10, type=commands.BucketType.user)
 async def hentai(ctx):
-    colour = '0x' + '007000'
+    colour = '0x' + '00ff1d'
     async with aiohttp.ClientSession() as session:
         async with session.get("https://api.reddit.com/r/hentai/random") as r:
             data = await r.json()
