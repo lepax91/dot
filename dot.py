@@ -422,9 +422,9 @@ async def fortnite(nickname):
                      + "K/D: " + str(kd) + "\n")        
 
 
-@client.command(no_pm=True)
+@client.command(pass_context=True,no_pm=True)
 @commands.cooldown(rate=1, per=10, type=commands.BucketType.user)
-async def help():	
+async def help(ctx):	
         r, g, b = tuple(int(x * 255) for x in colorsys.hsv_to_rgb(random.random(), 1, 1))
         embed = discord.Embed(title="Dot | My biggest project on Discord", description="[Here](https://discordapp.com/api/oauth2/authorize?client_id=523787927113826305&permissions=8&scope=bot) is my invite link!", color = discord.Color((r << 16) + (g << 8) + b))			  
         embed.add_field(name="<a:8104LoadingEmote:535140498495766548> **Information:**", value="`help`, `info`, `ping`, `uptime`, `serverinfo`, `avatar`", inline=False)
@@ -438,7 +438,7 @@ async def help():
         embed.add_field(name="<:1200pxFlag_of_the_Czech_Republic:535143419585232896> **Czech Commands:**", value="`8ball`, `vtip`, `fakt`, `svatek`, `zitra`", inline=False)
         embed.add_field(name="<:9175_moderation_hammer:535143648900284416> **Moderation:**", value="`ban`, `warn`, `say`, `purge`, `kick`, `unban`", inline=False)    
         embed.add_field(name=":musical_note: **Music:**", value="`play`, `stop`", inline=False)     
-        embed.set_footer(text="Prefix is [. or dot] | Pre-Alpha v.1.0")
+        embed.set_footer(text=f'{ctx.message.author.display_name}', icon_url=f'{ctx.message.author.avatar_url}')        
         await client.say(embed=embed)     
 	
 @client.command(pass_context = True,no_pm=True)
