@@ -42,7 +42,6 @@ client.remove_command('help')
 #()  []  {} `
 init_extensions = ['cogs.error_handler','cogs.wiki','cogs.fun','cogs.images']
 
-hddhudjd
 if __name__ == '__main__':
     for extension in init_extensions:
         try:
