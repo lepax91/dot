@@ -438,7 +438,7 @@ async def help(ctx):
         embed.add_field(name="<:1200pxFlag_of_the_Czech_Republic:535143419585232896> **Czech Commands:**", value="`8ball`, `vtip`, `fakt`, `svatek`, `zitra`", inline=False)
         embed.add_field(name="<:9175_moderation_hammer:535143648900284416> **Moderation:**", value="`ban`, `warn`, `say`, `purge`, `kick`, `unban`", inline=False)    
         embed.add_field(name=":musical_note: **Music:**", value="`play`, `stop`", inline=False)     
-        embed.set_footer(text=f'{ctx.message.author.display_name}', icon_url=f'{ctx.message.author.avatar_url}')        
+        embed.set_footer(text=f'Requested: {ctx.message.author.display_name}', icon_url=f'{ctx.message.author.avatar_url}')        
         await client.say(embed=embed)     
 	
 @client.command(pass_context = True,no_pm=True)
