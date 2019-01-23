@@ -145,7 +145,6 @@ async def warn(ctx, userName: discord.User, *, message:str):
 
 		
 @client.command(pass_context = True,no_pm=True)
-@commands.cooldown(rate=1, per=10, type=commands.BucketType.user)
 async def cosplay(ctx):
     colour = '0x' + 'ff96a9'
     async with aiohttp.ClientSession() as session:
@@ -292,7 +291,6 @@ async def howgay(ctx, user: discord.Member):
     await client.say(embed=embed)
 
 @client.command(pass_context = True,no_pm=True)
-@commands.cooldown(rate=1, per=10, type=commands.BucketType.user)
 async def butt(ctx):
     colour = '0x' + '00fffa'
     async with aiohttp.ClientSession() as session:
@@ -440,7 +438,6 @@ async def help(ctx):
         await client.say(embed=embed)     
 	
 @client.command(pass_context = True,no_pm=True) 
-@commands.cooldown(rate=1, per=10, type=commands.BucketType.user)
 async def hentai(ctx):
     colour = '0x' + '00ff1d'
     async with aiohttp.ClientSession() as session:
