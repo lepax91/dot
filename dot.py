@@ -79,7 +79,7 @@ async def urban(ctx, *, msg:str=None):
         response = requests.get(api, params=[("term", word)]).json()
         if len(response["list"]) == 0:
             return await client.say("Could not find that word!")
-        embed = discord.Embed(title = "🔍 Search Word", description = color = discord.Color((r << 16) + (g << 8) + b))
+        embed = discord.Embed(title = "🔍 Search Word", description = word, color = discord.Color((r << 16) + (g << 8) + b))
         embed.add_field(name = "Top definition:", value = response['list'][0]['definition'])
         embed.add_field(name = "Examples:", value = response['list'][0]["example"])    
         await client.say(embed=embed)
