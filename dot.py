@@ -423,7 +423,7 @@ async def fortnite(nickname):
 async def help(ctx):	
         r, g, b = tuple(int(x * 255) for x in colorsys.hsv_to_rgb(random.random(), 1, 1))
         embed = discord.Embed(title="Dot | My biggest project on Discord", description="[Here](https://discordapp.com/api/oauth2/authorize?client_id=523787927113826305&permissions=8&scope=bot) is my invite link!", color = discord.Color((r << 16) + (g << 8) + b))			  
-        embed.add_field(name="<a:8104LoadingEmote:535140498495766548> **Information:**", value="`help`, `info`, `ping`, `uptime`, `serverinfo`, `avatar`", inline=False)
+        embed.add_field(name="<a:8104LoadingEmote:535140498495766548> **Information:**", value="`help`, `info`, `ping`, `uptime`, `avatar`, `icon`", inline=False)
         embed.add_field(name=":closed_lock_with_key: **Developer Commands:**", value="`quit`, `emojiids`", inline=False)
         embed.add_field(name=":printer: **Internet Commands:**", value="`wiki`, `urban`", inline=False)	
         embed.add_field(name="<:FeelsHappyHugMan:535141367475863563> **Fun:**", value="`love`, `fortnite`, `penis`, `hug`, `kiss`, `howgay`, `rps`, `coinflip`", inline=False)
@@ -545,6 +545,11 @@ async def bird(ctx):
             embed = discord.Embed(title='', description='', color=discord.Color(int(colour, base=16)))
             embed.set_image(url=data[0]["data"]["children"][0]["data"]["url"])
             embed.timestamp = datetime.datetime.utcnow()
-											
+
+@client.command(pass_context=True, no_pm=True)
+async def icon(ctx):
+    """Guild Icon"""
+    await client.reply("{}".format(ctx.message.server.icon_url))		
+				
 client.run(TOKEN, client = True)
 		                                                                                                
