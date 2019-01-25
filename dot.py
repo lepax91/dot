@@ -79,7 +79,7 @@ async def urban(ctx, *, msg:str=None):
         response = requests.get(api, params=[("term", word)]).json()
         if len(response["list"]) == 0:
             return await client.say("Could not find that word!")
-        embed = discord.Embed(title = "🔍 Search Word", description = word, color = discord.Color((r << 16) + (g << 8) + b))
+        embed = discord.Embed(title = "🔍 Search Word", description = color = discord.Color((r << 16) + (g << 8) + b))
         embed.add_field(name = "Top definition:", value = response['list'][0]['definition'])
         embed.add_field(name = "Examples:", value = response['list'][0]["example"])    
         await client.say(embed=embed)
@@ -89,7 +89,7 @@ async def urban(ctx, *, msg:str=None):
 async def on_ready():
     print("The bot is ready!")
     print("Connected on " + str(len(client.servers)) + " servers:") 
-    await client.change_presence(game=discord.Game(name='big chungus'))
+    await client.change_presence(game=discord.Game(name=str(len(set(client.get_all_members())))+' users', type=3))
 							
 @client.command(pass_context=True,no_pm=True)
 async def quit(ctx):
