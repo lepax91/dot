@@ -51,8 +51,6 @@ if __name__ == '__main__':
             print(f'Nepodarilo se nacist {extension}.', file=sys.stderr)
             traceback.print_exc()
 		
-owner = ["417403958814965771"]
-
 def is_owner(ctx):
     return ctx.message.author.id == "417403958814965771"
 
@@ -240,7 +238,6 @@ async def kick(ctx, userName: discord.User):
     await client.kick(userName)	
 		
 @client.command(pass_context = True,no_pm=True)
-@commands.has_permissions(is_owner=True)
 async def emojiids(ctx):
   for emoji in ctx.message.author.server.emojis:
     print(f"<:{emoji.name}:{emoji.id}>")
