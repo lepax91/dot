@@ -54,17 +54,22 @@ if __name__ == '__main__':
 def is_owner(ctx):
     return ctx.message.author.id == "417403958814965771"
 
-@client.command(no_pm=True)
-@commands.cooldown(rate=1, per=10, type=commands.BucketType.user)
-async def info():
-	    embed = discord.Embed(title="Information!", color=0x8d7bff) 
-	    embed.add_field(name="Development of Dot",value="<@417403958814965771>", inline=False)
-	    embed.add_field(name="Help with Support Server!", value="<@273813194861051907> (Channels, Roles)", inline=False)
-	    embed.add_field(name="Programming Languages", value="Python, JavaScript (Music)", inline=False)
-	    await client.say(embed=embed)
-
-		
-		
+@client.command(pass_context=True, no_pm=True)
+async def info(ctx):
+    em = discord.Embed(color=discord.Color.purple())
+    em.title = 'Informations of Dot'
+    em.add_field(name="Servers", value=len(client.servers))
+    em.add_field(name="<:3619_discord_online:538667013803999232> Online Users", value=str(len({m.id for m in client.get_all_members() if m.status is not discord.Status.offline})))
+    em.add_field(name='Channels', value=f"{sum(1 for g in client.servers for _ in g.channels)}")
+    em.add_field(name="Library", value=f"discord.py")
+    em.add_field(name="Development of Dot", value=f"<@417403958814965771>")
+    em.add_field(name="Help with Support Server!", value=f"<@273813194861051907> (Channels, Roles)")
+    em.add_field(name="Invite dot to next server!", value=f"[Here](https://discordapp.com/oauth2/authorize?client_id={client.user.id}&scope=bot&permissions=268905542)")
+    em.add_field(name="Do not forget to vote for Dot!", value=f"[Here](https://bots.ondiscord.xyz/bots/523787927113826305)",inline=False)
+    em.add_field(name="If you have problems with Dot", value=f"[Join Here!](https://discord.gg/XQW9uf2)")
+    em.set_footer(text="Dot | Pre-Alpha 1.2")
+    await client.say(embed=em)
+				
 @client.command(pass_context=True, no_pm=True)
 @commands.cooldown(rate=1, per=10, type=commands.BucketType.user)
 async def urban(ctx, *, msg:str=None):
