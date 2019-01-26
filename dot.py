@@ -51,9 +51,11 @@ if __name__ == '__main__':
             print(f'Nepodarilo se nacist {extension}.', file=sys.stderr)
             traceback.print_exc()
 		
+owner = ["417403958814965771"]
+
 def is_owner(ctx):
     return ctx.message.author.id == "417403958814965771"
- 
+
 @client.command(no_pm=True)
 @commands.cooldown(rate=1, per=10, type=commands.BucketType.user)
 async def info():
@@ -549,7 +551,38 @@ async def bird(ctx):
 @client.command(pass_context=True, no_pm=True)
 async def icon(ctx):
     """Guild Icon"""
-    await client.reply("{}".format(ctx.message.server.icon_url))		
-				
+    await client.reply("{}".format(ctx.message.server.icon_url))
+	
+@client.event
+async def send_cmd_help(ctx):
+    if ctx.invoked_subcommand:
+        pages = bot.formatter.format_help_for(ctx, ctx.invoked_subcommand)
+        for page in pages:
+            em = discord.Embed(description=page.strip("```").replace('<', '[').replace('>', ']'),
+                               color=discord.Color.blue())
+            await client.send_message(ctx.message.channel, embed=em)
+    else:
+        pages = client.formatter.format_help_for(ctx, ctx.command)
+        for page in pages:
+            em = discord.Embed(description=page.strip("```").replace('<', '[').replace('>', ']'),
+                               color=discord.Color.blue())
+            await client.send_message(ctx.message.channel, embed=em)	
+		
+@client.command(pass_context=True, hidden=True)
+async def setgame(ctx, *, game):
+    if ctx.message.author.id not in owner:
+        return
+    game = game.strip()
+    if game != "":
+        try:
+            await client.change_presence(game=discord.Game(name=game))
+        except:
+            await client.say("Failed to change game")
+        else:
+            await client.say("Successfuly changed game to {}".format(game))
+    else:
+        await client.send_cmd_help(ctx)
+	
+							
 client.run(TOKEN, client = True)
 		                                                                                                
