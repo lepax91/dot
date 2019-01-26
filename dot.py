@@ -148,21 +148,7 @@ async def warn(ctx, userName: discord.User, *, message:str):
     pass		
 			
 
-		
-@client.command(pass_context = True,no_pm=True)
-async def cosplay(ctx):
-    colour = '0x' + 'ff96a9'
-    async with aiohttp.ClientSession() as session:
-        async with session.get("https://api.reddit.com/r/Cosporn/random") as r:
-            data = await r.json()
-            embed = discord.Embed(title='', description='', color=discord.Color(int(colour, base=16)))
-            embed.set_image(url=data[0]["data"]["children"][0]["data"]["url"])
-            embed.timestamp = datetime.datetime.utcnow()
-            await client.say(embed=embed)	
-	
-	
-	
-	
+						
 @client.command(pass_context=True,no_pm=True)
 @commands.cooldown(rate=1, per=10, type=commands.BucketType.user)
 @commands.has_permissions(administrator=True)
@@ -284,16 +270,7 @@ async def howgay(ctx, user: discord.Member):
     embed.add_field(name=f"ur mom gay", value=random.choice(howgay))
     await client.say(embed=embed)
 
-@client.command(pass_context = True,no_pm=True)
-async def butt(ctx):
-    colour = '0x' + '00fffa'
-    async with aiohttp.ClientSession() as session:
-        async with session.get("https://api.reddit.com/r/ass/random") as r:
-            data = await r.json()
-            embed = discord.Embed(title='', description='', color=discord.Color(int(colour, base=16)))
-            embed.set_image(url=data[0]["data"]["children"][0]["data"]["url"])         
-            embed.timestamp = datetime.datetime.utcnow()
-            await client.say(embed=embed)
+
 
 @client.command(pass_context=True,no_pm=True)
 @commands.cooldown(rate=1, per=10, type=commands.BucketType.user)
@@ -422,26 +399,14 @@ async def help(ctx):
         embed.add_field(name=":printer: **Internet Commands:**", value="`wiki`, `urban`", inline=False)	
         embed.add_field(name="<:FeelsHappyHugMan:535141367475863563> **Fun:**", value="`love`, `fortnite`, `penis`, `hug`, `kiss`, `howgay`, `rps`, `coinflip`", inline=False)
         embed.add_field(name=":cat: **Animals:**", value="`dog`, `cat`, `bird`, `duck`, `aww`", inline=False)    
-        embed.add_field(name="<:2109_yikes:535142625129267231> **Memes:**", value="`meme`", inline=False)	
-        embed.add_field(name=":underage: **NSFW:**", value="`hentai`, `butt`, `cosplay`", inline=False)
+        embed.add_field(name="<:2109_yikes:535142625129267231> **Memes:**", value="`meme`", inline=False)	        
         embed.add_field(name="<:4206_lmaolancer2:535143040835125298> **Memes with Fun:**", value="`deepfry`, `text`, `czech`, `rotate`, `isthisa`, `phone`, `thatsmile`, `birthcontrol`, `moe`, `religion`, `disability`", inline=False)
         embed.add_field(name="<:1200pxFlag_of_the_Czech_Republic:535143419585232896> **Czech Commands:**", value="`8ball`, `vtip`, `fakt`, `svatek`, `zitra`", inline=False)
         embed.add_field(name="<:9175_moderation_hammer:535143648900284416> **Moderation:**", value="`ban`, `warn`, `say`, `purge`, `kick`, `unban`", inline=False)    
         embed.add_field(name=":musical_note: **Music:**", value="`play`, `stop`", inline=False)     
         embed.set_footer(text=f'Requested: {ctx.message.author.display_name} | Prefixes: [. or dot]', icon_url=f'{ctx.message.author.avatar_url}')
         await client.say(embed=embed)     
-	
-@client.command(pass_context = True,no_pm=True) 
-async def hentai(ctx):
-    colour = '0x' + '00ff1d'
-    async with aiohttp.ClientSession() as session:
-        async with session.get("https://api.reddit.com/r/hentai/random") as r:
-            data = await r.json()
-            embed = discord.Embed(title='', description='', color=discord.Color(int(colour, base=16)))
-            embed.set_image(url=data[0]["data"]["children"][0]["data"]["url"])
-            embed.timestamp = datetime.datetime.utcnow()
-            await client.say(embed=embed)
-					
+						
 @client.command(pass_context=True,no_pm=True)
 @commands.cooldown(rate=1, per=10, type=commands.BucketType.user)
 async def rps(ctx, *, message=None):
