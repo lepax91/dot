@@ -55,7 +55,7 @@ def is_owner(ctx):
     return ctx.message.author.id == "417403958814965771"
 
 @client.command(pass_context=True, no_pm=True)
-async def info(ctx):
+async def info(ctx):	    
     em = discord.Embed(color=discord.Color.purple())
     em.title = 'Informations of Dot'
     em.add_field(name="Servers", value=len(client.servers))
@@ -65,7 +65,7 @@ async def info(ctx):
     em.add_field(name="Development of Dot", value=f"<@417403958814965771>")
     em.add_field(name="Help with Support Server!", value=f"<@273813194861051907> (Channels, Roles)")
     em.add_field(name="Invite dot to next server!", value=f"[Here](https://discordapp.com/oauth2/authorize?client_id={client.user.id}&scope=bot&permissions=268905542)")
-    em.add_field(name="Do not forget to vote for Dot!", value=f"[Here](https://divinediscordbots.com/bots/523787927113826305)',inline=False)
+    em.add_field(name="Do not forget to vote for Dot!", value=f"[Here](https://divinediscordbots.com/bots/523787927113826305)",inline=False)
     em.add_field(name="If you have problems with Dot", value=f"[Join Here!](https://discord.gg/XQW9uf2)")
     em.set_footer(text="Dot | Pre-Alpha 1.2")
     await client.say(embed=em)
