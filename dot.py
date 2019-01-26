@@ -196,25 +196,15 @@ async def ban(ctx,user:discord.Member):
 
 	
 	
-@client.command(pass_context = True,no_pm=True)
+@client.command(pass_context=True, no_pm=True)
 @commands.cooldown(rate=1, per=10, type=commands.BucketType.user)
-async def avatar(ctx, user: discord.Member=None):
-    if user is None:
-        r, g, b = tuple(int(x * 255) for x in colorsys.hsv_to_rgb(random.random(), 1, 1))
-        embed = discord.Embed(title=f'Avatar', description='Avatar is profile picture of a user in discord', color = discord.Color((r << 16) + (g << 8) + b))
-        embed.add_field(name='User: {}'.format(ctx.message.author.name), value='Avatar:', inline=True)       
-        embed.set_image(url = ctx.message.author.avatar_url)
-        await client.say(embed=embed)
-    else:
-        r, g, b = tuple(int(x * 255) for x in colorsys.hsv_to_rgb(random.random(), 1, 1))
-        embed = discord.Embed(title=f'Avatar', description='Avatar is profile picture of a user in discord', color = discord.Color((r << 16) + (g << 8) + b))
-        embed.add_field(name='User: {}'.format(user.name), value='Avatar:', inline=True)     
-        embed.set_image(url = user.avatar_url)
-        await client.say(embed=embed)
-
+async def avatar(ctx, member: discord.Member):
+    r, g, b = tuple(int(x * 255) for x in colorsys.hsv_to_rgb(random.random(), 1, 1))
+    embed = discord.Embed(title='', description='', color=discord.Color((r << 16) + (g << 8) + b))
+    embed.set_image(url="{}".format(member.avatar_url))
+    await client.say(embed=embed)     
 	
 	
-
 @client.command(pass_context = True,no_pm=True)
 @commands.cooldown(rate=1, per=10, type=commands.BucketType.user)
 async def meme(ctx):
