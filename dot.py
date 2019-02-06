@@ -192,20 +192,7 @@ async def avatar(ctx, member: discord.Member):
     embed = discord.Embed(title='', description='', color=discord.Color((r << 16) + (g << 8) + b))
     embed.set_image(url="{}".format(member.avatar_url))
     await client.say(embed=embed)     
-	
-	
-@client.command(pass_context = True,no_pm=True)
-@commands.cooldown(rate=1, per=10, type=commands.BucketType.user)
-async def meme(ctx):
-    colour = '0x' + '008000'
-    async with aiohttp.ClientSession() as session:
-        async with session.get("https://api.reddit.com/r/dankmemes/random") as r:
-            data = await r.json()
-            embed = discord.Embed(title='', description='', color=discord.Color(int(colour, base=16)))
-            embed.set_image(url=data[0]["data"]["children"][0]["data"]["url"])
-            embed.timestamp = datetime.datetime.utcnow()
-            await client.say(embed=embed)	      		
-	
+			
 @client.command(pass_context=True,no_pm=True)
 @commands.cooldown(rate=1, per=10, type=commands.BucketType.user)
 async def uptime(ctx: commands.Context):
@@ -399,7 +386,8 @@ async def help(ctx):
         embed.add_field(name=":printer: **Internet Commands:**", value="`wiki`, `uran`", inline=False)	
         embed.add_field(name="<:FeelsHappyHugMan:542781371157053451> **Fun:**", value="`love`, `fortnite`, `penis`, `hug`, `kiss`, `howgay`, `rps`, `coinflip`", inline=False)
         embed.add_field(name=":cat: **Animals:**", value="`dog`, `cat`, `bird`, `duck`, `aww`", inline=False)    
-        embed.add_field(name="<:2109_yikes:542781370628308992> **Memes:**", value="`meme`", inline=False)	        
+        embed.add_field(name="🔞 **NSFW:**", value="`ass`, `hentai, `pussy`", inline=False)			
+	embed.add_field(name="<:2109_yikes:542781370628308992> **Memes:**", value="`meme`", inline=False)	        
         embed.add_field(name=" <:4206_lmaolancer:542781373157736458> **Memes with Fun:**", value="`deepfry`, `text`, `czech`, `rotate`, `isthisa`, `phone`, `thatsmile`, `birthcontrol`, `moe`, `religion`, `disability`", inline=False)
         embed.add_field(name="<:1200pxFlag_of_the_Czech_Republic:542781564107358218> **Czech Commands:**", value="`8ball`, `vtip`, `fakt`, `svatek`, `zitra`", inline=False)
         embed.add_field(name="<:9175_moderation_hammer:542781370687160330> **Moderation:**", value="`ban`, `warn`, `say`, `purge`, `kick`, `unban`", inline=False)    
