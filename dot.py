@@ -376,7 +376,6 @@ async def fortnite(nickname):
                      + "Kills: " + str(kills) + "\n"
                      + "K/D: " + str(kd) + "\n")        
 
-
 @client.command(pass_context=True,no_pm=True)
 async def help(ctx):	
         r, g, b = tuple(int(x * 255) for x in colorsys.hsv_to_rgb(random.random(), 1, 1))
@@ -387,8 +386,8 @@ async def help(ctx):
         embed.add_field(name="<:FeelsHappyHugMan:542781371157053451> **Fun:**", value="`love`, `fortnite`, `penis`, `hug`, `kiss`, `howgay`, `rps`, `coinflip`", inline=False)
         embed.add_field(name=":cat: **Animals:**", value="`dog`, `cat`, `bird`, `duck`, `aww`", inline=False)    
         embed.add_field(name="🔞 **NSFW:**", value="`ass`, `hentai, `pussy`", inline=False)			
-	embed.add_field(name="<:2109_yikes:542781370628308992> **Memes:**", value="`meme`", inline=False)	        
-        embed.add_field(name="<:4206_lmaolancer:542781373157736458> **Memes with Fun:**", value="`deepfry`, `text`, `czech`, `rotate`, `isthisa`, `phone`, `thatsmile`, `birthcontrol`, `moe`, `religion`, `disability`", inline=False)
+        embed.add_field(name="<:2109_yikes:542781370628308992> **Memes:**", value"`meme`", inline=False)
+        embed.add_field(name=" <:4206_lmaolancer:542781373157736458> **Memes with Fun:**", value="`deepfry`, `text`, `czech`, `rotate`, `isthisa`, `phone`, `thatsmile`, `birthcontrol`, `moe`, `religion`, `disability`", inline=False)
         embed.add_field(name="<:1200pxFlag_of_the_Czech_Republic:542781564107358218> **Czech Commands:**", value="`8ball`, `vtip`, `fakt`, `svatek`, `zitra`", inline=False)
         embed.add_field(name="<:9175_moderation_hammer:542781370687160330> **Moderation:**", value="`ban`, `warn`, `say`, `purge`, `kick`, `unban`", inline=False)    
         embed.set_footer(text=f'Requested: {ctx.message.author.display_name} | Prefixes: [. or dot]', icon_url=f'{ctx.message.author.avatar_url}')
