@@ -25,11 +25,9 @@ class CommandErrorHandler:
 	async def on_command_error(self, error, ctx):
 		channel = ctx.message.channel
 		if isinstance(error,commands.CommandOnCooldown):
-			return await self.bot.send_message(channel, f"Cool down {ctx.message.author.mention}, **{error.retry_after:.1f}** you must endure!")
-		elif isinstance(error,commands.CommandNotFound):
-			return await self.bot.send_message(channel,":x: This command does not exist, write to any channel **(.help or dot help)**")
+			return await self.bot.send_message(channel, f"Cool down {ctx.message.author.mention}, **{error.retry_after:.1f}** you must endure!")		
 		elif isinstance(error,commands.NoPrivateMessage):
-			return await self.bot.send_message(channel,"Did you hear about the latest Pre-Alpha update? | Yes, you can't use commands in **DM**!'")
+			return await self.bot.send_message(channel, f"You can't use command in **DM**!")
 		print('Ignoring exception in command {}:'.format(ctx.command), file=sys.stderr)
 		traceback.print_exception(type(error), error, error.__traceback__, file=sys.stderr)
 def setup(bot):
