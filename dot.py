@@ -285,14 +285,11 @@ async def on_member_join(member):
     for channel in member.server.channels:
         if channel.name == 'vítejte':
             r, g, b = tuple(int(x * 255) for x in colorsys.hsv_to_rgb(random.random(), 1, 1))
-            embed = discord.Embed(title=f'Zdravím tě {member.name} v {member.server.name}!', description='Nezapomeň si prečíst <#524665183667224596> a <#524939736431853578>!', color = discord.Color((r << 16) + (g << 8) + b))
-            embed.add_field(name='Děkujeme za připojení, na tento server!', value='Doufáme, že budes aktivní na tomto serveru!', inline=True)
-            embed.set_image(url = member.avatar_url)
-            embed.add_field(name='Připojovací Pozice', value='{}'.format(str(member.server.member_count)), inline=True)
-            embed.add_field(name='Čas připojení', value=member.joined_at)
-            await client.send_message(channel, embed=embed)     
-            role = discord.utils.get(member.server.roles, name='∟ Návštěvník')
-            await client.add_roles(member, role)             
+            embed = discord.Embed(title=f'Zdravím tě {member.name} v {member.server.name}!', description='', color = discord.Color((r << 16) + (g << 8) + b))
+            embed.add_field(name='Děkujeme za připojení, na tento server!', value='Doufáme, že budes aktivní na tomto serveru!', inline=True)      
+            embed.set_thumbnail(url=member.avatar_url)
+            await client.send_message(channel, embed=embed)
+		
                      
 @client.event
 async def on_member_remove(member):
@@ -300,7 +297,6 @@ async def on_member_remove(member):
         if channel.name == 'vítejte':
             r, g, b = tuple(int(x * 255) for x in colorsys.hsv_to_rgb(random.random(), 1, 1))
             embed = discord.Embed(title=f'{member.name} odešel z {member.server.name}', description='Doufáme, že se ti tu libílo!', color = discord.Color((r << 16) + (g << 8) + b))        
-            embed.add_field(name='Vaše připojovací pozice byla', value=member.joined_at)
             embed.set_thumbnail(url=member.avatar_url)
             await client.send_message(channel, embed=embed)				
                                          																					
