@@ -493,6 +493,30 @@ async def icon(ctx):
     embed = discord.Embed(title='', description='', color=discord.Color(int(colour, base=16)))
     embed.set_image(url="{}".format(ctx.message.server.icon_url))
     await client.say(embed=embed)
-							
+						
+@client.command(pass_context=True)	
+async def reaction_roles(ctx):
+    message = ("Tyto role, jsou dostupné v Dot | Support & General.")
+    reaction1='💡'
+    reaction2='🔞'
+       
+    await client.add_reaction(message, reaction1)
+    await client.add_reaction(message, reaction2)
+  
+@client.event
+async def on_reaction_add(reaction):
+                       
+    if reaction.emoji == '💡':
+          index = 0
+          reaction = bot.wait_for_reaction
+    if discord.utils.get(user.server.roles, name="Green") is None:
+        await client.create_role(user.server, name="Green",colour=discord.colour(0x008000))         
+ 
+    if reaction.emoji == '🔞':
+           index = 0
+           reaction = bot.wait_for_reaction
+    if discord.utils.get(user.server.roles, name="Red") is None:
+        await client.create_role(user.server, name="Red",colour=discord.colour(0xff0000))             
+         		
 client.run(TOKEN, client = True)
 		                                                                                                
