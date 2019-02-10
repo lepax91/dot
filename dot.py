@@ -238,6 +238,7 @@ async def help(ctx):
         embed.add_field(name=":closed_lock_with_key: **Developer Commands:**", value="`quit`, `emojiids`", inline=False)
         embed.add_field(name=":printer: **Internet Commands:**", value="`wiki`, `urban`", inline=False)	
         embed.add_field(name="<:FeelsHappyHugMan:542781371157053451> **Fun:**", value="`penis`, `howgay`, `meme`", inline=False)
+        embed.add_field(name=":thinking: **Mention Commands:**", value="`hug`, `kiss`, `slap`", inline=False)
         embed.add_field(name=":cat: **Animals:**", value="`dog`, `cat`, `bird`, `duck`, `aww`", inline=False)    
         embed.add_field(name="🔞 **NSFW:**", value="`ass`, `hentai`, `pussy`", inline=False)	
         embed.add_field(name=" <:4206_lmaolancer:542781373157736458> **Memes with Fun:**", value="`deepfry`, `text`, `isthisa`", inline=False)
@@ -246,7 +247,6 @@ async def help(ctx):
         embed.set_footer(text=f'Requested: {ctx.message.author.display_name} | Prefixes: [. or dot]', icon_url=f'{ctx.message.author.avatar_url}')
         await client.say(embed=embed)     
 						
-
 @client.command(pass_context = True,no_pm=True)
 async def aww(ctx):
     colour = '0x' + '007000'
