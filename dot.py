@@ -324,14 +324,14 @@ async def update():
     embed.set_footer(text="Version: 1.2 | Dot")
     embed.add_field(name = "Bot prefix:", value = ".", inline=True)
     embed.add_field(name = "Updates:", value = """
-    • Byla přidaná nová kategorie s jménem **Mention Commands**!
-    • 8ball byl aktulizován do **Embed**!
-    ===================""", inline=False) 
+   • Byla přidaná nová kategorie s jménem **Mention Commands**!
+   • 8ball byl aktulizován do **Embed**!
+   =====================================""", inline=False) 
     embed.add_field(name = "Coming Soon:", value="""
-    • Něják příští týden, by se měli přidat do kategorii Fun nějakě příkazy.
-    """, inline=False)  
+   • Něják příští týden, by se měli přidat do kategorii **Fun* Commands!
+   =====================================""", inline=False)  
     embed.add_field(name = "Removed:", value="""
-    • Bylo několik příkazu smázano, kvůli nepoužívaní.
+   • Bylo několik příkazu smázano, kvůli nepoužívaní.
     """, inline=False)
     await client.say(embed=embed)	
 		
