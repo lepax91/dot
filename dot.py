@@ -234,7 +234,7 @@ async def on_member_remove(member):
 async def help(ctx):	
         r, g, b = tuple(int(x * 255) for x in colorsys.hsv_to_rgb(random.random(), 1, 1))
         embed = discord.Embed(title="Dot | My biggest project on Discord", description="", color = discord.Color((r << 16) + (g << 8) + b))			  
-        embed.add_field(name="📗 **Information:**", value="`help`, `info`, `ping`, `uptime`, `avatar`, `icon`", inline=False)
+        embed.add_field(name="📗 **Information:**", value="`help`, `info`, `update`, `ping`, `uptime`, `avatar`, `icon`", inline=False)
         embed.add_field(name=":closed_lock_with_key: **Developer Commands:**", value="`quit`, `emojiids`", inline=False)
         embed.add_field(name=":printer: **Internet Commands:**", value="`wiki`, `urban`", inline=False)	
         embed.add_field(name="<:FeelsHappyHugMan:542781371157053451> **Fun:**", value="`penis`, `howgay`, `meme`", inline=False)
