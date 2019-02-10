@@ -3,7 +3,6 @@ import random
 import vtipek
 import discord
 import requests
-import eightballer
 import urllib.request
 from io import BytesIO
 from bs4 import BeautifulSoup
