@@ -315,25 +315,24 @@ async def icon(ctx):
     embed = discord.Embed(title='', description='', color=discord.Color(int(colour, base=16)))
     embed.set_image(url="{}".format(ctx.message.server.icon_url))
     await client.say(embed=embed)
-						
-
-	
+	      
 @client.command()
 async def update():
     embed = discord.Embed(title = "Update log!", color = 0xFFFF00)
     embed.set_footer(text="Version: 1.2 | Dot")
     embed.add_field(name = "Bot prefix:", value = ".", inline=True)
     embed.add_field(name = "Updates:", value = """
-   • Byla přidaná nová kategorie s jménem **Mention Commands**!
-   • 8ball byl aktulizován do **Embed**!
-   =====================================""", inline=False) 
+• Byla přidaná nová kategorie s jménem **Mention Commands**!
+
+• 8ball byl aktulizován do **Embed**!""", inline=False) 
     embed.add_field(name = "Coming Soon:", value="""
-   • Něják příští týden, by se měli přidat do kategorii **Fun* Commands!
-   =====================================""", inline=False)  
+• Něják příští týden, by se měli přidat do kategorii **Fun* Commands!""", inline=False)  
     embed.add_field(name = "Removed:", value="""
-   • Bylo několik příkazu smázano, kvůli nepoužívaní.
-    """, inline=False)
-    await client.say(embed=embed)	
+• Bylo několik příkazu smázano, kvůli nepoužívaní.
+    """, inline=False)	                 
+    embed.set_image(url="https://cdn.discordapp.com/attachments/542778827051499564/544267257765953563/20190210_222329.jpg") 
+    await client.say(embed=embed)		
+
 		
 client.run(TOKEN, client = True)
 		                                                                                                
