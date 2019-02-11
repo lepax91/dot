@@ -57,7 +57,7 @@ def is_owner(ctx):
 @client.event
 async def on_ready():
     print("The bot is ready!")
-    await newhra(bot)
+    await newhra(client)
 	
 @client.command(pass_context=True, no_pm=True)
 async def info(ctx):	    
@@ -164,14 +164,14 @@ async def ban(ctx,user:discord.Member):
         pass
 
 
-async def newhra(bot):
+async def newhra(client):
     o=["alpha se blíží!", ".info", ".help pls"]
     await bot.change_presence(game=Game(name=random.choice(o)))
     try:
         await asyncio.sleep(1800)
     except asyncio.CancelledError:
         print("Change presence ukončeno")
-    await newhra(bot)	
+    await newhra(client)	
 	
 @client.command(pass_context=True, no_pm=True)
 @commands.cooldown(rate=1, per=10, type=commands.BucketType.user)
