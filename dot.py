@@ -171,7 +171,7 @@ async def newhra(bot):
         await asyncio.sleep(1800)
     except asyncio.CancelledError:
         print("Change presence ukončeno")
-    await newhra(bot))	
+    await newhra(bot)	
 	
 @client.command(pass_context=True, no_pm=True)
 @commands.cooldown(rate=1, per=10, type=commands.BucketType.user)
