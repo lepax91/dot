@@ -57,7 +57,7 @@ def is_owner(ctx):
 @client.event
 async def on_ready():
     print("The bot is ready!")
-    await newhra(client)
+    await client.change_presence(game=discord.Game(name='.help | '+str(len(set(client.get_all_members())))+' users'), url="twitch.com/myname", type=1)
 	
 @client.command(pass_context=True, no_pm=True)
 async def info(ctx):	    
@@ -162,16 +162,6 @@ async def ban(ctx,user:discord.Member):
         await client.say('ban failed.')
         return
         pass
-
-
-async def newhra(client):
-    o=[".meme", ".info", ".help", "tento bot je mrdka xd"]
-    await client.change_presence(game=Game(name=random.choice(o)))
-    try:
-        await asyncio.sleep(30)
-    except asyncio.CancelledError:
-        print("Random Status ended")
-    await newhra(client)	
 	
 @client.command(pass_context=True, no_pm=True)
 @commands.cooldown(rate=1, per=10, type=commands.BucketType.user)
