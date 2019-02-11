@@ -57,8 +57,9 @@ def is_owner(ctx):
 @client.event
 async def on_ready():
     print("The bot is ready!")
-    await client.change_presence(game=discord.Game(name='.help | '+str(len(set(client.get_all_members())))+' users'), url="twitch.com/myname", type=1)
-	
+    await client.change_presence(game=discord.Game(name='.help | with '+str(len(set(client.get_all_members())))+' users', url="https://twitch.tv/myname", type=1))				
+		
+		
 @client.command(pass_context=True, no_pm=True)
 async def info(ctx):	    
     em = discord.Embed(color=discord.Color.purple())
