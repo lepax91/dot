@@ -26,7 +26,7 @@ start_time = datetime.datetime.utcnow()
 
 def get_prefix(bot, message):
     """A callable Prefix for our bot. This could be edited to allow per server prefixes."""
-    prefixes = ['.','dot ']   
+    prefixes = ['.']
     return commands.when_mentioned_or(*prefixes)(bot, message)
 HOST = '' 
 PORT = os.environ["PORT"] 
@@ -54,6 +54,11 @@ if __name__ == '__main__':
 def is_owner(ctx):
     return ctx.message.author.id == "417403958814965771"
 
+@client.event
+async def on_ready():
+    print("The bot is ready!")
+    await newhra(bot)
+	
 @client.command(pass_context=True, no_pm=True)
 async def info(ctx):	    
     em = discord.Embed(color=discord.Color.purple())
@@ -88,17 +93,11 @@ async def urban(ctx, *, msg:str=None):
         embed.add_field(name = "Top definition:", value = response['list'][0]['definition'])
         embed.add_field(name = "Examples:", value = response['list'][0]["example"])    
         await client.say(embed=embed)
-			
-		
-@client.event
-async def on_ready():
-    print("The bot is ready!")
-    print("Connected on " + str(len(client.servers)) + " servers:")
-							
+												
 @client.command(pass_context=True,no_pm=True)
 async def quit(ctx):
     if str(ctx.message.author) != "lepax_#1234":
-        await client.say("Hey! You can't do that!'")
+        await client.say("Hey! You can't do that!")
         return
     else:
         await client.say("See you later bye!")
@@ -153,7 +152,7 @@ async def ban(ctx,user:discord.Member):
 
     try:
         await client.ban(user)
-        await client.say('**:white_check_mark: | ' +user.name+ ' **has been banned! **')
+        await client.say('**:white_check_mark: | ' +user.name+ ' **has been banned!**')
 
     except discord.Forbidden:
 
@@ -165,7 +164,14 @@ async def ban(ctx,user:discord.Member):
         pass
 
 
-	
+async def newhra(bot):
+    o=["alpha se blíží!", ".info", ".help pls"]
+    await bot.change_presence(game=Game(name=random.choice(o)))
+    try:
+        await asyncio.sleep(1800)
+    except asyncio.CancelledError:
+        print("Change presence ukončeno")
+    await newhra(bot))	
 	
 @client.command(pass_context=True, no_pm=True)
 @commands.cooldown(rate=1, per=10, type=commands.BucketType.user)
@@ -233,7 +239,7 @@ async def on_member_remove(member):
 @client.command(pass_context=True,no_pm=True)
 async def help(ctx):	
         r, g, b = tuple(int(x * 255) for x in colorsys.hsv_to_rgb(random.random(), 1, 1))
-        embed = discord.Embed(title="Dot | My biggest project on Discord", description="", color = discord.Color((r << 16) + (g << 8) + b))			  
+        embed = discord.Embed(title="⚫ **Dot** ⚫", description="", color = discord.Color((r << 16) + (g << 8) + b))			  
         embed.add_field(name="📗 **Information:**", value="`help`, `info`, `update`, `ping`, `uptime`, `avatar`, `icon`", inline=False)
         embed.add_field(name=":closed_lock_with_key: **Developer Commands:**", value="`quit`, `emojiids`", inline=False)
         embed.add_field(name=":printer: **Internet Commands:**", value="`wiki`, `urban`", inline=False)	
@@ -244,7 +250,7 @@ async def help(ctx):
         embed.add_field(name=" <:4206_lmaolancer:542781373157736458> **Memes with Fun:**", value="`deepfry`, `text`, `isthisa`", inline=False)
         embed.add_field(name="<:1200pxFlag_of_the_Czech_Republic:542781564107358218> **Czech Commands:**", value="`8ball`, `vtip`, `fakt`, `svatek`, `zitra`", inline=False)
         embed.add_field(name="<:9175_moderation_hammer:542781370687160330> **Moderation:**", value="`ban`, `warn`, `say`, `purge`, `kick`, `unban`", inline=False)    
-        embed.set_footer(text=f'Requested: {ctx.message.author.display_name} | Prefixes: [. or dot]', icon_url=f'{ctx.message.author.avatar_url}')
+        embed.set_footer(text=f'Requested: {ctx.message.author.display_name} | Prefixes: [.]', icon_url=f'{ctx.message.author.avatar_url}')
         await client.say(embed=embed)     
 						
 @client.command(pass_context = True,no_pm=True)
@@ -307,7 +313,7 @@ async def bird(ctx):
             embed = discord.Embed(title='', description='', color=discord.Color(int(colour, base=16)))
             embed.set_image(url=data[0]["data"]["children"][0]["data"]["url"])
             embed.timestamp = datetime.datetime.utcnow()
-
+ 
 
 @client.command(pass_context=True, no_pm=True)
 async def icon(ctx):
@@ -322,13 +328,15 @@ async def update():
     embed.set_footer(text="Version: 1.2 | Dot")
     embed.add_field(name = "Bot prefix:", value = ".", inline=True)
     embed.add_field(name = "Updates:", value = """
-• Byla přidaná nová kategorie s jménem **Mention Commands**!
-
-• 8ball byl aktulizován do **Embed**!""", inline=False) 
+◻️ Byla přidaná nová kategorie s jménem **Mention Commands**!
+◻️ Byl přidán nový event: **Random Status**!
+◻️ 8ball byl aktulizován do **Embed**!""", inline=False) 
     embed.add_field(name = "Coming Soon:", value="""
-• Něják příští týden, by se měli přidat do kategorii **Fun* Commands!""", inline=False)  
+◻️ Něják příští týden, by se měli přidat do kategorii *Fun* Commands!""", inline=False)  
     embed.add_field(name = "Removed:", value="""
-• Bylo několik příkazu smázano, kvůli nepoužívaní.
+◻️ Bylo několik příkazu smázano, kvůli nepoužívaní.
+
+◻️ Byl vymazán **dot** prefix, kvůli nepoužívání prefixu.
     """, inline=False)	                 
     embed.set_image(url="https://cdn.discordapp.com/attachments/542778827051499564/544267257765953563/20190210_222329.jpg") 
     await client.say(embed=embed)		
