@@ -165,7 +165,7 @@ async def ban(ctx,user:discord.Member):
 
 
 async def newhra(client):
-    o=["alpha se blíží!", ".info", ".help pls"]
+    o=[".meme", ".info", ".help", "tento bot je mrdka xd"]
     await client.change_presence(game=Game(name=random.choice(o)))
     try:
         await asyncio.sleep(30)
@@ -239,7 +239,7 @@ async def on_member_remove(member):
 @client.command(pass_context=True,no_pm=True)
 async def help(ctx):	
         r, g, b = tuple(int(x * 255) for x in colorsys.hsv_to_rgb(random.random(), 1, 1))
-        embed = discord.Embed(title="⚫ **Dot** ⚫", description="", color = discord.Color((r << 16) + (g << 8) + b))			  
+        embed = discord.Embed(title="⚪ **Dot** ⚪", description="", color = discord.Color((r << 16) + (g << 8) + b))			  
         embed.add_field(name="📗 **Information:**", value="`help`, `info`, `update`, `ping`, `uptime`, `avatar`, `icon`", inline=False)
         embed.add_field(name=":closed_lock_with_key: **Developer Commands:**", value="`quit`, `emojiids`", inline=False)
         embed.add_field(name=":printer: **Internet Commands:**", value="`wiki`, `urban`", inline=False)	
