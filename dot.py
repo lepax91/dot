@@ -318,8 +318,7 @@ async def update():
     embed.set_footer(text="Version: 1.2 | Dot")
     embed.add_field(name = "Updates:", value = """
 ◻️ Byla přidaná nová kategorie s jménem **Mention Commands**!
-◻️ Byl přidán nový event: **Random Status**!
-◻️ 8ball byl aktulizován do **Embed**!""", inline=False) 
+◻️ 8ball byl aktulizován do **Embed**!""", inline=False)
     embed.add_field(name = "Coming Soon:", value="""
 ◻️ Něják příští týden, by se měli přidat do kategorii *Fun* Commands!""", inline=False)  
     embed.add_field(name = "Removed:", value="""
