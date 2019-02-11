@@ -326,7 +326,6 @@ async def icon(ctx):
 async def update():
     embed = discord.Embed(title = "Update log!", color = 0xFFFF00)
     embed.set_footer(text="Version: 1.2 | Dot")
-    embed.add_field(name = "Bot prefix:", value = ".", inline=True)
     embed.add_field(name = "Updates:", value = """
 ◻️ Byla přidaná nová kategorie s jménem **Mention Commands**!
 ◻️ Byl přidán nový event: **Random Status**!
