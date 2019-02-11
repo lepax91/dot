@@ -166,11 +166,11 @@ async def ban(ctx,user:discord.Member):
 
 async def newhra(client):
     o=["alpha se blíží!", ".info", ".help pls"]
-    await bot.change_presence(game=Game(name=random.choice(o)))
+    await client.change_presence(game=Game(name=random.choice(o)))
     try:
-        await asyncio.sleep(1800)
+        await asyncio.sleep(30)
     except asyncio.CancelledError:
-        print("Change presence ukončeno")
+        print("Random Status ended")
     await newhra(client)	
 	
 @client.command(pass_context=True, no_pm=True)
