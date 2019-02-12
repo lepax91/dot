@@ -65,7 +65,7 @@ async def info(ctx):
     em = discord.Embed(color=discord.Color.purple())
     em.title = 'Informations of Dot'
     em.add_field(name="Servers", value=len(client.servers))
-    em.add_field(name="<:3619_discord_online:538667013803999232> Online Users", value=str(len({m.id for m in client.get_all_members() if m.status is not discord.Status.offline})))
+    em.add_field(name="<:3619_discord_online:544894710511304713> Online Users", value=str(len({m.id for m in client.get_all_members() if m.status is not discord.Status.offline})))
     em.add_field(name='Channels', value=f"{sum(1 for g in client.servers for _ in g.channels)}")
     em.add_field(name="Library", value=f"discord.py")
     em.add_field(name="Development of Dot", value=f"<@417403958814965771>")
@@ -135,7 +135,7 @@ async def ban(ctx,user:discord.Member):
 
     try:
         await client.ban(user)
-        await client.say('**:white_check_mark: | ' +user.name+ ' **has been banned!**')
+        await client.say('**:white_check_mark: | ' +user.name+ ' has been banned!**')
 
     except discord.Forbidden:
 
@@ -145,15 +145,7 @@ async def ban(ctx,user:discord.Member):
         await client.say('ban failed.')
         return
         pass
-	
-@client.command(pass_context=True, no_pm=True)
-@commands.cooldown(rate=1, per=10, type=commands.BucketType.user)
-async def avatar(ctx, member: discord.Member):
-    r, g, b = tuple(int(x * 255) for x in colorsys.hsv_to_rgb(random.random(), 1, 1))
-    embed = discord.Embed(title='', description='', color=discord.Color((r << 16) + (g << 8) + b))
-    embed.set_image(url="{}".format(member.avatar_url))
-    await client.say(embed=embed)     
-			
+				
 @client.command(pass_context=True,no_pm=True)
 @commands.cooldown(rate=1, per=10, type=commands.BucketType.user)
 async def uptime(ctx: commands.Context):
