@@ -30,7 +30,7 @@ class Wiki:
 			r = requests.Session().get(url=newurl,params = params)
 			data = r.json()
 			data=data['query']['pages'].popitem()
-			e = discord.Embed(colour = discord.Colour.black())
+			e = discord.Embed(colour = discord.Colour.blue())
 			e.add_field(name=data[1]['title'],value=data[1]['extract'])
 			await self.bot.say(embed = e),
 		except KeyError:
