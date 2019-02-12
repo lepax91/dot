@@ -206,6 +206,7 @@ async def help(ctx):
         r, g, b = tuple(int(x * 255) for x in colorsys.hsv_to_rgb(random.random(), 1, 1))
         embed = discord.Embed(title="⚪ **Dot** ⚪", description="", color = discord.Color((r << 16) + (g << 8) + b))			  
         embed.add_field(name="📗 **Information:**", value="`help`, `info`, `update`, `ping`, `uptime`, `avatar`, `icon`", inline=False)
+        embed.add_field(name="❓ **Help Commands:**", value="`avatar help`, `8ball help`, `hug help`, `kiss help`, `tickle help`, `slap help`", inline=False)
         embed.add_field(name=":closed_lock_with_key: **Developer Commands:**", value="`quit`, `emojiids`", inline=False)
         embed.add_field(name=":printer: **Internet Commands:**", value="`wiki`", inline=False)	
         embed.add_field(name="<:FeelsHappyHugMan:542781371157053451> **Fun:**", value="`penis`, `howgay`, `meme`", inline=False)
@@ -293,6 +294,7 @@ async def update():
     embed.set_footer(text="Version: 1.2 | Dot")
     embed.add_field(name = "Updates:", value = """
 ◻️ Byla přidaná nová kategorie s jménem **Mention Commands**!
+◻️ Byla přidána nová kategorie s jménem **Help Commands**!
 ◻️ 8ball byl aktulizován do **Embed**!""", inline=False)
     embed.add_field(name = "Coming Soon:", value="""
 ◻️ Něják příští týden, by se měli přidat do kategorii *Fun* Commands!""", inline=False)  
