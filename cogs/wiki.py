@@ -12,10 +12,9 @@ class Wiki:
 		return cleantext
 	@commands.command(pass_context = True, aliases=['wikipedia','wikisearch','wikipedie'])
 	async def wiki(self,ctx,*args):
-		url="https://cs.wikipedia.org/w/api.php?"
+		url="https://en.wikipedia.org/w/api.php?"
 		if args == ():
-			await self.bot.say("Entschuldigung, was zum Teufel?")
-			return
+			await self.bot.say(":x: | That's wrong! Just like this: `.wiki <string>`					
 		params = {
 		'format':'json',
 		'action':'query',
@@ -31,7 +30,7 @@ class Wiki:
 			r = requests.Session().get(url=newurl,params = params)
 			data = r.json()
 			data=data['query']['pages'].popitem()
-			e = discord.Embed(colour = discord.Colour.lighter_grey())
+			e = discord.Embed(colour = discord.Colour.black())
 			e.add_field(name=data[1]['title'],value=data[1]['extract'])
 			await self.bot.say(embed = e),
 		except KeyError:
