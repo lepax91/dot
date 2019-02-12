@@ -14,7 +14,7 @@ class Wiki:
 	async def wiki(self,ctx,*args):
 		url="https://en.wikipedia.org/w/api.php?"
 		if args == ():
-			await self.bot.say(":x: | That's wrong! Just like this: `.wiki <string>`					
+			await self.bot.say(":x: | That's wrong! Just like this: `.wiki <string>`")					
 		params = {
 		'format':'json',
 		'action':'query',
