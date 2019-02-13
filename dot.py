@@ -229,32 +229,6 @@ async def aww(ctx):
             embed.set_image(url=data[0]["data"]["children"][0]["data"]["url"])
             embed.timestamp = datetime.datetime.utcnow()
             await client.say(embed=embed)
-
-@client.command(pass_context = True,no_pm=True)
-@commands.cooldown(rate=1, per=5, type=commands.BucketType.user)
-async def cat(ctx):
-    colour = '0x' + 'ff00d0'
-    async with aiohttp.ClientSession() as session:
-        async with session.get("https://api.reddit.com/r/cat/random") as r:
-            data = await r.json()
-            embed = discord.Embed(title='', description='', color=discord.Color(int(colour, base=16)))
-            embed.set_image(url=data[0]["data"]["children"][0]["data"]["url"])
-            embed.timestamp = datetime.datetime.utcnow()
-            await client.say(embed=embed)
-
-
-@client.command(pass_context = True,no_pm=True)
-@commands.cooldown(rate=1, per=5, type=commands.BucketType.user)
-async def dog(ctx):
-    colour = '0x' + '9dff00'
-    async with aiohttp.ClientSession() as session:
-        async with session.get("https://api.reddit.com/r/dogpictures/random") as r:
-            data = await r.json()
-            embed = discord.Embed(title='', description='', color=discord.Color(int(colour, base=16)))
-            embed.set_image(url=data[0]["data"]["children"][0]["data"]["url"])
-            embed.timestamp = datetime.datetime.utcnow()
-            await client.say(embed=embed)	
-	
 		
 @client.command(pass_context = True,no_pm=True)
 @commands.cooldown(rate=1, per=5, type=commands.BucketType.user)
