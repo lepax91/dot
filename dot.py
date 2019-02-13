@@ -229,20 +229,7 @@ async def aww(ctx):
             embed.set_image(url=data[0]["data"]["children"][0]["data"]["url"])
             embed.timestamp = datetime.datetime.utcnow()
             await client.say(embed=embed)
-		
-@client.command(pass_context = True,no_pm=True)
-@commands.cooldown(rate=1, per=5, type=commands.BucketType.user)
-async def duck(ctx):
-    colour = '0x' + 'fce300'
-    async with aiohttp.ClientSession() as session:
-        async with session.get("https://api.reddit.com/r/duck/random") as r:
-            data = await r.json()
-            embed = discord.Embed(title='', description='', color=discord.Color(int(colour, base=16)))
-            embed.set_image(url=data[0]["data"]["children"][0]["data"]["url"])
-            embed.timestamp = datetime.datetime.utcnow()
-            await client.say(embed=embed)		
-	
-	
+				
 @client.command(pass_context = True,no_pm=True)
 @commands.cooldown(rate=1, per=5, type=commands.BucketType.user)
 async def bird(ctx):
