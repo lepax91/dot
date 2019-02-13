@@ -205,7 +205,7 @@ async def on_member_remove(member):
 async def help(ctx):	
         r, g, b = tuple(int(x * 255) for x in colorsys.hsv_to_rgb(random.random(), 1, 1))
         embed = discord.Embed(title="⚪ **Dot** ⚪", description="", color = discord.Color((r << 16) + (g << 8) + b))			  
-        embed.add_field(name="📗 **Information:**", value="`help`, `info`, `update`, `ping`, `uptime`, `avatar`, `icon`", inline=False)
+        embed.add_field(name="📗 **Information:**", value="`help`, `info`, `ping`, `uptime`, `avatar`, `icon`", inline=False)
         embed.add_field(name="❓ **Help Commands:**", value="`avatar help`, `8ball help`, `hug help`, `kiss help`, `tickle help`, `slap help`", inline=False)
         embed.add_field(name=":closed_lock_with_key: **Developer Commands:**", value="`quit`, `emojiids`", inline=False)
         embed.add_field(name=":printer: **Internet Commands:**", value="`wiki`", inline=False)	
@@ -288,23 +288,6 @@ async def icon(ctx):
     embed.set_image(url="{}".format(ctx.message.server.icon_url))
     await client.say(embed=embed)
 	      
-@client.command()
-async def update():
-    embed = discord.Embed(title = "Update log!", color = 0xFFFF00)
-    embed.set_footer(text="Version: 1.2 | Dot")
-    embed.add_field(name = "Updates:", value = """
-◻️ Byla přidaná nová kategorie s jménem **Mention Commands**!
-◻️ Byla přidána nová kategorie s jménem **Help Commands**!
-◻️ 8ball byl aktulizován do **Embed**!""", inline=False)
-    embed.add_field(name = "Coming Soon:", value="""
-◻️ Něják příští týden, by se měli přidat do kategorii *Fun* Commands!""", inline=False)  
-    embed.add_field(name = "Removed:", value="""
-◻️ Bylo několik příkazu smázano, kvůli nepoužívaní.
-
-◻️ Byl vymazán **dot** prefix, kvůli nepoužívání prefixu.
-    """, inline=False)	                 
-    embed.set_image(url="https://cdn.discordapp.com/attachments/542778827051499564/544267257765953563/20190210_222329.jpg") 
-    await client.say(embed=embed)		
 
 		
 client.run(TOKEN, client = True)
