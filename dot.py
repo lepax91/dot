@@ -64,15 +64,13 @@ async def on_ready():
 async def info(ctx):	    
     em = discord.Embed(color=discord.Color.purple())
     em.title = 'Informations of Dot'
-    em.add_field(name="Servers", value=len(client.servers))
+    em.add_field(name="Servery", value=len(client.servers))
     em.add_field(name="<:3619_discord_online:544894710511304713> Online Users", value=str(len({m.id for m in client.get_all_members() if m.status is not discord.Status.offline})))
-    em.add_field(name='Channels', value=f"{sum(1 for g in client.servers for _ in g.channels)}")
-    em.add_field(name="Library", value=f"discord.py")
+    em.add_field(name='Kanály', value=f"{sum(1 for g in client.servers for _ in g.channels)}")
+    em.add_field(name="Knihovna", value=f"discord.py")
     em.add_field(name="Development of Dot", value=f"<@417403958814965771>")
-    em.add_field(name="Help with Support Server!", value=f"<@273813194861051907> (Channels, Roles)")
-    em.add_field(name="Invite dot to next server!", value=f"[Here](https://discordapp.com/oauth2/authorize?client_id={client.user.id}&scope=bot&permissions=268905542)")
-    em.add_field(name="Do not forget to vote for Dot!", value=f"[Here](https://botlist.space/bot/523787927113826305/upvote)",inline=False)
-    em.add_field(name="If you have problems with Dot", value=f"[Join Here!](https://discord.gg/XQW9uf2)")
+    em.add_field(name="Pozvi Dota, do dalšího pěknýho serveru", value=f"[Zde](https://discordapp.com/oauth2/authorize?client_id={client.user.id}&scope=bot&permissions=268905542)")
+    em.add_field(name="Nezapomeň ho upvotnout!", value=f"[Zde](https://botlist.space/bot/523787927113826305/upvote)",inline=False)
     em.set_footer(text="Dot | Pre-Alpha 1.2")
     await client.say(embed=em)
 				
@@ -80,10 +78,10 @@ async def info(ctx):
 @client.command(pass_context=True,no_pm=True)
 async def quit(ctx):
     if str(ctx.message.author) != "lepax_#1234":
-        await client.say("Hey! You can't do that!")
+        await client.say(":x: **Toto se ti nějak nepovedlo...") 			
         return
     else:
-        await client.say("See you later bye!")
+        await client.say("🙋 Uvidíme se brzy!")
         await client.logout()
 
 		
@@ -94,21 +92,21 @@ async def unban(ctx, identification:str):
     user = await client.get_user_info(identification)
     await client.unban(ctx.message.server, user)
     try:
-        await client.say(f'**:white_check_mark: | {user} has been unbanned!**')
+        await client.say(f'**:white_check_mark: | {user} byl unbannut!**')
         for channel in ctx.message.server.channels:
           if channel.name == 'log':
               embed=discord.Embed(title="User unbanned!", description="**{0}** unbanned by **{1}**!".format(user, ctx.message.author), color=0x38761D)
               await client.send_message(channel, embed=embed)
     except:
-        await client.say(f':x: | Unable to unban *{user}*')
+        await client.say(f':x: | Nemůžu unbannout *{user}*')
         pass
   
 @client.command(pass_context = True,no_pm=True)
 @commands.cooldown(rate=1, per=10, type=commands.BucketType.user)
 @commands.has_permissions(kick_members=True)
 async def warn(ctx, userName: discord.User, *, message:str): 
-    await client.send_message(userName, "You have been warned for: **{}**".format(message))
-    await client.say("**:white_check_mark: | {} has been warned!** ".format(userName,message))
+    await client.send_message(userName, "⚠️ Byl si varován kvůli tomuto důvodu: **{}**".format(message))
+    await client.say("**:white_check_mark: | {} Byl zavarován!** ".format(userName,message))
     pass		
 			
 
@@ -130,12 +128,12 @@ async def say(ctx, *args):
 async def ban(ctx,user:discord.Member):
 
     if user.server_permissions.ban_members:
-        await client.say('**:negative_squared_cross_mark: | User has been not banned!**')
+        await client.say('**:negative_squared_cross_mark: | Uživatel nebyl zabanován!**')
         return
 
     try:
         await client.ban(user)
-        await client.say('**:white_check_mark: | ' +user.name+ ' has been banned!**')
+        await client.say('**:white_check_mark: | ' +user.name+ ' byl zabanován!**')
 
     except discord.Forbidden:
 
@@ -159,7 +157,8 @@ async def uptime(ctx: commands.Context):
     else:
         time_format = "**{h}** hours, **{m}** minutes, and **{s}** seconds."
     uptime_stamp = time_format.format(d=days, h=hours, m=minutes, s=seconds)
-    await client.say("{} has been up for {}".format(client.user.name, uptime_stamp))
+    await client.say("{} je už zaplý celkem {}".format(client.user.name, uptime_stamp))
+		 
 
 			
 @client.command(pass_context = True,no_pm=True)
@@ -205,7 +204,7 @@ async def on_member_remove(member):
 async def help(ctx):	
         r, g, b = tuple(int(x * 255) for x in colorsys.hsv_to_rgb(random.random(), 1, 1))
         embed = discord.Embed(title="🗨️ Dot - Discord Bot", description="", color = discord.Color((r << 16) + (g << 8) + b))			  
-        embed.add_field(name=":closed_lock_with_key: **Developer Commands:**", value="`quit`, `emojiids`, (Coming Soon! `eval`)", inline=False)
+        embed.add_field(name=":closed_lock_with_key: **Developer Commands:**", value="`quit`, `emojiids`, `eval`", inline=False)
         embed.add_field(name=":printer: **Internet Commands:**", value="`wiki`", inline=False)	
         embed.add_field(name="<:FeelsHappyHugMan:542781371157053451> **Fun:**", value="`penis`, `howgay`, `meme`", inline=False)
         embed.add_field(name=":thinking: **Mention Commands:**", value="`hug`, `kiss`, `slap`, `tickle`", inline=False)
