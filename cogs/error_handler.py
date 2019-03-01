@@ -25,9 +25,9 @@ class CommandErrorHandler:
 	async def on_command_error(self, error, ctx):
 		channel = ctx.message.channel
 		if isinstance(error,commands.CommandOnCooldown):
-			return await self.bot.send_message(channel, f"⏰ Cool down! {ctx.message.author.mention}! U need wait {error.retry_after:.1f} seconds!")		
+			return await self.bot.send_message(channel, f"⏰ Uklidni se! Musíš počkat asi {error.retry_after:.1f} sekund.")		
 		elif isinstance(error,commands.NoPrivateMessage):
-			return await self.bot.send_message(channel, f":x: | You can't use command in **DM**!")
+			return await self.bot.send_message(channel, f":x: | Nemůžeš používat žádný příkaz v Private Message!")
 		print('Ignoring exception in command {}:'.format(ctx.command), file=sys.stderr)
 		traceback.print_exception(type(error), error, error.__traceback__, file=sys.stderr)
 def setup(bot):
