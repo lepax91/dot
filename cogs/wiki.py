@@ -14,7 +14,7 @@ class Wiki:
 	async def wiki(self,ctx,*args):
 		url="https://en.wikipedia.org/w/api.php?"
 		if args == ():
-			await self.bot.say(":x: | That's wrong! Just like this: `.wiki <string>`")					
+			await self.bot.say(":x: | Chyba musíš použít příkaz jen takhle: `.wiki <slovo>`")					
 		params = {
 		'format':'json',
 		'action':'query',
@@ -34,7 +34,7 @@ class Wiki:
 			e.add_field(name=data[1]['title'],value=data[1]['extract'])
 			await self.bot.say(embed = e),
 		except KeyError:
-			await self.bot.say(f"Not found, I'm not google.")
+			await self.bot.say(f":x: | Není vyhledáno protože ve Wikipedii toto slovo neexistuje.")
 			return
 def setup(bot):
 	bot.add_cog(Wiki(bot))
