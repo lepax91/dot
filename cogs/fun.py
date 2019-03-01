@@ -20,7 +20,7 @@ class Fun:
 		await self.bot.send_typing(ctx.message.channel)
 		mgs = [] #Empty list to put all the messages in the log
 		number = int(number) #Converting the amount of messages to delete to an integer
-		if number > 100:;
+		if number > 100:
 			return await self.bot.say(':x: | Oh, toto se mi nepodařilo udělat protože limit je 100.')						
 		if number!=100:
 			number+=1
