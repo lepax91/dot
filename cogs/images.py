@@ -40,14 +40,14 @@ class Images:
 			try:
 				factor=float(factor[0])
 			except:
-				await self.bot.say("To as není úplně číslo, co?")
+				await self.bot.say(":x: | Snad rozumíš co je číslo ne?")
 				return
 		if factor == ():
 			factor = 7.0
 		try:
 			im,filename=await self.getimage(ctx)
 		except TypeError:
-			return await self.bot.say("No image of the correct size I could find")
+			return await self.bot.say(":thinking: | Tento obrázek není podle mojí velikosti.")
 		im = im.convert(mode="RGB")
 		im = ImageEnhance.Color(im).enhance(factor/2)
 		im = ImageEnhance.Sharpness(im).enhance(factor*15)	
@@ -61,7 +61,7 @@ class Images:
 	async def text(self,ctx,*text):
 		await self.bot.send_typing(ctx.message.channel)
 		if text == ():
-			await self.bot.say("You have to give me some text!")
+			await self.bot.say("🤦 | Musíš mi dát nějaký ten text.")
 			return
 		text = ' '.join(text)
 		para = textwrap.wrap(text, width=15)
@@ -94,13 +94,13 @@ class Images:
 	async def isthisa(self,ctx,*args):
 		await self.bot.send_typing(ctx.message.channel)
 		if args == ():
-			await self.bot.say("You have to give me some text!")
+			await self.bot.say("🤦 | Musíš mi dát nějaký ten text.")
 			return
 		text = ' '.join(args)
 		try:
 			im,filename=await self.getimage(ctx)
 		except TypeError:
-			return await self.bot.say("No image of the correct size I could find")
+			return await self.bot.say(":thinking: | Tento obrázek není podle mojí velikosti.")
 		size=200,300
 
 		im.thumbnail(size,Image.ANTIALIAS)
