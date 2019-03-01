@@ -20,14 +20,14 @@ class Fun:
 		await self.bot.send_typing(ctx.message.channel)
 		mgs = [] #Empty list to put all the messages in the log
 		number = int(number) #Converting the amount of messages to delete to an integer
-		if number > 100:
-			return await self.bot.say('Limit is 100 message, just cool down.')
+		if number > 100:;
+			return await self.bot.say(':x: | Oh, toto se mi nepodařilo udělat protože limit je 100.')						
 		if number!=100:
 			number+=1
 		async for x in self.bot.logs_from(ctx.message.channel, limit = number):
 			mgs.append(x)
 		await self.bot.delete_messages(mgs)
-		await self.bot.say(":put_litter_in_its_place: x"+str(number-1))
+		await self.bot.say(":put_litter_in_its_place: | Vyhodilo se x"+str(number-1))
 		
 	@commands.command(pass_context=True,no_pm=True)
 	@commands.cooldown(rate=1, per=3, type=commands.BucketType.user)
@@ -48,8 +48,8 @@ class Fun:
 	async def penis(self,ctx,user:discord.Member = None):
 		if user is None:
 			user = ctx.message.author
-		e=discord.Embed(title="penis machine fam", colour=random.randint(0, 0xFFFFFF))
-		e.add_field(name=f"{str(user)[:-5]}'s size",value="8"+'='*random.randrange(0,10)+"D")
+		e=discord.Embed(title="tenhle muž/žena má velký péro", colour=random.randint(0, 0xFFFFFF))
+		e.add_field(name=f"{str(user)[:-5]} velikost péra",value="8"+'='*random.randrange(0,10)+"D")
 		await self.bot.say(embed=e)
 
 	  										
