@@ -78,10 +78,10 @@ async def info(ctx):
 @client.command(pass_context=True,no_pm=True)
 async def quit(ctx):
     if str(ctx.message.author) != "lepax_#1234":
-        await client.say(":x: **Toto se ti nějak nepovedlo...") 			
+        await client.say(":x: | **Toto se ti nějak nepovedlo...**") 			
         return
     else:
-        await client.say("🙋 Uvidíme se brzy!")
+        await client.say("**🙋 Uvidíme se brzy!**")
         await client.logout()
 
 		
@@ -153,9 +153,9 @@ async def uptime(ctx: commands.Context):
     minutes, seconds = divmod(remainder, 60)
     days, hours = divmod(hours, 24)
     if days:
-        time_format = "**{d}** days, **{h}** hours, **{m}** minutes, and **{s}** seconds."
+        time_format = "**{d}** dny, **{h}** hodin, **{m}** minut, and **{s}** sekund."
     else:
-        time_format = "**{h}** hours, **{m}** minutes, and **{s}** seconds."
+        time_format = "**{h}** hodin, **{m}** minut, and **{s}** sekund."
     uptime_stamp = time_format.format(d=days, h=hours, m=minutes, s=seconds)
     await client.say("{} je už zaplý celkem {}".format(client.user.name, uptime_stamp))
 		 
