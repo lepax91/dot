@@ -255,9 +255,8 @@ async def update():
 ◻️ Byl přidán nový příkaz do kategorii NSFW! Příkaz: `snapchat`.
 ◻️ Dot je aktualizován do Češtiny, a už nikdy nebude v angličtině!""", inline=False) 
     embed.add_field(name = "Odstraněno:", value="""
-◻️ Byla vymazána kategorie: `Help Commands`!
-    """, inline=False)	                 
-    await client.say(embed=embed
+◻️ Byla vymazána kategorie: `Help Commands`!""", inline=False)	                 
+    await client.say(embed=embed)
 		
 client.run(TOKEN, client = True)
 		                                                                                                
