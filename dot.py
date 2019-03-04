@@ -246,7 +246,18 @@ async def icon(ctx):
     embed.set_image(url="{}".format(ctx.message.server.icon_url))
     await client.say(embed=embed)
 	      
-
+	      
+@client.command()
+async def update():
+    embed = discord.Embed(title = "Update", color = 0xFFFF00)
+    embed.set_footer(text="Version: 1.2 | Dot")
+    embed.add_field(name = "Updates:", value = """
+◻️ Byl přidán nový příkaz do kategorii NSFW! Příkaz: `snapchat`.
+◻️ Dot je aktualizován do Češtiny, a už nikdy nebude v angličtině!""", inline=False) 
+    embed.add_field(name = "Odstraněno:", value="""
+◻️ Byla vymazána kategorie: `Help Commands`!
+    """, inline=False)	                 
+    await client.say(embed=embed
 		
 client.run(TOKEN, client = True)
 		                                                                                                
