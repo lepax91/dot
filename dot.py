@@ -204,13 +204,13 @@ async def on_member_remove(member):
 async def help(ctx):	
         r, g, b = tuple(int(x * 255) for x in colorsys.hsv_to_rgb(random.random(), 1, 1))
         embed = discord.Embed(title="⚪ **Dot** ⚪", description="", color = discord.Color((r << 16) + (g << 8) + b))			  
-        embed.add_field(name="📗 **Information:**", value="`help`, `info`, `update`, `ping`, `uptime`, `avatar`, `icon`, `svatek`, `zitra`", inline=False)
+        embed.add_field(name="📗 **Information:**", value="`help`, `info`, `update`, `ping`, `uptime`, `avatar`, `icon`, `svatek`, `zitra`, `emojis`", inline=False)
         embed.add_field(name=":closed_lock_with_key: **Developer Commands:**", value="`quit`, `emojiids`", inline=False)
         embed.add_field(name=":printer: **Internet Commands:**", value="`wiki`", inline=False)	
         embed.add_field(name="<:FeelsHappyHugMan:542781371157053451> **Fun:**", value="`penis`, `howgay`, `meme`, `8ball`, `vtip`, `fakt`", inline=False)
         embed.add_field(name=":thinking: **Mention Commands:**", value="`hug`, `kiss`, `slap`, `tickle`", inline=False)
         embed.add_field(name=":cat: **Animals:**", value="`dog`, `cat`, `bird`, `duck`, `aww`", inline=False)    
-        embed.add_field(name="🔞 **NSFW:**", value="`ass`, `hentai`, `pussy`", inline=False)	
+        embed.add_field(name="🔞 **NSFW:**", value="`ass`, `hentai`, `pussy`, `snapchat`", inline=False)	
         embed.add_field(name=" <:4206_lmaolancer:542781373157736458> **Memes with Fun:**", value="`deepfry`, `text`, `isthisa`", inline=False)
         embed.add_field(name="<:9175_moderation_hammer:542781370687160330> **Moderation:**", value="`ban`, `warn`, `say`, `poll`, `purge`, `kick`, `unban`", inline=False)    
         embed.set_footer(text=f'Requested: {ctx.message.author.display_name} | Prefixes: [.]', icon_url=f'{ctx.message.author.avatar_url}')
@@ -255,7 +255,8 @@ async def update():
 ◻️ Byl přidán nový příkaz do kategorii NSFW! Příkaz: `snapchat`.
 ◻️ Dot je aktualizován do Češtiny, a už nikdy nebude v angličtině!""", inline=False) 
     embed.add_field(name = "Odstraněno:", value="""
-◻️ Byla vymazána kategorie: `Help Commands`!""", inline=False)	                 
+◻️ Byla vymazána kategorie: `Help Commands`
+◻️ Taky byla vymazána kategorie: `Czech Commands`""", inline=False)	                 
     await client.say(embed=embed)
 		
 client.run(TOKEN, client = True)
