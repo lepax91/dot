@@ -206,6 +206,7 @@ async def help(ctx):
         embed = discord.Embed(title="⚪ **Dot** ⚪", description="", color = discord.Color((r << 16) + (g << 8) + b))			  
         embed.add_field(name="📗 **Information:**", value="`help`, `info`, `update`, `ping`, `uptime`, `avatar`, `icon`, `svatek`, `zitra`, `emojis`", inline=False)
         embed.add_field(name=":closed_lock_with_key: **Developer Commands:**", value="`quit`, `emojiids`", inline=False)
+        embed.add_field(name=":clap: **Text Commands**", value="`clapify`, `emojify`")
         embed.add_field(name=":printer: **Internet Commands:**", value="`wiki`", inline=False)	
         embed.add_field(name="<:FeelsHappyHugMan:542781371157053451> **Fun:**", value="`penis`, `howgay`, `meme`, `8ball`, `vtip`, `fakt`", inline=False)
         embed.add_field(name=":thinking: **Mention Commands:**", value="`hug`, `kiss`, `slap`, `tickle`", inline=False)
@@ -253,7 +254,8 @@ async def update():
     embed.set_footer(text="Version: 1.2 | Dot")
     embed.add_field(name = "Updates:", value = """
 ◻️ Byl přidán nový příkaz do kategorii NSFW! Příkaz: `snapchat`.
-◻️ Dot je aktualizován do Češtiny, a už nikdy nebude v angličtině!""", inline=False) 
+◻️ Dot je aktualizován do Češtiny, a už nikdy nebude v angličtině!
+◻️ Byl přidána nová kategorie **Text Commands**! + do toho nějaký příkazy.""", inline=False) 
     embed.add_field(name = "Odstraněno:", value="""
 ◻️ Byla vymazána kategorie: `Help Commands`
 ◻️ Taky byla vymazána kategorie: `Czech Commands`""", inline=False)	                 
