@@ -207,7 +207,7 @@ async def help(ctx):
         embed.add_field(name="📗 **Information:**", value="`help`, `info`, `update`, `ping`, `uptime`, `avatar`, `icon`, `svatek`, `zitra`, `emojis`", inline=False)
         embed.add_field(name=":closed_lock_with_key: **Developer Commands:**", value="`quit`, `emojiids`", inline=False)
         embed.add_field(name=":clap: **Text Commands**", value="`clapify`, `emojify`")
-        embed.add_field(name=":printer: **Internet Commands:**", value="`wiki`", inline=False)	
+        embed.add_field(name=":printer: **Internet Commands:**", value="`wiki`, `google`", inline=False)	
         embed.add_field(name="<:FeelsHappyHugMan:542781371157053451> **Fun:**", value="`penis`, `howgay`, `meme`, `8ball`, `vtip`, `fakt`", inline=False)
         embed.add_field(name=":thinking: **Mention Commands:**", value="`hug`, `kiss`, `slap`, `tickle`", inline=False)
         embed.add_field(name=":cat: **Animals:**", value="`dog`, `cat`, `bird`, `duck`, `aww`", inline=False)    
@@ -252,10 +252,11 @@ async def icon(ctx):
 async def update():
     embed = discord.Embed(title = "Update", color = 0xFFFF00)
     embed.set_footer(text="Version: 1.2 | Dot")
-    embed.add_field(name = "Updates:", value = """
+    embed.add_field(name = "Aktualizace:", value = """
 ◻️ Byl přidán nový příkaz do kategorii NSFW! Příkaz: `snapchat`.
 ◻️ Dot je aktualizován do Češtiny, a už nikdy nebude v angličtině!
-◻️ Byl přidána nová kategorie **Text Commands**! + do toho nějaký příkazy.""", inline=False) 
+◻️ Byl přidána nová kategorie **Text Commands**! + do toho nějaký příkazy.
+◻️ Byl přidán nový příkaz `google`!""", inline=False) 
     embed.add_field(name = "Odstraněno:", value="""
 ◻️ Byla vymazána kategorie: `Help Commands`
 ◻️ Taky byla vymazána kategorie: `Czech Commands`""", inline=False)	                 
