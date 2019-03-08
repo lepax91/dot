@@ -210,7 +210,7 @@ async def help(ctx):
         embed.add_field(name=":printer: **Internet Commands** [3]", value="`wiki`, `google`, `youtube`", inline=False)	
         embed.add_field(name="<:FeelsHappyHugMan:542781371157053451> **Fun** [6]", value="`penis`, `howgay`, `meme`, `8ball`, `vtip`, `fakt`", inline=False)
         embed.add_field(name=":thinking: **Mention Commands** [4]", value="`hug`, `kiss`, `slap`, `tickle`", inline=False)
-        embed.add_field(name=":cat: **Animals** [5]", value="`dog`, `cat`, `bird`, `aww`, `rpanda`", inline=False)    
+        embed.add_field(name=":cat: **Animals** [5]", value="`dog`, `cat`, `aww`", inline=False)    			
         embed.add_field(name="🔞 **NSFW** [4]", value="`ass`, `hentai`, `pussy`, `snapchat`", inline=False)	
         embed.add_field(name=" <:4206_lmaolancer:542781373157736458> **Memes with Fun** [3]", value="`deepfry`, `text`, `isthisa`", inline=False)
         embed.add_field(name="<:9175_moderation_hammer:542781370687160330> **Moderation** [7]", value="`ban`, `warn`, `say`, `poll`, `purge`, `kick`, `unban`", inline=False)    
