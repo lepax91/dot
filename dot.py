@@ -205,7 +205,7 @@ async def help(ctx):
         r, g, b = tuple(int(x * 255) for x in colorsys.hsv_to_rgb(random.random(), 1, 1))
         embed = discord.Embed(title="👌 **Dot** 👌", description="", color = discord.Color((r << 16) + (g << 8) + b))			  
         embed.add_field(name="📗 **Information** [10]", value="`help`, `info`, `update`, `ping`, `uptime`, `avatar`, `icon`, `svatek`, `zitra`, `emojis`", inline=False)
-        embed.add_field(name=":closed_lock_with_key **Developer Commands** [2]", value="`quit`, `emojiids`", inline=False)
+        embed.add_field(name=":closed_lock_with_key: **Developer Commands** [2]", value="`quit`, `emojiids`", inline=False)
         embed.add_field(name=":clap: **Text Commands** [2]", value="`clapify`, `emojify`")
         embed.add_field(name=":printer: **Internet Commands** [2]", value="`wiki`, `google`", inline=False)	
         embed.add_field(name="<:FeelsHappyHugMan:542781371157053451> **Fun** [6]", value="`penis`, `howgay`, `meme`, `8ball`, `vtip`, `fakt`", inline=False)
