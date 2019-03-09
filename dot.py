@@ -174,25 +174,6 @@ async def emojiids(ctx):
     print(f"<:{emoji.name}:{emoji.id}>")
     print(" ")    					                 
 						
-@client.event
-async def on_member_join(member):
-    for channel in member.server.channels:
-        if channel.name == '553923565343342602':
-            r, g, b = tuple(int(x * 255) for x in colorsys.hsv_to_rgb(random.random(), 1, 1))
-            embed = discord.Embed(title=f'Vítám tě! {member.name} v {member.server.name}!', description='', color = discord.Color((r << 16) + (g << 8) + b))
-            embed.add_field(name='Děkujeme za připojení, na tento server!', value='Doufáme, že budes aktivní na tomto serveru!', inline=True)      
-            embed.set_thumbnail(url=member.avatar_url)
-            await client.send_message(channel, embed=embed)
-		
-                     
-@client.event
-async def on_member_remove(member):
-    for channel in member.server.channels:
-        if channel.name == '553923565343342602':
-            r, g, b = tuple(int(x * 255) for x in colorsys.hsv_to_rgb(random.random(), 1, 1))
-            embed = discord.Embed(title=f'{member.name} odešel z {member.server.name}', description='Doufáme, že se ti tu libílo!', color = discord.Color((r << 16) + (g << 8) + b))        
-            embed.set_thumbnail(url=member.avatar_url)
-            await client.send_message(channel, embed=embed)				
 
 
 
