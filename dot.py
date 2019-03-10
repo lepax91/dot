@@ -107,7 +107,7 @@ async def unban(ctx, identification:str):
 @commands.has_permissions(kick_members=True)
 async def warn(ctx, userName: discord.User, *, message:str): 
     await client.send_message(userName, "⚠️ Byl si varován kvůli tomuto důvodu: **{}**".format(message))
-    await client.say("**:white_check_mark: | {} Byl zavarován!** ".format(userName,message))
+    await client.say("**:white_check_mark: | {} Byl varován!** ".format(userName,message))
     pass		
 			
 
