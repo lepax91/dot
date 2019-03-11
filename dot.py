@@ -187,7 +187,7 @@ async def emojiids(ctx):
 async def help(ctx):	
         r, g, b = tuple(int(x * 255) for x in colorsys.hsv_to_rgb(random.random(), 1, 1))
         embed = discord.Embed(title="👌 **Dot** 👌", description="", color = discord.Color((r << 16) + (g << 8) + b))			  
-        embed.add_field(name="📗 **Information** [9]", value="`help`, `info`, `ping`, `uptime`, `avatar`, `icon`, `svatek`, `zitra`, `emojis`", inline=False)
+        embed.add_field(name="📗 **Information** [7]", value="`help`, `info`, `ping`, `uptime`, `avatar`, `icon`, `emojis`", inline=False)
         embed.add_field(name=":closed_lock_with_key: **Developer Commands** [2]", value="`quit`, `emojiids`", inline=False)
         embed.add_field(name=":clap: **Text Commands** [2]", value="`clapify`, `emojify`")
         embed.add_field(name=":printer: **Internet Commands** [4]", value="`wiki`, `google`, `youtube`, `spotify`", inline=False)	
@@ -198,6 +198,7 @@ async def help(ctx):
         embed.add_field(name="🔞 **NSFW** [11]", value="`ass`, `hentai`, `pussy`, `snapchat`, `4k`, `amateur`, `traps`, `hanal`, `public`, `pgif`, `thigh`", inline=False)	
         embed.add_field(name=" <:4206_lmaolancer:542781373157736458> **Memes with Fun** [3]", value="`deepfry`, `text`, `isthisa`", inline=False)
         embed.add_field(name="⚒️ Supporting [2]", value="`report`, `suggest`", inline=False)
+        embed.add_field(name=":ribbon: **Holiday Commands** [2]", value="`svatek`, `zitra`", inline=False)
         embed.add_field(name="<:9175_moderation_hammer:542781370687160330> **Moderation** [7]", value="`ban`, `warn`, `say`, `poll`, `purge`, `kick`, `unban`", inline=False)
         embed.add_field(name="🎵 **Music** [9]", value="`play`, `skip`, `stop`, `song`, `queue`, `volume`, `pause`, `mutemusic`, `unmutemusic`", inline=False)
         embed.set_footer(text=f'Requested: {ctx.message.author.display_name} | Prefixes: [.]', icon_url=f'{ctx.message.author.avatar_url}')
