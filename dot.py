@@ -192,6 +192,7 @@ async def help(ctx):
         embed.add_field(name=":clap: **Text Commands** [2]", value="`clapify`, `emojify`")
         embed.add_field(name=":printer: **Internet Commands** [4]", value="`wiki`, `google`, `youtube`, `spotify`", inline=False)	
         embed.add_field(name="<:FeelsHappyHugMan:542781371157053451> **Fun** [7]", value="`penis`, `howgay`, `meme`, `8ball`, `vtip`, `fakt`, `math`", inline=False)
+        embed.add_field(name=":crossed_swords: **Statistic Commamds** [1]", value="`fortnite`", inline=False)
         embed.add_field(name=":thinking: **Mention Commands** [4]", value="`hug`, `kiss`, `slap`, `tickle`", inline=False)
         embed.add_field(name=":cat: **Animals** [3]", value="`dog`, `cat`, `aww`", inline=False)    			
         embed.add_field(name="🔞 **NSFW** [11]", value="`ass`, `hentai`, `pussy`, `snapchat`, `4k`, `amateur`, `traps`, `hanal`, `public`, `pgif`, `thigh`", inline=False)	
