@@ -188,6 +188,7 @@ async def help(ctx):
         r, g, b = tuple(int(x * 255) for x in colorsys.hsv_to_rgb(random.random(), 1, 1))
         embed = discord.Embed(title="👌 **Dot** 👌", description="", color = discord.Color((r << 16) + (g << 8) + b))			  
         embed.add_field(name="📗 **Information** [9]", value="`help`, `info`, `ping`, `uptime`, `avatar`, `icon`, `svatek`, `zitra`, `emojis`", inline=False)
+        embed.add_field(name=":o: **User Informations** [4]", value="`serverinfo`, `userinfo`, `roleinfo`, `servers`", inline=False)
         embed.add_field(name=":closed_lock_with_key: **Developer Commands** [2]", value="`quit`, `emojiids`", inline=False)
         embed.add_field(name=":clap: **Text Commands** [2]", value="`clapify`, `emojify`")
         embed.add_field(name=":printer: **Internet Commands** [4]", value="`wiki`, `google`, `youtube`, `spotify`", inline=False)	
@@ -196,7 +197,7 @@ async def help(ctx):
         embed.add_field(name=":thinking: **Mention Commands** [4]", value="`hug`, `kiss`, `slap`, `tickle`", inline=False)
         embed.add_field(name=":cat: **Animals** [3]", value="`dog`, `cat`, `aww`", inline=False)    			
         embed.add_field(name="🔞 **NSFW** [11]", value="`ass`, `hentai`, `pussy`, `snapchat`, `4k`, `amateur`, `traps`, `hanal`, `public`, `pgif`, `thigh`", inline=False)	
-        embed.add_field(name="<:emoji_10:555014607056404491> (NSFW) **Private Message** [1]", value="`sendnudes`, `sendtwerk`", inline=False)			
+        embed.add_field(name="<:emoji_10:555014607056404491> (NSFW) **Private Message** [1]", value="`sendnudes`, `sendtwerk`, `sendhentai`", inline=False)			
         embed.add_field(name=" <:4206_lmaolancer:542781373157736458> **Memes with Fun** [3]", value="`deepfry`, `text`, `isthisa`", inline=False)
         embed.add_field(name="⚒️ Supporting [2]", value="`report`, `suggest`", inline=False)
         embed.add_field(name=":ribbon: **Holiday Commands** [2]", value="`svatek`, `zitra`", inline=False)
@@ -204,7 +205,6 @@ async def help(ctx):
         embed.add_field(name="🎵 **Music** [9]", value="`play`, `skip`, `stop`, `song`, `queue`, `volume`, `pause`, `mutemusic`, `unmutemusic`", inline=False)
         embed.set_footer(text=f'Requested: {ctx.message.author.display_name} | Prefixes: [.]', icon_url=f'{ctx.message.author.avatar_url}')
         await client.say(embed=embed)     
-						
 @client.command(pass_context = True,no_pm=True)
 async def aww(ctx):
     colour = '0x' + '007000'
