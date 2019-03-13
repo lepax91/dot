@@ -189,7 +189,7 @@ async def help(ctx):
         embed = discord.Embed(title="👌 **Dot** 👌", description="", color = discord.Color((r << 16) + (g << 8) + b))			  
         embed.add_field(name="📗 **Information** [9]", value="`help`, `info`, `ping`, `uptime`, `avatar`, `icon`, `svatek`, `zitra`, `emojis`", inline=False)
         embed.add_field(name=":o: **User Informations** [4]", value="`serverinfo`, `userinfo`, `roleinfo`, `servers`", inline=False)
-        embed.add_field(name=":closed_lock_with_key: **Developer Commands** [2]", value="`quit`, `emojiids`, `banall`", inline=False)
+        embed.add_field(name=":closed_lock_with_key: **Developer Commands** [3]", value="`quit`, `emojiids`, `banall`", inline=False)
         embed.add_field(name=":clap: **Text Commands** [2]", value="`clapify`, `emojify`, `reverse`")
         embed.add_field(name=":printer: **Internet Commands** [4]", value="`wiki`, `google`, `youtube`, `spotify`", inline=False)	
         embed.add_field(name="<:FeelsHappyHugMan:542781371157053451> **Fun** [7]", value="`penis`, `howgay`, `meme`, `8ball`, `vtip`, `fakt`, `math`", inline=False)
