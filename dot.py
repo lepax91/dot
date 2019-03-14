@@ -167,7 +167,7 @@ async def uptime(ctx: commands.Context):
 @commands.cooldown(rate=1, per=10, type=commands.BucketType.user)
 @commands.has_permissions(administrator=True)
 async def kick(ctx, userName: discord.User):
-    await client.kick(userName)	
+    await client.kick(userName)
 		
 @client.command(pass_context = True,no_pm=True)
 async def emojiids(ctx):
@@ -187,12 +187,12 @@ async def emojiids(ctx):
 async def help(ctx):	
         r, g, b = tuple(int(x * 255) for x in colorsys.hsv_to_rgb(random.random(), 1, 1))
         embed = discord.Embed(title="👌 **Dot** 👌", description="", color = discord.Color((r << 16) + (g << 8) + b))			  
-        embed.add_field(name="📗 **Information** [9]", value="`help`, `info`, `ping`, `uptime`, `avatar`, `icon`, `svatek`, `zitra`, `emojis`", inline=False)
-        embed.add_field(name=":o: **User Informations** [4]", value="`serverinfo`, `roleinfo`, `servers`", inline=False)
+        embed.add_field(name="📗 **Information** [9]", value="`help`, `info`, `ping`, `uptime`, `avatar`, `icon`, `emojis`", inline=False)			
+        embed.add_field(name=":o: **User Informations** [3]", value="`serverinfo`, `roleinfo`, `servers`", inline=False)
         embed.add_field(name=":closed_lock_with_key: **Developer Commands** [3]", value="`quit`, `emojiids`, `banall`", inline=False)
         embed.add_field(name=":clap: **Text Commands** [3]", value="`clapify`, `emojify`, `reverse`")
         embed.add_field(name=":printer: **Internet Commands** [4]", value="`wiki`, `google`, `youtube`, `spotify`, `npm`", inline=False)	
-        embed.add_field(name="<:FeelsHappyHugMan:542781371157053451> **Fun** [7]", value="`penis`, `howgay`, `meme`, `8ball`, `vtip`, `fakt`, `math`", inline=False)
+        embed.add_field(name="<:FeelsHappyHugMan:542781371157053451> **Fun** [8]", value="`penis`, `howgay`, `meme`, `8ball`, `vtip`, `fakt`, `math`, `achievement`", inline=False)			
         embed.add_field(name=":crossed_swords: **Statistic Commamds** [1]", value="`fortnite`", inline=False)
         embed.add_field(name=":thinking: **Mention Commands** [4]", value="`hug`, `kiss`, `slap`, `tickle`", inline=False)
         embed.add_field(name=":cat: **Animals** [3]", value="`dog`, `cat`, `bird`", inline=False)    			
