@@ -197,7 +197,7 @@ async def help(ctx):
         embed.add_field(name=":thinking: **Mention Commands** [4]", value="`hug`, `kiss`, `slap`, `tickle`", inline=False)
         embed.add_field(name=":cat: **Animals** [3]", value="`dog`, `cat`, `bird`", inline=False)    			
         embed.add_field(name="🔞 **NSFW** [11]", value="`ass`, `hentai`, `pussy`, `snapchat`, `4k`, `amateur`, `traps`, `hanal`, `public`, `pgif`, `thigh`", inline=False)	
-        embed.add_field(name="<:emoji_10:555014607056404491> (NSFW) **Private Message** [1]", value="`sendnudes`, `sendtwerk`, `sendhentai`", inline=False)			
+        embed.add_field(name="<:emoji_10:555014607056404491> (NSFW) **Private Message** [3]", value="`sendnudes`, `sendtwerk`, `sendhentai`", inline=False)			
         embed.add_field(name=" <:4206_lmaolancer:542781373157736458> **Memes with Fun** [3]", value="`deepfry`, `text`, `isthisa`", inline=False)
         embed.add_field(name="⚒️ Supporting [2]", value="`report`, `suggest`", inline=False)
         embed.add_field(name=":ribbon: **Holiday Commands** [2]", value="`svatek`, `zitra`", inline=False)
