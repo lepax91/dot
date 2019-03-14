@@ -203,7 +203,7 @@ async def help(ctx):
         embed.add_field(name=":ribbon: **Holiday Commands** [2]", value="`svatek`, `zitra`", inline=False)
         embed.add_field(name="<:9175_moderation_hammer:542781370687160330> **Moderation** [7]", value="`ban`, `warn`, `say`, `poll`, `purge`, `kick`, `unban`", inline=False)
         embed.add_field(name="🎵 **Music** [9]", value="`play`, `skip`, `stop`, `song`, `queue`, `volume`, `pause`, `mutemusic`, `unmutemusic`", inline=False)
-        embed.set_footer(text=f'Requested: {ctx.message.author.display_name} | Pokud nevíš jak používat příkazy: .help deepfry.', icon_url=f'{ctx.message.author.avatar_url}')
+        emb.tft(text=f'Requested: {ctx.message.author.display_name} | Prefix [.]', icon_url=f'{ctx.message.author.avatar_url}')
         await client.say(embed=embed)     
 				
 @client.command(pass_context=True, no_pm=True)
