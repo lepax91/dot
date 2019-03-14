@@ -195,7 +195,7 @@ async def help(ctx):
         embed.add_field(name="<:FeelsHappyHugMan:542781371157053451> **Fun** [7]", value="`penis`, `howgay`, `meme`, `8ball`, `vtip`, `fakt`, `math`", inline=False)
         embed.add_field(name=":crossed_swords: **Statistic Commamds** [1]", value="`fortnite`", inline=False)
         embed.add_field(name=":thinking: **Mention Commands** [4]", value="`hug`, `kiss`, `slap`, `tickle`", inline=False)
-        embed.add_field(name=":cat: **Animals** [3]", value="`dog`, `cat`, `aww`", inline=False)    			
+        embed.add_field(name=":cat: **Animals** [3]", value="`dog`, `cat`, `bird`, `panda`", inline=False)    			
         embed.add_field(name="🔞 **NSFW** [11]", value="`ass`, `hentai`, `pussy`, `snapchat`, `4k`, `amateur`, `traps`, `hanal`, `public`, `pgif`, `thigh`", inline=False)	
         embed.add_field(name="<:emoji_10:555014607056404491> (NSFW) **Private Message** [1]", value="`sendnudes`, `sendtwerk`, `sendhentai`", inline=False)			
         embed.add_field(name=" <:4206_lmaolancer:542781373157736458> **Memes with Fun** [3]", value="`deepfry`, `text`, `isthisa`", inline=False)
@@ -205,19 +205,7 @@ async def help(ctx):
         embed.add_field(name="🎵 **Music** [9]", value="`play`, `skip`, `stop`, `song`, `queue`, `volume`, `pause`, `mutemusic`, `unmutemusic`", inline=False)
         embed.set_footer(text=f'Requested: {ctx.message.author.display_name} | Pokud nevíš jak používat příkazy: .help deepfry.', icon_url=f'{ctx.message.author.avatar_url}')
         await client.say(embed=embed)     
-@client.command(pass_context = True,no_pm=True)
-async def aww(ctx):
-    colour = '0x' + '007000'
-    async with aiohttp.ClientSession() as session:
-        async with session.get("https://api.reddit.com/r/aww/random") as r:
-            data = await r.json()
-            embed = discord.Embed(title='', description='', color=0x0000FF)
-            embed.set_image(url=data[0]["data"]["children"][0]["data"]["url"])
-            embed.timestamp = datetime.datetime.utcnow()
-            await client.say(embed=embed)
 				
- 
-
 @client.command(pass_context=True, no_pm=True)
 async def icon(ctx):
     colour = '0x' + 'fce300'
