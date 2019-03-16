@@ -42,7 +42,10 @@ class Fun:
 		r = urllib.request.urlopen(url)
 		soup = BeautifulSoup(r,'html.parser')
 		result = soup.find("div", {"class":"lead"}).text
-		await self.bot.say(f"{result}")	
+		e=discord.Embed(title="Fakt", colour=random.randint(0, 0xFFFFFF))
+		e.add_field(name=f"",value=f"{result}")
+		await self.bot.say(embed=e)
+		
 	@commands.command(pass_context = True,no_pm=True)
 	@commands.cooldown(rate=1, per=2, type=commands.BucketType.user)
 	async def penis(self,ctx,user:discord.Member = None):
