@@ -60,8 +60,8 @@ class Fun:
 	async def zitra(self):
 		r = requests.get("https://api.abalin.net/get/tomorrow").json()
 		svatek_cz = r["data"]["name_cz"]
-		e=discord.Embed(title="Svátek", description=f"Zítra má svátek **{svatek_cz}**!", colour=random.randint(0, 0xFFFFFF))
-		await self.bot.say(embed=e)
+		await self.bot.say(f"Zítra má svátek **{svatek_cz}**!")	
+
 
 	@commands.group(pass_context= True,no_pm=True,aliases=["svátek"])
 	@commands.cooldown(rate=1, per=10, type=commands.BucketType.user)
@@ -69,8 +69,7 @@ class Fun:
 		if ctx.invoked_subcommand is None:
 			r = requests.get("https://api.abalin.net/get/today").json()
 			svatek_cz = r["data"]["name_cz"]
-		        e=discord.Embed(title="Svátek", description=f"Dnes má svátek **{svatek_cz}**!", colour=random.randint(0, 0xFFFFFF))
-		        await self.bot.say(embed=e)
+			await self.bot.say(f"Dnes má svátek **{svatek_cz}**!")
 					  
 									
 def setup(bot):
