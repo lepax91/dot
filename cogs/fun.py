@@ -42,7 +42,7 @@ class Fun:
 		r = urllib.request.urlopen(url)
 		soup = BeautifulSoup(r,'html.parser')
 		result = soup.find("div", {"class":"lead"}).text
-		e=discord.Embed(title="{result}", colour=random.randint(0, 0xFFFFFF))	
+		e=discord.Embed(title=f"{result}", colour=random.randint(0, 0xFFFFFF))	
 		await self.bot.say(embed=e)
 		
 	@commands.command(pass_context = True,no_pm=True)
