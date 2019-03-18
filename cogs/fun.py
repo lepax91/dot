@@ -56,20 +56,7 @@ class Fun:
 
 	  										
 												
-	@commands.command(no_pm=True,Laliases=["zítra"])
-	async def zitra(self):
-		r = requests.get("https://api.abalin.net/get/tomorrow").json()
-		svatek_cz = r["data"]["name_cz"]
-		await self.bot.say(f"Zítra má svátek **{svatek_cz}**!")	
-
-
-	@commands.group(pass_context= True,no_pm=True,aliases=["svátek"])
-	@commands.cooldown(rate=1, per=10, type=commands.BucketType.user)
-	async def svatek(self,ctx):
-		if ctx.invoked_subcommand is None:
-			r = requests.get("https://api.abalin.net/get/today").json()
-			svatek_cz = r["data"]["name_cz"]
-			await self.bot.say(f"Dnes má svátek **{svatek_cz}**!")
+	
 					  
 									
 def setup(bot):
