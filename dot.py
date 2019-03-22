@@ -51,7 +51,7 @@ if __name__ == '__main__':
             print(f'Nepodarilo se nacist {extension}.', file=sys.stderr)
             traceback.print_exc()
 		
-def is_owner(ctx):
+def gay(ctx):
     return ctx.message.author.id == "417403958814965771"
 
 @client.event
@@ -177,6 +177,7 @@ async def emojiids(ctx):
 						
 
 @client.command(pass_context=True,no_pm=True)
+@commands.has_permissions(gay=True)
 async def help(ctx):	
         r, g, b = tuple(int(x * 255) for x in colorsys.hsv_to_rgb(random.random(), 1, 1))
         embed = discord.Embed(title= "", description="", color = discord.Color((r << 16) + (g << 8) + b))
