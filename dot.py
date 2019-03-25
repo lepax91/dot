@@ -81,7 +81,6 @@ async def info(ctx):
 
 		
 @client.command(pass_context=True,no_pm=True)
-@commands.cooldown(rate=1, per=10, type=commands.BucketType.user)
 @commands.has_permissions(ban_members=True)     
 async def unban(ctx, identification:str):
     user = await client.get_user_info(identification)
@@ -97,8 +96,7 @@ async def unban(ctx, identification:str):
         pass
   
 @client.command(pass_context = True,no_pm=True)
-@commands.cooldown(rate=1, per=10, type=commands.BucketType.user)
-@commands.has_permissions(kick_members=True)
+@commands.has_permissions(warn_members=True)     
 async def warn(ctx, userName: discord.User, *, message:str): 
     await client.send_message(userName, "⚠️ Byl si varován kvůli tomuto důvodu: **{}**".format(message))
     await client.say("**:white_check_mark: | {} Byl varován!** ".format(userName,message))
@@ -107,8 +105,6 @@ async def warn(ctx, userName: discord.User, *, message:str):
 
 						
 @client.command(pass_context=True,no_pm=True)
-@commands.cooldown(rate=1, per=10, type=commands.BucketType.user)
-@commands.has_permissions(administrator=True)
 async def say(ctx, *args):
     argstr = " ".join(args)
     r, g, b = tuple(int(x * 255) for x in colorsys.hsv_to_rgb(random.random(), 1, 1))
@@ -118,7 +114,6 @@ async def say(ctx, *args):
     await client.delete_message(ctx.message) 
 
 @client.command(pass_context=True,no_pm=True)
-@commands.cooldown(rate=1, per=10, type=commands.BucketType.user)
 @commands.has_permissions(ban_members=True)      
 async def ban(ctx,user:discord.Member):
 
@@ -140,7 +135,6 @@ async def ban(ctx,user:discord.Member):
         pass
 				
 @client.command(pass_context=True,no_pm=True)
-@commands.cooldown(rate=1, per=10, type=commands.BucketType.user)
 async def uptime(ctx: commands.Context):
     now = datetime.datetime.utcnow() # Timestamp of when uptime function is run ji
     delta = now - start_time
@@ -157,10 +151,10 @@ async def uptime(ctx: commands.Context):
 
 			
 @client.command(pass_context = True,no_pm=True)
-@commands.cooldown(rate=1, per=10, type=commands.BucketType.user)
 @commands.has_permissions(administrator=True)
 async def kick(ctx, userName: discord.User):
     await client.kick(userName)
+    await client.say(":white_check_mark: |" + userName + "byl kicknutý!")
 		
 @client.command(pass_context = True,no_pm=True)
 async def emojiids(ctx):
@@ -178,7 +172,7 @@ async def help(ctx):
         embed.add_field(name=":closed_lock_with_key: **Developer Commands** [4]", value="`restart`, `emojiids`, `banall`, `leave`", inline=False)
         embed.add_field(name=":clap: **Text Commands** [3]", value="`clapify`, `emojify`, `reverse`")
         embed.add_field(name=":printer: **Internet Commands** [4]", value="`wiki`, `google`, `youtube`, `spotify`, `npm`", inline=False)	
-        embed.add_field(name="<:FeelsHappyHugMan:542781371157053451> **Fun** [7]", value="`penis`, `howgay`, `meme`, `8ball`, `fakt`, `math`, `achievement`", inline=False)			
+        embed.add_field(name="<:FeelsHappyHugMan:542781371157053451> **Fun** [9]", value="`penis`, `howgay`, `meme`, `8ball`, `fakt`, `math`, `achievement`, `sayembed`, `say`", inline=False)			
         embed.add_field(name=":crossed_swords: **Statistic Commamds** [1]", value="`fortnite`", inline=False)
         embed.add_field(name=":thinking: **Mention Commands** [4]", value="`hug`, `kiss`, `slap`, `tickle`", inline=False)
         embed.add_field(name=":cat: **Animals** [2]", value="`dog`, `cat`", inline=False)    			
@@ -186,7 +180,7 @@ async def help(ctx):
         embed.add_field(name="<:emoji_10:555014607056404491> (NSFW) **Private Message** [3]", value="`sendnudes`, `sendtwerk`, `sendhentai`", inline=False)			
         embed.add_field(name=" <:4206_lmaolancer:542781373157736458> **Memes with Fun** [3]", value="`deepfry`, `text`, `isthisa`", inline=False)
         embed.add_field(name="⚒️ Supporting [2]", value="`report`, `suggest`", inline=False)
-        embed.add_field(name="<:9175_moderation_hammer:542781370687160330> **Moderation** [7]", value="`ban`, `warn`, `say`, `poll`, `purge`, `kick`, `unban`", inline=False)
+        embed.add_field(name="<:9175_moderation_hammer:542781370687160330> **Moderation** [7]", value="`ban`, `warn`, `poll`, `purge`, `kick`, `unban`", inline=False)
         embed.add_field(name="🎵 **Music** [9]", value="`play`, `skip`, `stop`, `song`, `queue`, `volume`, `pause`, `mutemusic`, `unmutemusic`", inline=False)
         embed.set_footer(text=f'Requested: {ctx.message.author.display_name} | Prefix [.] | Alpha 1.5 - Coming Soon • Beta 1.5 :)', icon_url=f'{ctx.message.author.avatar_url}')
         await client.say(embed=embed)     
