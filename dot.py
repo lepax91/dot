@@ -73,18 +73,11 @@ async def info(ctx):
     em.add_field(name="Pozvi Dota, do dalšího pěknýho serveru", value=f"[Zde](https://discordapp.com/oauth2/authorize?client_id={client.user.id}&scope=bot&permissions=268905542)")
     em.add_field(name="Máš nějaké problémy s Dotem?", value=f"[Zde se připoj do Support Serveru!](https://discord.gg/Q8sWryN)",inline=False)
     em.add_field(name="Nezapomeň ho upvotnout!", value=f"[Zde](https://botlist.space/bot/523787927113826305/upvote)",inline=False)
-    em.set_footer(text="Dot | Pre-Alpha 1.2")
+    em.set_footer(text="Dot | Alpha 1.5 | Coming Soon - Beta 2.1...")
     await client.say(embed=em)
 				
 												
-@client.command(pass_context=True,no_pm=True)
-async def quit(ctx):
-    if str(ctx.message.author) != "lepax_#1234":
-        await client.say(":x: | **Toto se ti nějak nepovedlo...**") 			
-        return
-    else:
-        await client.say("**🙋 Uvidíme se brzy!**")
-        await client.logout()
+
 
 		
 @client.command(pass_context=True,no_pm=True)
@@ -182,20 +175,20 @@ async def help(ctx):
         embed = discord.Embed(title= "", description="", color = discord.Color((r << 16) + (g << 8) + b))
         embed.add_field(name="📗 **Information** [9]", value="`help`, `info`, `ping`, `uptime`, `avatar`, `icon`, `emojis`", inline=False)			
         embed.add_field(name=":o: **User Informations** [3]", value="`serverinfo`, `roleinfo`, `servers`", inline=False)
-        embed.add_field(name=":closed_lock_with_key: **Developer Commands** [3]", value="`quit`, `emojiids`, `banall`", inline=False)
+        embed.add_field(name=":closed_lock_with_key: **Developer Commands** [4]", value="`restart`, `emojiids`, `banall`, `leave`", inline=False)
         embed.add_field(name=":clap: **Text Commands** [3]", value="`clapify`, `emojify`, `reverse`")
         embed.add_field(name=":printer: **Internet Commands** [4]", value="`wiki`, `google`, `youtube`, `spotify`, `npm`", inline=False)	
-        embed.add_field(name="<:FeelsHappyHugMan:542781371157053451> **Fun** [9]", value="`penis`, `howgay`, `meme`, `8ball`, `vtip`, `fakt`, `math`, `achievement`, `slots`", inline=False)			
+        embed.add_field(name="<:FeelsHappyHugMan:542781371157053451> **Fun** [7]", value="`penis`, `howgay`, `meme`, `8ball`, `fakt`, `math`, `achievement`", inline=False)			
         embed.add_field(name=":crossed_swords: **Statistic Commamds** [1]", value="`fortnite`", inline=False)
         embed.add_field(name=":thinking: **Mention Commands** [4]", value="`hug`, `kiss`, `slap`, `tickle`", inline=False)
-        embed.add_field(name=":cat: **Animals** [3]", value="`dog`, `cat`, `bird`", inline=False)    			
+        embed.add_field(name=":cat: **Animals** [2]", value="`dog`, `cat`", inline=False)    			
         embed.add_field(name="🔞 **NSFW** [11]", value="`ass`, `hentai`, `pussy`, `snapchat`, `4k`, `amateur`, `traps`, `hanal`, `public`, `pgif`, `thigh`", inline=False)	 
         embed.add_field(name="<:emoji_10:555014607056404491> (NSFW) **Private Message** [3]", value="`sendnudes`, `sendtwerk`, `sendhentai`", inline=False)			
         embed.add_field(name=" <:4206_lmaolancer:542781373157736458> **Memes with Fun** [3]", value="`deepfry`, `text`, `isthisa`", inline=False)
         embed.add_field(name="⚒️ Supporting [2]", value="`report`, `suggest`", inline=False)
         embed.add_field(name="<:9175_moderation_hammer:542781370687160330> **Moderation** [7]", value="`ban`, `warn`, `say`, `poll`, `purge`, `kick`, `unban`", inline=False)
         embed.add_field(name="🎵 **Music** [9]", value="`play`, `skip`, `stop`, `song`, `queue`, `volume`, `pause`, `mutemusic`, `unmutemusic`", inline=False)
-        embed.set_footer(text=f'Requested: {ctx.message.author.display_name} | Prefix [.]', icon_url=f'{ctx.message.author.avatar_url}')
+        embed.set_footer(text=f'Requested: {ctx.message.author.display_name} | Prefix [.] | Alpha 1.5 - Coming Soon • Beta 1.5 :)', icon_url=f'{ctx.message.author.avatar_url}')
         await client.say(embed=embed)     
 
         
