@@ -99,13 +99,13 @@ async def unban(ctx, identification:str):
 @commands.has_permissions(warn_members=True)     
 async def warn(ctx, userName: discord.User, *, message:str): 
     await client.send_message(userName, "⚠️ Byl si varován kvůli tomuto důvodu: **{}**".format(message))
-    await client.say("**:white_check_mark: | {} Byl varován!** ".format(userName,message))
+    await client.say("**:white_check_mark: | {} byl varován!** ".format(userName,message))
     pass		
 			
 
 						
 @client.command(pass_context=True,no_pm=True)
-async def say(ctx, *args):
+async def sayembed(ctx, *args):
     argstr = " ".join(args)
     r, g, b = tuple(int(x * 255) for x in colorsys.hsv_to_rgb(random.random(), 1, 1))
     text = argstr
