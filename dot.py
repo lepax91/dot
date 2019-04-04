@@ -166,7 +166,7 @@ async def emojiids(ctx):
 @client.command(pass_context=True,no_pm=True)
 async def help(ctx):	
         r, g, b = tuple(int(x * 255) for x in colorsys.hsv_to_rgb(random.random(), 1, 1))
-        embed = discord.Embed(title= "", description="", color = discord.Color((r << 16) + (g << 8) + b))
+        embed = discord.Embed(title= "_Už nikdy nebude žádná aktualizace pro Dota!_", description="", color = discord.Color((r << 16) + (g << 8) + b))
         embed.add_field(name="📗 **Information** [9]", value="`help`, `info`, `ping`, `uptime`, `avatar`, `icon`, `emojis`", inline=False)			
         embed.add_field(name=":o: **User Informations** [3]", value="`serverinfo`, `roleinfo`, `servers`", inline=False)
         embed.add_field(name=":closed_lock_with_key: **Developer Commands** [4]", value="`restart`, `emojiids`, `banall`, `leave`", inline=False)
@@ -182,7 +182,7 @@ async def help(ctx):
         embed.add_field(name="⚒️ Supporting [2]", value="`report`, `suggest`", inline=False)
         embed.add_field(name="<:9175_moderation_hammer:542781370687160330> **Moderation** [7]", value="`ban`, `warn`, `poll`, `purge`, `kick`, `unban`", inline=False)
         embed.add_field(name="🎵 **Music** [9]", value="`play`, `skip`, `stop`, `song`, `queue`, `volume`, `pause`, `mutemusic`, `unmutemusic`", inline=False)
-        embed.set_footer(text=f'Requested: {ctx.message.author.display_name} | Prefix [.] | Alpha 1.5 - Coming Soon • Beta 1.5 :)', icon_url=f'{ctx.message.author.avatar_url}')
+        embed.set_footer(text=f'Requested: {ctx.message.author.display_name} | Prefix [.]', icon_url=f'{ctx.message.author.avatar_url}')
         await client.say(embed=embed)     
 
         
