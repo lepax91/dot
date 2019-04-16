@@ -1,6 +1,5 @@
 import json
 import random
-import vtipek
 import discord
 import requests
 import urllib.request
