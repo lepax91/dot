@@ -39,8 +39,6 @@ try:
 except Exception as e:
     print(e)
 client = discord.Client()
-raidtxt = str(input("mám tě rád"))
-spamamt = int(input("mám tě rád"))
 client = commands.Bot(command_prefix=get_prefix)
 client.remove_command('help')
 #()  []  {} `
