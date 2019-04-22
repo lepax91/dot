@@ -150,7 +150,7 @@ async def info(ctx):
     em = discord.Embed(color=discord.Color.green())
     em.set_author(name=ctx.message.author.name, icon_url=ctx.message.author.avatar_url)
     em.description = '**_Veškeré informace píšeme do Support Serveru_**'
-    em.add_field(name="💻 Servery", value=len(bot.guilds))	
+    em.add_field(name="💻 Servery", value=len(client.guilds))	
     em.add_field(name="👥 Online Uživatelé", value=str(len({m.id for m in client.get_all_members() if m.status is not discord.Status.offline})))
     em.add_field(name='🗂️ Kanály', value=f"{sum(1 for g in client.guilds for _ in g.channels)}")
     em.add_field(name="📚 Knihovna", value=f"discord.py, discord.js")
