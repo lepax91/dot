@@ -157,7 +157,7 @@ async def info(ctx):
     em.add_field(name="🔨 Máš nějaké problémy s Dotem?", value=f"[Zde se připoj](https://discord.gg/Q8sWryN)",inline=True)
     em.add_field(name="⚫ Dota můžeš klidně i hlasovat!", value=f"[Zde](https://botlist.space/bot/539139339741954099/upvote)",inline=True)
     em.set_footer(text="Dot | v1.5a | Mkc,")
-    await client.channel.send(embed=em) 
+    await client.say(embed=em) 
 		
 client.run(TOKEN, client = True)
 		                                                                                                
