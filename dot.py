@@ -145,10 +145,10 @@ async def icon(ctx):
     embed.set_image(url="{}".format(ctx.message.server.icon_url))
     await client.say(embed=embed)
 	      
-@client.command(pass_context=True)
+@client.command(pass_context=True, no_pm=True)
 async def info(ctx):
-    em = discord.Embed(color=discord.Color.green())
-    em.description = '**_Veškeré informace píšeme do Support Serveru_**'
+    em = discord.Embed(color=discord.Color.blue())
+    em.title = '**_Veškeré informace píšeme do Support Serveru_**'
     em.add_field(name="💻 Servery", value=len(client.guilds))	
     em.add_field(name="👥 Online Uživatelé", value=str(len({m.id for m in client.get_all_members() if m.status is not discord.Status.offline})))
     em.add_field(name='🗂️ Kanály', value=f"{sum(1 for g in client.guilds for _ in g.channels)}")
