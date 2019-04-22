@@ -73,7 +73,24 @@ async def unban(ctx, identification:str):
     except:
         await client.say(f':x: | Nemůžu unbannout *{user}*')
         pass
-  
+
+@client.command(pass_context=True)
+async def 69(ctx):
+    em = discord.Embed(color=discord.Color.green())
+    em.set_author(name=ctx.message.author.name, icon_url=ctx.message.author.avatar_url)
+    em.description = 'Veškerý informace píšeme do Support Serveru.'
+    em.add_field(name="Servery", value=len(bot.guilds))
+    em.add_field(name="Online Uživatelé", value=str(len({m.id for m in client.get_all_members() if m.status is not discord.Status.offline})))
+    em.add_field(name='Kanály', value=f"{sum(1 for g in client.guilds for _ in g.channels)}")
+    em.add_field(name="Knihovna", value=f"discord.py")
+    em.add_field(name="Chceš Dota přidat na svůj server?", value=f"[Zde](https://discordapp.com/oauth2/authorize?client_id={client.user.id}&scope=bot&permissions=8)")
+    em.add_field(name="Máš nějaké problémy s Dotem?", value=f"[Zde se připoj](https://discord.gg/Q8sWryN)",inline=True)
+    em.add_field(name="Dota můžeš klidně i hlasovat!", value=f"[Zde](https://botlist.space/bot/539139339741954099/upvote)",inline=True)
+    em.set_footer(text="Dot | v1.5a")
+    await client.channel.send(embed=em) 
+	
+	
+	
 @client.command(pass_context = True,no_pm=True)
 @commands.has_permissions(warn_members=True)     
 async def warn(ctx, userName: discord.User, *, message:str): 
