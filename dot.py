@@ -12,6 +12,7 @@ import functools
 import praw
 import datetime
 import json
+import psutil
 import traceback 
 import aiohttp
 import os, re, smtplib
@@ -122,7 +123,7 @@ async def help(ctx):
         r, g, b = tuple(int(x * 255) for x in colorsys.hsv_to_rgb(random.random(), 1, 1))
         embed = discord.Embed(title= "", description="", color = discord.Color((r << 16) + (g << 8) + b))
         embed.add_field(name="📗 **Information** [4]", value="<:emoji_2:569849060580786186> help, info, emojis, icon")					
-        embed.add_field(name=":o: **User Informations** [3]", value="<:emoji_2:569849060580786186> serverinfo, roleinfo, servers", inline=False)
+        embed.add_field(name="👤 **User Informations** [3]", value="<:emoji_2:569849060580786186> serverinfo, roleinfo, servers", inline=False)
         embed.add_field(name="🔐 **Dot Development Commands** [4]", value="<:emoji_2:569849060580786186> restart, emojiids, banall, leave", inline=False) 			            	
         embed.add_field(name="🖥️ **Fun** [4]", value="<:emoji_2:569849060580786186> penis, meme, fakt, say", inline=False)						
         embed.add_field(name="🔞 **NSFW** [11]", value="<:emoji_2:569849060580786186> ass, hentai, pussy, snapchat, 4k, amateur, traps, hanal, public, pgif, thigh", inline=False)	 
@@ -147,11 +148,16 @@ async def icon(ctx):
 	      
 
 @client.command(pass_context=True, no_pm=True)
-async def info(ctx):	    
+async def info(ctx):
+    second = time.time() - start_time
+    minute, second = divmod(second, 60)
+    hour, minute = divmod(minute, 60)
+    day, hour = divmod(hour, 24)	
     r, g, b = tuple(int(x * 255) for x in colorsys.hsv_to_rgb(random.random(), 1, 1))
     em = discord.Embed(title= "", description="", color = discord.Color((r << 16) + (g << 8) + b))
     em.add_field(name="💻 Servery", value=len(client.servers))
     em.add_field(name="👥 Online Uživatelé", value=str(len({m.id for m in client.get_all_members() if m.status is not discord.Status.offline})))
+    em.add_field(name="🕒 Uptime", value="**%dd %dh %dm %ds**"% (day, hour, minute, second), inline=False)
     em.add_field(name='🗂️ Kanály', value=f"{sum(1 for g in client.servers for _ in g.channels)}")
     em.add_field(name="📚 Knihovna", value=f"discord.py, discord.js")
     em.add_field(name="<:emoji_3:569883823941222400> Dot Development Project", value=f"<@417403958814965771>, <@273813194861051907>")
@@ -160,6 +166,4 @@ async def info(ctx):
     em.add_field(name="💼 Nezapomeň Dotovy dát Upvote!", value=f"[Zde](https://botlist.space/bot/539139339741954099/upvote)",inline=False)
     em.set_footer(text="Dot | v1.5a")
     await client.say(embed=em)
-
-client.run(TOKEN, client = True)
 		                                                                                                
