@@ -105,15 +105,6 @@ async def warn(ctx, userName: discord.User, *, message:str):
 
 						
 @client.command(pass_context=True,no_pm=True)
-async def sayembed(ctx, *args):
-    argstr = " ".join(args)
-    r, g, b = tuple(int(x * 255) for x in colorsys.hsv_to_rgb(random.random(), 1, 1))
-    text = argstr
-    color = discord.Color((r << 16) + (g << 8) + b)
-    await client.send_message(ctx.message.channel, embed=Embed(color = color, description=text))
-    await client.delete_message(ctx.message) 
-
-@client.command(pass_context=True,no_pm=True)
 @commands.has_permissions(ban_members=True)      
 async def ban(ctx,user:discord.Member):
 
@@ -151,10 +142,10 @@ async def emojiids(ctx):
 async def help(ctx):	
         r, g, b = tuple(int(x * 255) for x in colorsys.hsv_to_rgb(random.random(), 1, 1))
         embed = discord.Embed(title= "", description="", color = discord.Color((r << 16) + (g << 8) + b))
-        embed.add_field(name="📗 **Information** [7]", value="help, info, emojis, icon")					
+        embed.add_field(name="📗 **Information** [4]", value="help, info, emojis, icon")					
         embed.add_field(name=":o: **User Informations** [3]", value="serverinfo, roleinfo, servers", inline=False)
         embed.add_field(name="🔐 **Dot Development Commands** [4]", value="restart, emojiids, banall, leave", inline=False)            	
-        embed.add_field(name="🖥️ **Fun** [8]", value="penis, meme, fakt, say", inline=False)						
+        embed.add_field(name="🖥️ **Fun** [4]", value="penis, meme, fakt, say", inline=False)						
         embed.add_field(name="🔞 **NSFW** [11]", value="ass, hentai, pussy, snapchat, 4k, amateur, traps, hanal, public, pgif, thigh", inline=False)	 
         embed.add_field(name="🤐 **Private Message** • 🔞 NSFW! [2]", value="sendnudes, sendhentai", inline=False)			
         embed.add_field(name="👌 **Memes with Fun** [3]", value="deepfry, text, isthisa", inline=False)
