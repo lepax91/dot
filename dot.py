@@ -145,34 +145,20 @@ async def icon(ctx):
     embed.set_image(url="{}".format(ctx.message.server.icon_url))
     await client.say(embed=embed)
 	      
-@client.command(pass_context=True, no_pm=True)
-async def info(ctx):
-    em = discord.Embed(color=discord.Color.blue())
-    em.title = '**_Veškeré informace píšeme do Support Serveru_**'
-    em.add_field(name="💻 Servery", value=len(client.guilds))	
-    em.add_field(name="👥 Online Uživatelé", value=str(len({m.id for m in client.get_all_members() if m.status is not discord.Status.offline})))
-    em.add_field(name='🗂️ Kanály', value=f"{sum(1 for g in client.guilds for _ in g.channels)}") 
-    em.add_field(name="📚 Knihovna", value=f"discord.py, discord.js")
-    em.add_field(name="📁 Chceš Dota přidat na svůj server?", value=f"[Zde](https://discordapp.com/oauth2/authorize?client_id={client.user.id}&scope=bot&permissions=8)")
-    em.add_field(name="🔨 Máš nějaké problémy s Dotem?", value=f"[Zde se připoj](https://discord.gg/Q8sWryN)",inline=True)
-    em.add_field(name="⚫ Dota můžeš klidně i hlasovat!", value=f"[Zde](https://botlist.space/bot/539139339741954099/upvote)",inline=True)
-    em.set_footer(text="Dot | v1.5a | Mkc,")
-    await client.say(embed=em) 
 
 @client.command(pass_context=True, no_pm=True)
-async def test(ctx):	    
+async def info(ctx):	    
     em = discord.Embed(color=discord.Color.purple())
     em.title = 'Informations of Dot'
-    em.add_field(name="Počet Serverů", value=len(client.servers))
-    em.add_field(name="<:3619_discord_online:544894710511304713> Online Users", value=str(len({m.id for m in client.get_all_members() if m.status is not discord.Status.offline})))
-    em.add_field(name='Počet Kanálů', value=f"{sum(1 for g in client.servers for _ in g.channels)}")
-    em.add_field(name="Knihovna", value=f"discord.py")
-    em.add_field(name="Development of Dot", value=f"<@417403958814965771>")
-    em.add_field(name="Pomoc s Dotem", value=f"<@273813194861051907>")
-    em.add_field(name="Pozvi Dota, do dalšího pěknýho serveru", value=f"[Zde](https://discordapp.com/oauth2/authorize?client_id={client.user.id}&scope=bot&permissions=268905542)")
-    em.add_field(name="Máš nějaké problémy s Dotem?", value=f"[Zde se připoj do Support Serveru!](https://discord.gg/Q8sWryN)",inline=False)
-    em.add_field(name="Nezapomeň ho upvotnout!", value=f"[Zde](https://botlist.space/bot/523787927113826305/upvote)",inline=False)
-    em.set_footer(text="Dot | Alpha 1.5 | Coming Soon - Beta 2.1...")
+    em.add_field(name="💻 Servery", value=len(client.servers))
+    em.add_field(name="👥 Online Uživatelé", value=str(len({m.id for m in client.get_all_members() if m.status is not discord.Status.offline})))
+    em.add_field(name='🗂️ Kanály', value=f"{sum(1 for g in client.servers for _ in g.channels)}")
+    em.add_field(name="📚 Knihovna", value=f"discord.py, discord.js")
+    em.add_field(name="⚫ Dot Development Project", value=f"<@417403958814965771>, <@273813194861051907>")
+    em.add_field(name="📁 Chceš Dota přidat na svůj server?", value=f"[Zde](https://discordapp.com/oauth2/authorize?client_id={client.user.id}&scope=bot&permissions=268905542)")
+    em.add_field(name="🔨 Máš nějaké problémy s Dotem?", value=f"[Zde se připoj do Support Serveru!](https://discord.gg/Q8sWryN)",inline=False)
+    em.add_field(name="💼 Nezapomeň Dotovy dát Upvote!", value=f"[Zde](https://botlist.space/bot/539139339741954099/upvote)",inline=False)
+    em.set_footer(text="Dot | v1.5a")
     await client.say(embed=em)
 
 client.run(TOKEN, client = True)
