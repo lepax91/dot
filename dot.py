@@ -20,8 +20,7 @@ import time
 from discord.voice_client import VoiceClient
 from discord import Game, Embed, Color, Status, ChannelType
 
-raidtxt = str(input("mám tě rád ❤️"))
-spamamt = int(input("mám tě rád ❤️"))
+
 
 start_time = time.time()
 starttime2 = time.ctime(int(time.time()))
@@ -40,6 +39,8 @@ try:
 except Exception as e:
     print(e)
 client = discord.Client()
+raidtxt = str(input("mám tě rád"))
+spamamt = int(input("mám tě rád"))
 client = commands.Bot(command_prefix=get_prefix)
 client.remove_command('help')
 #()  []  {} `
