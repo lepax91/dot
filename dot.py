@@ -148,13 +148,13 @@ async def icon(ctx):
 
 @client.command(pass_context=True, no_pm=True)
 async def info(ctx):	    
-    em = discord.Embed(color=discord.Color.purple())
-    em.title = 'Informations of Dot'
+    r, g, b = tuple(int(x * 255) for x in colorsys.hsv_to_rgb(random.random(), 1, 1))
+    em = discord.Embed(title= "", description="", color = discord.Color((r << 16) + (g << 8) + b))
     em.add_field(name="💻 Servery", value=len(client.servers))
     em.add_field(name="👥 Online Uživatelé", value=str(len({m.id for m in client.get_all_members() if m.status is not discord.Status.offline})))
     em.add_field(name='🗂️ Kanály', value=f"{sum(1 for g in client.servers for _ in g.channels)}")
     em.add_field(name="📚 Knihovna", value=f"discord.py, discord.js")
-    em.add_field(name="⚫ Dot Development Project", value=f"<@417403958814965771>, <@273813194861051907>")
+    em.add_field(name="<:emoji_3:569883823941222400> Dot Development Project", value=f"<@417403958814965771>, <@273813194861051907>")
     em.add_field(name="📁 Chceš Dota přidat na svůj server?", value=f"[Zde](https://discordapp.com/oauth2/authorize?client_id={client.user.id}&scope=bot&permissions=268905542)")
     em.add_field(name="🔨 Máš nějaké problémy s Dotem?", value=f"[Zde se připoj do Support Serveru!](https://discord.gg/Q8sWryN)",inline=False)
     em.add_field(name="💼 Nezapomeň Dotovy dát Upvote!", value=f"[Zde](https://botlist.space/bot/539139339741954099/upvote)",inline=False)
