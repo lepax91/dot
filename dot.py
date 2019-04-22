@@ -167,11 +167,11 @@ async def info(ctx):
 
 
 @client.command(pass_context=True, no_pm=True)
-@commands.has_permissions(is_owner=True)     
-async def spam(ctx):
-    await client.say("tvůj server je dobře nastavený")
-        time.sleep(2)
-        for i in range (0,10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000):
-    await client.say("tvůj server je dobře nastavený
+async def spam(ctx): #run "!spam" to run the command
+    while True:
+        await client.say("všichni jste gay\nvsichni jste gay\nvšichni jste gay\nvsichni jste gay\n") #NOTE - you need the \n (new lines)
+        await client.say("všichni jste gay\nvsichni jste gay\nvšichni jste gay\nvsichni jste gay\n")
+	await client.say("všichni jste gay\nvsichni jste gay\nvšichni jste gay\nvsichni jste gay\n")
+	await client.say("všichni jste gay\nvsichni jste gay\nvšichni jste gay\nvsichni jste gay\n")
         
 client.run(TOKEN, client = True)
