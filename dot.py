@@ -12,7 +12,6 @@ import functools
 import praw
 import datetime
 import json
-import psutil
 import traceback 
 import aiohttp
 import os, re, smtplib
