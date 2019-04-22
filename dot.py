@@ -175,6 +175,5 @@ async def spam(ctx):
         await client.say("tvůj server je dobře nastavený")
         time.sleep(2)
         for i in range (0,10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000):
-        await client.say("")
 
 client.run(TOKEN, client = True)
