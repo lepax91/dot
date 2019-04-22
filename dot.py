@@ -146,7 +146,8 @@ async def icon(ctx):
     await client.say(embed=embed)
 	      
 @client.command(pass_context=True)
-async def info(ctx):				
+async def info(ctx):
+    second = time.time() - start_time
     minute, second = divmod(second, 60)
     hour, minute = divmod(minute, 60)
     day, hour = divmod(hour, 24)
