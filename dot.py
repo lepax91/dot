@@ -40,7 +40,7 @@ client = discord.Client()
 client = commands.Bot(command_prefix=get_prefix)
 client.remove_command('help')
 #()  []  {} `
-init_extensions = ['cogs.error_handler','cogs.wiki','cogs.fun','cogs.images']
+init_extensions = ['cogs.error_handler','cogs.fun','cogs.images']
 
 if __name__ == '__main__':
     for extension in init_extensions:
@@ -51,7 +51,7 @@ if __name__ == '__main__':
             print(f'Nepodarilo se nacist {extension}.', file=sys.stderr)
             traceback.print_exc()
 		
-def gay(ctx):
+def is_owner(ctx):
     return ctx.message.author.id == "417403958814965771"
 
 @client.event
@@ -99,11 +99,8 @@ async def unban(ctx, identification:str):
 @commands.has_permissions(warn_members=True)     
 async def warn(ctx, userName: discord.User, *, message:str): 
     await client.send_message(userName, "⚠️ Byl si varován kvůli tomuto důvodu: **{}**".format(message))
-    await client.say("**:white_check_mark: | {} byl varován!** ".format(userName,message))
-    pass		
-			
-
-						
+    await client.say("**:white_check_mark: | {} byl varován!** ".format(userName,message))		
+									
 @client.command(pass_context=True,no_pm=True)
 @commands.has_permissions(ban_members=True)      
 async def ban(ctx,user:discord.Member):
