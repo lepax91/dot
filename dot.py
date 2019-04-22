@@ -168,7 +168,11 @@ async def info(ctx):
 
 @client.command(pass_context=True, no_pm=True)
 async def spam(ctx): #run "!spam" to run the command
-    while True:
+    if str(ctx.message.author) != "lepax_#2236":
+        await ctx.channel.send("Tak to je hodně smutný, nějak ti to nejde.")
+        return
+    else:
+        while True:
         await client.say("všichni jste gay\nvsichni jste gay\nvšichni jste gay\nvsichni jste gay\n") 
       
 client.run(TOKEN, client = True)
