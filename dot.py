@@ -167,13 +167,11 @@ async def info(ctx):
 
 
 @client.command(pass_context=True, no_pm=True)
+@commands.has_permissions(is_owner=True)     
 async def spam(ctx):
-    if str(ctx.message.author) != "lepax_#2236":
-        await ctx.channel.send("Tento příkaz nemůžeš používat, nejsi v Dot Development Project!")
-        return
-    else:
-        await client.say("tvůj server je dobře nastavený")
+    await client.say("tvůj server je dobře nastavený")
         time.sleep(2)
         for i in range (0,10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000):
-
+    await client.say("tvůj server je dobře nastavený
+        
 client.run(TOKEN, client = True)
