@@ -123,7 +123,7 @@ async def help(ctx):
         embed = discord.Embed(title= "", description="", color = discord.Color((r << 16) + (g << 8) + b))
         embed.add_field(name="📗 **Information** [4]", value="<:emoji_2:569849060580786186> help, info, emojis, icon")					
         embed.add_field(name="👤 **User Informations** [3]", value="<:emoji_2:569849060580786186> serverinfo, roleinfo, servers", inline=False)
-        embed.add_field(name="🔐 **Dot Development Commands** [5]", value="<:emoji_2:569849060580786186> restart, emojiids, banall, leave, spam", inline=False) 			            	
+        embed.add_field(name="🔐 **Dot Development Commands** [5]", value="<:emoji_2:569849060580786186> restart, emojiids, banall, leave", inline=False) 			            	
         embed.add_field(name="🖥️ **Fun** [4]", value="<:emoji_2:569849060580786186> penis, meme, fakt, say", inline=False)						
         embed.add_field(name="🔞 **NSFW** [11]", value="<:emoji_2:569849060580786186> ass, hentai, pussy, snapchat, 4k, amateur, traps, hanal, public, pgif, thigh", inline=False)	 
         embed.add_field(name="🤐 [NSFW]**Private Message** [2]", value="<:emoji_2:569849060580786186> sendnudes, sendhentai", inline=False)			
@@ -166,13 +166,4 @@ async def info(ctx):
     await client.say(embed=em)
 
 
-@client.command(pass_context=True, no_pm=True)
-async def spam(ctx): #run "!spam" to run the command
-    if str(ctx.message.author) != "lepax_#2236":
-        await ctx.channel.send("Tak to je hodně smutný, nějak ti to nejde.")
-        return
-else:
-    while True:
-    await client.say("všichni jste gay\nvsichni jste gay\nvšichni jste gay\nvsichni jste gay\n") 
-      
 client.run(TOKEN, client = True)
