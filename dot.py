@@ -133,23 +133,7 @@ async def ban(ctx,user:discord.Member):
         await client.say('ban failed.')
         return
         pass
-				
-@client.command(pass_context=True,no_pm=True)
-async def uptime(ctx: commands.Context):
-    now = datetime.datetime.utcnow() # Timestamp of when uptime function is run ji
-    delta = now - start_time
-    hours, remainder = divmod(int(delta.total_seconds()), 3600)
-    minutes, seconds = divmod(remainder, 60)
-    days, hours = divmod(hours, 24)
-    if days:
-        time_format = "**{d}** dny, **{h}** hodin, **{m}** minut, and **{s}** sekund."
-    else:
-        time_format = "**{h}** hodin, **{m}** minut, and **{s}** sekund."
-    uptime_stamp = time_format.format(d=days, h=hours, m=minutes, s=seconds)
-    await client.say("{} je už zaplý celkem {}".format(client.user.name, uptime_stamp))
-		 
-
-			
+							
 @client.command(pass_context = True,no_pm=True)
 @commands.has_permissions(administrator=True)
 async def kick(ctx, userName: discord.User):
@@ -167,19 +151,15 @@ async def emojiids(ctx):
 async def help(ctx):	
         r, g, b = tuple(int(x * 255) for x in colorsys.hsv_to_rgb(random.random(), 1, 1))
         embed = discord.Embed(title= "", description="", color = discord.Color((r << 16) + (g << 8) + b))
-        embed.add_field(name="📗 **Information** [9]", value="help, info, ping, uptime, avatar, emojis, icon")					
+        embed.add_field(name="📗 **Information** [7]", value="help, info, emojis, icon")					
         embed.add_field(name=":o: **User Informations** [3]", value="serverinfo, roleinfo, servers", inline=False)
-        embed.add_field(name=":closed_lock_with_key: **Developer Commands** [4]", value="restart, emojiids, banall, leave", inline=False)
-        embed.add_field(name=":clap: **Text Commands** [3]", value="clapify, emojify, reverse")
-        embed.add_field(name=":printer: **Internet Commands** [2]", value="wiki, npm", inline=False)	
-        embed.add_field(name="<:FeelsHappyHugMan:542781371157053451> **Fun** [8]", value="penis, howgay, meme, 8ball, fakt, math, sayembed, say", inline=False)			
-        embed.add_field(name=":thinking: **Mention Commands** [4]", value="hug, kiss, slap, tickle", inline=False)
-        embed.add_field(name=":cat: **Animals** [2]", value="dog, cat", inline=False)    			
+        embed.add_field(name="🔐 **Dot Development Commands** [4]", value="restart, emojiids, banall, leave", inline=False)            	
+        embed.add_field(name="🖥️ **Fun** [8]", value="penis, meme, fakt, say", inline=False)						
         embed.add_field(name="🔞 **NSFW** [11]", value="ass, hentai, pussy, snapchat, 4k, amateur, traps, hanal, public, pgif, thigh", inline=False)	 
-        embed.add_field(name="<:emoji_10:555014607056404491> (NSFW) **Private Message** [2]", value="sendnudes, sendhentai", inline=False)			
-        embed.add_field(name=" <:4206_lmaolancer:542781373157736458> **Memes with Fun** [3]", value="deepfry, text, isthisa", inline=False)
-        embed.add_field(name="⚒️ Supporting [2]", value="report, suggest", inline=False)
-        embed.add_field(name="<:9175_moderation_hammer:542781370687160330> **Moderation** [7]", value="ban, warn, poll, purge, kick, unban", inline=False)
+        embed.add_field(name="🤐 **Private Message** • 🔞 NSFW! [2]", value="sendnudes, sendhentai", inline=False)			
+        embed.add_field(name="👌 **Memes with Fun** [3]", value="deepfry, text, isthisa", inline=False)
+        embed.add_field(name="⚒️ **Supporting** [2]", value="report, suggest", inline=False)
+        embed.add_field(name="🔨 **Moderation** [7]", value="ban, warn, poll, purge, kick, unban", inline=False)
         embed.add_field(name="🎵 **Music** [9]", value="play, skip, stop, song, queue, volume, pause, mutemusic, unmutemusic", inline=False)
         embed.set_footer(text=f'Requested: {ctx.message.author.display_name} | Prefix [.]', icon_url=f'{ctx.message.author.avatar_url}')
         await client.say(embed=embed)     
