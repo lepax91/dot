@@ -129,7 +129,7 @@ async def help(ctx):
         embed.add_field(name="🤐 [NSFW] **Private Message** [2]", value="<:emoji_2:569849060580786186> sendnudes, sendhentai", inline=False)			
         embed.add_field(name="👌 **Memes with Fun** [3]", value="<:emoji_2:569849060580786186> deepfry, text, isthisa", inline=False)
         embed.add_field(name="⚒️ **Supporting** [2]", value="<:emoji_2:569849060580786186> report, suggest", inline=False)
-        embed.add_field(name="🔨 **Moderation** [7]", value="<:emoji_2:569849060580786186> ban, warn, poll, purge, kick, unban", inline=False)
+        embed.add_field(name="🔨 **Moderation** [7]", value="<:emoji_2:569849060580786186> ban, warn, poll, clear, kick, unban", inline=False)
         embed.add_field(name="🎵 **Music** [9]", value="<:emoji_2:569849060580786186> play, skip, stop, song, queue, volume, pause, mutemusic, unmutemusic", inline=False)
         embed.set_footer(text=f'v1.5a | Požadováno: {ctx.message.author.display_name} | Prefix [.]', icon_url=f'{ctx.message.author.avatar_url}')
         await client.say(embed=embed)     
