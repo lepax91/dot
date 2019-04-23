@@ -12,23 +12,7 @@ from discord.ext.commands import has_permissions
 class Fun:
 	def __init__(self,bot):
 		self.bot = bot	
-	@commands.command(pass_context = True,no_pm=True,aliases=['clean','delete','smaz','ocista'])
-	@commands.cooldown(rate=1, per=10, type=commands.BucketType.user)
-	@has_permissions(manage_messages=True)
-	async def purge(self,ctx, number):	
-		await self.bot.send_typing(ctx.message.channel)
-		mgs = [] #Empty list to put all the messages in the log
-		number = int(number) #Converting the amount of messages to delete to an integer
-		if number > 100:
-			return await self.bot.say(':x: | Oh, toto se mi nepodařilo udělat protože limit je 100.')						
-		if number!=100:
-			number+=1
-		async for x in self.bot.logs_from(ctx.message.channel, limit = number):
-			mgs.append(x)
-		await self.bot.delete_messages(mgs)
-		await self.bot.say(":put_litter_in_its_place: | Vyhodilo se x"+str(number-1))
 		
-	
 	@commands.command(pass_context=True,no_pm=True)
 	@commands.cooldown(rate=1, per=5, type=commands.BucketType.user)
 	async def fakt(self,ctx):
