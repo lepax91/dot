@@ -76,13 +76,21 @@ async def unban(ctx, identification:str):
         await client.say(f':x: | Nemůžu unbannout *{user}*')
         pass
 
-				
-@client.command(pass_context = True,no_pm=True)
-@commands.has_permissions(warn_members=True)     
+@client.command(pass_context = True)
+@commands.has_permissions(kick_members=True)
 async def warn(ctx, userName: discord.User, *, message:str): 
-    await client.send_message(userName, "⚠️ Byl si varován kvůli tomuto důvodu: **{}**".format(message))
-    await client.say("**:white_check_mark: | {} byl varován!** ".format(userName,message))		
-									
+    await client.send_message(userName, "You have been warned for: **{}**".format(message))
+    await client.say(":warning: __**{0} Has Been Warned!**__ :warning: ** Reason:{1}** ".format(userName,message))
+    pass
+
+				
+@client.command(pass_context = True)
+@commands.has_permissions(kick_members=True)
+async def warn(ctx, userName: discord.User, *, message:str): 
+    await client.send_message(userName, ":warning: Byl jsi varován za: **{}**".format(message))
+    await client.say(":warning: **{0} byl varován za: {1}!**".format(userName,message))
+    pass
+
 @client.command(pass_context=True,no_pm=True)
 @commands.has_permissions(ban_members=True)      
 async def ban(ctx,user:discord.Member):
