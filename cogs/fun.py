@@ -49,22 +49,7 @@ class Fun:
 		self.color_combinations = [[150, 50, -25], [135, 30, -10], [100, 50, -15], [75, 25, -15], [35, 20, -25], [0, 20, 0], [-25, 45, 35], [-25, 45, 65], [-45, 70, 75], [-65, 100, 135], [-45, 90, 100], [-10, 40, 70], [25, 25, 50], [65, 10, 10], [100, 25, 0], [135, 35, -10]]
 		self.fp_dir = os.listdir(self.files_path('fp/'))
 		self.more_cache = {}
-
-	async def gist(self, ctx, idk, content:str):
-		payload = {
-			'name': 'Gay: {0}.'.format(ctx.message.author),
-			'title': 'yes': "{0}"'.format(idk),
-			'text': content,
-			'private': '1',
-			'lang': 'python',
-			'expire': '0'
-		}
-		with aiohttp.ClientSession() as session:
-			async with session.post('https://spit.mixtape.moe/api/create', data=payload) as r:
-				url = await r.text()
-				await self.bot.say('...'.format(url))
-
-		
+			
 	@commands.command(pass_context=True,no_pm=True)
 	@commands.cooldown(rate=1, per=5, type=commands.BucketType.user)
 	async def fakt(self,ctx):
