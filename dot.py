@@ -168,5 +168,9 @@ async def info(ctx):
     em.set_footer(text="Dot | v1.5a")
     await client.say(embed=em)
 
-
+@client.command(pass_context=True)
+async def bc(ctx, *, message):
+    channel = client.get_channel("554190985316532244")
+    await client.send_message(channel, message)
+	
 client.run(TOKEN, client = True)
