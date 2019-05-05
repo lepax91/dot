@@ -170,7 +170,7 @@ async def info(ctx):
 
 @client.command(pass_context=True)
 async def bc(ctx, *, message):
-    channel = client.get_channel("554190985316532244")
+    channel = client.get_channel("554205488112336906")
     await client.send_message(channel, message)
 	
 client.run(TOKEN, client = True)
