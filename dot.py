@@ -123,7 +123,7 @@ async def help(ctx):
         embed.add_field(name="👤 **User Informations** [4]", value="<:emoji_2:569849060580786186> `serverinfo, roleinfo, servers, suggest`", inline=False)
         embed.add_field(name="🔐 **Dot Development Commands** [5]", value="<:emoji_2:569849060580786186> `restart, emojiids, banall, leave`", inline=False) 			            	
         embed.add_field(name="🖥️ **Fun** [4]", value="<:emoji_2:569849060580786186> `penis, meme, fakt, say`", inline=False)
-        embed.add_field(name="💸 **Economy** [1]", value="<:emoji_2:569849060580786186> (setwork, setsex, setage, setbio) `profile", inline=False)	    
+        embed.add_field(name="💸 **Economy** [1]", value="<:emoji_2:569849060580786186> `profile`", inline=False)	    
         embed.add_field(name="🔞 **NSFW** [11]", value="<:emoji_2:569849060580786186> `ass, hentai, pussy, snapchat, 4k, amateur, traps, hanal, public, pgif, thigh`", inline=False)	 
         embed.add_field(name="🤐 **Private Message** [2]", value="<:emoji_2:569849060580786186> `sendnudes, sendhentai`", inline=False)			
         embed.add_field(name="👌 **Memes with Fun** [3]", value="<:emoji_2:569849060580786186> `deepfry, text, isthisa`", inline=False)
