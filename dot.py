@@ -77,13 +77,6 @@ async def unban(ctx, identification:str):
         pass
 
 				
-@client.command(pass_context = True)
-@commands.has_permissions(kick_members=True)
-async def warn(ctx, userName: discord.User, *, message:str): 
-    await client.send_message(userName, ":warning: Byl jsi varován za: **{}**".format(message))
-    await client.say(":warning: **{0} byl varován za: {1}!**".format(userName,message))
-    pass
-
 @client.command(pass_context=True,no_pm=True)
 @commands.has_permissions(ban_members=True)      
 async def ban(ctx,user:discord.Member):
@@ -126,16 +119,15 @@ async def emojiids(ctx):
 async def help(ctx):	
         r, g, b = tuple(int(x * 255) for x in colorsys.hsv_to_rgb(random.random(), 1, 1))
         embed = discord.Embed(title= "", description="", color = discord.Color((r << 16) + (g << 8) + b))
-        embed.add_field(name="📗 **Information** [5]", value="<:emoji_2:569849060580786186> help, info, emojis, icon, ping")					
-        embed.add_field(name="👤 **User Informations** [3]", value="<:emoji_2:569849060580786186> serverinfo, roleinfo, servers", inline=False)
-        embed.add_field(name="🔐 **Dot Development Commands** [5]", value="<:emoji_2:569849060580786186> restart, emojiids, banall, leave", inline=False) 			            	
-        embed.add_field(name="🖥️ **Fun** [4]", value="<:emoji_2:569849060580786186> penis, meme, fakt, say", inline=False)
-        embed.add_field(name="💸 **Economy** [1]", value="<:emoji_2:569849060580786186> (setwork, setsex, setage, setbio) profile", inline=False)	    
-        embed.add_field(name="🔞 **NSFW** [11]", value="<:emoji_2:569849060580786186> ass, hentai, pussy, snapchat, 4k, amateur, traps, hanal, public, pgif, thigh", inline=False)	 
-        embed.add_field(name="🤐 **Private Message** [2]", value="<:emoji_2:569849060580786186> sendnudes, sendhentai", inline=False)			
-        embed.add_field(name="👌 **Memes with Fun** [3]", value="<:emoji_2:569849060580786186> deepfry, text, isthisa", inline=False)
-        embed.add_field(name="⚒️ **Supporting** [2]", value="<:emoji_2:569849060580786186> report, suggest", inline=False)
-        embed.add_field(name="🔨 **Moderation** [7]", value="<:emoji_2:569849060580786186> ban, warn, poll, clear, kick, unban", inline=False)
+        embed.add_field(name="📗 **Information** [5]", value="<:emoji_2:569849060580786186> `help, info, emojis, icon, ping`")					
+        embed.add_field(name="👤 **User Informations** [4]", value="<:emoji_2:569849060580786186> `serverinfo, roleinfo, servers, suggest`", inline=False)
+        embed.add_field(name="🔐 **Dot Development Commands** [5]", value="<:emoji_2:569849060580786186> `restart, emojiids, banall, leave`", inline=False) 			            	
+        embed.add_field(name="🖥️ **Fun** [4]", value="<:emoji_2:569849060580786186> `penis, meme, fakt, say`", inline=False)
+        embed.add_field(name="💸 **Economy** [1]", value="<:emoji_2:569849060580786186> (setwork, setsex, setage, setbio) `profile", inline=False)	    
+        embed.add_field(name="🔞 **NSFW** [11]", value="<:emoji_2:569849060580786186> `ass, hentai, pussy, snapchat, 4k, amateur, traps, hanal, public, pgif, thigh`", inline=False)	 
+        embed.add_field(name="🤐 **Private Message** [2]", value="<:emoji_2:569849060580786186> `sendnudes, sendhentai`", inline=False)			
+        embed.add_field(name="👌 **Memes with Fun** [3]", value="<:emoji_2:569849060580786186> `deepfry, text, isthisa`", inline=False)
+        embed.add_field(name="🔨 **Moderation** [8]", value="<:emoji_2:569849060580786186> `ban, warn, poll, clear, kick, unban, giveaway`", inline=False)
         embed.set_footer(text=f'v1.5a | Požadováno: {ctx.message.author.display_name} | Prefix [.]', icon_url=f'{ctx.message.author.avatar_url}')
         await client.say(embed=embed)     
 
