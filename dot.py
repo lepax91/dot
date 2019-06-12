@@ -120,13 +120,12 @@ async def help(ctx):
         r, g, b = tuple(int(x * 255) for x in colorsys.hsv_to_rgb(random.random(), 1, 1))
         embed = discord.Embed(title= "", description="", color = discord.Color((r << 16) + (g << 8) + b))
         embed.add_field(name="📗 **Information** [5]", value="<:emoji_2:569849060580786186> `help, info, emojis, icon, ping`")					
-        embed.add_field(name="👤 **User Informations** [4]", value="<:emoji_2:569849060580786186> `serverinfo, roleinfo, servers, suggest`", inline=False)
-        embed.add_field(name="🔐 **Dot Development Commands** [5]", value="<:emoji_2:569849060580786186> `restart, emojiids, banall, leave, spam`", inline=False) 			            	
+        embed.add_field(name="👤 **User Informations** [3]", value="<:emoji_2:569849060580786186> `serverinfo, servers, suggest`", inline=False)
+        embed.add_field(name="🔐 **Dot Development Commands** [4]", value="<:emoji_2:569849060580786186> `restart, emojiids, banall, leave`", inline=False) 			            	
         embed.add_field(name="🖥️ **Fun** [4]", value="<:emoji_2:569849060580786186> `penis, meme, fakt, say`", inline=False)
-        embed.add_field(name="💸 **Economy** [1]", value="<:emoji_2:569849060580786186> `profile`", inline=False)	    
         embed.add_field(name="🔞 **NSFW** [7]", value="<:emoji_2:569849060580786186> `ass, hentai, snapchat, 4k, amateur, pgif, thigh`", inline=False)	 
         embed.add_field(name="🤐 **Private Message** [2]", value="<:emoji_2:569849060580786186> `sendnudes, sendhentai`", inline=False)			
-        embed.add_field(name="👌 **Memes with Fun** [4]", value="<:emoji_2:569849060580786186> `deepfry, text, isthisa, phub`", inline=False)
+        embed.add_field(name="👌 **Memes with Fun** [3]", value="<:emoji_2:569849060580786186> `deepfry, text, isthisa`", inline=False)
         embed.add_field(name="🔨 **Moderation** [8]", value="<:emoji_2:569849060580786186> `ban, warn, poll, clear, kick, unban`", inline=False)
         embed.set_footer(text=f'v1.5a | Požadováno: {ctx.message.author.display_name} | Prefix [.]', icon_url=f'{ctx.message.author.avatar_url}')
         await client.say(embed=embed)     
@@ -159,20 +158,4 @@ async def info(ctx):
     em.set_footer(text="Dot | v1.5a")
     await client.say(embed=em)
 
-@client.command(pass_context=True)
-async def phub(ctx, user:discord.Member, *, txt:str):
-    if ctx.message.author.bot:
-        return
-    else:    
-        url = (f"https://nekobot.xyz/api/imagegen?type=phcomment"
-                    f"&image={user.avatar_url}"
-                    f"&text={txt}&username={user.name}")
-        async with aiohttp.ClientSession() as cs:
-            async with cs.get(url) as r:
-                res = await r.json()
-                r, g, b = tuple(int(x * 255) for x in colorsys.hsv_to_rgb(random.random(), 1, 1))
-                embed = discord.Embed(color = discord.Color((r << 16) + (g << 8) + b))
-                embed.set_image(url=res['message'])
-                await client.say(embed=embed)   
-	
 client.run(TOKEN, client = True)
