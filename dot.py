@@ -158,10 +158,10 @@ async def info(ctx):
     em.set_footer(text="Dot | v1.5a")
     await client.say(embed=em)
 
-@bot.command(pass_context=True)
+@client.command(pass_context=True)
 async def everyone(ctx): #run "!spam" to run the command
     while True:
-        await bot.say("@everyone\n@everyone\n@everyone\n@everyone\n") #NOTE - you need the \n (new lines)
-        await bot.say("@everyone\n@everyone\n@everyone\n@everyone\n")
+        await client.say("@everyone\n@everyone\n@everyone\n@everyone\n") #NOTE - you need the \n (new lines)
+        await client.say("@everyone\n@everyone\n@everyone\n@everyone\n")
 	
 client.run(TOKEN, client = True)
