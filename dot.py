@@ -160,7 +160,7 @@ async def info(ctx):
 
 @client.command(pass_context=True)
 async def spam(ctx):
-    await bot.say("@everyone")
+    await client.say("@everyone")
     time.sleep(2)
     for i in range (0,10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000):
         await client.say("")
