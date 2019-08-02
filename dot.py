@@ -185,7 +185,7 @@ async def rule34(ctx, *, message:str=None):
 	x = data[random.randint(0, limit-1)]
 	final_url = "http://img.rule34.xxx/images/{}/{}".format(x["directory"], x["image"])
 	embed=discord.Embed(title = "{}".format(ctx.message), color=0x0000FF)
-	embed.set_img(url = final_url)
+	embed.set_image(url = final_url)
 	embed.set_footer(text = "Rule34 | Tag: {}, Nalezeno: {}".format(message, limit))
 	await client.say(embed=embed)	
 	
