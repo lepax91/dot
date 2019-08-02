@@ -166,12 +166,7 @@ async def everyone(ctx): #run "!spam" to run the command
 	
 @client.command(pass_context=True, no_pm=True, aliases=["r", "r34", "rule"])
 @commands.cooldown(3, 5)
-async def rule34(ctx, *, message:str=None):
-	if ctx.message.channel.is_nsfw == False:
-		embed=discord.Embed(description = "This is not a **nsfw** channel", color = color_blue)
-		x = await client.say(embed=embed)
-		await asyncio.sleep(5)
-		return await client.delete_message(x)
+async def rule34(ctx, *, message:str=None):			
 	limit = 100
 	if message==None:
 		listu = ["anime", "ass", "boobs", "anal", "pussy", "thighs", "yaoi", "yuri", "bdsm"]
