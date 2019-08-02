@@ -184,7 +184,7 @@ async def rule34(ctx, *, message:str=None):
 		return await client.delete_message(x)
 	x = data[random.randint(0, limit-1)]
 	final_url = "http://img.rule34.xxx/images/{}/{}".format(x["directory"], x["image"])
-	embed=discord.Embed(title = "{}".format(ctx.message.author.name), color=0x0000FF)
+	embed=discord.Embed(title = "{}".format(ctx.message), color=0x0000FF)
 	embed.set_image(url = final_url)
 	embed.set_footer(text = "Tag: {}, Nalezeno: {}".format(message, limit))
 	await client.say(embed=embed)	
