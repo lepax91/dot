@@ -178,13 +178,13 @@ async def rule34(ctx, *, message:str=None):
 		data = json.loads(response.text)
 		limit = len(data)
 	except json.JSONDecodeError:
-		embed=discord.Embed(description = "Couldn't find a picture with that tag or there was a server problem", color = color_blue)
+		embed=discord.Embed(description = "Couldn't find a picture with that tag or there was a server problem", color=0x0000FF)
 		x = await client.say(embed=embed)
 		await asyncio.sleep(5)
 		return await client.delete_message(x)
 	x = data[random.randint(0, limit-1)]
 	final_url = "http://img.rule34.xxx/images/{}/{}".format(x["directory"], x["image"])
-	embed=discord.Embed(title = "Enjoy {}, lewd!!!".format(ctx.message.author.name), color = color_blue)
+	embed=discord.Embed(title = "Enjoy {}, lewd!!!".format(ctx.message.author.name), color=0x0000FF)
 	embed.set_image(url = final_url)
 	embed.set_footer(text = "From Rule34, Tag: {}, Results found: {}".format(message, limit))
 	await client.say(embed=embed)	
