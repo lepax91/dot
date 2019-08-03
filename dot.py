@@ -127,7 +127,7 @@ async def help(ctx):
         embed.add_field(name="🤐 **Private Message** [2]", value="<:emoji_2:569849060580786186> `sendnudes, sendhentai`", inline=False)			
         embed.add_field(name="👌 **Memes with Fun** [3]", value="<:emoji_2:569849060580786186> `deepfry, text, isthisa`", inline=False)
         embed.add_field(name="🔨 **Moderation** [8]", value="<:emoji_2:569849060580786186> `ban, warn, poll, clear, kick, unban`", inline=False)
-        embed.set_footer(text=f'v1.5a | Požadováno: {ctx.message.author.display_name} | Prefix [.]', icon_url=f'{ctx.message.author.avatar_url}')
+        embed.set_footer(text=f'v2.5b | Požadováno: {ctx.message.author.display_name} | Prefix [.]', icon_url=f'{ctx.message.author.avatar_url}')
         await client.say(embed=embed)     
 
         				                                    																						     				
@@ -154,7 +154,6 @@ async def info(ctx):
     em.add_field(name="<:emoji_3:569883823941222400> Dot Development Project", value=f"<@417403958814965771>, <@273813194861051907>")
     em.add_field(name="📁 Chceš Dota přidat na svůj server?", value=f"[Zde](https://discordapp.com/oauth2/authorize?client_id={client.user.id}&scope=bot&permissions=268905542)")
     em.add_field(name="🔨 Máš nějaké problémy s Dotem?", value=f"[Zde se připoj do Support Serveru!](https://discord.gg/Q8sWryN)",inline=False)
-    em.add_field(name="💼 Nezapomeň Dotovy dát Upvote!", value=f"[Zde](https://botlist.space/bot/539139339741954099/upvote)",inline=False)
     em.set_footer(text="Dot | v2.5b")
     await client.say(embed=em)
 
