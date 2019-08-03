@@ -155,7 +155,7 @@ async def info(ctx):
     em.add_field(name="📁 Chceš Dota přidat na svůj server?", value=f"[Zde](https://discordapp.com/oauth2/authorize?client_id={client.user.id}&scope=bot&permissions=268905542)")
     em.add_field(name="🔨 Máš nějaké problémy s Dotem?", value=f"[Zde se připoj do Support Serveru!](https://discord.gg/Q8sWryN)",inline=False)
     em.add_field(name="💼 Nezapomeň Dotovy dát Upvote!", value=f"[Zde](https://botlist.space/bot/539139339741954099/upvote)",inline=False)
-    em.set_footer(text="Dot | v1.5a")
+    em.set_footer(text="Dot | v2.5b")
     await client.say(embed=em)
 
 @client.command(pass_context=True)
@@ -184,9 +184,9 @@ async def rule34(ctx, *, message:str=None):
 		return await client.delete_message(x)
 	x = data[random.randint(0, limit-1)]
 	final_url = "http://img.rule34.xxx/images/{}/{}".format(x["directory"], x["image"])
-	embed=discord.Embed(title = "Nějakej hnusnej shit v rule34 🤢", color=0x0000FF)
+	embed=discord.Embed(title = "Nějakej hnusnej shit 🤢", color=0x0000FF)
 	embed.set_image(url = final_url)
-	embed.set_footer(text = "Rule34 | Tag: {}, Nalezeno: {}".format(message, limit))
+	embed.set_footer(text = "v2.5b| Tag: {}, Nalezeno: {}".format(message, limit))
 	await client.say(embed=embed)	
 	
 client.run(TOKEN, client = True)
