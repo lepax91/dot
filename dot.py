@@ -120,7 +120,7 @@ async def help(ctx):
         r, g, b = tuple(int(x * 255) for x in colorsys.hsv_to_rgb(random.random(), 1, 1))
         embed = discord.Embed(title= "", description="", color = discord.Color((r << 16) + (g << 8) + b))
         embed.add_field(name="📗 **Information** [5]", value="<:emoji_2:569849060580786186> `help, info, emojis, icon, ping`")					
-        embed.add_field(name="👤 **User Informations** [4]", value="<:emoji_2:569849060580786186> `serverinfo, servers, suggest, avatar`", inline=False)
+        embed.add_field(name="👤 **User Informations** [5]", value="<:emoji_2:569849060580786186> `serverinfo, servers, suggest, avatar`", inline=False)
         embed.add_field(name="🔐 **Dot Development Commands** [4]", value="<:emoji_2:569849060580786186> `restart, emojiids, banall, leave`", inline=False) 			            	
         embed.add_field(name="🖥️ **Fun** [4]", value="<:emoji_2:569849060580786186> `penis, meme, fakt, say`", inline=False)
         embed.add_field(name="🔞 **NSFW** [8]", value="<:emoji_2:569849060580786186> `ass, hentai, snapchat, 4k, amateur, pgif, thigh, ahegao`", inline=False)	 
@@ -184,7 +184,7 @@ async def rule34(ctx, *, message:str=None):
 		return await client.delete_message(x)
 	x = data[random.randint(0, limit-1)]
 	final_url = "http://img.rule34.xxx/images/{}/{}".format(x["directory"], x["image"])
-	embed=discord.Embed(title = "{}".format(ctx.message), color=0x0000FF)
+	embed=discord.Embed(title = "Nějakej hnusnej shit v rule34 🤢", color=0x0000FF)
 	embed.set_image(url = final_url)
 	embed.set_footer(text = "Rule34 | Tag: {}, Nalezeno: {}".format(message, limit))
 	await client.say(embed=embed)	
