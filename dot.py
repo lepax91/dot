@@ -61,48 +61,7 @@ async def on_ready():
     print("The bot is ready!")
     await client.change_presence(game=discord.Game(name='.help | with '+str(len(set(client.get_all_members())))+' users', url="https://twitch.tv/myname", type=1))											
 
-@client.command(pass_context=True,no_pm=True)	
-@commands.has_permissions(ban_members=True)     
-async def unban(ctx, identification:str):
-    user = await client.get_user_info(identification)
-    await client.unban(ctx.message.server, user)
-    try:
-        await client.say(f'**:white_check_mark: | {user} byl unbannut!**')
-        for channel in ctx.message.server.channels:
-          if channel.name == 'log':
-              embed=discord.Embed(title="User unbanned!", description="**{0}** unbanned by **{1}**!".format(user, ctx.message.author), color=0x38761D)
-              await client.send_message(channel, embed=embed)
-    except:
-        await client.say(f':x: | Nemůžu unbannout *{user}*')
-        pass
 
-				
-@client.command(pass_context=True,no_pm=True)
-@commands.has_permissions(ban_members=True)      
-async def ban(ctx,user:discord.Member):
-
-    if user.server_permissions.ban_members:
-        await client.say('**:negative_squared_cross_mark: | Uživatel nebyl zabanován!**')
-        return
-
-    try:
-        await client.ban(user)
-        await client.say('**:white_check_mark: | ' +user.name+ ' byl zabanován!**')
-
-    except discord.Forbidden:
-
-        await client.say('Permission denied.')
-        return
-    except discord.HTTPException:
-        await client.say('ban failed.')
-        return
-        pass
-							
-@client.command(pass_context = True,no_pm=True)
-@commands.has_permissions(administrator=True)
-async def kick(ctx, userName: discord.User):
-    await client.kick(userName)
-    await client.say(":white_check_mark: |" + userName + "byl kicknutý!")
 		
 @client.command(pass_context = True,no_pm=True)
 async def emojiids(ctx):
@@ -119,14 +78,14 @@ async def emojiids(ctx):
 async def help(ctx):	
         r, g, b = tuple(int(x * 255) for x in colorsys.hsv_to_rgb(random.random(), 1, 1))
         embed = discord.Embed(title= "", description="", color = discord.Color((r << 16) + (g << 8) + b))
-        embed.add_field(name="📗 **Information** [5]", value="<:emoji_2:569849060580786186> `help, info, emojis, icon, ping`")					
-        embed.add_field(name="👤 **User Informations** [5]", value="<:emoji_2:569849060580786186> `serverinfo, servers, suggest, avatar`", inline=False)
+        embed.add_field(name="📗 **Information** [4]", value="<:emoji_2:569849060580786186> `help, info, emojis, ping`")					
+        embed.add_field(name="👤 **User Informations** [3]", value="<:emoji_2:569849060580786186> `icon, suggest, avatar`", inline=False)
         embed.add_field(name="🔐 **Dot Development Commands** [4]", value="<:emoji_2:569849060580786186> `restart, emojiids, banall, leave`", inline=False) 			            	
         embed.add_field(name="🖥️ **Fun** [4]", value="<:emoji_2:569849060580786186> `penis, meme, fakt, say`", inline=False)
         embed.add_field(name="🔞 **NSFW** [8]", value="<:emoji_2:569849060580786186> `ass, hentai, snapchat, 4k, amateur, pgif, thigh, ahegao`", inline=False)	 
         embed.add_field(name="🤐 **Private Message** [2]", value="<:emoji_2:569849060580786186> `sendnudes, sendhentai`", inline=False)			
         embed.add_field(name="👌 **Memes with Fun** [3]", value="<:emoji_2:569849060580786186> `deepfry, text, isthisa`", inline=False)
-        embed.add_field(name="🔨 **Moderation** [8]", value="<:emoji_2:569849060580786186> `ban, warn, poll, clear, kick, unban`", inline=False)
+        embed.add_field(name="🔨 **Moderation** [3]", value="<:emoji_2:569849060580786186> `warn, poll, clear`", inline=False)
         embed.set_footer(text=f'v2.5b | Požadováno: {ctx.message.author.display_name} | Prefix [.]', icon_url=f'{ctx.message.author.avatar_url}')
         await client.say(embed=embed)     
 
