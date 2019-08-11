@@ -40,14 +40,14 @@ class Images:
 			try:
 				factor=float(factor[0])
 			except:
-				await self.bot.say(":x: | Snad rozumíš co je číslo ne?")
+				await self.bot.say(":warning: Toto číslo neexistuje, zadejte správné číslo.")
 				return
 		if factor == ():
 			factor = 7.0
 		try:
 			im,filename=await self.getimage(ctx)
 		except TypeError:
-			return await self.bot.say(":thinking: | Tento obrázek není podle mojí velikosti.")
+			return await self.bot.say(":warning: Tato fotka není ve velikostí jakou si já přeji.")
 		im = im.convert(mode="RGB")
 		im = ImageEnhance.Color(im).enhance(factor/2)
 		im = ImageEnhance.Sharpness(im).enhance(factor*15)	
@@ -61,7 +61,7 @@ class Images:
 	async def text(self,ctx,*text):
 		await self.bot.send_typing(ctx.message.channel)
 		if text == ():
-			await self.bot.say("🤦 | Musíš mi dát nějaký ten text.")
+			await self.bot.say(":warning: Do tohoto příkazu, musíte zadat nějaký text.")
 			return
 		text = ' '.join(text)
 		para = textwrap.wrap(text, width=15)
