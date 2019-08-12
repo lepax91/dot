@@ -85,7 +85,7 @@ async def help(ctx):
         embed.add_field(name="🔞 **NSFW** [8]", value="<:emoji_2:569849060580786186> `ass, hentai, snapchat, 4k, amateur, pgif, thigh, ahegao`", inline=False)	 
         embed.add_field(name="🤐 **Private Message** [2]", value="<:emoji_2:569849060580786186> `sendnudes, sendhentai`", inline=False)			
         embed.add_field(name="👌 **Memes with Fun** [3]", value="<:emoji_2:569849060580786186> `deepfry, text, isthisa`", inline=False)
-        embed.add_field(name="🔨 **Moderation** [3]", value="<:emoji_2:569849060580786186> `settopic, poll, clear`", inline=False)
+        embed.add_field(name="🔨 **Moderation** [4]", value="<:emoji_2:569849060580786186> `ban, settopic, poll, clear`", inline=False)
         embed.set_footer(text=f'v2.5b | Požadováno: {ctx.message.author.display_name} | Prefix [.]', icon_url=f'{ctx.message.author.avatar_url}')
         await client.say(embed=embed)     
 
